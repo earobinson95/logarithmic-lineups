@@ -1,0 +1,32 @@
+---
+title: Perception of Curvature & Exponential Growth
+
+# to produce blinded version set to 1
+blinded: 0
+
+authors: 
+- name: Emily A. Robinson 1
+  affiliation: Department of Statistics, California Polytechnic State University - San Luis Obispo
+  
+- name: Reka Howard 2
+  affiliation: Department of Statistics, University of Nebraska - Lincoln
+  
+- name: Susan VanderPlas 3
+  affiliation: Department of Statistics, University of Nebraska - Lincoln
+
+keywords:
+- log scales
+- visual inference
+- graphical testing
+
+abstract: |
+  The text of your abstract.  200 or fewer words.
+
+bibliography: bibliography.bib
+output: rticles::asa_article
+---
+
+# Introduction
+
+
+
