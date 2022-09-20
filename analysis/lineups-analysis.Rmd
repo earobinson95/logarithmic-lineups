@@ -1,0 +1,262 @@
+---
+title: "Perception (Lineups)"
+author: "Emily Robinson"
+date: "Spring 2022"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    toc_collapsed: true
+    toc_depth: 3
+    number_sections: true
+    theme: lumen
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE,
+	cache = TRUE
+)
+library(tidyverse)
+library(cowplot)
+library(digest)
+
+library(RSQLite)
+library(DBI)
+library(here)
+library(readr)
+
+library(lme4)
+library(emmeans)
+```
+
+# Data
+
+```{r, eval = F}
+
+# user data
+db_con <- dbConnect(dbDriver("SQLite"), dbname = here("perception-of-statistical-graphics/databases/00_demographics_db.db"))
+
+users <- dbReadTable(db_con,"users") %>%
+  rowwise() %>%
+  mutate(participant_id = digest(prolific_id, "md5"))
+
+completed_sections_orig <- dbReadTable(db_con,"completed_sections") %>%
+  rowwise() %>%
+  mutate(participant_id = digest(prolific_id, "md5"))
+
+dbDisconnect(db_con)
+
+completed_lineups <- completed_sections_orig %>%
+  filter(section_complete == "lineups")
+
+completed_sections_all <- completed_sections_orig %>%
+  pivot_wider(id_cols = c("nick_name", "ip_address", "study_starttime"),
+              names_from = "section_complete",
+              values_from = time)
+
+demographic_data <- full_join(users, completed_sections_all, by = c("nick_name", "ip_address", "study_starttime"))  %>%
+  rename(you_draw_it = `you-draw-it`) %>%
+  mutate(lineups = ifelse(is.null(lineups), NA, lineups),
+         you_draw_it = ifelse(is.null(you_draw_it), NA, you_draw_it),
+         estimation = ifelse(is.null(estimation), NA, estimation)) %>%
+  mutate(studies_complete = as.numeric(!is.na(lineups)) + as.numeric(!is.na(you_draw_it)) + as.numeric(!is.na(estimation))) %>%
+  arrange(-studies_complete)
+
+all_participants <- demographic_data %>% filter(studies_complete == 3, recruitment != "I am the researcher") %>%
+  select(participant_id) %>%
+  as.vector()
+lineup_participants <- demographic_data %>% filter(studies_complete == 1, recruitment != "I am the researcher")
+
+# lineup data
+db_con <- dbConnect(dbDriver("SQLite"), dbname = here("perception-of-statistical-graphics/databases/01_lineups_db.db"))
+
+lineups_feedback <- dbReadTable(db_con,"feedback")  %>%
+  rowwise() %>%
+  mutate(participant_id = digest(prolific_id, "md5"))
+
+picture_details <- dbReadTable(db_con,"picture_details")
+
+dbDisconnect(db_con)
+
+# combine lineup feedback and user data
+joinCols <- c("participant_id", "nick_name", "ip_address", "study_starttime", "prolific_id")
+lineup_data_orig <- users %>%
+  full_join(completed_lineups, by = c("participant_id", "study_starttime", "nick_name", "ip_address", "prolific_id")) %>%
+  filter(recruitment != "I am the researcher") %>%
+  right_join(lineups_feedback, by = joinCols)
+
+factorCols <- c("participant_id", "nick_name", "ip_address", "prolific_id", "age", "gender", "academic_study", "computer_mouse", "recruitment", "pic_id", "param_value", "set", "test_param", "conf_level")
+lineup_data_orig[,factorCols] <- lapply(lineup_data_orig[,factorCols], factor)
+
+lineup_model_data <- lineup_data_orig %>%
+  separate(param_value, into = c(NA, "target", NA, "null", NA), sep = "-") %>%
+  filter(target != null) %>%
+  mutate(curvature = paste0("t-", target, "_n-", null), .after = null) %>%
+  rowwise() %>%
+  mutate(dataset_id = as.factor(digest(paste(curvature, set, sep = "-"), "md5")), .after = set) %>%
+  rename(scale = test_param) %>%
+  mutate(binary_response = ifelse(correct %in% as.numeric(unlist(strsplit(response_no, split = ","))), 1, 0), .after = response_no) %>%
+  group_by(participant_id, nick_name, ip_address, study_starttime, prolific_id) %>%
+  mutate(n_lineups = n()) %>%
+  ungroup() %>%
+  filter(!is.na(section_complete)) %>%
+  # filter(participant_id %in% all_participants$participant_id) %>%
+  select(participant_id, n_lineups, age, gender, academic_study, computer_mouse, recruitment, dataset_id, set, curvature, target, null, scale, correct, response_no, binary_response, conf_level, choice_reason)
+
+write.csv(lineup_model_data, here("analyses/01-lineups/lineup-model-data.csv"), row.names = F, na = "")
+```
+
+```{r, eval = T}
+db_con <- dbConnect(dbDriver("SQLite"), dbname = here("perception-of-statistical-graphics/databases/01_lineups_db.db"))
+lineups_feedback <- dbReadTable(db_con,"feedback")  %>%
+  rowwise() %>%
+  mutate(participant_id = digest(prolific_id, "md5"))
+dbDisconnect(db_con)
+
+lineup_model_data <- read.csv(here("analyses/01-lineups/lineup-model-data.csv"))
+```
+
+```{r}
+lineup_model_data %>%
+  select(participant_id, age, gender, academic_study, dataset_id, curvature, scale, correct, response_no, binary_response, conf_level) %>%
+  head() %>%
+  knitr::kable()
+```
+
+<!-- # Check Randomization -->
+
+```{r, eval = F}
+lineup_model_data %>%
+  group_by(participant_id, n_lineups, curvature, scale) %>%
+  summarize(n = n()) %>%
+  filter(scale == "linear") %>%
+  pivot_wider(id_cols = c("participant_id", "n_lineups"),
+              names_from = "curvature",
+              values_from = "n") %>%
+  arrange(-n_lineups) %>%
+  knitr::kable(caption = "Linear Scale")
+
+lineup_model_data %>%
+  group_by(participant_id, n_lineups, curvature, scale) %>%
+  summarize(n = n()) %>%
+  filter(scale == "log") %>%
+  pivot_wider(id_cols = c("participant_id", "n_lineups"),
+              names_from = "curvature",
+              values_from = "n") %>%
+  arrange(-n_lineups) %>%
+  knitr::kable(caption = "Log Scale")
+```
+
+# Analysis
+
+```{r}
+ploteval_summary <- lineup_model_data %>% group_by(curvature, set, scale) %>% summarize(count = n()) %>% arrange(count)
+```
+
++ There are `r length(unique(lineups_feedback$participant_id)) %>% as.numeric` participants and `r nrow(lineups_feedback) %>% as.numeric()` lineups complete. 
++ There are `r length(unique(lineup_model_data$participant_id)) %>% as.numeric` participants and `r nrow(lineup_model_data) %>% as.numeric()` lineups complete. 
++ Each plot was evaluated between `r min(ploteval_summary$count) %>% as.numeric() %>% round(2)` and `r max(ploteval_summary$count)  %>% as.numeric()  %>% round(2)` times (Mean: `r mean(ploteval_summary$count)  %>% as.numeric()  %>% round(2)`, SD: `r sd(ploteval_summary$count)  %>% as.numeric()  %>% round(2)`).
++ Participants correctly identified the target panel in `r round(as.numeric(mean(lineup_model_data$binary_response[lineup_model_data$scale == 'linear']))*100, 2)`% of the `r nrow(lineup_model_data[lineup_model_data$scale == 'linear',]) %>% as.numeric()` lineup evaulations made on the linear scale and `r round(as.numeric(mean(lineup_model_data$binary_response[lineup_model_data$scale == 'log']))*100, 2)`% of the `r nrow(lineup_model_data[lineup_model_data$scale == 'log',]) %>% as.numeric()` lineup evaluations made on the log scale.
+
+Target plot identification was analyzed using the `glmer` function in the `lme4` R package. 
+Estimates and odds ratio comparisons between the log and linear scales were calculated using the `emmeans` R package.
+Each lineup plot evaluated was assigned a value based on the participant response (correct = 1, not correct = 0).
+Define $Y_{ijkl}$ to be the event that participant $l = 1,...,N_{participant}$ correctly identifies the target plot for data set $k = 1,2$ with curvature combination $j = 1,2,3,4,5,6$ plotted on scale $i = 1,2$.
+The binary response was analyzed using a generalized linear mixed model following a binomial distribution with a logit link function with a row-column blocking design accounting for the variation due to participant and data set respectively as 
+\begin{equation}
+\text{logit }P(Y_{ijk}) = \eta + \delta_i + \gamma_j + \delta \gamma_{ij} + s_l + d_k
+\end{equation}
+\noindent where
+
++ $\eta$ is the baseline average probability of selecting the target plot
++ $\delta_i$ is the effect of scale $i = 1,2$
++ $\gamma_j$ is the effect of curvature combination $j = 1,2,3,4,5,6$
++ $\delta\gamma_{ij}$ is the two-way interaction between the $i^{th}$ scale and $j^{th}$ curvature combination
++ $s_l \sim N(0,\sigma^2_\text{participant})$is the random effect for participant characteristics
++ $d_k \sim N(0,\sigma^2_{\text{data}})$ is the random effect for data specific characteristics. 
+
+\noindent We assume that random effects for data set and participant are independent.
+
+```{r}
+glmm_mod <- glmer(binary_response ~ curvature*scale + 
+                            (1 | participant_id) +
+                            (1 | dataset_id),
+                  data = lineup_model_data,
+                  family = binomial(link = "logit"))
+
+lineup_anova <- car::Anova(glmm_mod) %>% broom::tidy()
+summary(glmm_mod)
+
+# write.csv(lineup_anova, here("analyses/01-lineups/results/lineups-anova.csv"), row.names = F, na =)
+
+lineup_anova %>% knitr::kable(digits = 3, caption = "Lineups GLMM ANOVA")
+```
+
+```{r, eval = F, include = F, fig.align = 'center', fig.width = 12, fig.height = 6}
+lineup_lsmeans <- emmeans(glmm_mod, specs = ~ "curvature:scale", type = "response") %>%
+  as_tibble()
+
+lineup_lsmeans %>%
+  mutate(curvature = factor(curvature, levels = c("t-E_n-H", "t-H_n-E", "t-E_n-M", "t-M_n-E", "t-M_n-H", "t-H_n-M"))) %>%
+  ggplot(aes(x = curvature, y = prob, group = scale)) +
+  geom_bar(stat = "identity", fill = "lightgray") +
+  # geom_text(aes(y = asymp.UCL + 0.05)) +
+  facet_wrap(~scale, ncol = 1) +
+  geom_errorbar(aes(ymin = asymp.LCL, ymax = asymp.UCL), width = 0.1) +
+  theme_bw() +
+  scale_y_continuous("Probability of target panel detected", limit = c(-0.05,1.1), breaks = seq(0,1,0.2)) +
+  scale_x_discrete("Curvature")
+```
+
+
+```{r, fig.align = 'center', fig.width = 12, fig.height = 6}
+lineups_or <- emmeans(glmm_mod, ~ scale | curvature, type = "response") %>% pairs(reverse = T, infer = c(T,T)) %>% as_tibble()
+write.csv(lineups_or, here("analyses/01-lineups/results/lineups-odds-ratios.csv"), row.names = F, na =)
+
+dodge <- position_dodge(width=0.9)
+lineups_or_plot <- lineups_or %>%
+  separate(curvature, into = c(NA, "target", NA, "null")) %>%
+  mutate(null = factor(null, levels = c("E", "M", "H"), labels = c("High Curvature", "Medium Curvature", "Low Curvature")),
+         target = factor(target, levels = c("E", "M", "H"), labels = c("High Curvature", "Medium Curvature", "Low Curvature"))) %>%
+  ggplot(aes(x = odds.ratio, y = null, color = target, shape = target)) + 
+  geom_point(position = dodge, size = 3) + 
+  geom_errorbar(aes(xmin = asymp.LCL, xmax = asymp.UCL), position = dodge, width = .1) +
+  geom_vline(xintercept = 1) +
+  theme_bw()  +
+  theme(axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12),
+        legend.title = element_text(size = 12),
+        legend.text  = element_text(size = 12),
+        legend.key.size = unit(1, "line"),
+        legend.position = "bottom"
+  ) +
+  scale_y_discrete("Null Panel Difficulty", position = "left") +
+  scale_x_continuous("Odds ratio (on log scale) \n (Log vs Linear)", trans = "log10", labels = scales::comma) + 
+  scale_color_manual("Target Panel Difficulty", values = c("#004400", "#116611", "#55aa55")) + 
+  scale_shape_discrete("Target Panel Difficulty")
+
+picsList <- c("images/tM_nH_thumbnail.png", 
+              "images/tE_nH_thumbnail.png", 
+              "images/tH_nM_thumbnail.png", 
+              "images/tE_nM_thumbnail.png", 
+              "images/tH_nE_thumbnail.png", 
+              "images/tM_nE_thumbnail.png"
+)
+
+pimage <- axis_canvas(lineups_or_plot, axis = 'y') + 
+  draw_image(picsList[1], y = 2.75, scale = 0.7) +
+  draw_image(picsList[2], y = 2.25, scale = 0.7) +
+  draw_image(picsList[3], y = 1.75, scale = 0.7) +
+  draw_image(picsList[4], y = 1.25, scale = 0.7) +
+  draw_image(picsList[5], y = 0.75, scale = 0.7) +
+  draw_image(picsList[6], y = 0.25, scale = 0.7)
+
+# insert the image strip into the plot
+ggdraw(insert_yaxis_grob(lineups_or_plot, pimage, position = "right", clip = "on"))
+```
+
+
+
