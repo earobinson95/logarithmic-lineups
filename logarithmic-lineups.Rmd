@@ -66,15 +66,26 @@ library(cowplot)
 
 # Introduction
 
-*Introduce the bigger picture of logarithmic scales here; do we elude to the more comprehensive study?*
+Effective communication of data is critical in influencing people's opinions and actions. 
+This was particularly true during the COVID-19 pandemic, where data visualizations and dashboards played a vital role in informing the public and policymakers about the status of the outbreak.
+Local governments relied on graphics to inform their decisions about shut downs and mask mandates, while residents were presented with data visualizations to encourage compliance with these regulations.
+A major issue we encountered in the creation of COVID-19 plots was how to display data from a wide range of values.
+When faced with data which spans several orders of magnitude, we must decide whether to show the data on its original scale (compressing the smaller magnitudes into relatively little area) or to transform the scale and alter the contextual appearance of the data. 
+Log scale transformations have emerged as a common solution to this challenge, as they allow for the display of data over several orders of magnitude within a single graph.
 
-To lay a foundation for future exploration of the use of log scales, we begin with the most fundamental ability: to identify differences in charts. Identifying differences does not require that participants understand exponential growth, identify log scales, or have any mathematical training. 
-Instead, we are simply testing the change in \emph{perceptual sensitivity} resulting from visualization choices.
-The study in this chapter is conducted through visual inference and the use of statistical lineups [@buja_statistical_2009] to differentiate between exponentially increasing curves with differing levels of curvature, using linear and log scales.
+Exponential curves are a common source of data in which smaller magnitudes are compressed into a smaller area, as illustrated by Fig. 1.16, which presents an exponential curve displayed on both linear and log scales to demonstrate the usefulness of log scales when dealing with data that spans multiple magnitudes.
+Logarithms facilitate the conversion of multiplicative relationships (such as 1 & 10 being displayed 10 units apart and 10 & 100 being displayed 90 units apart) to additive relationships (such as 1 & 10, and 10 & 100, being evenly spaced along the axis), highlighting proportional relationships and linearizing power functions [@menge_logarithmic_2018]. 
+Logarithms also have practical applications, simplifying the computation of small numbers like likelihoods and transforming data to conform to statistical assumptions. 
+Although log scales have a long history of use in fields such as ecology, psychophysics, engineering, and physics [@heckler_student_2013; @waddell2005comparisons], there is still a need to understand the implications of their use and provide best practices for their implementation.
 
-## Visual Inference
+In this paper, we evaluate the benefits and drawbacks of using log scales and examine their impact on perceptual sensitivity by conducting a visual inference experiment using statistical lineups [@buja_statistical_2009].
+The experiment focused on a participants ability to identify differences between exponentially increasing curves with varying levels of curvature, using both linear and log scales. 
+Participants did not require any mathematical training or understanding of exponential growth or logarithmic scales to participate in the study, highlighting the fundamental nature of the ability to identify differences in charts. 
+This study lays the groundwork for further exploration of the implications of using log scales in data visualization.
 
-In Section 1.4, we explained how a data plot can be evaluated and treated as a visual statistic, a numerical function which summarizes the data.
+## Statistical Lineups
+
+A data plot can be evaluated and treated as a visual statistic, a numerical function which summarizes the data.
 To evaluate a graph, the statistic (data plot) must be run through a visual evaluation - a person.
 We can conclude that two visualization methods are significantly different if the visual evaluation is different.
 Recent graphical experiments have utilized statistical lineups to quantify the perception of graphical design choices [@hofmann_graphical_2012; @loy_model_2017; @loy_variations_2016; @vanderplas_clusters_2017]. 
