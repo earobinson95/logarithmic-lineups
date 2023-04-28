@@ -89,33 +89,32 @@ The text of your abstract. 200 or fewer words.
 \section{Introduction}\label{introduction}}
 
 Effective communication of data is critical in influencing people's
-opinions and actions. This was particularly true during the COVID-19
-pandemic, where data visualizations and dashboards played a vital role
-in informing the public and policymakers about the status of the
-outbreak. Local governments relied on graphics to inform their decisions
-about shut downs and mask mandates, while residents were presented with
+opinions and actions. This consideration was particularly true during
+the COVID-19 pandemic, where data visualizations and dashboards were
+vital in informing the public and policymakers about the outbreak's
+status. Local governments relied on graphics to inform their decisions
+about shutdowns and mask mandates, while residents were presented with
 data visualizations to encourage compliance with these regulations. A
-major issue we encountered in the creation of COVID-19 plots was how to
-display data from a wide range of values. When faced with data which
-spans several orders of magnitude, we must decide whether to show the
-data on its original scale (compressing the smaller magnitudes into
-relatively little area) or to transform the scale and alter the
-contextual appearance of the data. Log scale transformations have
-emerged as a common solution to this challenge, as they allow for the
-display of data over several orders of magnitude within a single graph.
+major issue we encountered in creating COVID-19 plots was how to display
+data from a wide range of values. When faced with data that spans
+several orders of magnitude, we must decide whether to show the data on
+its original scale (compressing the smaller magnitudes into a relatively
+small area) or to transform the scale and alter the contextual
+appearance of the data. Log scale transformations have emerged as a
+standard solution to this challenge, as they allow for the display of
+data over several orders of magnitude within a single graph.
 
-Exponential curves are a common source of data in which smaller
-magnitudes are compressed into a smaller area,
-{\textcolor{blue}{as illustrated by Fig. 1??}}, which presents an
-exponential curve displayed on both linear and log scales to demonstrate
-the usefulness of log scales when dealing with data that spans multiple
+Exponential curves are one such example of a function that compresses
+smaller magnitudes into a smaller area; \cref{fig:log-scales} presents
+an exponential curve on both the linear and log scales to demonstrate
+the usefulness of log scales when dealing with data spanning multiple
 magnitudes. Logarithms facilitate the conversion of multiplicative
-relationships (such as 1 \& 10 being displayed 10 units apart and 10 \&
-100 being displayed 90 units apart) to additive relationships (such as 1
-\& 10, and 10 \& 100, being evenly spaced along the axis), highlighting
-proportional relationships and linearizing power functions
-\citep{menge_logarithmic_2018}. Logarithms also have practical
-applications, simplifying the computation of small numbers like
+relationships (displaying 1 \& 10 with a distance of 10 units apart and
+displaying 10 \& 100 with a distance of 90 units apart) to additive
+relationships (displaying 1 \& 10 and 10 \& 100 an equal distance
+apart), highlighting proportional relationships and linearizing power
+functions \citep{menge_logarithmic_2018}. Logarithms also have practical
+applications, simplifying the computation of small numbers such as
 likelihoods and transforming data to conform to statistical assumptions.
 Although log scales have a long history of use in fields such as
 ecology, psychophysics, engineering, and physics
@@ -123,15 +122,24 @@ ecology, psychophysics, engineering, and physics
 need to understand the implications of their use and provide best
 practices for their implementation.
 
+\begin{figure}[tbp]
+
+{\centering \includegraphics[width=1\linewidth,]{logarithmic-lineups_files/figure-latex/log-scales-1} 
+
+}
+
+\caption[Linear scale versus log scale]{These plots present an exponential curve displayed on both the linear and log scale and illustrate the use of the log scale when displaying data which spans several magnitudes.}\label{fig:log-scales}
+\end{figure}
+
 In this paper, we evaluate the benefits and drawbacks of using log
 scales and examine their impact on perceptual sensitivity by conducting
 a visual inference experiment using statistical lineups
-\citep{buja_statistical_2009}. The experiment focused on a participants
+\citep{buja_statistical_2009}. The experiment focused on a participant's
 ability to identify differences between exponentially increasing curves
-with varying levels of curvature, using both linear and log scales.
+with varying levels of curvature using both linear and log scales.
 Participants did not require any mathematical training or understanding
 of exponential growth or logarithmic scales to participate in the study,
-highlighting the fundamental nature of the ability to identify
+focusing instead on the fundamental nature of the ability to identify
 differences in charts. This study lays the groundwork for further
 exploration of the implications of using log scales in data
 visualization.
@@ -141,11 +149,11 @@ visualization.
 
 \citet{buja_statistical_2009} introduced statistical lineups as a
 framework for statistical inference and graphical tests. Statistical
-lineups treat a data plot as a visual statistic, which summarizes the
-data as a numerical function or mapping. Evaluation of a panel in a
-statistical lineup requires visual inspection by a person, and if visual
-evaluations lead to different results, two visualization methods are
-deemed significantly different. Recent studies have utilized statistical
+lineups treat a data plot as a visual statistic, summarizing the data as
+a numerical function or mapping. Evaluation of a panel in a statistical
+lineup requires visual inspection by a person, and if visual evaluations
+lead to different results, two visualization methods are deemed
+significantly different. Recent studies have utilized statistical
 lineups to quantify the perception of graphical design choices
 \citep{hofmann_graphical_2012, loy_model_2017, loy_variations_2016, vanderplas_clusters_2017}.
 Statistical lineups provide an elegant way of combining perception and
@@ -154,30 +162,31 @@ statistical hypothesis testing through graphical experiments
 
 The term `lineup' is an analogy to police lineups in criminal
 investigations, where witnesses identify the criminal from a group of
-individuals. Similarly, in a statistical lineup, a plot consisting of
-smaller panels is presented, and the viewer is asked to identify the
-panel containing the real data from among a set of decoy null plots.
-Null plots assume no relationship between the variables and are
-generated by permutation or simulation. Typically, a statistical lineup
+individuals. Similarly, researchers present a statistical lineup plot
+consisting of smaller panels and ask the viewer to identify the panel
+that contains the actual data from a set of decoy null plots.
+Researchers generate null plots by permutation or simulation, assuming
+no relationship between the variables. Typically, a statistical lineup
 consists of 20 panels, with one target panel and 19 null panels. If the
 viewer can identify the target panel from the null panels, it suggests
-that the real data is visually distinct from data generated under the
-null model. \cref{fig:lineup-example} presents examples of statistical
-lineups. The statistical lineup on the left presents increasing
-exponential data displayed on a linear scale with panel 13 as the
-target; the statistical lineup on the right shows increasing exponential
-data plotted on a log base ten scale with panel 4 as the target.
+that the actual data is visually distinct from the data generated under
+the null model. \cref{fig:lineup-example} presents examples of
+statistical lineups. The statistical lineup on the left presents
+increasing exponential data displayed on a linear scale with panel 13 as
+the target; the statistical lineup on the right shows increasing
+exponential data plotted on a log base ten scale with panel 4 as the
+target.
 
 While explicit graphical tests direct the participant to a specific
-feature of a plot to answer a specific question, implicit graphical
+feature of a plot to answer a particular question, implicit graphical
 tests require the user to identify both the purpose and function of the
-plot in order to evaluate the plots shown. Implicit graphical tests,
-such as lineups, simultaneously test for multiple visual features,
-including outliers, clusters, linear and nonlinear relationships
-\citep{vanderplas_testing_2020}. The responses from multiple viewers can
-be collected through convenience sampling (in informal situations) or
-crowd sourcing websites such as Prolific, Amazon Mechanical Turk, and
-Reddit (in more formal situations).
+plot in order to evaluate the plots shown. Furthermore, implicit
+graphical tests, such as lineups, simultaneously test for multiple
+visual features, including outliers, clusters, and linear and nonlinear
+relationships \citep{vanderplas_testing_2020}. Researchers can collect
+responses from multiple viewers in more formal situations through
+crowd-sourcing websites such as Prolific, Amazon Mechanical Turk, and
+Reddit and in informal situations through convenience sampling.
 
 \begin{figure}[tbp]
 
@@ -194,21 +203,21 @@ Reddit (in more formal situations).
 \hypertarget{data-generation}{%
 \subsection{Data Generation}\label{data-generation}}
 
-In this study, both the target and null data sets were generated by
-simulating data from an exponential model; the models differ in the
+In this study, we simulated data from an exponential model to generate
+the target and null data sets; the models between panels differ in the
 parameter values selected for the null and target panels. In order to
 guarantee the simulated data spans the same domain and range of values
 for each statistical lineup panel, we began with a domain constraint of
 \(x\in [0,20]\) and a range constraint of \(y\in [10,100]\) with
-\(N = 50\) points randomly assigned throughout the domain. The randomly
-generated \(x\) values were mapped to a corresponding \(y\) value based
-on an exponential model with predetermined parameter values and
-multiplicative random errors. These constraints provide some assurance
-that participants who select the target panel are doing so because of
-their visual perception differentiating between curvature or growth rate
-rather than different starting or ending values.
+\(N = 50\) points randomly assigned throughout the domain. We mapped the
+randomly generated \(x\) values to a corresponding \(y\) value based on
+an exponential model with predetermined parameter values and
+multiplicative random errors to simulate the response. These constraints
+assure that participants who select the target panel are doing so
+because of their visual perception differentiating between curvature or
+growth rate rather than different starting or ending values.
 
-Data were simulated based on a three-parameter exponential model with
+We simulated data based on a three-parameter exponential model with
 multiplicative errors: \begin{align}
 y_i & = \alpha\cdot e^{\beta\cdot x_i + \epsilon_i} + \theta \\
 \text{with } \epsilon_i & \sim N(0, \sigma^2). \nonumber
@@ -255,18 +264,26 @@ For each curvature level, we simulated 1,000 data sets of
 \(x\)-values and replicate \(j = 1,...,10\) corresponding \(y\)-values
 per \(x\)-value. Each generated \(x_i\) point from
 \cref{alg:lineup-exponential-data-simulation-algorithm} was replicated
-ten times. On each of the individual data sets, we fit a linear
-regression model and computed the lack of fit statistic (LOF) which
-measures the deviation of the data from the linear regression model. The
-density curves of the LOF statistics for each level of curvature are
-plotted (\cref{fig:lof-density-curves}) to provide a metric for
-differentiating between the curvature levels and thus detecting the
+ten times. We fit a linear regression model on each of the individual
+data sets and computed the lack of fit statistic (LOF) which measures
+the deviation of the data from the linear regression model. After
+obtaining the LOF statistic for each level of curvature, we evaluated
+the density plots (\cref{fig:lof-density-curves}) to provide a metric
+for differentiating between the curvature levels and thus detecting the
 target plot. While the LOF statistic provides a numerical value for
 discriminating between the difficulty levels, it cannot be directly
 related to the perceptual discriminability; it serves primarily as an
 approximation to ensure that we are testing parameters at several
-distinct curvature levels. Final parameters used for data simulation are
-shown in \cref{tab:parameter-data}.
+distinct curvature levels. \cref{tab:parameter-data} lists the final
+parameters used for data simulation.
+
+\begin{verbatim}
+## Warning in do_once((if (is_R_CMD_check()) stop else
+## warning)("The function xfun::isFALSE() will be deprecated
+## in the future. Please ", : The function xfun::isFALSE()
+## will be deprecated in the future. Please consider using
+## base::isFALSE(x) or identical(x, FALSE) instead.
+\end{verbatim}
 
 \begin{figure}[tbp]
 
