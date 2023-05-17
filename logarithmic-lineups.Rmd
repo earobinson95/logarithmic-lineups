@@ -1,5 +1,5 @@
 ---
-title: Perception of Curvature & Exponential Growth
+title: "Perception and Cognitive Implications of Logarithmic Scales for Increasing Exponential Data: Perceptual Sensitivity Tested with Statistical Lineups"
 
 # to produce blinded version set to 1
 blinded: 0
@@ -20,7 +20,8 @@ keywords:
 - graphical testing
 
 abstract: |
-  The text of your abstract.  200 or fewer words.
+  (200 or fewer words) Logarithmic transformations are a standard solution to displaying data that spans several magnitudes within a single graph. This paper investigates the impact of log scales on perceptual sensitivity through a visual inference experiment using statistical lineups. Our study evaluated participant's ability to detect differences between exponentially increasing data, characterized by varying levels of curvature, using both linear and logarithmic scales. Participants were presented with a series of plots and asked to identify the panel that appeared most different from the others. Due to the choice of scale altering the contextual appearance of the data, the results revealed slight perceptual advantages for both scales depending on the curvatures of the compared data.
+  This study serves as the initial part of a three-paper series dedicated to understanding the perceptual and cognitive implications of using logarithmic scales for visualizing exponentially increasing data. Subsequent papers will investigate whether using log scales presents cognitive disadvantages, such as making it harder to utilize graphical information. Furthermore, these studies serve as an example of multi-modal graphical testing, examining different levels of engagement and interaction with graphics to establish nuanced and specific guidelines for graphical design.
 
 bibliography: bibliography.bib
 output: rticles::asa_article
@@ -70,45 +71,56 @@ library(cowplot)
 Effective communication of data is critical in influencing people's opinions and actions. 
 This consideration was particularly true during the COVID-19 pandemic, where data visualizations and dashboards were vital in informing the public and policymakers about the outbreak's status.
 Local governments relied on graphics to inform their decisions about shutdowns and mask mandates, while residents were presented with data visualizations to encourage compliance with these regulations.
-A major issue we encountered in creating COVID-19 plots was how to display data from a wide range of values.
+A major issue \svp{designers} encountered \svp{when} creating COVID-19 plots was how to display data from a wide range of values [@fagen-ulmschneider_2020; @burnmurdoch_2020].
 When faced with data that spans several orders of magnitude, we must decide whether to show the data on its original scale (compressing the smaller magnitudes into a relatively small area) or to transform the scale and alter the contextual appearance of the data. 
-Log scale transformations have emerged as a standard solution to this challenge, as they allow for the display of data over several orders of magnitude within a single graph.
+Log \svp{axis} transformations have emerged as a standard solution to this challenge, as they allow for the display of data over several orders of magnitude within a single graph.
 
-Exponential curves are one such example of a function that compresses smaller magnitudes into a smaller area; \cref{fig:log-scales} presents an exponential curve on both the linear and log scales to demonstrate the usefulness of log scales when dealing with data spanning multiple magnitudes.
+Exponential \svp{data} are one such example of a function that compresses smaller magnitudes into a smaller area; \cref{fig:log-scales} \ear{presents hard drive capacity over the past forty years} on both the linear and log scales to demonstrate the usefulness of log scales when dealing with data spanning multiple magnitudes.
 Logarithms facilitate the conversion of multiplicative relationships (displaying 1 & 10 with a distance of 10 units apart and displaying 10 & 100 with a distance of 90 units apart) to additive relationships (displaying 1 & 10 and 10 & 100 an equal distance apart), highlighting proportional relationships and linearizing power functions [@menge_logarithmic_2018]. 
 Logarithms also have practical applications, simplifying the computation of small numbers such as likelihoods and transforming data to conform to statistical assumptions.
 Although log scales have a long history of use in fields such as ecology, psychophysics, engineering, and physics [@heckler_student_2013; @waddell2005comparisons], there is still a need to understand the implications of their use and provide best practices for their implementation.
 
-```{r log-scales, fig.scap = "Linear scale versus log scale", fig.cap = "These plots present an exponential curve displayed on both the linear and log scale and illustrate the use of the log scale when displaying data which spans several magnitudes.", out.width="100%"}
+```{r log-scales, fig.scap = "Linear scale versus log scale", fig.cap = "These plots present hard drive capacity over the past forty years on both the linear and log scale and illustrate the use of the log scale when displaying data which spans several magnitudes.", out.width="100%"}
 
-data <- tibble(x = seq(0,10, by = 0.1), y = exp(x))
+# data <- tibble(x = seq(0,10, by = 0.1), y = exp(x))
 
-linear_scale <- data |>
-  ggplot(aes(x = x, y = y)) +
-  geom_line() +
+mem_data <- read_csv("data/computer-memory-data.csv")
+
+linear_scale <- mem_data |>
+  filter(type == "Hard Drive Capacity") |> 
+  ggplot(aes(x = dec_date, y = value)) +
+  geom_point(shape = 1, alpha = 0.6) +
   theme_bw() +
   theme(aspect.ratio = 1) +
   ggtitle("Linear Scale") +
-  labs(x = "",
-       y = "")
+  labs(x = "Year",
+       y = "",
+       subtitle = "Hard Drive Capacity")
 
-log_scale <- data |>
-  ggplot(aes(x = x, y = y)) +
-  geom_line() +
+log_scale <- mem_data |>
+  filter(type == "Hard Drive Capacity") |> 
+  ggplot(aes(x = dec_date, y = value)) +
+  geom_point(shape = 1, alpha = 0.6) +
   theme_bw() +
   theme(aspect.ratio = 1) +
-  scale_y_log10(breaks = trans_breaks("log10", function(x) 10^x)) +
+  scale_y_log10(breaks = trans_breaks("log10", function(x) 10^x),
+                labels = scales::comma) +
   ggtitle("Log Scale") +
-  labs(x = "",
-       y = "")
+  labs(x = "Year",
+       y = "",
+       subtitle = "Hard Drive Capacity")
 
 linear_scale + log_scale
 ```
 
 In this paper, we evaluate the benefits and drawbacks of using log scales and examine their impact on perceptual sensitivity by conducting a visual inference experiment using statistical lineups [@buja_statistical_2009].
 The experiment focused on a participant's ability to identify differences between exponentially increasing curves with varying levels of curvature using both linear and log scales. 
-Participants did not require any mathematical training or understanding of exponential growth or logarithmic scales to participate in the study, focusing instead on the fundamental nature of the ability to identify differences in charts. 
-This study lays the groundwork for further exploration of the implications of using log scales in data visualization.
+\ear{The study did not require participants receive any mathematical training or have prior} understanding of exponential growth or logarithmic scales, focusing instead on the fundamental nature of the ability to identify differences in charts.
+In [Section 2](#methods) we describe our participant sample, the graphical task to be completed, and the data generation process and study design.
+[Section 3](#results) describes the participant data collected and shares results from the statistical analyses of the data using a generalized linear mixed model.
+We present overall conclusions and discussion of results in [Section 4](#conclusion-discussion), and provide an overview of future related papers.
+The [Supplementary Material](#supplementary-material) contains a link to the RShiny data collection applet, participant data used for analysis, and code to replicate the analysis.
+This results from this study lay the groundwork for further exploration of the implications of using log scales in data visualization.
 
 ## Statistical Lineups
 
@@ -120,15 +132,15 @@ Statistical lineups provide an elegant way of combining perception and statistic
 
 The term 'lineup' is an analogy to police lineups in criminal investigations, where witnesses identify the criminal from a group of individuals. 
 Similarly, researchers present a statistical lineup plot consisting of smaller panels and ask the viewer to identify the panel that contains the actual data from a set of decoy null plots. 
-Researchers generate null plots by permutation or simulation, assuming no relationship between the variables.
+Researchers generate null plots \svp{containing data generated according to a prespecified hypothesis using permutation or simulation}.
 Typically, a statistical lineup consists of 20 panels, with one target panel and 19 null panels.
 If the viewer can identify the target panel from the null panels, it suggests that the actual data is visually distinct from the data generated under the null model. 
 \cref{fig:lineup-example} presents examples of statistical lineups. 
-The statistical lineup on the left presents increasing exponential data displayed on a linear scale with panel 13 as the target; the statistical lineup on the right shows increasing exponential data plotted on a log base ten scale with panel 4 as the target.
+The statistical lineup on the left presents increasing exponential data displayed on a linear scale with panel $(5 \times 2) + 3$ as the target. The lineup on the right shows increasing exponential data plotted on a log base ten scale with panel $2 \times 2$ as the target.
 
 While explicit graphical tests direct the participant to a specific feature of a plot to answer a particular question, implicit graphical tests require the user to identify both the purpose and function of the plot in order to evaluate the plots shown. 
-Furthermore, implicit graphical tests, such as lineups, simultaneously test for multiple visual features, including outliers, clusters, and linear and nonlinear relationships [@vanderplas_testing_2020].
-Researchers can collect responses from multiple viewers in more formal situations through crowd-sourcing websites such as Prolific, Amazon Mechanical Turk, and Reddit and in informal situations through convenience sampling.
+Furthermore, implicit graphical tests, such as lineups, simultaneously test for multiple visual features, including outliers, clusters, and linear and nonlinear relationships [@vanderplas2015spatial].
+Researchers can collect responses from multiple viewers using crowd-sourcing websites such as Prolific and Amazon Mechanical Turk.
 
 ```{r lineup-example, fig.height = 2.75, fig.width = 5.75, fig.scap = "Lineup examples", fig.cap = "The lineup plot on the left displays increasing exponential data on a linear scale with panel (2 x 5) + 3 as the target. The lineup plot on the right displays increasing exponential data on the log scale with panel 2 x 2 as the target."}
 
@@ -166,7 +178,7 @@ logPlot <- ggplot(lineupData_log, aes(x=x, y=y)) +
 linearPlot + logPlot
 ```
 
-# Study Development and Methods
+# Study Development and Methods {#methods}
 
 ## Data Generation
 
@@ -186,8 +198,8 @@ The heuristic data generation procedure is described in \cref{alg:lineup-paramet
 \begin{algorithm}
   \caption{Lineup Parameter Estimation}\label{alg:lineup-parameter-estimation-algorithm}
   \begin{algorithmic}[1]
-    \Statex \textbullet~\textbf{Input Parameters:} domain $x\in[0,20]$, range $y\in[10,100]$, midpoint $x_{mid}$.
-    \Statex \textbullet~\textbf{Output Parameters:} estimated model parameters $\hat\alpha, \hat\beta, \hat\theta$.
+    \Statex \hspace*{-1em}\textbullet~\textbf{Input Parameters:} domain $x\in[0,20]$, range $y\in[10,100]$, midpoint $x_{mid}$.
+    \Statex \hspace*{-1em}\textbullet~\textbf{Output Parameters:} estimated model parameters $\hat\alpha, \hat\beta, \hat\theta$.
     \State Determine the $y=-x$ line scaled to fit the assigned domain and range.
     \State Map the values $x_{mid} - 0.1$ and $x_{mid} + 0.1$ to the $y=-x$ line for two additional points.
     \State From the set of points $(x_k, y_k)$ for $k = 1,2,3,4$, calculate the coefficients from the linear regression model $\ln(y_k) = b_0 +b_1x_k$ to obtain starting values - $\alpha_0 = e^{b_0}, \beta_0 =  b_1, \theta_0 = 0.5\cdot \min(y)$
@@ -198,8 +210,8 @@ The heuristic data generation procedure is described in \cref{alg:lineup-paramet
 \begin{algorithm}
   \caption{Lineup Exponential Data Simulation}\label{alg:lineup-exponential-data-simulation-algorithm}
   \begin{algorithmic}[1]
-    \Statex \textbullet~\textbf{Input Parameters:} sample size $N = 50$, estimated parameters $\hat\alpha$, $\hat\beta$, and $\hat\theta$, from \cref{alg:lineup-parameter-estimation-algorithm}, and standard deviation $\sigma$ from the exponential curve.
-    \Statex \textbullet~\textbf{Output Parameters:} $N$ points, in the form of vectors $\mathbf{x}$ and $\mathbf{y}$.
+    \Statex \hspace*{-1em}\textbullet~\textbf{Input Parameters:} sample size $N = 50$, estimated parameters $\hat\alpha$, $\hat\beta$, and $\hat\theta$, from \cref{alg:lineup-parameter-estimation-algorithm}, and standard deviation $\sigma$ from the exponential curve.
+    \Statex \hspace*{-1em}\textbullet~\textbf{Output Parameters:} $N$ points, in the form of vectors $\mathbf{x}$ and $\mathbf{y}$.
     \State Generate $\tilde x_j, j = 1,..., \frac{3}{4}N$ as a sequence of evenly spaced points in $[0,20]$. This ensures the full domain of $x$ is used, fulfilling the constraints of spanning the same domain and range for each parameter combination.
     \State Obtain $\tilde x_i, i = 1,...N$ by sampling $N = 50$ values from the set of $\tilde x_j$ values. This guarantees some variability and potential clustering in the exponential growth curve disrupting the perception due to continuity of points.
     \State Obtain the final $x_i$ values by jittering $\tilde x_i$.
@@ -285,7 +297,7 @@ parameter_data |>
 ## Lineup Setup 
 
 To generate the small multiple scatter plots for the statistical lineups shown to participants in the study, we simulated a single data set corresponding to curvature level A for the target plot and multiple data sets corresponding to curvature level B for the null plots.
-The `nullabor` package in R [@nullabor] randomly assigned the target plot to one of the panels surrounded by panels containing null plots.
+The `nullabor` package in R [@buja_statistical_2009] randomly assigned the target plot to one of the panels surrounded by panels containing null plots.
 For example, the statistical lineup randomly embeds a target plot with simulated data following an increasing exponential curve with high curvature within null plots with simulated data following an increasing exponential trend with low curvature. 
 The target and null panels spanned a similar domain and range due to the implemented constraints when simulating the data. 
 There were a total of six lineup curvature combinations; \cref{fig:curvature-combination-example} illustrates the six lineup curvature combinations (top: linear scale; bottom: log scale) where the green line indicates the curvature level designated to the target plot while the black line indicates the curvature level assigned to the null plots.
@@ -399,107 +411,79 @@ tH_nM <- simData  |>
 
 # linear scale
 
-tM_nH_linear <- tM_nH +
-  scale_y_continuous(limits = c(10,100))
-
 tE_nH_linear <- tE_nH +
-  scale_y_continuous(limits = c(10,100))
-
-tH_nM_linear <- tH_nM +
   scale_y_continuous(limits = c(10,100))
 
 tE_nM_linear <- tE_nM +
   scale_y_continuous(limits = c(10,100))
 
-tH_nE_linear <- tH_nE +
+tM_nH_linear <- tM_nH +
   scale_y_continuous(limits = c(10,100))
 
 tM_nE_linear <- tM_nE +
+  scale_y_continuous(limits = c(10,100))
+
+tH_nM_linear <- tH_nM +
+  scale_y_continuous(limits = c(10,100))
+
+tH_nE_linear <- tH_nE +
   scale_y_continuous(limits = c(10,100))
 
 # log scale
 
 library(scales)
 
-tM_nH_log <- tM_nH +
-  scale_y_continuous(limits = c(10,100), trans = "log10")
-
 tE_nH_log <- tE_nH +
-  scale_y_continuous(limits = c(10,100), trans = "log10")
-
-tH_nM_log <- tH_nM +
   scale_y_continuous(limits = c(10,100), trans = "log10")
 
 tE_nM_log <- tE_nM +
   scale_y_continuous(limits = c(10,100), trans = "log10")
 
-tH_nE_log <- tH_nE +
+tM_nH_log <- tM_nH +
   scale_y_continuous(limits = c(10,100), trans = "log10")
 
 tM_nE_log <- tM_nE +
   scale_y_continuous(limits = c(10,100), trans = "log10")
 
+tH_nM_log <- tH_nM +
+  scale_y_continuous(limits = c(10,100), trans = "log10")
+
+tH_nE_log <- tH_nE +
+  scale_y_continuous(limits = c(10,100), trans = "log10")
+
 
 # output plots with patchwork
-tM_nH_linear +
-  ggtitle("Linear Scale") +
-  facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
 tE_nH_linear +
-  facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
-tH_nM_linear +
+  ggtitle("Linear Scale") +
   facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
 tE_nM_linear +
   facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
-tH_nE_linear +
+tM_nH_linear +
   facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
 tM_nE_linear +
   facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
-tM_nH_log +
-  ggtitle("Log10 Scale") +
+tH_nM_linear +
+  facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
+tH_nE_linear +
   facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
 tE_nH_log +
-  facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
-tH_nM_log +
+  ggtitle("Log10 Scale") +
   facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
 tE_nM_log +
   facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
-tH_nE_log +
+tM_nH_log +
   facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
 tM_nE_log +
   facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
+tH_nM_log +
+  facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
+tH_nE_log +
+  facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
 plot_layout(ncol = 6)
 
-# tM_nH_linear +
-#   ggtitle("Linear Scale") +
-#   facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
-# tM_nH_log +
-#   ggtitle("Log10 Scale") +
-#   facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
-# tE_nH_linear +
-#   facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
-# tE_nH_log +
-#   facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
-# tH_nM_linear +
-#   facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
-# tH_nM_log +
-#   facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
-# tE_nM_linear +
-#   facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
-# tE_nM_log +
-#   facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
-# tH_nE_linear +
-#   facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
-# tH_nE_log +
-#   facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
-# tM_nE_linear +
-#   facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
-# tM_nE_log +
-#   facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
-# plot_layout(ncol = 2)
-
 # save thumbnails for plotting later
-# tM_nH_thumbnail <- tM_nH_linear + tM_nH_log
-# ggsave(tM_nH_thumbnail, file = "images/tM_nH_thumbnail.png", width = 6, height = 3)
+# tM_nH_thumbnail <- ((tM_nH_linear + ggtitle("Linear") + theme(plot.title = element_text(size = 70))) + (tM_nH_log+ ggtitle("Log"))) + theme(plot.title = element_text(size = 70))
+# ggsave(tM_nH_thumbnail, file = "images/tM_nH_thumbnail-title.png", width = 6, height = 4)
 # 
 # tE_nH_thumbnail <- tE_nH_linear + tE_nH_log
 # ggsave(tE_nH_thumbnail, file = "images/tE_nH_thumbnail.png", width = 6, height = 3)
@@ -507,7 +491,7 @@ plot_layout(ncol = 6)
 # tH_nM_thumbnail <- tH_nM_linear + tH_nM_log
 # ggsave(tH_nM_thumbnail, file = "images/tH_nM_thumbnail.png", width = 6, height = 3)
 # 
-# tE_nM_thumbnail <- tE_nM_linear + tE_nM_log
+# tE_nM_thumbnail <- (tE_nM_linear + tE_nM_log
 # ggsave(tE_nM_thumbnail, file = "images/tE_nM_thumbnail.png", width = 6, height = 3)
 # 
 # tH_nE_thumbnail <- tH_nE_linear + tH_nE_log
@@ -527,8 +511,8 @@ We randomized the order in which participants saw the assigned thirteen lineup p
 
 We used Prolific, a survey site that connects researchers to study participants, to recruit participants above the age of majority in their region.
 Following the completion of the current study, participants sequentially completed two additional graphical experiments related to the perception of logarithmic perception (to be discussed at a later date), and we compensated them for their participation in the series of all three studies.
-While we did not request a representative sample, previous literature suggests that prior mathematical knowledge or experience with exponential data is not associated with the outcome of graphical experiments involving lineups[@vanderplas2015spatial]. 
-Participants completed the series of graphical tests using an R Shiny [@shiny_pkg] application found at <https://shiny.srvanderplas.com/perception-of-statistical-graphics/>.
+While we did not request a representative sample, previous literature suggests that prior mathematical knowledge or experience with exponential data is not associated with the outcome of graphical experiments involving lineups [@vanderplas2015spatial]. 
+Participants completed the series of graphical tests using an R Shiny [@shiny_pkg] application found at <https://shiny.srvanderplas.com/perception-of-statistical-graphics/>; the code used to create the study application can be accessed at <https://github.com/earobinson95/log-perception-prolific>.
 
 The applet web page guided participants through a series of lineup plots and asked them to identify the plot which appeared to be most different from the others. 
 In each lineup evaluation, participants justified their choice and provided their level of confidence in their choice.
@@ -555,14 +539,17 @@ The binary response was analyzed using a generalized linear mixed model (GLMM) f
 Target plot identification was analyzed using a GLMM implemented in `glmer` from the `lme4` R (version 4.2.2) package [@lme4]. 
 We used the `emmeans` R package [@emmeans] to calculate the estimated target detection probabilities and obtain odds ratio comparisons between the log and linear scale.
 
-# Results
+# Results {#results}
 
+\svp{Supplement participant demographics (broad location info, etc)}
 We recruited participants and conducted the study via Prolific, a crowd-sourcing website, in March 2022, during which 325 individuals completed 4,492 individual test lineup evaluations. 
 We included only participants who completed the entire study in the final analysis, which included 311 participants and 3,958 lineup evaluations; due to server capacity, some participants were required to restart the study, thus resulting in the possibility of more than twelve lineup evaluations per participant.
 As a whole, participants evaluated each uniquely generated lineup plot between 141 and 203 times (Mean: 164.92, SD: 14.9).
 Participants correctly identified the target panel in 47\% of the 1,981 lineup evaluations made on the linear scale and 65.3\% of the 1,977 lineup evaluations made on the log scale.
 
-The results from the GLMM indicated a strong interaction between the curvature combination and scale ($\chi^2_5 = 294.443$; $\text{p} <0.0001$). Variance due to participant and data set were estimated to be $\hat\sigma^2_{\text{participant}} = 1.19$ (s.e. = 1.09) and $\hat\sigma^2_{\text{data}} = 0.433$ (s.e. = 0.66), respectively.
+The results from the GLMM indicated a strong interaction between the curvature combination and scale ($\chi^2_5 = 294.443$; $\text{p} <0.0001$), and estimated variance due to participant and data set to be $\hat\sigma^2_{\text{participant}} = 1.19$ (s.e. = 1.09) and $\hat\sigma^2_{\text{data}} = 0.433$ (s.e. = 0.66), respectively.
+\ear{Therefore, we concluded there was low variability in the accuracy of target panel detection between participants and across replications of uniquely simulated data sets.
+To determine the effect of scale, we compared the estimated accuracy between the log and linear scale within each curvature combination due to the interaction as determined by the GLMM.}
 
 ```{r anova, include = F}
 read.csv("data/lineups-anova.csv") |>
@@ -586,6 +573,7 @@ This result again supports the claim that it is easy to identify a curve in a bu
 ```{r odds-ratio-plot, echo = F, eval = T, fig.width = 9, fig.height = 6, fig.align='center', fig.scap = "Lineups log(odds) results", fig.cap = "Estimated (log) odds ratio of successfully identifying the target panel on the log scale compared to the linear scale. The y-axis indicates the the model parameters used to simulate the null plots with the target plot model parameter selection designated by shape and shade of green. The thumbnail figures on the right display the curvature combination as shown in \\cref{fig:curvature-combination-example} on both scales (linear - left, log - right).", message = F, warning = F}
 lineups_or <- read.csv("data/lineups-odds-ratios.csv")
 
+library(grid)
 dodge <- position_dodge(width=0.9)
 lineups_or_plot <- lineups_or |>
   separate(curvature, into = c(NA, "target", NA, "null")) |>
@@ -596,7 +584,7 @@ lineups_or_plot <- lineups_or |>
   geom_errorbar(aes(xmin = asymp.LCL, xmax = asymp.UCL), position = dodge, width = .1) +
   geom_vline(xintercept = 1) +
   theme_bw()  +
-  theme(axis.title = element_text(size = 16),
+  theme(axis.title.x = element_text(size = 16),
         axis.text = element_text(size = 14),
         legend.title = element_text(size = 16),
         legend.text  = element_text(size = 16),
@@ -604,13 +592,14 @@ lineups_or_plot <- lineups_or |>
         legend.position = "bottom",
         plot.subtitle = element_text(size = 16)
   ) +
-  labs(subtitle = "Null Panel Curvature") +
-  scale_y_discrete("", position = "left") +
+  labs(subtitle = "Null Panel Curvature",
+       y = "") +
+  scale_y_discrete(position = "left") +
   scale_x_continuous("Odds ratio (on log scale) \n (Log vs Linear)", trans = "log10", labels = scales::comma) + 
   scale_color_manual("Target Panel Curvature", values = c("#004400", "#116611", "#55aa55")) + 
   scale_shape_discrete("Target Panel Curvature")
 
-picsList <- c("images/tM_nH_thumbnail.png", 
+picsList <- c("images/tM_nH_thumbnail-title.png", 
               "images/tE_nH_thumbnail.png", 
               "images/tH_nM_thumbnail.png", 
               "images/tE_nM_thumbnail.png", 
@@ -630,7 +619,7 @@ pimage <- axis_canvas(lineups_or_plot, axis = 'y') +
 ggdraw(insert_yaxis_grob(lineups_or_plot, pimage, position = "right", clip = "on"))
 ```
 
-# Discussion and Conclusion
+# Discussion and Conclusion {#discussion-conclusion}
 
 This work aims to provide foundational research to support the principles that guide design decisions in scientific visualizations of exponential data. 
 In this study, we explored the use of linear and log scales to determine whether the choice of scale impacts our ability to notice differences in exponentially increasing trends. 
@@ -640,13 +629,15 @@ An exception occurred when identifying a plot with curvature embedded in surroun
 Using visual inference to identify these guidelines suggests that there are perceptual advantages to log scales when differences are subtle. 
 
 We conducted this study as the first in a series of three graphical tests to understand the perceptual and cognitive implications of using log scales to display exponentially increasing data.
-In our future research, we will investigate whether using log scales presents cognitive disadvantages, such as making it harder to utilize graphical information.
-In addition to providing guidelines for using log scales, our future work will describe the advantages and implementation of conducting multiple graphical tasks with different levels of interaction and cognitive engagement with the presented data in order to evaluate the same design choice from different perceptual and cognitive perspectives.
+In our next two papers in this series, we will investigate whether using log scales presents cognitive disadvantages, such as making it harder to utilize graphical information.
+<!-- In addition to providing guidelines for using log scales, these studies will demonstrate the advantages and implementation of conducting multiple graphical tasks with different levels of interaction and cognitive engagement with the presented data in order to evaluate the same design choice from different perceptual and cognitive perspectives. -->
+\svp{These studies serve as an example of multi-modal graphical testing, examining different levels of engagement and interaction with graphics in order to produce nuanced, specific guidelines for graphical design.
+By testing graphics in situations similar to how they are used, we can gain additional insight into graphical perception and improve visual communication of scientific results.}
 
 # Supplementary Material {-} 
 
 + **Participant Data:** De-identified participant data collected in the study and used
 for analyses (lineup-model-data.csv).
-+ **Data Analysis Code:** The code used to replicate the analysis in this paper (lineups-analysis.Rmd)
++ **Data Analysis Code:** The code used to replicate the analysis in this paper (lineups-analysis.qmd)
 + **README:** File containing detailed descriptions of the supplementary material
 (README.html).
