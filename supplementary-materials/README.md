@@ -7,6 +7,8 @@ Emily A. Robinson, Reka Howard, and Susan VanderPlas
 
 + **Data Analysis Code:** The code used to replicate the analysis in this paper can be in `lineups-analysis.qmd`.
 
++ **Study Applet Code:** The code used to create the study applet via RShiny can be found on GitHub at <https://github.com/earobinson95/perception-of-statistical-graphics-log>
+
 ## Participant Data Contents
 
 + **participant_id:** provides the unique participant identifier as a combination of nick_name and study_starttime

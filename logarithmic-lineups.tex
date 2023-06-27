@@ -49,7 +49,7 @@
 \if0\blind
 {
   \title{\bf Perception and Cognitive Implications of Logarithmic Scales
-for Increasing Exponential Data: Perceptual Sensitivity Tested with
+for Exponentially Increasing Data: Perceptual Sensitivity Tested with
 Statistical Lineups}
 
   \author{
@@ -71,7 +71,7 @@ San Luis Obispo\\
   \bigskip
   \begin{center}
     {\LARGE\bf Perception and Cognitive Implications of Logarithmic
-Scales for Increasing Exponential Data: Perceptual Sensitivity Tested
+Scales for Exponentially Increasing Data: Perceptual Sensitivity Tested
 with Statistical Lineups}
   \end{center}
   \medskip
@@ -130,7 +130,7 @@ transformations have emerged as a standard solution to this challenge,
 as they allow for the display of data over several orders of magnitude
 within a single graph.
 
-Exponential {\textcolor{RedOrange}{data}} are one such example of a
+Exponential {\textcolor{RedOrange}{data}} is one such example of a
 function that compresses smaller magnitudes into a smaller area;
 \cref{fig:log-scales}
 {\textcolor{blue}{presents hard drive capacity over the past forty years}}
@@ -159,6 +159,55 @@ practices for their implementation.
 \caption[Linear scale versus log scale]{These plots present hard drive capacity over the past forty years on both the linear and log scale and illustrate the use of the log scale when displaying data which spans several magnitudes.}\label{fig:log-scales}
 \end{figure}
 
+Apart from the biases resulting from using log scales, there is a
+general misinterpretation of exponential growth. Early stages of
+exponential growth often appear to have a small growth rate, while the
+middle stage seems to exhibit more quadratic growth. It is only in the
+later stages that the exponential growth becomes apparent.
+\cref{fig:exponential-stages} highlights the three stages and associated
+appearances of exponential growth at each stage. This misinterpretation
+can lead to decisions made under inaccurate understanding, resulting in
+potential consequences.
+
+\begin{figure}[tbp]
+
+{\centering \includegraphics[width=1\linewidth,]{logarithmic-lineups_files/figure-latex/exponential-stages-1} 
+
+}
+
+\caption{Highlights the three stages and associated appearances of exponential growth at each stage. Early stages of exponential growth often appear to have a small growth rate, while the middle stage seems to exhibit more quadratic growth. It is only in the later stages that the exponential growth becomes apparent.}\label{fig:exponential-stages}
+\end{figure}
+
+Previous studies have explored the estimation and prediction of
+exponential growth and found that individuals often underestimate
+exponential growth when presented values numerically and graphically
+\citep{wagenaar_misperception_1975}. The hierarchy of plot objects, as
+described by \citet{cleveland_graphical_1985}, offers a possible
+explanation for the underestimation observed in exponentially increasing
+trends. Experiments conducted by \citet{wagenaar_misperception_1975},
+\citet{jones_polynomial_1977}, and \citet{mackinnon_feedback_1991} aimed
+to improve estimation accuracy for exponential growth. While contextual
+knowledge or experience did not enhance estimation, instruction on
+exponential growth reduced underestimation by prompting participants to
+adjust their initial starting value
+\citep{wagenaar_misperception_1975, jones_polynomial_1977}. Furthermore,
+providing immediate feedback to participants about the accuracy of their
+predictions improved estimation \citep{mackinnon_feedback_1991}.
+
+Log transforming the data may address our inability to predict
+exponential growth accurately. However, this transformation introduces
+new complexities, as most readers may need to be mathematically
+sophisticated enough to intuitively understand logarithmic math and
+translate it back into real-world effects.
+\citet{menge_logarithmic_2018} surveyed ecologists to determine their
+encounter frequency and comprehension of log-scaled data in the
+literature. The authors identified three types of misconceptions
+encountered when presented with data on log-log scales: the `hand-hold
+fallacy,' `Zeno's zero fallacy,' and `watch out for curves fallacies.'
+These misconceptions arise from linear extrapolation assumptions in
+log-log space, neglecting the underlying exponential relationship in
+linear-linear space.
+
 In this paper, we evaluate the benefits and drawbacks of using log
 scales and examine their impact on perceptual sensitivity by conducting
 a visual inference experiment using statistical lineups
@@ -168,17 +217,19 @@ with varying levels of curvature using both linear and log scales.
 {\textcolor{blue}{The study did not require participants receive any mathematical training or have prior}}
 understanding of exponential growth or logarithmic scales, focusing
 instead on the fundamental nature of the ability to identify differences
-in charts. In \protect\hyperlink{methods}{Section 2} we describe our
-participant sample, the graphical task to be completed, and the data
-generation process and study design. \protect\hyperlink{results}{Section
-3} describes the participant data collected and shares results from the
-statistical analyses of the data using a generalized linear mixed model.
-We present overall conclusions and discussion of results in
+in charts.
+
+In \protect\hyperlink{methods}{Section 2} we describe the participant
+sample, the graphical task, and the data generation process and study
+design. \protect\hyperlink{results}{Section 3} describes the participant
+data collected and shares results from the statistical analyses of the
+data using a generalized linear mixed model. We present overall
+conclusions and discussion of the results in
 \protect\hyperlink{conclusion-discussion}{Section 4}, and provide an
 overview of future related papers. The
 \protect\hyperlink{supplementary-material}{Supplementary Material}
-contains a link to the RShiny data collection applet, participant data
-used for analysis, and code to replicate the analysis. This results from
+includes a link to the RShiny data collection applet, participant data
+used for analysis, and code to replicate the analysis. The results of
 this study lay the groundwork for further exploration of the
 implications of using log scales in data visualization.
 
@@ -375,8 +426,9 @@ evaluations, and we left their analysis to a later date.
 \caption[Lineup curvature combinations]{Thumbnail plots illustrating the six curvature combinations displayed on both scales (linear and log). The green line indicates the curvature level to be identified as the target plot from amongst a set of null plots with the curvature level indicated by the black line.}\label{fig:curvature-combination-example}
 \end{figure}
 
-\hypertarget{study-design}{%
-\subsection{Study Design}\label{study-design}}
+\hypertarget{study-design-and-implementation}{%
+\subsection{Study Design and
+Implementation}\label{study-design-and-implementation}}
 
 We showed each participant thirteen lineup plots (twelve test and one
 Rorschach). At the start of the study, we randomly assigned participants
@@ -390,27 +442,55 @@ lineup plots.
 
 We used Prolific, a survey site that connects researchers to study
 participants, to recruit participants above the age of majority in their
-region. Following the completion of the current study, participants
-sequentially completed two additional graphical experiments related to
-the perception of logarithmic perception (to be discussed at a later
-date), and we compensated them for their participation in the series of
-all three studies. While we did not request a representative sample,
-previous literature suggests that prior mathematical knowledge or
-experience with exponential data is not associated with the outcome of
-graphical experiments involving lineups \citep{vanderplas2015spatial}.
-Participants completed the series of graphical tests using an R Shiny
-\citep{shiny_pkg} application found at
-\url{https://shiny.srvanderplas.com/perception-of-statistical-graphics/};
-the code used to create the study application can be accessed at
-\url{https://github.com/earobinson95/log-perception-prolific}.
+region. Following the completion of the current statistical lineup
+study, participants sequentially completed two additional graphical
+experiments related to the perception of logarithmic scales (to be
+discussed at a later date), and we compensated them for their
+participation in the series of all three studies. While we did not
+request a representative sample, previous literature suggests that prior
+mathematical knowledge or experience with exponential data is not
+associated with the outcome of graphical experiments involving lineups
+\citep{vanderplas2015spatial}.
 
-The applet web page guided participants through a series of lineup plots
-and asked them to identify the plot which appeared to be most different
-from the others. In each lineup evaluation, participants justified their
-choice and provided their level of confidence in their choice. This
-graphical task aimed to test an individual's ability to perceptually
-differentiate exponentially increasing trends with differing levels of
-curvature on both the linear and log scale.
+\cref{fig:study-homepage}
+{\textcolor{blue}{presents a screenshot of the study homepage, which served as an introduction to participants and guided them through the series of three graphical experiments. The first experiment, discussed in this paper, utilized statistical lineups to investigate the effect of logarithmic scales on perceptual sensitivity. The second experiment, incorporated an interactive 'You Draw It' feature introduced by}}
+\citet{aisch2015you} {\textcolor{blue}{and employed in the study by}}
+\citet{robinson2022eye},
+{\textcolor{blue}{to examine the effect of logarithmic scales on prediction. The third experiment focused on numerical estimation and cognitive understanding of logarithmic scales.}}
+
+Participants completed the series of graphical tests using an R Shiny
+application \citep{shiny_pkg} accessible at
+\url{https://emily-robinson.shinyapps.io/perception-of-statistical-graphics-log/}.
+The code used to create the study application is available on GitHub at
+\url{https://github.com/earobinson95/perception-of-statistical-graphics-log}.
+
+\begin{figure}[tbp]
+
+{\centering \includegraphics[width=1\linewidth,]{images/study-homepage} 
+
+}
+
+\caption[Study applet homepage]{Screenshot of the study applet homepage guiding participants through the series of three graphical experiments related to the perception of logarithmic scales.}\label{fig:study-homepage}
+\end{figure}
+
+The statistical linenup study guided participants through the series of
+thirteen lineup plots and asked them to identify the plot which appeared
+to be most different from the others
+(\cref{fig:lineup-study-example-trial}). In each lineup evaluation,
+participants justified their choice and provided their level of
+confidence in their choice. This graphical task aimed to test an
+individual's ability to perceptually differentiate exponentially
+increasing trends with differing levels of curvature on both the linear
+and log scale.
+
+\begin{figure}[tbp]
+
+{\centering \includegraphics[width=1\linewidth,]{images/lineup-study-example-trial} 
+
+}
+
+\caption[Lineup study example trial]{Screenshot of an example trial participants see when completing the lineup study. The applet guided participants through 13 lineup plots and asked them to identify the plot which appeared to be most different from the others.}\label{fig:lineup-study-example-trial}
+\end{figure}
 
 \hypertarget{statistical-analysis}{%
 \subsection{Statistical Analysis}\label{statistical-analysis}}
@@ -448,20 +528,21 @@ linear scale.
 \hypertarget{results}{%
 \section{Results}\label{results}}
 
-{\textcolor{RedOrange}{Supplement participant demographics (broad location info, etc)}}
-
 We recruited participants and conducted the study via Prolific, a
-crowd-sourcing website, in March 2022, during which 325 individuals
-completed 4,492 individual test lineup evaluations. We included only
-participants who completed the entire study in the final analysis, which
-included 311 participants and 3,958 lineup evaluations; due to server
-capacity, some participants were required to restart the study, thus
-resulting in the possibility of more than twelve lineup evaluations per
-participant. As a whole, participants evaluated each uniquely generated
-lineup plot between 141 and 203 times (Mean: 164.92, SD: 14.9).
-Participants correctly identified the target panel in 47\% of the 1,981
-lineup evaluations made on the linear scale and 65.3\% of the 1,977
-lineup evaluations made on the log scale.
+crowd-sourcing website, in March 2022.
+{\textcolor{blue}{The study included a diverse group of participants, with an inner-quartile age range between 23 and 31 and a median age of 26 years old. Among the participants, 59% self-identified as male, 40% as female, and 1% as variant/nonconforming. 
+Additionally, individuals from more than 21 countries participated in the study and 97\% of the participants indicated fluency in English. 
+Moreover, 81\% of the participants reported having completed some undergraduate courses or higher.}}
+During data collection, 325 individuals completed 4,492 individual test
+lineup evaluations. We included only participants who completed the
+entire study in the final analysis, which included 311 participants and
+3,958 lineup evaluations; due to server capacity, some participants were
+required to restart the study, thus resulting in the possibility of more
+than twelve lineup evaluations per participant. As a whole, participants
+evaluated each uniquely generated lineup plot between 141 and 203 times
+(Mean: 164.92, SD: 14.9). Participants correctly identified the target
+panel in 47\% of the 1,981 lineup evaluations made on the linear scale
+and 65.3\% of the 1,977 lineup evaluations made on the log scale.
 
 The results from the GLMM indicated a strong interaction between the
 curvature combination and scale (\(\chi^2_5 = 294.443\);
@@ -567,6 +648,10 @@ By testing graphics in situations similar to how they are used, we can gain addi
 \item
   \textbf{Data Analysis Code:} The code used to replicate the analysis
   in this paper (lineups-analysis.qmd)
+\item
+  \textbf{Study Applet Code:} The code used to create the study applet
+  via RShiny can be found on GitHub at
+  \url{https://github.com/earobinson95/perception-of-statistical-graphics-log}
 \item
   \textbf{README:} File containing detailed descriptions of the
   supplementary material (README.html).

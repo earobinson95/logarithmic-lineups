@@ -1,5 +1,5 @@
 ---
-title: "Perception and Cognitive Implications of Logarithmic Scales for Increasing Exponential Data: Perceptual Sensitivity Tested with Statistical Lineups"
+title: "Perception and Cognitive Implications of Logarithmic Scales for Exponentially Increasing Data: Perceptual Sensitivity Tested with Statistical Lineups"
 
 # to produce blinded version set to 1
 blinded: 0
@@ -75,7 +75,7 @@ A major issue \svp{designers} encountered \svp{when} creating COVID-19 plots was
 When faced with data that spans several orders of magnitude, we must decide whether to show the data on its original scale (compressing the smaller magnitudes into a relatively small area) or to transform the scale and alter the contextual appearance of the data. 
 Log \svp{axis} transformations have emerged as a standard solution to this challenge, as they allow for the display of data over several orders of magnitude within a single graph.
 
-Exponential \svp{data} are one such example of a function that compresses smaller magnitudes into a smaller area; \cref{fig:log-scales} \ear{presents hard drive capacity over the past forty years} on both the linear and log scales to demonstrate the usefulness of log scales when dealing with data spanning multiple magnitudes.
+Exponential \svp{data} is one such example of a function that compresses smaller magnitudes into a smaller area; \cref{fig:log-scales} \ear{presents hard drive capacity over the past forty years} on both the linear and log scales to demonstrate the usefulness of log scales when dealing with data spanning multiple magnitudes.
 Logarithms facilitate the conversion of multiplicative relationships (displaying 1 & 10 with a distance of 10 units apart and displaying 10 & 100 with a distance of 90 units apart) to additive relationships (displaying 1 & 10 and 10 & 100 an equal distance apart), highlighting proportional relationships and linearizing power functions [@menge_logarithmic_2018]. 
 Logarithms also have practical applications, simplifying the computation of small numbers such as likelihoods and transforming data to conform to statistical assumptions.
 Although log scales have a long history of use in fields such as ecology, psychophysics, engineering, and physics [@heckler_student_2013; @waddell2005comparisons], there is still a need to understand the implications of their use and provide best practices for their implementation.
@@ -113,14 +113,51 @@ log_scale <- mem_data |>
 linear_scale + log_scale
 ```
 
+Apart from the biases resulting from using log scales, there is a general misinterpretation of exponential growth. Early stages of exponential growth often appear to have a small growth rate, while the middle stage seems to exhibit more quadratic growth. It is only in the later stages that the exponential growth becomes apparent. \cref{fig:exponential-stages} highlights the three stages and associated appearances of exponential growth at each stage. 
+This misinterpretation can lead to decisions made under inaccurate understanding, resulting in potential consequences.
+
+```{r exponential-stages, fig.cap = "Highlights the three stages and associated appearances of exponential growth at each stage. Early stages of exponential growth often appear to have a small growth rate, while the middle stage seems to exhibit more quadratic growth. It is only in the later stages that the exponential growth becomes apparent.", out.width="100%"}
+library(ggforce)
+
+data <- tibble(x = seq(0,6,0.001),
+               y = exp(x)) %>%
+  mutate(group = ifelse(x <= 2, "G1", 
+                        ifelse(x <= 4, "G2", "G3")))
+
+data |> 
+  ggplot(aes(x = x, y = y, color = group)) +
+  geom_line(show.legend = T, linewidth = 1.2) +
+  theme_bw() +
+  theme(aspect.ratio = 1) +
+  # facet_zoom(xlim = c(0,2), shrink = F, zoom.size = 3) +
+  # facet_zoom(xy = group == 'G1', zoom.size = 1/3) +
+  geom_mark_rect(show.legend = T) +
+  geom_text(x = 0.8, y = 50, label = "Early", color = "#1B9E77", size = 4) +
+  geom_text(x = 2.8, y = 100, label = "Middle", color = "#D95F02", size = 4) +
+  geom_text(x = 4.8, y = 300, label = "Late", color = "#7570B3", size = 4) +
+  scale_color_brewer("Stage", palette = "Dark2", labels = c("Early", "Middle", "Late")) +
+  labs(x = "",
+       y = "",
+       title = "Stages of Exponential Growth") +
+  theme(axis.text = element_blank(),
+        legend.position = "none"
+        )
+```
+
+Previous studies have explored the estimation and prediction of exponential growth and found that individuals often underestimate exponential growth when presented values numerically and graphically [@wagenaar_misperception_1975]. The hierarchy of plot objects, as described by @cleveland_graphical_1985, offers a possible explanation for the underestimation observed in exponentially increasing trends. Experiments conducted by @wagenaar_misperception_1975, @jones_polynomial_1977, and @mackinnon_feedback_1991 aimed to improve estimation accuracy for exponential growth. While contextual knowledge or experience did not enhance estimation, instruction on exponential growth reduced underestimation by prompting participants to adjust their initial starting value [@wagenaar_misperception_1975; @jones_polynomial_1977]. Furthermore, providing immediate feedback to participants about the accuracy of their predictions improved estimation [@mackinnon_feedback_1991].
+
+Log transforming the data may address our inability to predict exponential growth accurately. However, this transformation introduces new complexities, as most readers may need to be mathematically sophisticated enough to intuitively understand logarithmic math and translate it back into real-world effects.
+@menge_logarithmic_2018 surveyed ecologists to determine their encounter frequency and comprehension of log-scaled data in the literature. The authors identified three types of misconceptions encountered when presented with data on log-log scales: the 'hand-hold fallacy,' 'Zeno's zero fallacy,' and 'watch out for curves fallacies.' These misconceptions arise from linear extrapolation assumptions in log-log space, neglecting the underlying exponential relationship in linear-linear space.
+
 In this paper, we evaluate the benefits and drawbacks of using log scales and examine their impact on perceptual sensitivity by conducting a visual inference experiment using statistical lineups [@buja_statistical_2009].
 The experiment focused on a participant's ability to identify differences between exponentially increasing curves with varying levels of curvature using both linear and log scales. 
 \ear{The study did not require participants receive any mathematical training or have prior} understanding of exponential growth or logarithmic scales, focusing instead on the fundamental nature of the ability to identify differences in charts.
-In [Section 2](#methods) we describe our participant sample, the graphical task to be completed, and the data generation process and study design.
+
+In [Section 2](#methods) we describe the participant sample, the graphical task, and the data generation process and study design.
 [Section 3](#results) describes the participant data collected and shares results from the statistical analyses of the data using a generalized linear mixed model.
-We present overall conclusions and discussion of results in [Section 4](#conclusion-discussion), and provide an overview of future related papers.
-The [Supplementary Material](#supplementary-material) contains a link to the RShiny data collection applet, participant data used for analysis, and code to replicate the analysis.
-This results from this study lay the groundwork for further exploration of the implications of using log scales in data visualization.
+We present overall conclusions and discussion of the results in [Section 4](#conclusion-discussion), and provide an overview of future related papers.
+The [Supplementary Material](#supplementary-material) includes a link to the RShiny data collection applet, participant data used for analysis, and code to replicate the analysis.
+The results of this study lay the groundwork for further exploration of the implications of using log scales in data visualization.
 
 ## Statistical Lineups
 
@@ -501,7 +538,7 @@ plot_layout(ncol = 6)
 # ggsave(tM_nE_thumbnail, file = "images/tM_nE_thumbnail.png", width = 6, height = 3)
 ```
 
-## Study Design
+## Study Design and Implementation
 
 We showed each participant thirteen lineup plots (twelve test and one Rorschach). 
 At the start of the study, we randomly assigned participants one of the two replicate data sets for each of the six unique lineup curvature combinations. 
@@ -510,13 +547,27 @@ For the additional Rorschach lineup plot, we randomly assigned participants one 
 We randomized the order in which participants saw the assigned thirteen lineup plots.
 
 We used Prolific, a survey site that connects researchers to study participants, to recruit participants above the age of majority in their region.
-Following the completion of the current study, participants sequentially completed two additional graphical experiments related to the perception of logarithmic perception (to be discussed at a later date), and we compensated them for their participation in the series of all three studies.
+Following the completion of the current statistical lineup study, participants sequentially completed two additional graphical experiments related to the perception of logarithmic scales (to be discussed at a later date), and we compensated them for their participation in the series of all three studies.
 While we did not request a representative sample, previous literature suggests that prior mathematical knowledge or experience with exponential data is not associated with the outcome of graphical experiments involving lineups [@vanderplas2015spatial]. 
-Participants completed the series of graphical tests using an R Shiny [@shiny_pkg] application found at <https://shiny.srvanderplas.com/perception-of-statistical-graphics/>; the code used to create the study application can be accessed at <https://github.com/earobinson95/log-perception-prolific>.
 
-The applet web page guided participants through a series of lineup plots and asked them to identify the plot which appeared to be most different from the others. 
+\cref{fig:study-homepage} \ear{presents a screenshot of the study homepage, which served as an introduction to participants and guided them through the series of three graphical experiments. The first experiment, discussed in this paper, utilized statistical lineups to investigate the effect of logarithmic scales on perceptual sensitivity. The second experiment, incorporated an interactive 'You Draw It' feature introduced by} @aisch2015you \ear{and employed in the study by} @robinson2022eye, \ear{to examine the effect of logarithmic scales on prediction. The third experiment focused on numerical estimation and cognitive understanding of logarithmic scales.}
+
+Participants completed the series of graphical tests using an R Shiny application [@shiny_pkg] accessible at <https://emily-robinson.shinyapps.io/perception-of-statistical-graphics-log/>.
+The code used to create the study application is available on GitHub at <https://github.com/earobinson95/perception-of-statistical-graphics-log>.
+\ear{Before completing the lineup study, the 'You Draw It' study, and the estimation study, participants were prompted to provide their demographic information. 
+The series of studies received an IRB exemption (IRB #20200720178EX) from the University of Nebraska - Lincoln.}
+
+```{r study-homepage, fig.height = 6, fig.width = 9, fig.scap = "Study applet homepage", fig.cap = "Screenshot of the study applet homepage guiding participants through the series of three graphical experiments related to the perception of logarithmic scales.", out.width="100%"}
+knitr::include_graphics("images/study-homepage.jpg")
+```
+
+The statistical linenup study guided participants through the series of thirteen lineup plots and asked them to identify the plot which appeared to be most different from the others (\cref{fig:lineup-study-example-trial}). 
 In each lineup evaluation, participants justified their choice and provided their level of confidence in their choice.
-This graphical task aimed to test an individual's ability to perceptually differentiate exponentially increasing trends with differing levels of curvature on both the linear and log scale. 
+This graphical task aimed to test an individual's ability to perceptually differentiate exponentially increasing trends with differing levels of curvature on both the linear and log scale.
+
+```{r lineup-study-example-trial, fig.height = 6, fig.width = 9, fig.scap = "Lineup study example trial", fig.cap = "Screenshot of an example trial participants see when completing the lineup study. The applet guided participants through 13 lineup plots and asked them to identify the plot which appeared to be most different from the others.", out.width="100%"}
+knitr::include_graphics("images/lineup-study-example-trial.jpg")
+```
 
 ## Statistical Analysis
 
@@ -541,8 +592,12 @@ We used the `emmeans` R package [@emmeans] to calculate the estimated target det
 
 # Results {#results}
 
-\svp{Supplement participant demographics (broad location info, etc)}
-We recruited participants and conducted the study via Prolific, a crowd-sourcing website, in March 2022, during which 325 individuals completed 4,492 individual test lineup evaluations. 
+<!-- \svp{Supplement participant demographics (broad location info, etc)} -->
+We recruited participants and conducted the study via Prolific, a crowd-sourcing website, in March 2022. 
+\ear{The study included a diverse group of participants, with an inner-quartile age range between 23 and 31 and a median age of 26 years old. Among the participants, 59% self-identified as male, 40% as female, and 1% as variant/nonconforming. 
+Additionally, individuals from more than 21 countries participated in the study and 97\% of the participants indicated fluency in English. 
+Moreover, 81\% of the participants reported having completed some undergraduate courses or higher.}
+During data collection, 325 individuals completed 4,492 individual test lineup evaluations. 
 We included only participants who completed the entire study in the final analysis, which included 311 participants and 3,958 lineup evaluations; due to server capacity, some participants were required to restart the study, thus resulting in the possibility of more than twelve lineup evaluations per participant.
 As a whole, participants evaluated each uniquely generated lineup plot between 141 and 203 times (Mean: 164.92, SD: 14.9).
 Participants correctly identified the target panel in 47\% of the 1,981 lineup evaluations made on the linear scale and 65.3\% of the 1,977 lineup evaluations made on the log scale.
@@ -639,5 +694,6 @@ By testing graphics in situations similar to how they are used, we can gain addi
 + **Participant Data:** De-identified participant data collected in the study and used
 for analyses (lineup-model-data.csv).
 + **Data Analysis Code:** The code used to replicate the analysis in this paper (lineups-analysis.qmd)
++ **Study Applet Code:** The code used to create the study applet via RShiny can be found on GitHub at <https://github.com/earobinson95/perception-of-statistical-graphics-log>
 + **README:** File containing detailed descriptions of the supplementary material
 (README.html).
