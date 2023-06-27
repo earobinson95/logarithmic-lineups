@@ -171,7 +171,7 @@ potential consequences.
 
 \begin{figure}[tbp]
 
-{\centering \includegraphics[width=1\linewidth,]{logarithmic-lineups_files/figure-latex/exponential-stages-1} 
+{\centering \includegraphics[width=1\linewidth,]{images/exponential-stages-comic} 
 
 }
 
@@ -218,23 +218,6 @@ with varying levels of curvature using both linear and log scales.
 understanding of exponential growth or logarithmic scales, focusing
 instead on the fundamental nature of the ability to identify differences
 in charts.
-
-In \protect\hyperlink{methods}{Section 2} we describe the participant
-sample, the graphical task, and the data generation process and study
-design. \protect\hyperlink{results}{Section 3} describes the participant
-data collected and shares results from the statistical analyses of the
-data using a generalized linear mixed model. We present overall
-conclusions and discussion of the results in
-\protect\hyperlink{conclusion-discussion}{Section 4}, and provide an
-overview of future related papers. The
-\protect\hyperlink{supplementary-material}{Supplementary Material}
-includes a link to the RShiny data collection applet, participant data
-used for analysis, and code to replicate the analysis. The results of
-this study lay the groundwork for further exploration of the
-implications of using log scales in data visualization.
-
-\hypertarget{statistical-lineups}{%
-\subsection{Statistical Lineups}\label{statistical-lineups}}
 
 \citet{buja_statistical_2009} introduced statistical lineups as a
 framework for statistical inference and graphical tests. Statistical
@@ -284,6 +267,20 @@ Prolific and Amazon Mechanical Turk.
 
 \caption[Lineup examples]{The lineup plot on the left displays increasing exponential data on a linear scale with panel (2 x 5) + 3 as the target. The lineup plot on the right displays increasing exponential data on the log scale with panel 2 x 2 as the target.}\label{fig:lineup-example}
 \end{figure}
+
+In \protect\hyperlink{methods}{Section 2} we describe the participant
+sample, the graphical task, and the data generation process and study
+design. \protect\hyperlink{results}{Section 3} describes the participant
+data collected and shares results from the statistical analyses of the
+data using a generalized linear mixed model. We present overall
+conclusions and discussion of the results in
+\protect\hyperlink{conclusion-discussion}{Section 4}, and provide an
+overview of future related papers. The
+\protect\hyperlink{supplementary-material}{Supplementary Material}
+includes a link to the RShiny data collection applet, participant data
+used for analysis, and code to replicate the analysis. The results of
+this study lay the groundwork for further exploration of the
+implications of using log scales in data visualization.
 
 \hypertarget{methods}{%
 \section{Study Development and Methods}\label{methods}}
@@ -423,12 +420,24 @@ evaluations, and we left their analysis to a later date.
 
 }
 
-\caption[Lineup curvature combinations]{Thumbnail plots illustrating the six curvature combinations displayed on both scales (linear and log). The green line indicates the curvature level to be identified as the target plot from amongst a set of null plots with the curvature level indicated by the black line.}\label{fig:curvature-combination-example}
+\caption[Lineup curvature combinations]{Thumbnail plots illustrating the six curvature combinations displayed on both scales (linear and log). The green solid line indicates the curvature level to be identified as the target plot from amongst a set of null plots with the curvature level indicated by the black dashed line.}\label{fig:curvature-combination-example}
 \end{figure}
 
 \hypertarget{study-design-and-implementation}{%
 \subsection{Study Design and
 Implementation}\label{study-design-and-implementation}}
+
+We used Prolific, a survey site that connects researchers to study
+participants, to recruit participants above the age of majority in their
+region; we did not request a representative sample, previous literature
+suggests there are minor effects of demographics on the outcome of
+graphical experiments involving lineups
+\citep{vanderplas2015spatial, majumder_validation_2013}. Following the
+completion of the current statistical lineup study, participants
+sequentially completed two additional graphical experiments related to
+the perception of logarithmic scales (to be discussed at a later date),
+and we compensated them for their participation in the series of all
+three studies.
 
 We showed each participant thirteen lineup plots (twelve test and one
 Rorschach). At the start of the study, we randomly assigned participants
@@ -439,18 +448,6 @@ set. For the additional Rorschach lineup plot, we randomly assigned
 participants one data set shown on either the linear or the log scale.
 We randomized the order in which participants saw the assigned thirteen
 lineup plots.
-
-We used Prolific, a survey site that connects researchers to study
-participants, to recruit participants above the age of majority in their
-region. Following the completion of the current statistical lineup
-study, participants sequentially completed two additional graphical
-experiments related to the perception of logarithmic scales (to be
-discussed at a later date), and we compensated them for their
-participation in the series of all three studies. While we did not
-request a representative sample, previous literature suggests that prior
-mathematical knowledge or experience with exponential data is not
-associated with the outcome of graphical experiments involving lineups
-\citep{vanderplas2015spatial}.
 
 \cref{fig:study-homepage}
 {\textcolor{blue}{presents a screenshot of the study homepage, which served as an introduction to participants and guided them through the series of three graphical experiments. The first experiment, discussed in this paper, utilized statistical lineups to investigate the effect of logarithmic scales on perceptual sensitivity. The second experiment, incorporated an interactive 'You Draw It' feature introduced by}}

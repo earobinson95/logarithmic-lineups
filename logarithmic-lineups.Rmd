@@ -117,6 +117,10 @@ Apart from the biases resulting from using log scales, there is a general misint
 This misinterpretation can lead to decisions made under inaccurate understanding, resulting in potential consequences.
 
 ```{r exponential-stages, fig.cap = "Highlights the three stages and associated appearances of exponential growth at each stage. Early stages of exponential growth often appear to have a small growth rate, while the middle stage seems to exhibit more quadratic growth. It is only in the later stages that the exponential growth becomes apparent.", out.width="100%"}
+knitr::include_graphics("images/exponential-stages-comic.jpg")
+```
+
+```{r exponential-stages-v2, include = FALSE, fig.cap = "Highlights the three stages and associated appearances of exponential growth at each stage. Early stages of exponential growth often appear to have a small growth rate, while the middle stage seems to exhibit more quadratic growth. It is only in the later stages that the exponential growth becomes apparent.", out.width="100%"}
 library(ggforce)
 
 data <- tibble(x = seq(0,6,0.001),
@@ -152,14 +156,6 @@ Log transforming the data may address our inability to predict exponential growt
 In this paper, we evaluate the benefits and drawbacks of using log scales and examine their impact on perceptual sensitivity by conducting a visual inference experiment using statistical lineups [@buja_statistical_2009].
 The experiment focused on a participant's ability to identify differences between exponentially increasing curves with varying levels of curvature using both linear and log scales. 
 \ear{The study did not require participants receive any mathematical training or have prior} understanding of exponential growth or logarithmic scales, focusing instead on the fundamental nature of the ability to identify differences in charts.
-
-In [Section 2](#methods) we describe the participant sample, the graphical task, and the data generation process and study design.
-[Section 3](#results) describes the participant data collected and shares results from the statistical analyses of the data using a generalized linear mixed model.
-We present overall conclusions and discussion of the results in [Section 4](#conclusion-discussion), and provide an overview of future related papers.
-The [Supplementary Material](#supplementary-material) includes a link to the RShiny data collection applet, participant data used for analysis, and code to replicate the analysis.
-The results of this study lay the groundwork for further exploration of the implications of using log scales in data visualization.
-
-## Statistical Lineups
 
 @buja_statistical_2009 introduced statistical lineups as a framework for statistical inference and graphical tests.
 Statistical lineups treat a data plot as a visual statistic, summarizing the data as a numerical function or mapping.
@@ -214,6 +210,12 @@ logPlot <- ggplot(lineupData_log, aes(x=x, y=y)) +
 
 linearPlot + logPlot
 ```
+
+In [Section 2](#methods) we describe the participant sample, the graphical task, and the data generation process and study design.
+[Section 3](#results) describes the participant data collected and shares results from the statistical analyses of the data using a generalized linear mixed model.
+We present overall conclusions and discussion of the results in [Section 4](#conclusion-discussion), and provide an overview of future related papers.
+The [Supplementary Material](#supplementary-material) includes a link to the RShiny data collection applet, participant data used for analysis, and code to replicate the analysis.
+The results of this study lay the groundwork for further exploration of the implications of using log scales in data visualization.
 
 # Study Development and Methods {#methods}
 
@@ -342,7 +344,7 @@ Two sets of each lineup curvature combination were simulated (a total of twelve 
 In addition, three curvature combinations generated homogeneous "Rorschach" lineups, where all panels were from the same distribution.
 Each participant evaluated one "Rorschach" lineup, but for simplicity, we did not describe these evaluations, and we left their analysis to a later date.
 
-```{r curvature-combination-example, fig.height = 6, fig.width = 9, fig.scap = "Lineup curvature combinations", fig.cap = "Thumbnail plots illustrating the six curvature combinations displayed on both scales (linear and log). The green line indicates the curvature level to be identified as the target plot from amongst a set of null plots with the curvature level indicated by the black line.", out.width="100%"}
+```{r curvature-combination-example, fig.height = 6, fig.width = 9, fig.scap = "Lineup curvature combinations", fig.cap = "Thumbnail plots illustrating the six curvature combinations displayed on both scales (linear and log). The green solid line indicates the curvature level to be identified as the target plot from amongst a set of null plots with the curvature level indicated by the black dashed line.", out.width="100%"}
 simData <- read.csv("data/difficulty-comparison-data.csv")
 
 # simData  |>
@@ -361,7 +363,7 @@ tE_nM <- simData  |>
          Null = "Medium") |>
   filter(curvature %in% c("E", "M")) |>
   mutate(curvature = factor(curvature, levels = c("E", "M", "H"))) |>
-  ggplot(aes(x = x, y = y, color = curvature)) +
+  ggplot(aes(x = x, y = y, color = curvature, linetype = curvature)) +
   geom_line(linewidth = 1) +
   theme_test() +
   theme(aspect.ratio = 1) +
@@ -369,14 +371,15 @@ tE_nM <- simData  |>
         axis.title = element_blank(),
         legend.position = "none") +
   scale_x_continuous(limits = c(0,20)) +
-  scale_color_manual(values = c("green3", "black"))
+  scale_color_manual(values = c("green3", "black")) +
+  scale_linetype_manual(values = c("solid", "dashed"))
 
 tE_nH <- simData  |>
   mutate(Target = "High",
          Null = "Low") |>
   filter(curvature %in% c("E", "H")) |>
   mutate(curvature = factor(curvature, levels = c("E", "M", "H"))) |>
-  ggplot(aes(x = x, y = y, color = curvature)) +
+  ggplot(aes(x = x, y = y, color = curvature, linetype = curvature)) +
   geom_line(linewidth = 1) +
   theme_test() +
   theme(aspect.ratio = 1) +
@@ -384,14 +387,15 @@ tE_nH <- simData  |>
         axis.title = element_blank(),
         legend.position = "none") +
   scale_x_continuous(limits = c(0,20)) +
-  scale_color_manual(values = c("green3", "black"))
+  scale_color_manual(values = c("green3", "black")) +
+  scale_linetype_manual(values = c("solid", "dashed"))
 
 tM_nE <- simData  |>
   mutate(Target = "Medium",
          Null = "High") |>
   filter(curvature %in% c("E", "M")) |>
   mutate(curvature = factor(curvature, levels = c("E", "M", "H"))) |>
-  ggplot(aes(x = x, y = y, color = curvature)) +
+  ggplot(aes(x = x, y = y, color = curvature, linetype = curvature)) +
   geom_line(linewidth = 1) +
   theme_test() +
   theme(aspect.ratio = 1) +
@@ -399,14 +403,15 @@ tM_nE <- simData  |>
         axis.title = element_blank(),
         legend.position = "none") +
   scale_x_continuous(limits = c(0,20)) +
-  scale_color_manual(values = c("black", "green3"))
+  scale_color_manual(values = c("black", "green3")) +
+  scale_linetype_manual(values = c("dashed", "solid"))
 
 tM_nH <- simData  |>
   mutate(Target = "Medium",
          Null = "Low") |>
   filter(curvature %in% c("H", "M")) |>
   mutate(curvature = factor(curvature, levels = c("E", "M", "H"))) |>
-  ggplot(aes(x = x, y = y, color = curvature)) +
+  ggplot(aes(x = x, y = y, color = curvature, linetype = curvature)) +
   geom_line(linewidth = 1) +
   theme_test() +
   theme(aspect.ratio = 1) +
@@ -414,14 +419,15 @@ tM_nH <- simData  |>
         axis.title = element_blank(),
         legend.position = "none") +
   scale_x_continuous(limits = c(0,20)) +
-  scale_color_manual(values = c("green3", "black"))
+  scale_color_manual(values = c("green3", "black")) +
+  scale_linetype_manual(values = c("solid", "dashed"))
 
 tH_nE <- simData  |>
   mutate(Target = "Low",
          Null = "High") |>
   filter(curvature %in% c("E", "H")) |>
   mutate(curvature = factor(curvature, levels = c("E", "M", "H"))) |>
-  ggplot(aes(x = x, y = y, color = curvature)) +
+  ggplot(aes(x = x, y = y, color = curvature, linetype = curvature)) +
   geom_line(linewidth = 1) +
   theme_test() +
   theme(aspect.ratio = 1) +
@@ -429,14 +435,15 @@ tH_nE <- simData  |>
         axis.title = element_blank(),
         legend.position = "none") +
   scale_x_continuous(limits = c(0,20)) +
-  scale_color_manual(values = c("black", "green3"))
+  scale_color_manual(values = c("black", "green3")) +
+  scale_linetype_manual(values = c("dashed", "solid"))
 
 tH_nM <- simData  |>
   mutate(Target = "Low",
          Null = "Medium") |>
   filter(curvature %in% c("H", "M")) |>
   mutate(curvature = factor(curvature, levels = c("E", "M", "H"))) |>
-  ggplot(aes(x = x, y = y, color = curvature)) +
+  ggplot(aes(x = x, y = y, color = curvature, linetype = curvature)) +
   geom_line(linewidth = 1) +
   theme_test() +
   theme(aspect.ratio = 1) +
@@ -444,7 +451,8 @@ tH_nM <- simData  |>
         axis.title = element_blank(),
         legend.position = "none") +
   scale_x_continuous(limits = c(0,20)) +
-  scale_color_manual(values = c("black", "green3"))
+  scale_color_manual(values = c("black", "green3")) +
+  scale_linetype_manual(values = c("dashed", "solid"))
 
 # linear scale
 
@@ -519,6 +527,7 @@ tH_nE_log +
 plot_layout(ncol = 6)
 
 # save thumbnails for plotting later
+
 # tM_nH_thumbnail <- ((tM_nH_linear + ggtitle("Linear") + theme(plot.title = element_text(size = 70))) + (tM_nH_log+ ggtitle("Log"))) + theme(plot.title = element_text(size = 70))
 # ggsave(tM_nH_thumbnail, file = "images/tM_nH_thumbnail-title.png", width = 6, height = 4)
 # 
@@ -528,7 +537,7 @@ plot_layout(ncol = 6)
 # tH_nM_thumbnail <- tH_nM_linear + tH_nM_log
 # ggsave(tH_nM_thumbnail, file = "images/tH_nM_thumbnail.png", width = 6, height = 3)
 # 
-# tE_nM_thumbnail <- (tE_nM_linear + tE_nM_log
+# tE_nM_thumbnail <- tE_nM_linear + tE_nM_log
 # ggsave(tE_nM_thumbnail, file = "images/tE_nM_thumbnail.png", width = 6, height = 3)
 # 
 # tH_nE_thumbnail <- tH_nE_linear + tH_nE_log
@@ -540,15 +549,16 @@ plot_layout(ncol = 6)
 
 ## Study Design and Implementation
 
+We used Prolific, a survey site that connects researchers to study participants, to recruit participants above the age of majority in their region; we did not request a representative sample, previous literature suggests there are minor effects of demographics on the outcome of graphical experiments involving lineups [@vanderplas2015spatial; @majumder_validation_2013].
+Following the completion of the current statistical lineup study, participants sequentially completed two additional graphical experiments related to the perception of logarithmic scales (to be discussed at a later date), and we compensated them for their participation in the series of all three studies.
+
+<!-- While we did not request a representative sample, previous literature suggests that prior mathematical knowledge or experience with exponential data is not associated with the outcome of graphical experiments involving lineups [@vanderplas2015spatial].  -->
+
 We showed each participant thirteen lineup plots (twelve test and one Rorschach). 
 At the start of the study, we randomly assigned participants one of the two replicate data sets for each of the six unique lineup curvature combinations. 
 Participants evaluated the lineup plot corresponding to the linear and log scales for each assigned test data set.
 For the additional Rorschach lineup plot, we randomly assigned participants one data set shown on either the linear or the log scale. 
 We randomized the order in which participants saw the assigned thirteen lineup plots.
-
-We used Prolific, a survey site that connects researchers to study participants, to recruit participants above the age of majority in their region.
-Following the completion of the current statistical lineup study, participants sequentially completed two additional graphical experiments related to the perception of logarithmic scales (to be discussed at a later date), and we compensated them for their participation in the series of all three studies.
-While we did not request a representative sample, previous literature suggests that prior mathematical knowledge or experience with exponential data is not associated with the outcome of graphical experiments involving lineups [@vanderplas2015spatial]. 
 
 \cref{fig:study-homepage} \ear{presents a screenshot of the study homepage, which served as an introduction to participants and guided them through the series of three graphical experiments. The first experiment, discussed in this paper, utilized statistical lineups to investigate the effect of logarithmic scales on perceptual sensitivity. The second experiment, incorporated an interactive 'You Draw It' feature introduced by} @aisch2015you \ear{and employed in the study by} @robinson2022eye, \ear{to examine the effect of logarithmic scales on prediction. The third experiment focused on numerical estimation and cognitive understanding of logarithmic scales.}
 
