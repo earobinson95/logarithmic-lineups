@@ -79,26 +79,24 @@ with Statistical Lineups}
 
 \bigskip
 \begin{abstract}
-(200 or fewer words) Logarithmic transformations are a standard solution
-to displaying data that spans several magnitudes within a single graph.
-This paper investigates the impact of log scales on perceptual
-sensitivity through a visual inference experiment using statistical
-lineups. Our study evaluated participant's ability to detect differences
-between exponentially increasing data, characterized by varying levels
-of curvature, using both linear and logarithmic scales. Participants
-were presented with a series of plots and asked to identify the panel
-that appeared most different from the others. Due to the choice of scale
+Logarithmic transformations are a standard solution to displaying data
+that span several magnitudes within a single graph. This paper
+investigates the impact of log scales on perceptual sensitivity through
+a visual inference experiment using statistical lineups. Our study
+evaluated participant's ability to detect differences between
+exponentially increasing data, characterized by varying levels of
+curvature, using both linear and logarithmic scales. Participants were
+presented with a series of plots and asked to identify the panel that
+appeared most different from the others. Due to the choice of scale
 altering the contextual appearance of the data, the results revealed
 slight perceptual advantages for both scales depending on the curvatures
 of the compared data. This study serves as the initial part of a
 three-paper series dedicated to understanding the perceptual and
 cognitive implications of using logarithmic scales for visualizing
-exponentially increasing data. Subsequent papers will investigate
-whether using log scales presents cognitive disadvantages, such as
-making it harder to utilize graphical information. Furthermore, these
-studies serve as an example of multi-modal graphical testing, examining
-different levels of engagement and interaction with graphics to
-establish nuanced and specific guidelines for graphical design.
+exponentially increasing data. These studies serve as an example of
+multi-modal graphical testing, examining different levels of engagement
+and interaction with graphics to establish nuanced and specific
+guidelines for graphical design.
 \end{abstract}
 
 \noindent%
@@ -118,34 +116,30 @@ vital in informing the public and policymakers about the outbreak's
 status. Local governments relied on graphics to inform their decisions
 about shutdowns and mask mandates, while residents were presented with
 data visualizations to encourage compliance with these regulations. A
-major issue {\textcolor{RedOrange}{designers}} encountered
-{\textcolor{RedOrange}{when}} creating COVID-19 plots was how to display
-data from a wide range of values
+major issue designers encountered when creating COVID-19 plots was how
+to display data from a wide range of values
 \citep{fagen-ulmschneider_2020, burnmurdoch_2020}. When faced with data
-that spans several orders of magnitude, we must decide whether to show
+that span several orders of magnitude, we must decide whether to show
 the data on its original scale (compressing the smaller magnitudes into
 a relatively small area) or to transform the scale and alter the
-contextual appearance of the data. Log {\textcolor{RedOrange}{axis}}
-transformations have emerged as a standard solution to this challenge,
-as they allow for the display of data over several orders of magnitude
-within a single graph.
+contextual appearance of the data. Log axis transformations have emerged
+as a standard solution to this challenge, as they allow for the display
+of data over several orders of magnitude within a single graph.
 
-Exponential {\textcolor{RedOrange}{data}} is one such example of a
-function that compresses smaller magnitudes into a smaller area;
-\cref{fig:log-scales}
-{\textcolor{blue}{presents hard drive capacity over the past forty years}}
-on both the linear and log scales to demonstrate the usefulness of log
-scales when dealing with data spanning multiple magnitudes. Logarithms
-facilitate the conversion of multiplicative relationships (displaying 1
-\& 10 with a distance of 10 units apart and displaying 10 \& 100 with a
-distance of 90 units apart) to additive relationships (displaying 1 \&
-10 and 10 \& 100 an equal distance apart), highlighting proportional
-relationships and linearizing power functions
-\citep{menge_logarithmic_2018}. Logarithms also have practical
-applications, simplifying the computation of small numbers such as
-likelihoods and transforming data to conform to statistical assumptions.
-Although log scales have a long history of use in fields such as
-ecology, psychophysics, engineering, and physics
+Exponential data is one such example of a function that compresses
+smaller magnitudes into a smaller area; \cref{fig:log-scales} presents
+hard drive capacity over the past forty years on both the linear and log
+scales to demonstrate the usefulness of log scales when dealing with
+data spanning multiple magnitudes. Logarithms facilitate the conversion
+of multiplicative relationships (displaying 1 \& 10 with a distance of
+10 units apart and displaying 10 \& 100 with a distance of 90 units
+apart) to additive relationships (displaying 1 \& 10 and 10 \& 100 an
+equal distance apart), highlighting proportional relationships and
+linearizing power functions \citep{menge_logarithmic_2018}. Logarithms
+also have practical applications, simplifying the computation of small
+numbers such as likelihoods and transforming data to conform to
+statistical assumptions. Although log scales have a long history of use
+in fields such as ecology, psychophysics, engineering, and physics
 \citep{heckler_student_2013, waddell2005comparisons}, there is still a
 need to understand the implications of their use and provide best
 practices for their implementation.
@@ -165,9 +159,10 @@ exponential growth often appear to have a small growth rate, while the
 middle stage seems to exhibit more quadratic growth. It is only in the
 later stages that the exponential growth becomes apparent.
 \cref{fig:exponential-stages} highlights the three stages and associated
-appearances of exponential growth at each stage. This misinterpretation
-can lead to decisions made under inaccurate understanding, resulting in
-potential consequences.
+appearances of exponential growth at each stage
+\citep{vonbergmann_2021}. This misinterpretation can lead to decisions
+made under inaccurate understanding, resulting in potential
+consequences.
 
 \begin{figure}[tbp]
 
@@ -175,21 +170,22 @@ potential consequences.
 
 }
 
-\caption{Highlights the three stages and associated appearances of exponential growth at each stage. Early stages of exponential growth often appear to have a small growth rate, while the middle stage seems to exhibit more quadratic growth. It is only in the later stages that the exponential growth becomes apparent.}\label{fig:exponential-stages}
+\caption{This figure highlights the three stages and associated appearances of exponential growth at each stage. Early stages of exponential growth often appear to have a small growth rate, while the middle stage seems to exhibit more quadratic growth. It is only in the later stages that the exponential growth becomes apparent.}\label{fig:exponential-stages}
 \end{figure}
 
 Previous studies have explored the estimation and prediction of
 exponential growth and found that individuals often underestimate
 exponential growth when presented values numerically and graphically
-\citep{wagenaar_misperception_1975}. The hierarchy of plot objects, as
-described by \citet{cleveland_graphical_1985}, offers a possible
-explanation for the underestimation observed in exponentially increasing
-trends. Experiments conducted by \citet{wagenaar_misperception_1975},
-\citet{jones_polynomial_1977}, and \citet{mackinnon_feedback_1991} aimed
-to improve estimation accuracy for exponential growth. While contextual
-knowledge or experience did not enhance estimation, instruction on
-exponential growth reduced underestimation by prompting participants to
-adjust their initial starting value
+\citep{wagenaar_misperception_1975}. The hierarchy of plot objects, such
+as lengths and angles, as described by \citet{cleveland_graphical_1985},
+offers a possible explanation for the underestimation observed in
+exponentially increasing trends. Experiments conducted by
+\citet{wagenaar_misperception_1975}, \citet{jones_polynomial_1977}, and
+\citet{mackinnon_feedback_1991} aimed to improve estimation accuracy for
+exponential growth. While contextual knowledge or experience did not
+enhance estimation, instruction on exponential growth reduced
+underestimation by prompting participants to adjust their initial
+starting value
 \citep{wagenaar_misperception_1975, jones_polynomial_1977}. Furthermore,
 providing immediate feedback to participants about the accuracy of their
 predictions improved estimation \citep{mackinnon_feedback_1991}.
@@ -201,23 +197,21 @@ sophisticated enough to intuitively understand logarithmic math and
 translate it back into real-world effects.
 \citet{menge_logarithmic_2018} surveyed ecologists to determine their
 encounter frequency and comprehension of log-scaled data in the
-literature. The authors identified three types of misconceptions
-encountered when presented with data on log-log scales: the `hand-hold
-fallacy,' `Zeno's zero fallacy,' and `watch out for curves fallacies.'
-These misconceptions arise from linear extrapolation assumptions in
-log-log space, neglecting the underlying exponential relationship in
-linear-linear space.
+literature. The authors identified misconceptions encountered when
+presented with data on log-log scales which arise from linear
+extrapolation assumptions in log-log space, neglecting the underlying
+exponential relationship in linear-linear space.
 
-In this paper, we evaluate the benefits and drawbacks of using log
+In this paper, we evaluated the benefits and drawbacks of using log
 scales and examine their impact on perceptual sensitivity by conducting
 a visual inference experiment using statistical lineups
 \citep{buja_statistical_2009}. The experiment focused on a participant's
 ability to identify differences between exponentially increasing curves
-with varying levels of curvature using both linear and log scales.
-{\textcolor{blue}{The study did not require participants receive any mathematical training or have prior}}
-understanding of exponential growth or logarithmic scales, focusing
-instead on the fundamental nature of the ability to identify differences
-in charts.
+with varying levels of curvature using both linear and log scales. The
+study did not require participants receive any mathematical training or
+have prior understanding of exponential growth or logarithmic scales,
+focusing instead on the fundamental nature of the ability to identify
+differences in charts.
 
 \citet{buja_statistical_2009} introduced statistical lineups as a
 framework for statistical inference and graphical tests. Statistical
@@ -237,17 +231,17 @@ investigations, where witnesses identify the criminal from a group of
 individuals. Similarly, researchers present a statistical lineup plot
 consisting of smaller panels and ask the viewer to identify the panel
 that contains the actual data from a set of decoy null plots.
-Researchers generate null plots
-{\textcolor{RedOrange}{containing data generated according to a prespecified hypothesis using permutation or simulation}}.
-Typically, a statistical lineup consists of 20 panels, with one target
-panel and 19 null panels. If the viewer can identify the target panel
-from the null panels, it suggests that the actual data is visually
-distinct from the data generated under the null model.
-\cref{fig:lineup-example} presents examples of statistical lineups. The
-statistical lineup on the left presents increasing exponential data
-displayed on a linear scale with panel \((5 \times 2) + 3\) as the
-target. The lineup on the right shows increasing exponential data
-plotted on a log base ten scale with panel \(2 \times 2\) as the target.
+Researchers generate null plots containing data generated according to a
+prespecified hypothesis using permutation or simulation. Typically, a
+statistical lineup consists of 20 panels, with one target panel and 19
+null panels. If the viewer can identify the target panel from the null
+panels, it suggests that the actual data is visually distinct from the
+data generated under the null model. \cref{fig:lineup-example} presents
+examples of statistical lineups. The statistical lineup on the left
+presents increasing exponential data displayed on a linear scale with
+panel \((5 \times 2) + 3\) as the target. The lineup on the right shows
+increasing exponential data plotted on a log scale with panel
+\(2 \times 2\) as the target.
 
 While explicit graphical tests direct the participant to a specific
 feature of a plot to answer a particular question, implicit graphical
@@ -269,11 +263,11 @@ Prolific and Amazon Mechanical Turk.
 \end{figure}
 
 In \protect\hyperlink{methods}{Section 2} we describe the participant
-sample, the graphical task, and the data generation process and study
-design. \protect\hyperlink{results}{Section 3} describes the participant
-data collected and shares results from the statistical analyses of the
-data using a generalized linear mixed model. We present overall
-conclusions and discussion of the results in
+sample, the graphical task, data generation process, and study design.
+\protect\hyperlink{results}{Section 3} describes the participant data
+collected and shares results from the statistical analyses of the data
+using a generalized linear mixed model. We present overall conclusions
+and discussion of the results in
 \protect\hyperlink{conclusion-discussion}{Section 4}, and provide an
 overview of future related papers. The
 \protect\hyperlink{supplementary-material}{Supplementary Material}
@@ -321,8 +315,8 @@ described in \cref{alg:lineup-parameter-estimation-algorithm} and
     \Statex \hspace*{-1em}\textbullet~\textbf{Output Parameters:} estimated model parameters $\hat\alpha, \hat\beta, \hat\theta$.
     \State Determine the $y=-x$ line scaled to fit the assigned domain and range.
     \State Map the values $x_{mid} - 0.1$ and $x_{mid} + 0.1$ to the $y=-x$ line for two additional points.
-    \State From the set of points $(x_k, y_k)$ for $k = 1,2,3,4$, calculate the coefficients from the linear regression model $\ln(y_k) = b_0 +b_1x_k$ to obtain starting values - $\alpha_0 = e^{b_0}, \beta_0 =  b_1, \theta_0 = 0.5\cdot \min(y)$
-    \State Using the \texttt{nls} function from the base \texttt{stats} package in Rstudio and the starting parameter values - $\alpha_0, \beta_0, \theta_0$ - fit the nonlinear model, $y_k = \alpha\cdot e^{\beta\cdot x_k}+\theta$ to get estimated parameter values - $\hat\alpha, \hat\beta, \hat\theta.$
+    \State From the set of points $(x_k, y_k)$ for $k = 1,2,3,4$, calculate the coefficients from the linear regression model $\ln(y_k) = b_0 +b_1x_k$ to obtain starting values for $\alpha_0 = e^{b_0}, \beta_0 =  b_1, \theta_0 = 0.5\cdot \min(y)$
+    \State Using the \texttt{nls} function from the base \texttt{stats} package in Rstudio [@Rstudio] and the starting parameter values - $\alpha_0, \beta_0, \theta_0$ - fit the nonlinear model, $y_k = \alpha\cdot e^{\beta\cdot x_k}+\theta$ to get estimated parameter values for $\hat\alpha, \hat\beta, \hat\theta.$
   \end{algorithmic}
 \end{algorithm}
 
@@ -332,7 +326,7 @@ described in \cref{alg:lineup-parameter-estimation-algorithm} and
     \Statex \hspace*{-1em}\textbullet~\textbf{Input Parameters:} sample size $N = 50$, estimated parameters $\hat\alpha$, $\hat\beta$, and $\hat\theta$, from \cref{alg:lineup-parameter-estimation-algorithm}, and standard deviation $\sigma$ from the exponential curve.
     \Statex \hspace*{-1em}\textbullet~\textbf{Output Parameters:} $N$ points, in the form of vectors $\mathbf{x}$ and $\mathbf{y}$.
     \State Generate $\tilde x_j, j = 1,..., \frac{3}{4}N$ as a sequence of evenly spaced points in $[0,20]$. This ensures the full domain of $x$ is used, fulfilling the constraints of spanning the same domain and range for each parameter combination.
-    \State Obtain $\tilde x_i, i = 1,...N$ by sampling $N = 50$ values from the set of $\tilde x_j$ values. This guarantees some variability and potential clustering in the exponential growth curve disrupting the perception due to continuity of points.
+    \State Obtain $\tilde x_i, i = 1,...,N$ by sampling $N = 50$ values from the set of $\tilde x_j$ values. This guarantees some variability and potential clustering in the exponential growth curve disrupting the perception due to continuity of points.
     \State Obtain the final $x_i$ values by jittering $\tilde x_i$.
     \State Calculate $\tilde\alpha = \frac{\hat\alpha}{e^{\sigma^2/2}}.$ This ensures that the range of simulated values for different standard deviation parameters has an equal expected value for a given rate of change due to the non-constant variance across the domain.
     \State Generate $y_i = \tilde\alpha\cdot e^{\hat\beta x_i + e_i}+\hat\theta$ where $e_i\sim N(0,\sigma^2).$
@@ -342,12 +336,11 @@ described in \cref{alg:lineup-parameter-estimation-algorithm} and
 \hypertarget{lineups-parameter-selection}{%
 \subsection{Parameter Selection}\label{lineups-parameter-selection}}
 
-We followed a `Goldilocks' inspired procedure to choose three levels of
-trend curvature (low curvature, medium curvature, and high curvature).
-For each curvature level, we simulated 1,000 data sets of
-\((x_{ij}, y_{ij})\) points for \(i = 1,...,50\) increments of
-\(x\)-values and replicate \(j = 1,...,10\) corresponding \(y\)-values
-per \(x\)-value. Each generated \(x_i\) point from
+We chose three levels of trend curvature (low curvature, medium
+curvature, and high curvature). For each curvature level, we simulated
+1,000 data sets of \((x_{ij}, y_{ij})\) points for \(i = 1,...,50\)
+increments of \(x\)-values and replicated \(j = 1,...,10\) corresponding
+\(y\)-values per \(x\)-value. Each generated \(x_i\) point from
 \cref{alg:lineup-exponential-data-simulation-algorithm} was replicated
 ten times. We fit a linear regression model on each of the individual
 data sets and computed the lack of fit statistic (LOF) which measures
@@ -404,15 +397,16 @@ implemented constraints when simulating the data. There were a total of
 six lineup curvature combinations;
 \cref{fig:curvature-combination-example} illustrates the six lineup
 curvature combinations (top: linear scale; bottom: log scale) where the
-green line indicates the curvature level designated to the target plot
-while the black line indicates the curvature level assigned to the null
-plots. Two sets of each lineup curvature combination were simulated (a
-total of twelve test data sets) and plotted on both the linear scale and
-the log scale (24 test lineup plots). In addition, three curvature
-combinations generated homogeneous ``Rorschach'' lineups, where all
-panels were from the same distribution. Each participant evaluated one
-``Rorschach'' lineup, but for simplicity, we did not describe these
-evaluations, and we left their analysis to a later date.
+green solid line indicates the curvature level designated to the target
+plot while the black dashed line indicates the curvature level assigned
+to the null plots. Two sets of each lineup curvature combination were
+simulated (a total of twelve test data sets) and plotted on both the
+linear scale and the log scale (24 test lineup plots). In addition,
+three curvature combinations generated homogeneous ``Rorschach''
+lineups, where all panels were from the same distribution. Each
+participant evaluated one ``Rorschach'' lineup, but for simplicity, we
+did not describe these evaluations, and we left their analysis to a
+later date.
 
 \begin{figure}[tbp]
 
@@ -439,27 +433,35 @@ the perception of logarithmic scales (to be discussed at a later date),
 and we compensated them for their participation in the series of all
 three studies.
 
-We showed each participant thirteen lineup plots (twelve test and one
-Rorschach). At the start of the study, we randomly assigned participants
-one of the two replicate data sets for each of the six unique lineup
-curvature combinations. Participants evaluated the lineup plot
-corresponding to the linear and log scales for each assigned test data
-set. For the additional Rorschach lineup plot, we randomly assigned
-participants one data set shown on either the linear or the log scale.
-We randomized the order in which participants saw the assigned thirteen
-lineup plots.
+We showed each participant 13 lineup plots (12 test and one Rorschach).
+At the start of the study, we randomly assigned participants to one of
+the two replicate data sets for each of the six unique lineup curvature
+combinations. Participants evaluated the lineup plot corresponding to
+the linear and log scales for each assigned test data set. For the
+additional Rorschach lineup plot, we randomly assigned participants to
+one data set shown on either the linear or the log scale. We randomized
+the order in which participants saw the assigned 13 lineup plots.
 
-\cref{fig:study-homepage}
-{\textcolor{blue}{presents a screenshot of the study homepage, which served as an introduction to participants and guided them through the series of three graphical experiments. The first experiment, discussed in this paper, utilized statistical lineups to investigate the effect of logarithmic scales on perceptual sensitivity. The second experiment, incorporated an interactive 'You Draw It' feature introduced by}}
-\citet{aisch2015you} {\textcolor{blue}{and employed in the study by}}
-\citet{robinson2022eye},
-{\textcolor{blue}{to examine the effect of logarithmic scales on prediction. The third experiment focused on numerical estimation and cognitive understanding of logarithmic scales.}}
+\cref{fig:study-homepage} presents a screenshot of the study homepage,
+which served as an introduction to participants and guided them through
+the series of three graphical experiments. The first experiment,
+discussed in this paper, utilized statistical lineups to investigate the
+effect of logarithmic scales on perceptual sensitivity. The second
+experiment, incorporated an interactive `You Draw It' feature introduced
+by \citet{aisch2015you} and employed in the study by
+\citet{robinson2022eye}, to examine the effect of logarithmic scales on
+prediction. The third experiment focused on numerical estimation and
+cognitive understanding of logarithmic scales.
 
 Participants completed the series of graphical tests using an R Shiny
 application \citep{shiny_pkg} accessible at
 \url{https://emily-robinson.shinyapps.io/perception-of-statistical-graphics-log/}.
 The code used to create the study application is available on GitHub at
 \url{https://github.com/earobinson95/perception-of-statistical-graphics-log}.
+Before completing the lineup study, the `You Draw It' study, and the
+estimation study, participants were prompted to provide their
+demographic information. The series of studies received an IRB exemption
+(IRB \#20200720178EX) from the University of Nebraska - Lincoln.
 
 \begin{figure}[tbp]
 
@@ -471,14 +473,13 @@ The code used to create the study application is available on GitHub at
 \end{figure}
 
 The statistical linenup study guided participants through the series of
-thirteen lineup plots and asked them to identify the plot which appeared
-to be most different from the others
-(\cref{fig:lineup-study-example-trial}). In each lineup evaluation,
-participants justified their choice and provided their level of
-confidence in their choice. This graphical task aimed to test an
-individual's ability to perceptually differentiate exponentially
-increasing trends with differing levels of curvature on both the linear
-and log scale.
+13 lineup plots and asked them to identify the plot which appeared to be
+most different from the others (\cref{fig:lineup-study-example-trial}).
+In each lineup evaluation, participants justified their choice and
+provided their level of confidence in their choice. This graphical task
+aimed to test an individual's ability to perceptually differentiate
+exponentially increasing trends with differing levels of curvature on
+both the linear and log scales.
 
 \begin{figure}[tbp]
 
@@ -486,7 +487,7 @@ and log scale.
 
 }
 
-\caption[Lineup study example trial]{Screenshot of an example trial participants see when completing the lineup study. The applet guided participants through 13 lineup plots and asked them to identify the plot which appeared to be most different from the others.}\label{fig:lineup-study-example-trial}
+\caption[Lineup study example trial]{Screenshot of an example trial participants see when completing the lineup study. The applet guided participants through 13 lineup plots and asked them to identify the plot which appeared to be the most different from the others.}\label{fig:lineup-study-example-trial}
 \end{figure}
 
 \hypertarget{statistical-analysis}{%
@@ -502,20 +503,20 @@ response was analyzed using a generalized linear mixed model (GLMM)
 following a binomial distribution with a logit link function with a
 row-column blocking design accounting for the variation due to
 participant and data set, respectively, as \begin{equation}
-\text{logit }P(Y_{ijk}) = \eta + \delta_i + \gamma_j + \delta \gamma_{ij} + s_l + d_k
+\text{logit }P(Y_{ijk}) = \eta + \delta_i + \gamma_j + (\delta \gamma)_{ij} + s_l + d_k
 \end{equation} \noindent where
 
 \begin{itemize}
 \item $\eta$ is the baseline average probability of selecting the target plot
 \item $\delta_i$ is the effect of scale $i = 1,2$
 \item $\gamma_j$ is the effect of curvature combination $j = 1,2,3,4,5,6$
-\item $\delta\gamma_{ij}$ is the two-way interaction between the $i^{th}$ scale and $j^{th}$ curvature combination
+\item $(\delta\gamma)_{ij}$ is the two-way interaction between the $i^{th}$ scale and $j^{th}$ curvature combination
 \item $s_l \sim N(0,\sigma^2_\text{participant})$ is the random effect for participant characteristics
 \item $d_k \sim N(0,\sigma^2_{\text{data}})$ is the random effect for data specific characteristics. 
 \end{itemize}
 
-\noindent We assumed that random effects for data set and participant
-are independent. Target plot identification was analyzed using a GLMM
+\noindent We assumed the random effects for data set and participant are
+independent. Target plot identification was analyzed using a GLMM
 implemented in \texttt{glmer} from the \texttt{lme4} R (version 4.2.2)
 package \citep{lme4}. We used the \texttt{emmeans} R package
 \citep{emmeans} to calculate the estimated target detection
@@ -526,14 +527,18 @@ linear scale.
 \section{Results}\label{results}}
 
 We recruited participants and conducted the study via Prolific, a
-crowd-sourcing website, in March 2022.
-{\textcolor{blue}{The study included a diverse group of participants, with an inner-quartile age range between 23 and 31 and a median age of 26 years old. Among the participants, 59% self-identified as male, 40% as female, and 1% as variant/nonconforming. 
-Additionally, individuals from more than 21 countries participated in the study and 97\% of the participants indicated fluency in English. 
-Moreover, 81\% of the participants reported having completed some undergraduate courses or higher.}}
-During data collection, 325 individuals completed 4,492 individual test
-lineup evaluations. We included only participants who completed the
-entire study in the final analysis, which included 311 participants and
-3,958 lineup evaluations; due to server capacity, some participants were
+crowd-sourcing website, in March 2022. The study included a diverse
+group of participants, with an inner-quartile age range between 23 and
+31 and a median age of 26 years old. Among the participants, 59\%
+self-identified as male, 40\% as female, and 1\% as
+variant/nonconforming. Additionally, individuals from more than 21
+countries participated in the study and 97\% of the participants
+indicated fluency in English. Moreover, 81\% of the participants
+reported having completed some undergraduate courses or higher. During
+data collection, 325 individuals completed 4,492 individual test lineup
+evaluations. We included only participants in the final analysis who
+completed the entire study, which included 311 participants and 3,958
+lineup evaluations. Due to server capacity, some participants were
 required to restart the study, thus resulting in the possibility of more
 than twelve lineup evaluations per participant. As a whole, participants
 evaluated each uniquely generated lineup plot between 141 and 203 times
@@ -543,18 +548,21 @@ and 65.3\% of the 1,977 lineup evaluations made on the log scale.
 
 The results from the GLMM indicated a strong interaction between the
 curvature combination and scale (\(\chi^2_5 = 294.443\);
-\(\text{p} <0.0001\)), and estimated variance due to participant and
-data set to be \(\hat\sigma^2_{\text{participant}} = 1.19\) (s.e. =
-1.09) and \(\hat\sigma^2_{\text{data}} = 0.433\) (s.e. = 0.66),
-respectively.
-{\textcolor{blue}{Therefore, we concluded there was low variability in the accuracy of target panel detection between participants and across replications of uniquely simulated data sets.
-To determine the effect of scale, we compared the estimated accuracy between the log and linear scale within each curvature combination due to the interaction as determined by the GLMM.}}
+\(\text{p} <0.0001\)), and the estimated variance due to participant and
+data set were \(\hat\sigma^2_{\text{participant}} = 1.19\) (s.e. = 1.09)
+and \(\hat\sigma^2_{\text{data}} = 0.433\) (s.e. = 0.66), respectively.
+Therefore, we concluded that there was low variability in the accuracy
+of target panel detection between participants and across replications
+of uniquely simulated data sets. To determine the effect of scale, we
+compared the estimated accuracy between the log and linear scale within
+each curvature combination due to the interaction as determined by the
+GLMM.
 
 On both the log and linear scales, the highest accuracy occurred in
 lineup plots where the target model and null model had a considerable
 difference in curvature, and the target plot had more curvature than the
 null plots (high curvature target plot embedded in low curvature null
-plots). There is a decrease in accuracy on the linear scale when
+plots). There was a decrease in accuracy on the linear scale when
 comparing a target plot with less curvature to null plots with more
 curvature (medium curvature target plot embedded in high curvature null
 plots; low curvature target plot embedded in medium curvature null
@@ -568,7 +576,7 @@ estimated (log) odds ratio of successfully identifying the target panel
 on the log scale compared to the linear scale. The thumbnail figures to
 the right of the plot illustrate the curvature combination on the linear
 (left thumbnail) and log base ten (right thumbnail) scales associated
-with the \(y\)-axis label. The choice of scale had no impact if there
+with the \(y\)-axis label. The choice of scale had no impact if the
 curvature differences were substantial and the target plot had more
 curvature than the null plots (high curvature target plot embedded in
 low curvature null plots). However, presenting data on the log scale
@@ -588,9 +596,10 @@ the linear scale, participants were perceptually identifying a convexly
 curved trend from close to a linear trend, whereas after the logarithmic
 transformation, participants were perceptually identifying a trend close
 to linear from a concavely curved trend
-\cref{fig:curvature-combination-example}. This result again supports the
-claim that it is easy to identify a curve in a bunch of lines but harder
-to identify a line in a bunch of curves \citep{best_perception_2007}.
+(\cref{fig:curvature-combination-example}). This result again supports
+the claim that it is easy to identify a curve in a group of lines but
+harder to identify a line in a group of curves
+\citep{best_perception_2007}.
 
 \begin{figure}[tbp]
 
@@ -618,7 +627,7 @@ data on a log scale improved the accuracy of differentiating between
 models with slight curvature differences or apparent curvature
 differences when the target plot had less curvature than the null plots.
 An exception occurred when identifying a plot with curvature embedded in
-surrounding plots closely relating to a linear trend, indicating that it
+surrounding plots perceived close to a linear trend, indicating that it
 is easy to identify a curve in a group of lines but much harder to
 identify a line in a group of curves. Using visual inference to identify
 these guidelines suggests that there are perceptual advantages to log
@@ -629,9 +638,13 @@ tests to understand the perceptual and cognitive implications of using
 log scales to display exponentially increasing data. In our next two
 papers in this series, we will investigate whether using log scales
 presents cognitive disadvantages, such as making it harder to utilize
-graphical information.
-{\textcolor{RedOrange}{These studies serve as an example of multi-modal graphical testing, examining different levels of engagement and interaction with graphics in order to produce nuanced, specific guidelines for graphical design.
-By testing graphics in situations similar to how they are used, we can gain additional insight into graphical perception and improve visual communication of scientific results.}}
+graphical information. These studies serve as an example of multi-modal
+graphical testing, examining different levels of engagement and
+interaction with graphics in order to produce nuanced, specific
+guidelines for graphical design. By testing graphics in situations
+similar to how they are used in practice, we can gain additional insight
+into graphical perception and improve visual communication of scientific
+results.
 
 \hypertarget{supplementary-material}{%
 \section*{Supplementary Material}\label{supplementary-material}}
@@ -644,14 +657,14 @@ By testing graphics in situations similar to how they are used, we can gain addi
   the study and used for analyses (lineup-model-data.csv).
 \item
   \textbf{Data Analysis Code:} The code used to replicate the analysis
-  in this paper (lineups-analysis.qmd)
+  in this paper (lineups-analysis.qmd).
 \item
   \textbf{Study Applet Code:} The code used to create the study applet
   via RShiny can be found on GitHub at
   \url{https://github.com/earobinson95/perception-of-statistical-graphics-log}
 \item
   \textbf{README:} File containing detailed descriptions of the
-  supplementary material (README.html).
+  supplementary material. (README.html).
 \end{itemize}
 
 \bibliographystyle{agsm}

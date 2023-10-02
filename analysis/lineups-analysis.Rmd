@@ -116,12 +116,12 @@ lineups_feedback <- dbReadTable(db_con,"feedback")  %>%
   mutate(participant_id = digest(prolific_id, "md5"))
 dbDisconnect(db_con)
 
-lineup_model_data <- read.csv(here("analyses/01-lineups/lineup-model-data.csv"))
+lineup_model_data <- read.csv("lineup-model-data.csv")
 ```
 
 ```{r}
 lineup_model_data %>%
-  select(participant_id, age, gender, academic_study, dataset_id, curvature, scale, correct, response_no, binary_response, conf_level) %>%
+  select(participant_id, age, gender, academic_study, dataset_id, curvature, scale, correct, response_no, binary_response, conf_level, choice_reason) %>%
   head() %>%
   knitr::kable()
 ```
