@@ -707,4 +707,36 @@ for analyses (lineup-model-data.csv).
 + **README:** File containing detailed descriptions of the supplementary material.
 (README.html).
 
-# Appendix {-}
+
+# References
+
+<div id="refs"></div>
+
+
+# (APPENDIX) Appendix {-}
+
+# Exponential growth rates and curvature
+
+Let us consider a simple equation for exponential growth: $$y = \exp\left\{\beta_0 + \beta_1 x\right\}$$
+
+```{r, echo = F}
+library(tidyverse)
+
+df <- crossing(tibble(b0 = c(0, 1, 2)),
+               tibble(b1 = c(1, 1.1)), 
+               tibble(x = seq(0, 10, .01))) %>%
+  mutate(y = exp(b0 + b1*x)) %>%
+  mutate(b0 = paste0("beta[0] == ", b0),
+         b1 = paste0("beta[1] == ", b1))
+
+ggplot(df, aes(x = x, y = y, color = b0)) + 
+  geom_line() +
+  scale_y_continuous(labels = scales::comma) + 
+  scale_color_discrete("Intercept", labels = expression(beta[0]==0, beta[0]==1, beta[0] == 2)) + 
+  theme_bw()  + 
+  facet_wrap(~b1, labeller = label_parsed) + 
+  theme(axis.title = element_blank(), 
+        legend.position = c(0.01, 0.99), 
+        legend.justification = c(0, 1))
+```
+
