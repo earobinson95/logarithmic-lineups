@@ -30,9 +30,10 @@ header-includes:
    - \newcommand{\ear}[1]{{\textcolor{blue}{#1}}}
    - \newcommand{\svp}[1]{{\textcolor{RedOrange}{#1}}}
    - \newcommand{\rh}[1]{{\textcolor{Green}{#1}}}
-   - \usepackage[capitalise]{cleveref}
    - \newcommand\pcref[1]{(\cref{#1})}
    - \usepackage{algorithm,algpseudocode,booktabs}
+   - \usepackage{hyperref}
+   - \usepackage[capitalise]{cleveref}
 ---
 
 ```{r setup, include = F}
@@ -705,3 +706,5 @@ for analyses (lineup-model-data.csv).
 + **Study Applet Code:** The code used to create the study applet via RShiny can be found on GitHub at <https://github.com/earobinson95/perception-of-statistical-graphics-log>
 + **README:** File containing detailed descriptions of the supplementary material.
 (README.html).
+
+# Appendix {-}

@@ -1,12 +1,14 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
 % !TeX program = pdfLaTeX
 \documentclass[12pt]{article}
 \usepackage{amsmath}
 \usepackage{graphicx,psfrag,epsf}
 \usepackage{enumerate}
-\usepackage{natbib}
+\usepackage[]{natbib}
 \usepackage{textcomp}
-\usepackage[hyphens]{url} % not crucial - just used below for the URL
-\usepackage{hyperref}
+
 
 %\pdfminorversion=4
 % NOTE: To produce blinded version, replace "0" with "1" below.
@@ -14,10 +16,10 @@
 
 % DON'T change margins - should be 1 inch all around.
 \addtolength{\oddsidemargin}{-.5in}%
-\addtolength{\evensidemargin}{-.5in}%
+\addtolength{\evensidemargin}{-1in}%
 \addtolength{\textwidth}{1in}%
-\addtolength{\textheight}{1.3in}%
-\addtolength{\topmargin}{-.8in}%
+\addtolength{\textheight}{1.7in}%
+\addtolength{\topmargin}{-1in}%
 
 %% load any required packages here
 
@@ -33,9 +35,20 @@
 \newcommand{\ear}[1]{{\textcolor{blue}{#1}}}
 \newcommand{\svp}[1]{{\textcolor{RedOrange}{#1}}}
 \newcommand{\rh}[1]{{\textcolor{Green}{#1}}}
-\usepackage[capitalise]{cleveref}
 \newcommand\pcref[1]{(\cref{#1})}
 \usepackage{algorithm,algpseudocode,booktabs}
+\usepackage{hyperref}
+\usepackage[capitalise]{cleveref}
+
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\hypersetup{
+  pdftitle={Perception and Cognitive Implications of Logarithmic Scales for Exponentially Increasing Data: Perceptual Sensitivity Tested with Statistical Lineups},
+  pdfkeywords={log scales, visual inference, graphical testing},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+
 
 \begin{document}
 
@@ -101,10 +114,11 @@ guidelines for graphical design.
 
 \noindent%
 {\it Keywords:} log scales, visual inference, graphical testing
+
 \vfill
 
 \newpage
-\spacingset{1.45} % DON'T change the spacing!
+\spacingset{1.9} % DON'T change the spacing!
 
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
@@ -670,8 +684,10 @@ results.
   supplementary material. (README.html).
 \end{itemize}
 
-\bibliographystyle{agsm}
+\bibliographystyle{plain}
+\renewcommand\refname{Appendix}
 \bibliography{bibliography.bib}
+
 
 
 \end{document}
