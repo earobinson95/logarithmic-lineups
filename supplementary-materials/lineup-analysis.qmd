@@ -3,6 +3,7 @@ title: "Lineup Analysis"
 format: html
 editor: source
 embed-resources: true
+code-fold: true
 execute: 
   echo: true
   message: false
@@ -25,22 +26,44 @@ library(emmeans)
 # Data
 
 ```{r, eval = T}
-lineup_model_data <- read_csv("lineup-model-data.csv")
+lineup_model_data <- read_csv("lineup-model-data.csv") |> 
+  mutate(conf_level = factor(conf_level, levels = c("Very Certain", "Certain", "Neutral", "Uncertain", "Very Uncertain"))) |> 
+  mutate(conf_level_num = as.numeric(conf_level))
 ```
 
 ```{r}
 lineup_model_data |> 
-  select(participant_id, age, gender, academic_study, dataset_id, curvature, scale, correct, response_no, binary_response, conf_level) |> 
+  select(participant_id, age, gender, academic_study, dataset_id, curvature, scale, correct, response_no, binary_response, conf_level, choice_reason) |> 
   head() |> 
   knitr::kable()
 ```
 
-# Analysis
+# Visual of Observed Results
 
-+ There are `r length(unique(lineups_feedback$participant_id)) %>% as.numeric` participants and `r nrow(lineups_feedback) %>% as.numeric()` lineups complete. 
 + There are `r length(unique(lineup_model_data$participant_id)) %>% as.numeric` participants and `r nrow(lineup_model_data) %>% as.numeric()` lineups complete. 
-+ Each plot was evaluated between `r min(ploteval_summary$count) %>% as.numeric() %>% round(2)` and `r max(ploteval_summary$count)  %>% as.numeric()  %>% round(2)` times (Mean: `r mean(ploteval_summary$count)  %>% as.numeric()  %>% round(2)`, SD: `r sd(ploteval_summary$count)  %>% as.numeric()  %>% round(2)`).
+<!-- + Each plot was evaluated between ` min(ploteval_summary$count) %>% as.numeric() %>% round(2)` and ` max(ploteval_summary$count)  %>% as.numeric()  %>% round(2)` times (Mean: ` mean(ploteval_summary$count)  %>% as.numeric()  %>% round(2)`, SD: ` sd(ploteval_summary$count)  %>% as.numeric()  %>% round(2)`). -->
 + Participants correctly identified the target panel in `r round(as.numeric(mean(lineup_model_data$binary_response[lineup_model_data$scale == 'linear']))*100, 2)`% of the `r nrow(lineup_model_data[lineup_model_data$scale == 'linear',]) %>% as.numeric()` lineup evaulations made on the linear scale and `r round(as.numeric(mean(lineup_model_data$binary_response[lineup_model_data$scale == 'log']))*100, 2)`% of the `r nrow(lineup_model_data[lineup_model_data$scale == 'log',]) %>% as.numeric()` lineup evaluations made on the log scale.
+
+```{r}
+lineup_model_data |> 
+  mutate(target = factor(target, levels = c("H", "M", "E")),
+         null = factor(null, levels = c("H", "M", "E"))) |> 
+  ggplot(aes(x = scale,
+             fill = as.factor(binary_response))) +
+  geom_bar(stat = "count",
+           position = "fill") +
+  facet_grid(null ~ 
+             target,
+             labeller = label_both) +
+  scale_fill_brewer(palette = "Dark2", direction = -1, label = c("Inorrect", "Correct")) +
+  scale_y_continuous(label = scales::percent) +
+  labs(y = "",
+       x = "",
+       fill = "Response") +
+  theme_test()
+```
+
+# Analysis
 
 Target plot identification was analyzed using the `glmer` function in the `lme4` R package. 
 Estimates and odds ratio comparisons between the log and linear scales were calculated using the `emmeans` R package.
@@ -70,7 +93,7 @@ glmm_mod <- glmer(binary_response ~ curvature*scale +
 
 lineup_anova <- car::Anova(glmm_mod) |> 
   broom::tidy()
-summary(glmm_mod)
+# summary(glmm_mod)
 
 lineup_anova |> 
   knitr::kable(digits = 3, caption = "Lineups GLMM ANOVA")
@@ -125,3 +148,103 @@ lineups_or_plot <- lineups_or %>%
 lineups_or_plot
 ```
 
+# Confidence Level Analysis
+
+```{r}
+#| fig-width: 12
+#| fig-height: 8
+# lineup_model_data |> 
+#   select(participant_id, dataset_id, curvature, scale, binary_response, conf_level, conf_level_num) |> 
+#   head() |> 
+#   knitr::kable()
+
+# levels(lineup_model_data$conf_level)
+
+lineup_model_data |> 
+  mutate(target = factor(target, levels = c("H", "M", "E")),
+         null = factor(null, levels = c("H", "M", "E"))) |> 
+  ggplot(aes(x = as.factor(binary_response),
+             fill = conf_level)) +
+  geom_bar(stat = "count",
+           position = "fill",
+           color = "black") +
+  facet_grid(null ~ 
+             scale + target,
+             labeller = label_both) +
+  scale_fill_brewer(palette = "PuOr", direction = -1) +
+  scale_y_continuous(label = scales::percent) +
+  scale_x_discrete(label = c("Incorrect", "Correct")) +
+  labs(y = "",
+       x = "",
+       fill = "Confidence Level") +
+  theme_test()
+```
+
+Assuming Normality...
+
+```{r}
+# normal
+conf_level_num_mod <- lmer(conf_level_num ~ curvature*scale*binary_response + 
+                            (1 | participant_id) +
+                            (1 | dataset_id),
+                  data = lineup_model_data)
+
+car::Anova(conf_level_num_mod) |> 
+  broom::tidy()
+# summary(conf_level_num_mod)
+
+emmeans(conf_level_num_mod, specs = ~ binary_response | curvature:scale) |> 
+  pairs() |> 
+  as_tibble() |> 
+  mutate(p.value = scales::pvalue(p.value))
+
+emmeans(conf_level_num_mod, specs = ~ scale | curvature:binary_response) |> 
+  pairs() |> 
+  as_tibble() |> 
+  mutate(p.value = scales::pvalue(p.value))
+
+emmeans(conf_level_num_mod, specs = ~ scale | binary_response) |> 
+  pairs() |> 
+  as_tibble() |> 
+  mutate(p.value = scales::pvalue(p.value))
+```
+
+assuming multinomial...
+
+```{r}
+# nnet
+conf_level_mod <- nnet::multinom(conf_level ~ curvature*scale*binary_response, #+ 
+                            # (1 | participant_id) +
+                            # (1 | dataset_id),
+                  data = lineup_model_data,
+                  trace = F)
+
+car::Anova(conf_level_mod) |> 
+  broom::tidy()
+# summary(conf_level_mod)
+
+# emmeans(conf_level_mod, specs = ~ binary_response | curvature:scale, type = "response") |> 
+#   pairs() |> 
+#   as_tibble() |> 
+#   mutate(p.value = scales::pvalue(p.value))
+# 
+# emmeans(conf_level_mod, specs = ~ scale | curvature:binary_response, type = "response") |> 
+#   pairs() |> 
+#   as_tibble() |> 
+#   mutate(p.value = scales::pvalue(p.value))
+# 
+# emmeans(conf_level_mod, specs = ~ scale | binary_response, type = "response") |> 
+#   pairs() |> 
+#   as_tibble() |> 
+#   mutate(p.value = scales::pvalue(p.value))
+
+# mlogit
+# conf_level_mod2 <- mlogit::mlogit(conf_level ~ curvature*scale + 
+#                             (1 | participant_id) +
+#                             (1 | dataset_id),
+#                   data = lineup_model_data)
+# 
+# car::Anova(conf_level_mod2) |> 
+#   broom::tidy()
+# summary(conf_level_mod2)
+```
