@@ -19,21 +19,26 @@ keywords:
 - visual inference
 - graphical testing
 
+bibliography: bibliography.bib
+
 abstract: |
   Logarithmic transformations are a standard solution to displaying data that span several magnitudes within a single graph. This paper investigates the impact of log scales on perceptual sensitivity through a visual inference experiment using statistical lineups. Our study evaluated participant's ability to detect differences between exponentially increasing data, characterized by varying levels of curvature, using both linear and logarithmic scales. Participants were presented with a series of plots and asked to identify the panel that appeared most different from the others. Due to the choice of scale altering the contextual appearance of the data, the results revealed slight perceptual advantages for both scales depending on the curvatures of the compared data. This study serves as the initial part of a three-paper series dedicated to understanding the perceptual and cognitive implications of using logarithmic scales for visualizing exponentially increasing data. These studies serve as an example of multi-modal graphical testing, examining different levels of engagement and interaction with graphics to establish nuanced and specific guidelines for graphical design.
 
-bibliography: bibliography.bib
-output: rticles::asa_article
-
 header-includes:
-   - \usepackage[dvipsnames]{xcolor} % colors
-   - \newcommand{\ear}[1]{{\textcolor{blue}{#1}}}
-   - \newcommand{\svp}[1]{{\textcolor{RedOrange}{#1}}}
-   - \newcommand{\rh}[1]{{\textcolor{Green}{#1}}}
-   - \newcommand\pcref[1]{(\cref{#1})}
-   - \usepackage{algorithm,algpseudocode,booktabs}
-   - \usepackage{hyperref}
-   - \usepackage[capitalise]{cleveref}
+- \usepackage[dvipsnames]{xcolor} % colors
+- \newcommand{\ear}[1]{{\textcolor{blue}{#1}}}
+- \newcommand{\svp}[1]{{\textcolor{RedOrange}{#1}}}
+- \newcommand{\rh}[1]{{\textcolor{Green}{#1}}}
+- \newcommand\pcref[1]{(\cref{#1})}
+- \usepackage{algorithm,algpseudocode,booktabs}
+- \usepackage{hyperref}
+- \usepackage[capitalise]{cleveref}
+- \usepackage{xr} \externaldocument{appendix}
+
+output: 
+  rticles::asa_article:
+    extra_dependencies: "subfig"
+    keep_tex: true
 ---
 
 ```{r setup, include = F}
@@ -71,7 +76,7 @@ library(cowplot)
 Effective communication of data is critical in influencing people's opinions and actions. 
 This consideration was particularly true during the COVID-19 pandemic, where data visualizations and dashboards were vital in informing the public and policymakers about the outbreak's status.
 Local governments relied on graphics to inform their decisions about shutdowns and mask mandates, while residents were presented with data visualizations to encourage compliance with these regulations.
-A major issue designers encountered when creating COVID-19 plots was how to display data from a wide range of values [@fagen-ulmschneider_2020; @burnmurdoch_2020].
+A major issue designers encountered when creating COVID-19 plots was how to display data from a wide range of values [@fagen-ulmschneider_2020, @burnmurdoch_2020].
 When faced with data that span several orders of magnitude, we must decide whether to show the data on its original scale (compressing the smaller magnitudes into a relatively small area) or to transform the scale and alter the contextual appearance of the data. 
 Log axis transformations have emerged as a standard solution to this challenge, as they allow for the display of data over several orders of magnitude within a single graph.
 
@@ -339,8 +344,8 @@ parameter_data |>
 
 To generate the small multiple scatter plots for the statistical lineups shown to participants in the study, we simulated a single data set corresponding to curvature level A for the target plot and multiple data sets corresponding to curvature level B for the null plots.
 The `nullabor` package in R [@buja_statistical_2009] randomly assigned the target plot to one of the panels surrounded by panels containing null plots.
-For example, the statistical lineup randomly embeds a target plot with simulated data following an increasing exponential curve with high curvature within null plots with simulated data following an increasing exponential trend with low curvature. 
-The target and null panels spanned a similar domain and range due to the implemented constraints when simulating the data. 
+<!-- For example, the statistical lineup randomly embeds a target plot with simulated data following an increasing exponential curve with high curvature within null plots with simulated data following an increasing exponential trend with low curvature.  -->
+The target and null panels span a similar domain and range due to the implemented constraints when simulating the data; the rationale for this decision is based on preattentive feature perception [@wolfeWhatPreattentiveFeature2019] and is discussed in detail in the appendix. 
 There were a total of six lineup curvature combinations; \cref{fig:curvature-combination-example} illustrates the six lineup curvature combinations (top: linear scale; bottom: log scale) where the green solid line indicates the curvature level designated to the target plot while the black dashed line indicates the curvature level assigned to the null plots.
 Two sets of each lineup curvature combination were simulated (a total of twelve test data sets) and plotted on both the linear scale and the log scale (24 test lineup plots).
 In addition, three curvature combinations generated homogeneous "Rorschach" lineups, where all panels were from the same distribution.
@@ -707,36 +712,9 @@ for analyses (lineup-model-data.csv).
 + **README:** File containing detailed descriptions of the supplementary material.
 (README.html).
 
+```{r, include = F}
+rmarkdown::render("appendix.Rmd")
+```
 
 # References
-
-<div id="refs"></div>
-
-
-# (APPENDIX) Appendix {-}
-
-# Exponential growth rates and curvature
-
-Let us consider a simple equation for exponential growth: $$y = \exp\left\{\beta_0 + \beta_1 x\right\}$$
-
-```{r, echo = F}
-library(tidyverse)
-
-df <- crossing(tibble(b0 = c(0, 1, 2)),
-               tibble(b1 = c(1, 1.1)), 
-               tibble(x = seq(0, 10, .01))) %>%
-  mutate(y = exp(b0 + b1*x)) %>%
-  mutate(b0 = paste0("beta[0] == ", b0),
-         b1 = paste0("beta[1] == ", b1))
-
-ggplot(df, aes(x = x, y = y, color = b0)) + 
-  geom_line() +
-  scale_y_continuous(labels = scales::comma) + 
-  scale_color_discrete("Intercept", labels = expression(beta[0]==0, beta[0]==1, beta[0] == 2)) + 
-  theme_bw()  + 
-  facet_wrap(~b1, labeller = label_parsed) + 
-  theme(axis.title = element_blank(), 
-        legend.position = c(0.01, 0.99), 
-        legend.justification = c(0, 1))
-```
 
