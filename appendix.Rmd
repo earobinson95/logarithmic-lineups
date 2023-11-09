@@ -248,6 +248,7 @@ ggplot(tmp, aes(x = x)) +
   )
 ```
 
+\renewcommand{\thesection}{B}
 # Participant self-percieved confidence and accuracy
 
 In addition to investigating how scale and curvature rate influence participant accuracy, we asked participants to indicate their level of confidence on a five-point likert scale by answering, "How certain are you?" \cref{fig:conf-mosaic} shows the observed confidence rating proportions for correct and incorrect identifications across the different scale and curvature combination scenarios. Overall, participants who correctly identified the target plot were more confident in their plot choice across all conditions with the highest confidence levels and accuracy in scenarios with large differences in curvature between the target and null panels. 

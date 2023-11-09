@@ -405,12 +405,12 @@ accuracy_plot_linear <- lineup_model_data |>
 picsList <- paste0("images/", str_remove_all(curvature_order, "-"), "_linear.png")
 
 pimage <- axis_canvas(accuracy_plot_linear, axis = 'x') + 
-  draw_image(picsList[1], x = 0.5, scale = 1.5) +
-  draw_image(picsList[2], x = 1.5, scale = 1.5) +
-  draw_image(picsList[3], x = 2.5, scale = 1.5) +
-  draw_image(picsList[4], x = 3.5, scale = 1.5) +
-  draw_image(picsList[5], x = 4.5, scale = 1.5) +
-  draw_image(picsList[6], x = 5.5, scale = 1.5)
+  draw_image(picsList[1], x = 0.5, scale = 1) +
+  draw_image(picsList[2], x = 1.5, scale = 1) +
+  draw_image(picsList[3], x = 2.5, scale = 1) +
+  draw_image(picsList[4], x = 3.5, scale = 1) +
+  draw_image(picsList[5], x = 4.5, scale = 1) +
+  draw_image(picsList[6], x = 5.5, scale = 1)
 
 # insert the image strip into the plot
 linear_accuracy <- ggdraw(insert_xaxis_grob(accuracy_plot_linear, pimage, position = "bottom", clip = "on"))
@@ -454,12 +454,12 @@ accuracy_plot_log <- lineup_model_data |>
 picsListLog <- paste0("images/", str_remove_all(curvature_order, "-"), "_log.png")
 
 pimage <- axis_canvas(accuracy_plot_log, axis = 'x') + 
-  draw_image(picsListLog[1], x = 0.5, scale = 1.5) +
-  draw_image(picsListLog[2], x = 1.5, scale = 1.5) +
-  draw_image(picsListLog[3], x = 2.5, scale = 1.5) +
-  draw_image(picsListLog[4], x = 3.5, scale = 1.5) +
-  draw_image(picsListLog[5], x = 4.5, scale = 1.5) +
-  draw_image(picsListLog[6], x = 5.5, scale = 1.5)
+  draw_image(picsListLog[1], x = 0.5, scale = 1) +
+  draw_image(picsListLog[2], x = 1.5, scale = 1) +
+  draw_image(picsListLog[3], x = 2.5, scale = 1) +
+  draw_image(picsListLog[4], x = 3.5, scale = 1) +
+  draw_image(picsListLog[5], x = 4.5, scale = 1) +
+  draw_image(picsListLog[6], x = 5.5, scale = 1)
 
 # insert the image strip into the plot
 log_accuracy <- ggdraw(insert_xaxis_grob(accuracy_plot_log, pimage, position = "bottom", clip = "on"))
@@ -546,12 +546,12 @@ accuracy_plot_linear <- lineup_model_data |>
 picsList <- paste0("images/", str_remove_all(curvature_order, "-"), "_linear.png")
 
 pimage <- axis_canvas(accuracy_plot_linear, axis = 'x') + 
-  draw_image(picsList[1], x = 0.5, scale = 1.5) +
-  draw_image(picsList[2], x = 1.5, scale = 1.5) +
-  draw_image(picsList[3], x = 2.5, scale = 1.5) +
-  draw_image(picsList[4], x = 3.5, scale = 1.5) +
-  draw_image(picsList[5], x = 4.5, scale = 1.5) +
-  draw_image(picsList[6], x = 5.5, scale = 1.5)
+  draw_image(picsList[1], x = 0.5, scale = 1) +
+  draw_image(picsList[2], x = 1.5, scale = 1) +
+  draw_image(picsList[3], x = 2.5, scale = 1) +
+  draw_image(picsList[4], x = 3.5, scale = 1) +
+  draw_image(picsList[5], x = 4.5, scale = 1) +
+  draw_image(picsList[6], x = 5.5, scale = 1)
 
 # insert the image strip into the plot
 linear_accuracy <- ggdraw(insert_xaxis_grob(accuracy_plot_linear, pimage, position = "bottom", clip = "on"))
@@ -595,12 +595,12 @@ accuracy_plot_log <- lineup_model_data |>
 picsListLog <- paste0("images/", str_remove_all(curvature_order, "-"), "_log.png")
 
 pimage <- axis_canvas(accuracy_plot_log, axis = 'x') + 
-  draw_image(picsListLog[1], x = 0.5, scale = 1.5) +
-  draw_image(picsListLog[2], x = 1.5, scale = 1.5) +
-  draw_image(picsListLog[3], x = 2.5, scale = 1.5) +
-  draw_image(picsListLog[4], x = 3.5, scale = 1.5) +
-  draw_image(picsListLog[5], x = 4.5, scale = 1.5) +
-  draw_image(picsListLog[6], x = 5.5, scale = 1.5)
+  draw_image(picsListLog[1], x = 0.5, scale = 1) +
+  draw_image(picsListLog[2], x = 1.5, scale = 1) +
+  draw_image(picsListLog[3], x = 2.5, scale = 1) +
+  draw_image(picsListLog[4], x = 3.5, scale = 1) +
+  draw_image(picsListLog[5], x = 4.5, scale = 1) +
+  draw_image(picsListLog[6], x = 5.5, scale = 1)
 
 # insert the image strip into the plot
 log_accuracy <- ggdraw(insert_xaxis_grob(accuracy_plot_log, pimage, position = "bottom", clip = "on"))
@@ -612,6 +612,8 @@ log_accuracy <- ggdraw(insert_xaxis_grob(accuracy_plot_log, pimage, position = "
 #| fig-height: 6
 #| fig-pos: H
 linear_accuracy / log_accuracy
+
+# ggsave(plot = acurracy_plots_together, filename = "accuracy-plot.png", width = 9, height = 6)
 ```
 
 \newpage
@@ -629,7 +631,6 @@ target_level <- c(
   "M" = "Moderate Target Curvature",
   "E" = "High Target Curvature"
 )
-
 null_level <- c(
   "H" = "Low Null Curvature",
   "M" = "Moderate Null Curvature",

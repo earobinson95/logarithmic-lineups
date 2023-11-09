@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.9)  8 NOV 2023 22:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.9)  8 NOV 2023 23:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -461,13 +461,13 @@ File: appendix_files/figure-latex/lineup-scale-data-1.pdf Graphic file (type pdf
 Package pdftex.def Info: appendix_files/figure-latex/lineup-scale-data-1.pdf  used on input line 238.
 (pdftex.def)             Requested size: 277.3648pt x 221.89755pt.
 
-LaTeX Warning: Reference `fig:conf-mosaic' on page 1 undefined on input line 252.
+LaTeX Warning: Reference `fig:conf-mosaic' on page 1 undefined on input line 254.
 
 [5 <./appendix_files/figure-latex/lineup-truncate-scales-1.pdf>]
 <appendix_files/figure-latex/conf-mosaic-1.pdf, id=98, 867.24pt x 578.16pt>
 File: appendix_files/figure-latex/conf-mosaic-1.pdf Graphic file (type pdf)
 <use appendix_files/figure-latex/conf-mosaic-1.pdf>
-Package pdftex.def Info: appendix_files/figure-latex/conf-mosaic-1.pdf  used on input line 260.
+Package pdftex.def Info: appendix_files/figure-latex/conf-mosaic-1.pdf  used on input line 262.
 (pdftex.def)             Requested size: 462.26999pt x 308.17891pt.
 [6 <./appendix_files/figure-latex/lineup-scale-data-1.pdf>] (./appendix.bbl) [7 <./appendix_files/figure-latex/conf-mosaic-1.pdf>] (./appendix.aux)
  ***********
@@ -489,7 +489,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  75i,10n,79p,389b,530s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on appendix.pdf (7 pages, 441346 bytes).
+Output written on appendix.pdf (7 pages, 441486 bytes).
 PDF statistics:
  166 PDF objects out of 1000 (max. 8388607)
  124 compressed objects within 2 object streams
