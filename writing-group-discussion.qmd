@@ -1,0 +1,679 @@
+---
+title: "Cal Poly Writing Group"
+subtitle: "JCGS Revisions -- Perception and Cognitive Implications of Logarithmic Scales for Exponentially Increasing Data: Perceptual Sensitivity Tested with Statistical Lineups"
+author: "Emily"
+format: pdf
+editor: source
+execute: 
+  warning: false
+  message: false
+  echo: false
+---
+
+```{r}
+library(readr)
+library(tidyverse)
+library(ggtext)
+library(scales)
+library(knitr)
+library(gridExtra)
+library(patchwork)
+library(cowplot)
+
+lineup_model_data <- read_csv("data/lineup-model-data.csv") |> 
+  mutate(conf_level = factor(conf_level, levels = c("Very Certain", "Certain", "Neutral", "Uncertain", "Very Uncertain"))) |> 
+  mutate(conf_level_num = as.numeric(conf_level))
+```
+
+## Useful links
+
++ Working manuscript: <https://earobinson95.github.io/logarithmic-lineups/revision-responses-1.pdf>
++ Appendix: <https://earobinson95.github.io/logarithmic-lineups/appendix.pdf>
++ All reviewer comments: <https://earobinson95.github.io/logarithmic-lineups/revision-responses-1.pdf>
+
+## Background / Set up
+
+### What is a lineup?
+
+```{r}
+#| fig-align: center
+#| fig-height: 2.75
+#| fig-width: 5.75
+lineupData_linear <- read.csv(file = "data/lineup-example-data-linear.csv")
+
+linearPlot <- ggplot(lineupData_linear, aes(x=x, y=y)) +
+  facet_wrap(~.sample, ncol=5) +
+  geom_point(size = .05) +
+  theme(aspect.ratio = 1) +
+  theme_bw(base_size = 14) +
+  theme(axis.title.y = element_blank(),
+        axis.title.x = element_blank(),
+        axis.text.y  = element_blank(),
+        axis.text.x  = element_blank(),
+        strip.text = element_text(size = 5, margin = margin(0.05,0,0.05,0, "cm")),
+        strip.background = element_rect(linewidth = 0.5)
+  )
+
+lineupData_log <- read.csv(file = "data/lineup-example-data-log.csv")
+
+logPlot <- ggplot(lineupData_log, aes(x=x, y=y)) +
+  facet_wrap(~.sample, ncol=5) +
+  geom_point(size = .05) +
+  theme(aspect.ratio = 1) +
+  theme_bw(base_size = 14) +
+  theme(axis.title.y = element_blank(),
+        axis.title.x = element_blank(),
+        axis.text.y  = element_blank(),
+        axis.text.x  = element_blank(),
+        strip.text = element_text(size = 5, margin = margin(0.05,0,0.05,0, "cm")),
+        strip.background = element_rect(linewidth = 0.5)
+  ) +
+  scale_y_continuous(trans = "log10")
+
+linearPlot + logPlot
+```
+
+### What are the factors investigated in the study?
+```{r}
+#| fig-align: center
+#| fig-height: 6
+#| fig-width: 9
+simData <- read.csv("data/difficulty-comparison-data.csv")
+
+# simData  |>
+#   mutate(curvature = factor(curvature, levels = c("E", "M", "H"), labels = c("High Curvature", "Medium Curvature", "Low Curvature"))) |>
+#   ggplot(aes(x = x, y = y, color = curvature)) +
+#   geom_line(size = 1) +
+#   theme_bw() +
+#   theme(aspect.ratio = 1) +
+#   theme(axis.text = element_blank(),
+#         axis.title = element_blank(),
+#         legend.position = "bottom") +
+#   scale_color_manual("Difficulty", values = c("#004400", "#116611", "#55aa55"))
+
+tE_nM <- simData  |>
+  mutate(Target = "High",
+         Null = "Medium") |>
+  filter(curvature %in% c("E", "M")) |>
+  mutate(curvature = factor(curvature, levels = c("E", "M", "H"))) |>
+  ggplot(aes(x = x, y = y, color = curvature, linetype = curvature)) +
+  geom_line(linewidth = 1) +
+  theme_test() +
+  theme(aspect.ratio = 1) +
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        legend.position = "none") +
+  scale_x_continuous(limits = c(0,20)) +
+  scale_color_manual(values = c("green3", "black")) +
+  scale_linetype_manual(values = c("solid", "dashed"))
+
+tE_nH <- simData  |>
+  mutate(Target = "High",
+         Null = "Low") |>
+  filter(curvature %in% c("E", "H")) |>
+  mutate(curvature = factor(curvature, levels = c("E", "M", "H"))) |>
+  ggplot(aes(x = x, y = y, color = curvature, linetype = curvature)) +
+  geom_line(linewidth = 1) +
+  theme_test() +
+  theme(aspect.ratio = 1) +
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        legend.position = "none") +
+  scale_x_continuous(limits = c(0,20)) +
+  scale_color_manual(values = c("green3", "black")) +
+  scale_linetype_manual(values = c("solid", "dashed"))
+
+tM_nE <- simData  |>
+  mutate(Target = "Medium",
+         Null = "High") |>
+  filter(curvature %in% c("E", "M")) |>
+  mutate(curvature = factor(curvature, levels = c("E", "M", "H"))) |>
+  ggplot(aes(x = x, y = y, color = curvature, linetype = curvature)) +
+  geom_line(linewidth = 1) +
+  theme_test() +
+  theme(aspect.ratio = 1) +
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        legend.position = "none") +
+  scale_x_continuous(limits = c(0,20)) +
+  scale_color_manual(values = c("black", "green3")) +
+  scale_linetype_manual(values = c("dashed", "solid"))
+
+tM_nH <- simData  |>
+  mutate(Target = "Medium",
+         Null = "Low") |>
+  filter(curvature %in% c("H", "M")) |>
+  mutate(curvature = factor(curvature, levels = c("E", "M", "H"))) |>
+  ggplot(aes(x = x, y = y, color = curvature, linetype = curvature)) +
+  geom_line(linewidth = 1) +
+  theme_test() +
+  theme(aspect.ratio = 1) +
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        legend.position = "none") +
+  scale_x_continuous(limits = c(0,20)) +
+  scale_color_manual(values = c("green3", "black")) +
+  scale_linetype_manual(values = c("solid", "dashed"))
+
+tH_nE <- simData  |>
+  mutate(Target = "Low",
+         Null = "High") |>
+  filter(curvature %in% c("E", "H")) |>
+  mutate(curvature = factor(curvature, levels = c("E", "M", "H"))) |>
+  ggplot(aes(x = x, y = y, color = curvature, linetype = curvature)) +
+  geom_line(linewidth = 1) +
+  theme_test() +
+  theme(aspect.ratio = 1) +
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        legend.position = "none") +
+  scale_x_continuous(limits = c(0,20)) +
+  scale_color_manual(values = c("black", "green3")) +
+  scale_linetype_manual(values = c("dashed", "solid"))
+
+tH_nM <- simData  |>
+  mutate(Target = "Low",
+         Null = "Medium") |>
+  filter(curvature %in% c("H", "M")) |>
+  mutate(curvature = factor(curvature, levels = c("E", "M", "H"))) |>
+  ggplot(aes(x = x, y = y, color = curvature, linetype = curvature)) +
+  geom_line(linewidth = 1) +
+  theme_test() +
+  theme(aspect.ratio = 1) +
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        legend.position = "none") +
+  scale_x_continuous(limits = c(0,20)) +
+  scale_color_manual(values = c("black", "green3")) +
+  scale_linetype_manual(values = c("dashed", "solid"))
+
+# linear scale
+
+tE_nH_linear <- tE_nH +
+  scale_y_continuous(limits = c(10,100))
+
+tE_nM_linear <- tE_nM +
+  scale_y_continuous(limits = c(10,100))
+
+tM_nH_linear <- tM_nH +
+  scale_y_continuous(limits = c(10,100))
+
+tM_nE_linear <- tM_nE +
+  scale_y_continuous(limits = c(10,100))
+
+tH_nM_linear <- tH_nM +
+  scale_y_continuous(limits = c(10,100))
+
+tH_nE_linear <- tH_nE +
+  scale_y_continuous(limits = c(10,100))
+
+# log scale
+
+library(scales)
+
+tE_nH_log <- tE_nH +
+  scale_y_continuous(limits = c(10,100), trans = "log10")
+
+tE_nM_log <- tE_nM +
+  scale_y_continuous(limits = c(10,100), trans = "log10")
+
+tM_nH_log <- tM_nH +
+  scale_y_continuous(limits = c(10,100), trans = "log10")
+
+tM_nE_log <- tM_nE +
+  scale_y_continuous(limits = c(10,100), trans = "log10")
+
+tH_nM_log <- tH_nM +
+  scale_y_continuous(limits = c(10,100), trans = "log10")
+
+tH_nE_log <- tH_nE +
+  scale_y_continuous(limits = c(10,100), trans = "log10")
+
+
+# output plots with patchwork
+tE_nH_linear +
+  ggtitle("Linear Scale") +
+  facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
+tE_nM_linear +
+  facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
+tM_nH_linear +
+  facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
+tM_nE_linear +
+  facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
+tH_nM_linear +
+  facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
+tH_nE_linear +
+  facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
+tE_nH_log +
+  ggtitle("Log10 Scale") +
+  facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
+tE_nM_log +
+  facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
+tM_nH_log +
+  facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
+tM_nE_log +
+  facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
+tH_nM_log +
+  facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
+tH_nE_log +
+  facet_grid(~ Target + Null, labeller = labeller(Target = label_both, Null = label_both)) +
+plot_layout(ncol = 6)
+```
+
+#### Coding (Cominatoric?) Challenge
+
+Side note: fun little coding challenge because my code is currently really ugly for creating these... my data for creating the plots above has 50 points to connect together for the line for each curvature level (Low, Moderate, and High). How do I match these all of these up to get all the curvature combinations and be able to facet instead of copy paste my ugly code?
+
+```{r}
+thumbnail_data <- simData |> select(curvature, x, y) |> 
+       mutate(curvature = factor(curvature, levels = c("H", "M", "E"),
+                                 labels = c("Low", "Moderate", "High")))
+```
+
+```{r}
+#| echo: true
+head(thumbnail_data)
+summary(thumbnail_data)
+```
+
+### What are the main results?
+
+```{r odds-ratio-plot, echo = F, eval = T, fig.width = 9, fig.height = 6, fig.align='center', fig.scap = "Lineups log(odds) results", fig.cap = "Estimated (log) odds ratio of successfully identifying the target panel on the log scale compared to the linear scale. The y-axis indicates the model parameters used to simulate the null plots with the target plot model parameter selection designated by shape and shade of green. The thumbnail figures on the right display the curvature combination as shown in (Figure xxx) on both scales (linear - left, log - right).", message = F, warning = F}
+lineups_or <- read.csv("data/lineups-odds-ratios.csv")
+
+library(grid)
+dodge <- position_dodge(width=0.9)
+lineups_or_plot <- lineups_or |>
+  separate(curvature, into = c(NA, "target", NA, "null")) |>
+  mutate(null = factor(null, levels = c("E", "M", "H"), labels = c("High", "Medium", "Low")),
+         target = factor(target, levels = c("E", "M", "H"), labels = c("High", "Medium", "Low"))) |>
+  ggplot(aes(x = odds.ratio, y = null, color = target, shape = target)) + 
+  geom_point(position = dodge, size = 3) + 
+  geom_errorbar(aes(xmin = asymp.LCL, xmax = asymp.UCL), position = dodge, width = .1) +
+  geom_vline(xintercept = 1) +
+  theme_bw()  +
+  theme(axis.title.x = element_text(size = 16),
+        axis.text = element_text(size = 14),
+        legend.title = element_text(size = 16),
+        legend.text  = element_text(size = 16),
+        legend.key.size = unit(2, "line"),
+        legend.position = "bottom",
+        plot.subtitle = element_text(size = 16)
+  ) +
+  labs(subtitle = "Null Panel Curvature",
+       y = "") +
+  scale_y_discrete(position = "left") +
+  scale_x_continuous("Odds ratio (on log scale) \n (Log vs Linear)", trans = "log10", labels = scales::comma) + 
+  scale_color_manual("Target Panel Curvature", values = c("#004400", "#116611", "#55aa55")) + 
+  scale_shape_discrete("Target Panel Curvature")
+
+picsList <- c("images/tM_nH_thumbnail-title.png", 
+              "images/tE_nH_thumbnail.png", 
+              "images/tH_nM_thumbnail.png", 
+              "images/tE_nM_thumbnail.png", 
+              "images/tH_nE_thumbnail.png", 
+              "images/tM_nE_thumbnail.png"
+)
+
+pimage <- axis_canvas(lineups_or_plot, axis = 'y') + 
+  draw_image(picsList[1], y = 2.75, scale = 0.75) +
+  draw_image(picsList[2], y = 2.25, scale = 0.75) +
+  draw_image(picsList[3], y = 1.75, scale = 0.75) +
+  draw_image(picsList[4], y = 1.25, scale = 0.75) +
+  draw_image(picsList[5], y = 0.75, scale = 0.75) +
+  draw_image(picsList[6], y = 0.25, scale = 0.75)
+
+# insert the image strip into the plot
+ggdraw(insert_yaxis_grob(lineups_or_plot, pimage, position = "right", clip = "on"))
+```
+
+## Reviewer Comment 1: Presentation of observed participant results
+
+*For presenting the results, I would find it very useful to see the % correct in the different combinations as well as the odds ratios. The overall \% correct is given at the beginning of the results, but the breakdown for the different pairings would be even more informative.*
+
+We recruited participants and conducted the study via Prolific, a crowd-sourcing website, in March 2022. 
+The study included a diverse group of participants, with an inner-quartile age range between 23 and 31 and a median age of 26 years old. Among the participants, 59\% self-identified as male, 40\% as female, and 1\% as variant/nonconforming. 
+Additionally, individuals from more than 21 countries participated in the study and 97\% of the participants indicated fluency in English. 
+Moreover, 81\% of the participants reported having completed some undergraduate courses or higher.
+During data collection, 325 individuals completed 4,492 individual test lineup evaluations. 
+We included only participants in the final analysis who completed the entire study, which included 311 participants and 3,958 lineup evaluations. Due to server capacity, some participants were required to restart the study, thus resulting in the possibility of more than twelve lineup evaluations per participant.
+As a whole, participants evaluated each uniquely generated lineup plot between 141 and 203 times (Mean: 164.92, SD: 14.9).
+Participants correctly identified the target panel in 47\% of the 1,981 lineup evaluations made on the linear scale and 65.3\% of the 1,977 lineup evaluations made on the log scale. 
+
+Figure xxx shows the observed participant accuracy for each scale and curvature combination scenario. We can see from the observed results that participant accuracy for the linear scale ranged from 3.3\% to 91.6\% while participant accuracy when identified on the log scale ranges from 46.6\% to 89\%. On both the log and linear scales, the highest accuracy occurred in lineup plots where the target model and null model had a considerable difference in curvature, and the target plot had more curvature than the null plots (high curvature target plot embedded in low curvature null plots).
+There was a decrease in accuracy on the linear scale when comparing a target plot with less curvature to null plots with more curvature (medium curvature target plot embedded in high curvature null plots; low curvature target plot embedded in medium curvature null plots; low curvature target plot embedded in high curvature null plots). 
+Best (2007) found that the accuracy of identifying the correct curve type was higher when presented with nonlinear trends, indicating that it is hard to say something is linear (i.e., something has less curvature), but easy to say that it is not linear; our results concur with this observation. Additionally, accuracy increased when data was displayed on the log scale compared to the linear scale in all curvature scenarios with an exception of a medium target curve embedded in low null curves. The thumbnail images below this particular scenario provides support for the results found in Best (2007) and visually demonstrate the opposing perceptual behaviors of the curves for this scenario when displayed on the two different scales. In addition to participant accuracy, we observed that, in general, participants who correctly identified the target plot were more confident across all conditions. We discuss further details regarding selection reasoning and confidence level in the appendix.
+
+\newpage
+
+**Option 1: "Decreasing order - linear scale"**
+
+```{r}
+#| fig-align: center
+
+# decreasing order
+curvature_order <- c("t-E_n-H",
+                     "t-M_n-H",
+                     "t-H_n-E",
+                     "t-E_n-M",
+                     "t-H_n-M",
+                     "t-M_n-E"
+                     )
+
+# paired order option 1
+# curvature_order <- c("t-E_n-H",
+#                      "t-M_n-H",
+#                      "t-E_n-M",
+#                      "t-H_n-M",
+#                      "t-M_n-E",
+#                      "t-H_n-E"
+#                      )
+
+accuracy_plot_linear <- lineup_model_data |> 
+  filter(scale == "linear") |> 
+  mutate(target = factor(target, levels = c("H", "M", "E")),
+         null = factor(null, levels = c("H", "M", "E")),
+         curvature = factor(curvature, levels = curvature_order)
+         ) |> 
+  ggplot(aes(x = curvature,
+             fill = as.factor(binary_response))) +
+  geom_bar(stat = "count",
+           position = "fill") +
+  # facet_wrap(~scale, 
+  #            ncol = 1,
+  #            labeller = labeller(scale = scale_level)
+  #            ) +
+  scale_fill_manual(values = c("darkgray", "#008b00"), label = c("Incorrect", "Correct")) +
+  scale_y_continuous(label = scales::percent) +
+  scale_x_discrete(labels = c("High Target Curve\nLow Null Curve",
+                              "Medium Target Curve\nLow Null Curve",
+                              "Low Target Curve\nHigh Null Curve",
+                              "High Target Curve\nMedium Null Curve",
+                              "Low Target Curve\nMedium Null Curve",
+                              "Medium Target Curve\nHigh Target Curve")) +
+  labs(y = "",
+       x = "",
+       fill = "Target Panel \nIdentification",
+       subtitle = "Linear Scale",
+       title = str_c("Proportion of Participants who ", "<span style = 'color:#008b00'>**correctly**</span>", " and ", 
+       "<span style = 'color:#808080'>**incorrectly**</span>", " identified the target panel")) +
+  theme_test() +
+  theme(axis.ticks.x = element_blank(),
+        plot.title = ggtext::element_markdown(size = 14),
+        legend.position = "none")
+
+picsList <- paste0("images/", str_remove_all(curvature_order, "-"), "_linear.png")
+
+pimage <- axis_canvas(accuracy_plot_linear, axis = 'x') + 
+  draw_image(picsList[1], x = 0.5, scale = 1.5) +
+  draw_image(picsList[2], x = 1.5, scale = 1.5) +
+  draw_image(picsList[3], x = 2.5, scale = 1.5) +
+  draw_image(picsList[4], x = 3.5, scale = 1.5) +
+  draw_image(picsList[5], x = 4.5, scale = 1.5) +
+  draw_image(picsList[6], x = 5.5, scale = 1.5)
+
+# insert the image strip into the plot
+linear_accuracy <- ggdraw(insert_xaxis_grob(accuracy_plot_linear, pimage, position = "bottom", clip = "on"))
+```
+
+```{r}
+
+scale_level <- c("linear" = "Linear Scale",
+                 "log" = "Log Scale")
+
+accuracy_plot_log <- lineup_model_data |> 
+  filter(scale == "log") |> 
+  mutate(target = factor(target, levels = c("H", "M", "E")),
+         null = factor(null, levels = c("H", "M", "E")),
+         curvature = factor(curvature, levels = curvature_order)
+         ) |> 
+  ggplot(aes(x = curvature,
+             fill = as.factor(binary_response))) +
+  geom_bar(stat = "count",
+           position = "fill") +
+  # facet_wrap(~scale, 
+  #            ncol = 1,
+  #            labeller = labeller(scale = scale_level)
+  #            ) +
+  scale_fill_manual(values = c("darkgray", "#008b00"), label = c("Incorrect", "Correct")) +
+  scale_y_continuous(label = scales::percent) +
+  scale_x_discrete(labels = c("High Target Curve\nLow Null Curve",
+                              "Medium Target Curve\nLow Null Curve",
+                              "Low Target Curve\nHigh Null Curve",
+                              "High Target Curve\nMedium Null Curve",
+                              "Low Target Curve\nMedium Null Curve",
+                              "Medium Target Curve\nHigh Target Curve")) +
+  labs(y = "",
+       x = "",
+       fill = "Target Panel \nIdentification",
+       subtitle = "Log Scale") +
+  theme_test() +
+  theme(axis.ticks.x = element_blank(),
+        legend.position = "none")
+
+picsListLog <- paste0("images/", str_remove_all(curvature_order, "-"), "_log.png")
+
+pimage <- axis_canvas(accuracy_plot_log, axis = 'x') + 
+  draw_image(picsListLog[1], x = 0.5, scale = 1.5) +
+  draw_image(picsListLog[2], x = 1.5, scale = 1.5) +
+  draw_image(picsListLog[3], x = 2.5, scale = 1.5) +
+  draw_image(picsListLog[4], x = 3.5, scale = 1.5) +
+  draw_image(picsListLog[5], x = 4.5, scale = 1.5) +
+  draw_image(picsListLog[6], x = 5.5, scale = 1.5)
+
+# insert the image strip into the plot
+log_accuracy <- ggdraw(insert_xaxis_grob(accuracy_plot_log, pimage, position = "bottom", clip = "on"))
+```
+
+```{r}
+#| fig-align: center
+#| fig-width: 9
+#| fig-height: 6
+#| #| fig-pos: H
+linear_accuracy / log_accuracy
+```
+
+\newpage
+
+**Option 2: "Pair compliment scenarios"**
+
+```{r}
+#| fig-align: center
+#| fig-height: 3.5
+#| fig-width: 7
+#| fig-pos: H
+
+# decreasing order
+# curvature_order <- c("t-E_n-H",
+#                      "t-M_n-H",
+#                      "t-H_n-E",
+#                      "t-E_n-M",
+#                      "t-H_n-M",
+#                      "t-M_n-E"
+#                      )
+
+# paired order option 1
+# curvature_order <- c("t-E_n-H",
+#                      "t-M_n-H",
+#                      "t-E_n-M",
+#                      "t-H_n-M",
+#                      "t-M_n-E",
+#                      "t-H_n-E"
+#                      )
+
+# paired order option 2
+curvature_order <- c("t-E_n-H",
+                     "t-H_n-E",
+                     "t-M_n-H",
+                     "t-H_n-M",
+                     "t-E_n-M",
+                     "t-M_n-E"
+                     )
+
+accuracy_plot_linear <- lineup_model_data |> 
+  filter(scale == "linear") |> 
+  mutate(target = factor(target, levels = c("H", "M", "E")),
+         null = factor(null, levels = c("H", "M", "E")),
+         curvature = factor(curvature, levels = curvature_order)
+         ) |> 
+  ggplot(aes(x = curvature,
+             fill = as.factor(binary_response))) +
+  geom_bar(stat = "count",
+           position = "fill") +
+  # facet_wrap(~scale, 
+  #            ncol = 1,
+  #            labeller = labeller(scale = scale_level)
+  #            ) +
+  scale_fill_manual(values = c("darkgray", "#008b00"), label = c("Incorrect", "Correct")) +
+  scale_y_continuous(label = scales::percent) +
+  scale_x_discrete(labels = c("High Target Curve\nLow Null Curve",
+                              "Low Target Curve\nHigh Null Curve",
+                              "Medium Target Curve\nLow Null Curve",
+                              "Low Target Curve\nMedium Null Curve",
+                              "High Target Curve\nMedium Null Curve",
+                              "Medium Target Curve\nHigh Target Curve")) +
+  labs(y = "",
+       x = "",
+       fill = "Target Panel \nIdentification",
+       subtitle = "Linear Scale",
+       title = str_c("Proportion of Participants who ", "<span style = 'color:#008b00'>**correctly**</span>", " and ", 
+       "<span style = 'color:#808080'>**incorrectly**</span>", " identified the target panel")) +
+  theme_test() +
+  theme(axis.ticks.x = element_blank(),
+        plot.title = ggtext::element_markdown(size = 14),
+        legend.position = "none")
+
+picsList <- paste0("images/", str_remove_all(curvature_order, "-"), "_linear.png")
+
+pimage <- axis_canvas(accuracy_plot_linear, axis = 'x') + 
+  draw_image(picsList[1], x = 0.5, scale = 1.5) +
+  draw_image(picsList[2], x = 1.5, scale = 1.5) +
+  draw_image(picsList[3], x = 2.5, scale = 1.5) +
+  draw_image(picsList[4], x = 3.5, scale = 1.5) +
+  draw_image(picsList[5], x = 4.5, scale = 1.5) +
+  draw_image(picsList[6], x = 5.5, scale = 1.5)
+
+# insert the image strip into the plot
+linear_accuracy <- ggdraw(insert_xaxis_grob(accuracy_plot_linear, pimage, position = "bottom", clip = "on"))
+```
+
+```{r}
+
+scale_level <- c("linear" = "Linear Scale",
+                 "log" = "Log Scale")
+
+accuracy_plot_log <- lineup_model_data |> 
+  filter(scale == "log") |> 
+  mutate(target = factor(target, levels = c("H", "M", "E")),
+         null = factor(null, levels = c("H", "M", "E")),
+         curvature = factor(curvature, levels = curvature_order)
+         ) |> 
+  ggplot(aes(x = curvature,
+             fill = as.factor(binary_response))) +
+  geom_bar(stat = "count",
+           position = "fill") +
+  # facet_wrap(~scale, 
+  #            ncol = 1,
+  #            labeller = labeller(scale = scale_level)
+  #            ) +
+  scale_fill_manual(values = c("darkgray", "#008b00"), label = c("Incorrect", "Correct")) +
+  scale_y_continuous(label = scales::percent) +
+  scale_x_discrete(labels = c("High Target Curve\nLow Null Curve",
+                              "Low Target Curve\nHigh Null Curve",
+                              "Medium Target Curve\nLow Null Curve",
+                              "Low Target Curve\nMedium Null Curve",
+                              "High Target Curve\nMedium Null Curve",
+                              "Medium Target Curve\nHigh Target Curve")) +
+  labs(y = "",
+       x = "",
+       fill = "Target Panel \nIdentification",
+       subtitle = "Log Scale") +
+  theme_test() +
+  theme(axis.ticks.x = element_blank(),
+        legend.position = "none")
+
+picsListLog <- paste0("images/", str_remove_all(curvature_order, "-"), "_log.png")
+
+pimage <- axis_canvas(accuracy_plot_log, axis = 'x') + 
+  draw_image(picsListLog[1], x = 0.5, scale = 1.5) +
+  draw_image(picsListLog[2], x = 1.5, scale = 1.5) +
+  draw_image(picsListLog[3], x = 2.5, scale = 1.5) +
+  draw_image(picsListLog[4], x = 3.5, scale = 1.5) +
+  draw_image(picsListLog[5], x = 4.5, scale = 1.5) +
+  draw_image(picsListLog[6], x = 5.5, scale = 1.5)
+
+# insert the image strip into the plot
+log_accuracy <- ggdraw(insert_xaxis_grob(accuracy_plot_log, pimage, position = "bottom", clip = "on"))
+```
+
+```{r}
+#| fig-align: center
+#| fig-width: 9
+#| fig-height: 6
+#| fig-pos: H
+linear_accuracy / log_accuracy
+```
+
+\newpage
+
+**Option 3: "3x3 Grid?"**
+
+```{r}
+#| fig-align: center
+#| fig-height: 5
+#| fig-width: 7
+#| fig-pos: H
+
+target_level <- c(
+  "H" = "Low Target Curvature",
+  "M" = "Moderate Target Curvature",
+  "E" = "High Target Curvature"
+)
+
+null_level <- c(
+  "H" = "Low Null Curvature",
+  "M" = "Moderate Null Curvature",
+  "E" = "High Null Curvature"
+)
+
+lineup_model_data |>
+  mutate(target = factor(target, levels = c("H", "M", "E")),
+         null = factor(null, levels = c("H", "M", "E"))) |>
+  ggplot(aes(x = scale,
+             fill = as.factor(binary_response))) +
+  geom_bar(stat = "count",
+           position = "fill") +
+  facet_grid(null ~
+             target,
+             labeller = labeller(target = target_level,
+                                 null = null_level)
+             ) +
+  scale_fill_manual(values = c("darkgray", "green4"), label = c("Incorrect", "Correct")) +
+  scale_y_continuous(label = scales::percent) +
+  labs(y = "",
+       x = "",
+       fill = "Response") +
+  theme_test()
+```
+
+**Option 4: Suggestions? Let's do a puzzle!**
+
+\newpage
+
+## Reviewer Comment (Theme) 2: Nuances of testing perception of exponential growth (and how it relates to curvature)
+
+*The introduction focuses on the role of log vs. linear scales with respect to exponentially increasing data. As the text points out, this is relevant in a number of contexts. From what I can tell, though, the study is really testing for participants’ abilities to see different degrees of curvature rather than anything specific to log vs. linear scales. (That is, there’s nothing in the lineups that shows numbers on an axis or anything else that indicates the scale.) For instance, it would be possible to create curves that aren’t exponential that have the same degrees and differences in curviness, and they would presumably give the same results. I’m not suggesting you do so; rather, I’m trying to point out that the results might be more broadly applicable to “curviness” than to log vs. linear scales alone. I think it’s fine to motivate the work with the case of log vs. linear presentation of exponential data (particularly if you’re combining with the other two parts of the overall study), but I suggest interpreting more broadly in the context of the degree of curvature displayed on a panel.*
+
+\vspace{0.1in}
+
+*“In this paper, we evaluated the benefits and drawbacks of using log scales and examine their impact on perceptual sensitivity” The intro funnels pretty well, but the first sentence of the “In this paper” paragraph (which isn’t the last) doesn’t really clarify the specific goal. Perceptual sensitivity of what? It later becomes clear that the focus is on the degree of curvature, but it would be good to clarify that earlier in the paper (before this paragraph).*
+
+\vspace{0.5in}
+
++ See Appendix A
+
+## Reviewer Comment 3: Participant self-percieved confidence level (if time)
+
+*The methods indicate that participants were asked not only about which panel differed,but also about their confidence and their justifications. I would find the confidence and the justification data illuminating, and I suggest including results from those questions in addition to the right/wrong results. This applies to the Rorschach lineups as well.*
+
++ See Appendix B

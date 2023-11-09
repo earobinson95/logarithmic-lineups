@@ -45,8 +45,16 @@ library(knitr)
 library(gridExtra)
 library(patchwork)
 library(cowplot)
+library(ggh4x)
+library(ggmosaic)
 # library(ggforce)
 # library(formatR)
+```
+
+```{r data}
+lineup_model_data <- read_csv("analysis/lineup-model-data.csv") |> 
+  mutate(conf_level = factor(conf_level, levels = c("Very Certain", "Certain", "Neutral", "Uncertain", "Very Uncertain"))) |> 
+  mutate(conf_level_num = as.numeric(conf_level))
 ```
 
 \renewcommand{\thesection}{A}
@@ -58,7 +66,7 @@ library(cowplot)
 
 # Exponential growth rates and curvature
 
-Let us consider a simple equation which we could use to simulate data which grows exponentially in $x$, with optional error term $\epsilon$: \begin{align}y &= \exp\left\{\beta_1 x + \epsilon \right\}\quad \text{where}\quad \epsilon \sim N(0, \sigma).\label{eq:simpleexp}\end{align}
+Let us consider a simple equation which we could use to simulate data which grows exponentially in $x$, with optional error term $\epsilon$: \begin{align}y &= \exp\{\beta_1 x + \epsilon\}\quad \text{where}\quad \epsilon \sim N(0, \sigma).\label{eq:simpleexp}\end{align}
 
 ```{r simple-exponential, echo = F, fig.width = 8, fig.height = 3, out.width = "\\linewidth", fig.cap = "Linear and log scale simple exponential equations as specified in \\cref{eq:simpleexp}, with error term excluded. The y-axis endpoints are a primary visual signal when differentiating between the lines in both plots.", fig.pos = 'hb'}
 library(tidyverse)
@@ -74,7 +82,10 @@ df <- crossing(tibble(b1 = c(0.06, 0.13, 0.23),
 logplot <- ggplot(df, aes(x = x, y = y, color = b1)) + 
   geom_line(size = 1) +
   scale_y_continuous(labels = scales::comma) + 
-  scale_color_discrete("Slope", labels = expression(beta[1]==0.06, beta[1]==0.13, beta[1]==0.23)) + 
+  scale_color_manual("Slope", 
+                     labels = expression(beta[1]==0.06, beta[1]==0.13, beta[1]==0.23), 
+                     values = c("#1B9E77", "#D95F02", "#7570B3"),
+                     guide = guide_legend(reverse = TRUE)) + 
   theme_bw()  + 
   theme(axis.title = element_blank(), 
         axis.text.y = element_text(angle = 90, hjust = .5, vjust = .5),
@@ -85,7 +96,10 @@ logplot <- ggplot(df, aes(x = x, y = y, color = b1)) +
 linearplot <- ggplot(df, aes(x = x, y = y, color = b1)) + 
   geom_line(size = 1) +
   scale_y_log10(labels = scales::comma) + 
-  scale_color_discrete("Slope", labels = expression(beta[1]==0.06, beta[1]==0.13, beta[1]==0.23)) + 
+  scale_color_manual("Slope", 
+                     labels = expression(beta[1]==0.06, beta[1]==0.13, beta[1]==0.23),
+                     values = c("#1B9E77", "#D95F02", "#7570B3"),
+                     guide = guide_legend(reverse = TRUE)) + 
   theme_bw()  + 
   guides(color = "none") + 
   theme(axis.title = element_blank(), 
@@ -233,3 +247,54 @@ ggplot(tmp, aes(x = x)) +
         strip.background = element_rect(linewidth = 0.5)
   )
 ```
+
+# Participant self-percieved confidence and accuracy
+
+In addition to investigating how scale and curvature rate influence participant accuracy, we asked participants to indicate their level of confidence on a five-point likert scale by answering, "How certain are you?" \cref{fig:conf-mosaic} shows the observed confidence rating proportions for correct and incorrect identifications across the different scale and curvature combination scenarios. Overall, participants who correctly identified the target plot were more confident in their plot choice across all conditions with the highest confidence levels and accuracy in scenarios with large differences in curvature between the target and null panels. 
+
+```{r conf-mosaic, fig.width=12, fig.height=8}
+
+# labellers for plotting
+target_level <- c(
+  "H" = "Low Target Curvature",
+  "M" = "Moderate Target Curvature",
+  "E" = "High Target Curvature"
+)
+
+null_level <- c(
+  "H" = "Low Null Curvature",
+  "M" = "Moderate Null Curvature",
+  "E" = "High Null Curvature"
+)
+
+scale_level <- c("linear" = "Linear Scale",
+                 "log" = "Log Scale")
+
+# confidence mosaic plot
+lineup_model_data |> 
+  mutate(target = factor(target, levels = c("H", "M", "E")),
+         null = factor(null, levels = c("H", "M", "E")),
+         conf_level = factor(conf_level, levels = c("Very Uncertain", "Uncertain", "Neutral", "Certain", "Very Certain")),
+         binary_response = factor(binary_response, levels = c(1,0), labels = c("Correct", "Incorrect"))
+         ) |>
+  ggplot() +
+  geom_mosaic(aes(x = product(binary_response),
+             fill = conf_level),
+             show.legend = T,
+             color = "black") +
+  facet_nested(null ~ scale + target,
+               # labeller = label_both
+             labeller = labeller(scale = scale_level,
+                                 null = null_level,
+                                 target = target_level)
+             ) +
+  scale_fill_brewer(palette = "PuOr",
+                    guide = guide_legend(reverse = TRUE)) +
+  labs(y = "",
+       x = "Evaluation",
+       fill = "How certain are you?") +
+  theme_test() +
+  theme(axis.text.y = element_blank(),
+        axis.ticks.y = element_blank())
+```
+

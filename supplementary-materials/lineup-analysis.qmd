@@ -45,22 +45,166 @@ lineup_model_data |>
 + Participants correctly identified the target panel in `r round(as.numeric(mean(lineup_model_data$binary_response[lineup_model_data$scale == 'linear']))*100, 2)`% of the `r nrow(lineup_model_data[lineup_model_data$scale == 'linear',]) %>% as.numeric()` lineup evaulations made on the linear scale and `r round(as.numeric(mean(lineup_model_data$binary_response[lineup_model_data$scale == 'log']))*100, 2)`% of the `r nrow(lineup_model_data[lineup_model_data$scale == 'log',]) %>% as.numeric()` lineup evaluations made on the log scale.
 
 ```{r}
-lineup_model_data |> 
+# lineup_model_data |> 
+#   mutate(target = factor(target, levels = c("H", "M", "E")),
+#          null = factor(null, levels = c("H", "M", "E"))) |> 
+#   ggplot(aes(x = scale,
+#              fill = as.factor(binary_response))) +
+#   geom_bar(stat = "count",
+#            position = "fill") +
+#   facet_grid(null ~ 
+#              target,
+#              labeller = label_both) +
+#   scale_fill_brewer(palette = "Dark2", direction = -1, label = c("Incorrect", "Correct")) +
+#   scale_y_continuous(label = scales::percent) +
+#   labs(y = "",
+#        x = "",
+#        fill = "Response") +
+#   theme_test()
+
+poo <- lineup_model_data |> 
+  group_by(scale, curvature) |> 
+  reframe(ntotal = n(),
+          ncorrect = sum(binary_response),
+          prop_correct = ncorrect/ntotal
+          ) |> 
+  ungroup() |> 
+  arrange(prop_correct) |> 
+  group_by(curvature) |>
+  reframe(avgprop = mean(prop_correct)) |> 
+  arrange(-avgprop)
+poo
+```
+
+```{r}
+
+scale_level <- c("linear" = "Linear Scale",
+                 "log" = "Log Scale")
+
+# avg order
+# curvature_order <- poo$curvature
+# curvature_order <- c("t-E_n-H",
+#                      "t-M_n-H",
+#                      "t-H_n-E",
+#                      "t-E_n-M",
+#                      "t-H_n-M",
+#                      "t-M_n-E"
+#                      )
+
+# curvature_order <- c("t-E_n-H",
+#                      "t-M_n-H",
+#                      "t-E_n-M",
+#                      "t-H_n-M",
+#                      "t-M_n-E",
+#                      "t-H_n-E"
+#                      )
+
+curvature_order <- c("t-E_n-H",
+                     "t-H_n-E",
+                     "t-M_n-H",
+                     "t-H_n-M",
+                     "t-E_n-M",
+                     "t-M_n-E"
+                     )
+
+accuracy_plot_linear <- lineup_model_data |> 
+  filter(scale == "linear") |> 
   mutate(target = factor(target, levels = c("H", "M", "E")),
-         null = factor(null, levels = c("H", "M", "E"))) |> 
-  ggplot(aes(x = scale,
+         null = factor(null, levels = c("H", "M", "E")),
+         curvature = factor(curvature, levels = curvature_order)
+         ) |> 
+  ggplot(aes(x = curvature,
              fill = as.factor(binary_response))) +
   geom_bar(stat = "count",
            position = "fill") +
-  facet_grid(null ~ 
-             target,
-             labeller = label_both) +
-  scale_fill_brewer(palette = "Dark2", direction = -1, label = c("Inorrect", "Correct")) +
+  # facet_wrap(~scale, 
+  #            ncol = 1,
+  #            labeller = labeller(scale = scale_level)
+  #            ) +
+  scale_fill_manual(values = c("darkgray", "#008b00"), label = c("Incorrect", "Correct")) +
   scale_y_continuous(label = scales::percent) +
+  # scale_x_discrete(labels = c("High Target Curve\nLow Null Curve",
+  #                             "Medium Target Curve\nLow Null Curve",
+  #                             "Low Target Curve\nHigh Null Curve",
+  #                             "High Target Curve\nMedium Null Curve",
+  #                             "Low Target Curve\nMedium Null Curve",
+  #                             "Medium Target Curve\nHigh Target Curve")) +
   labs(y = "",
        x = "",
-       fill = "Response") +
-  theme_test()
+       fill = "Target Panel \nIdentification",
+       subtitle = "Linear Scale",
+       title = str_c("Proportion of Participants who ", "<span style = 'color:#008b00'>**correctly**</span>", " and ", 
+       "<span style = 'color:#808080'>**incorrectly**</span>", " identified the target panel")) +
+  theme_test() +
+  theme(axis.ticks.x = element_blank(),
+        plot.title = ggtext::element_markdown(size = 14),
+        legend.position = "none")
+
+picsList <- paste0("../images/", str_remove_all(curvature_order, "-"), "_linear.png")
+
+pimage <- axis_canvas(accuracy_plot_linear, axis = 'x') + 
+  draw_image(picsList[1], x = 0.5, scale = 0.98) +
+  draw_image(picsList[2], x = 1.5, scale = 0.98) +
+  draw_image(picsList[3], x = 2.5, scale = 0.98) +
+  draw_image(picsList[4], x = 3.5, scale = 0.98) +
+  draw_image(picsList[5], x = 4.5, scale = 0.98) +
+  draw_image(picsList[6], x = 5.5, scale = 0.98)
+
+# insert the image strip into the plot
+linear_accuracy <- ggdraw(insert_xaxis_grob(accuracy_plot_linear, pimage, position = "bottom", clip = "on"))
+```
+
+```{r}
+
+scale_level <- c("linear" = "Linear Scale",
+                 "log" = "Log Scale")
+
+accuracy_plot_log <- lineup_model_data |> 
+  filter(scale == "log") |> 
+  mutate(target = factor(target, levels = c("H", "M", "E")),
+         null = factor(null, levels = c("H", "M", "E")),
+         curvature = factor(curvature, levels = curvature_order)
+         ) |> 
+  ggplot(aes(x = curvature,
+             fill = as.factor(binary_response))) +
+  geom_bar(stat = "count",
+           position = "fill") +
+  # facet_wrap(~scale, 
+  #            ncol = 1,
+  #            labeller = labeller(scale = scale_level)
+  #            ) +
+  scale_fill_manual(values = c("darkgray", "#008b00"), label = c("Incorrect", "Correct")) +
+  scale_y_continuous(label = scales::percent) +
+  # scale_x_discrete(labels = c("High Target Curve\nLow Null Curve",
+  #                             "Medium Target Curve\nLow Null Curve",
+  #                             "Low Target Curve\nHigh Null Curve",
+  #                             "High Target Curve\nMedium Null Curve",
+  #                             "Low Target Curve\nMedium Null Curve",
+  #                             "Medium Target Curve\nHigh Target Curve")) +
+  labs(y = "",
+       x = "",
+       fill = "Target Panel \nIdentification",
+       subtitle = "Log Scale") +
+  theme_test() +
+  theme(axis.ticks.x = element_blank(),
+        legend.position = "none")
+
+picsList <- paste0("../images/", str_remove_all(curvature_order, "-"), "_log.png")
+
+pimage <- axis_canvas(accuracy_plot_log, axis = 'x') + 
+  draw_image(picsListLog[1], x = 0.5, scale = 0.98) +
+  draw_image(picsListLog[2], x = 1.5, scale = 0.98) +
+  draw_image(picsListLog[3], x = 2.5, scale = 0.98) +
+  draw_image(picsListLog[4], x = 3.5, scale = 0.98) +
+  draw_image(picsListLog[5], x = 4.5, scale = 0.98) +
+  draw_image(picsListLog[6], x = 5.5, scale = 0.98)
+
+# insert the image strip into the plot
+log_accuracy <- ggdraw(insert_xaxis_grob(accuracy_plot_log, pimage, position = "bottom", clip = "on"))
+```
+
+```{r}
+linear_accuracy / log_accuracy
 ```
 
 # Analysis
@@ -153,31 +297,47 @@ lineups_or_plot
 ```{r}
 #| fig-width: 12
 #| fig-height: 8
-# lineup_model_data |> 
-#   select(participant_id, dataset_id, curvature, scale, binary_response, conf_level, conf_level_num) |> 
-#   head() |> 
-#   knitr::kable()
+# labellers for plotting
+target_level <- c(
+  "H" = "Low Target Curvature",
+  "M" = "Moderate Target Curvature",
+  "E" = "High Target Curvature"
+)
 
-# levels(lineup_model_data$conf_level)
+null_level <- c(
+  "H" = "Low Null Curvature",
+  "M" = "Moderate Null Curvature",
+  "E" = "High Null Curvature"
+)
+
+scale_level <- c("linear" = "Linear Scale",
+                 "log" = "Log Scale")
 
 lineup_model_data |> 
   mutate(target = factor(target, levels = c("H", "M", "E")),
-         null = factor(null, levels = c("H", "M", "E"))) |> 
-  ggplot(aes(x = as.factor(binary_response),
-             fill = conf_level)) +
-  geom_bar(stat = "count",
-           position = "fill",
-           color = "black") +
-  facet_grid(null ~ 
-             scale + target,
-             labeller = label_both) +
-  scale_fill_brewer(palette = "PuOr", direction = -1) +
-  scale_y_continuous(label = scales::percent) +
-  scale_x_discrete(label = c("Incorrect", "Correct")) +
+         null = factor(null, levels = c("H", "M", "E")),
+         conf_level = factor(conf_level, levels = c("Very Uncertain", "Uncertain", "Neutral", "Certain", "Very Certain")),
+         binary_response = factor(binary_response, levels = c(1,0), labels = c("Correct", "Incorrect"))
+         ) |>
+  ggplot() +
+  geom_mosaic(aes(x = product(binary_response),
+             fill = conf_level),
+             show.legend = T,
+             color = "black") +
+  facet_nested(null ~ scale + target,
+               # labeller = label_both
+             labeller = labeller(scale = scale_level,
+                                 null = null_level,
+                                 target = target_level)
+             ) +
+  scale_fill_brewer(palette = "PuOr",
+                    guide = guide_legend(reverse = TRUE)) +
   labs(y = "",
-       x = "",
-       fill = "Confidence Level") +
-  theme_test()
+       x = "Evaluation",
+       fill = "How certain are you?") +
+  theme_test() +
+  theme(axis.text.y = element_blank(),
+        axis.ticks.y = element_blank())
 ```
 
 Assuming Normality...

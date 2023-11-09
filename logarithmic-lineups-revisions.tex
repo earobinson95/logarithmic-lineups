@@ -1,14 +1,12 @@
-% Options for packages loaded elsewhere
-\PassOptionsToPackage{unicode}{hyperref}
-\PassOptionsToPackage{hyphens}{url}
 % !TeX program = pdfLaTeX
 \documentclass[12pt]{article}
 \usepackage{amsmath}
 \usepackage{graphicx,psfrag,epsf}
 \usepackage{enumerate}
-\usepackage[]{natbib}
+\usepackage{natbib}
 \usepackage{textcomp}
-
+\usepackage[hyphens]{url} % not crucial - just used below for the URL
+\usepackage{hyperref}
 
 %\pdfminorversion=4
 % NOTE: To produce blinded version, replace "0" with "1" below.
@@ -16,10 +14,10 @@
 
 % DON'T change margins - should be 1 inch all around.
 \addtolength{\oddsidemargin}{-.5in}%
-\addtolength{\evensidemargin}{-1in}%
+\addtolength{\evensidemargin}{-.5in}%
 \addtolength{\textwidth}{1in}%
-\addtolength{\textheight}{1.7in}%
-\addtolength{\topmargin}{-1in}%
+\addtolength{\textheight}{1.3in}%
+\addtolength{\topmargin}{-.8in}%
 
 %% load any required packages here
 
@@ -41,16 +39,6 @@
 \usepackage[capitalise]{cleveref}
 \usepackage{xr} \externaldocument{appendix}
 \usepackage{subfig}
-
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\hypersetup{
-  pdftitle={Perception and Cognitive Implications of Logarithmic Scales for Exponentially Increasing Data: Perceptual Sensitivity Tested with Statistical Lineups},
-  pdfkeywords={log scales, visual inference, graphical testing},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-
-
 
 \begin{document}
 
@@ -116,11 +104,10 @@ guidelines for graphical design.
 
 \noindent%
 {\it Keywords:} log scales, visual inference, graphical testing
-
 \vfill
 
 \newpage
-\spacingset{1.9} % DON'T change the spacing!
+\spacingset{1.45} % DON'T change the spacing!
 
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
@@ -493,11 +480,15 @@ demographic information. The series of studies received an IRB exemption
 The statistical linenup study guided participants through the series of
 13 lineup plots and asked them to identify the plot which appeared to be
 most different from the others (\cref{fig:lineup-study-example-trial}).
-In each lineup evaluation, participants justified their choice and
-provided their level of confidence in their choice. This graphical task
-aimed to test an individual's ability to perceptually differentiate
-exponentially increasing trends with differing levels of curvature on
-both the linear and log scales.
+In each lineup evaluation, participants justified their choice in a
+select all that apply format (Clustering, Different range, Different
+shape, Outlier(s), and Other) as shown on the left side of the applet
+screenshot. Additionally, participants provided their level of
+confidence in their choice by answering ``How certain are you?'' on a
+five-point likert scale from very certain to very uncertain. This
+graphical task aimed to test an individual's ability to perceptually
+differentiate exponentially increasing trends with differing levels of
+curvature on both the linear and log scales.
 
 \begin{figure}[tbp]
 
@@ -564,6 +555,45 @@ evaluated each uniquely generated lineup plot between 141 and 203 times
 panel in 47\% of the 1,981 lineup evaluations made on the linear scale
 and 65.3\% of the 1,977 lineup evaluations made on the log scale.
 
+\cref{fig:obs-accuracy} shows the observed participant accuracy for each
+scale and curvature combination scenario. We can see from the observed
+results that participant accuracy for the linear scale ranged from 3.3\%
+to 91.6\% while participant accuracy when identified on the log scale
+ranges from 46.6\% to 89\%. On both the log and linear scales, the
+highest accuracy occurred in lineup plots where the target model and
+null model had a considerable difference in curvature, and the target
+plot had more curvature than the null plots (high curvature target plot
+embedded in low curvature null plots). There was a decrease in accuracy
+on the linear scale when comparing a target plot with less curvature to
+null plots with more curvature (medium curvature target plot embedded in
+high curvature null plots; low curvature target plot embedded in medium
+curvature null plots; low curvature target plot embedded in high
+curvature null plots). \citet{best_perception_2007} found that the
+accuracy of identifying the correct curve type was higher when presented
+with nonlinear trends, indicating that it is hard to say something is
+linear (i.e., something has less curvature), but easy to say that it is
+not linear; our results concur with this observation. Additionally,
+accuracy increased when data was displayed on the log scale compared to
+the linear scale in all curvature scenarios with an exception of a
+medium target curve embedded in low null curves. The thumbnail images
+below this particular scenario provides support for the results found in
+\citet{best_perception_2007} and visually demonstrate the opposing
+perceptual behaviors of the curves for this scenario when displayed on
+the two different scales. In addition to participant accuracy, we
+observed that, in general, participants who correctly identified the
+target plot were more confident across all conditions. We discuss
+further details regarding selection reasoning and confidence level in
+the appendix.
+
+\begin{figure}[tbp]
+
+{\centering \includegraphics[width=\linewidth,]{logarithmic-lineups-revisions_files/figure-latex/obs-accuracy-1} 
+
+}
+
+\caption{The observed accuracy for identifying the target panel for each curvature combination scenario with the accuracy for the linear scale shown on the top and the accuracy for the log scale shown on the bottom. The thumbnail figures below each plot display the curvature combination as shown in \cref{fig:curvature-combination-example} on both scales.}\label{fig:obs-accuracy}
+\end{figure}
+
 The results from the GLMM indicated a strong interaction between the
 curvature combination and scale (\(\chi^2_5 = 294.443\);
 \(\text{p} <0.0001\)), and the estimated variance due to participant and
@@ -576,47 +606,33 @@ compared the estimated accuracy between the log and linear scale within
 each curvature combination due to the interaction as determined by the
 GLMM.
 
-On both the log and linear scales, the highest accuracy occurred in
-lineup plots where the target model and null model had a considerable
-difference in curvature, and the target plot had more curvature than the
-null plots (high curvature target plot embedded in low curvature null
-plots). There was a decrease in accuracy on the linear scale when
-comparing a target plot with less curvature to null plots with more
-curvature (medium curvature target plot embedded in high curvature null
-plots; low curvature target plot embedded in medium curvature null
-plots; low curvature target plot embedded in high curvature null plots).
-\citet{best_perception_2007} found that the accuracy of identifying the
-correct curve type was higher when presented with nonlinear trends,
-indicating that it is hard to say something is linear (i.e., something
-has less curvature), but easy to say that it is not linear; our results
-concur with this observation. \cref{fig:odds-ratio-plot} displays the
-estimated (log) odds ratio of successfully identifying the target panel
-on the log scale compared to the linear scale. The thumbnail figures to
-the right of the plot illustrate the curvature combination on the linear
-(left thumbnail) and log base ten (right thumbnail) scales associated
-with the \(y\)-axis label. The choice of scale had no impact if the
-curvature differences were substantial and the target plot had more
-curvature than the null plots (high curvature target plot embedded in
-low curvature null plots). However, presenting data on the log scale
-makes us more sensitive to slight changes in curvature (low or high
-curvature target plot embedded in medium curvature null plots; medium
-curvature target plot embedded in high curvature null plots) and
-apparent differences in curvature when the target plot had less
-curvature than the null plots (low curvature target plot embedded in
-high curvature null plots). An exception occurred when identifying a
-plot with curvature embedded in null plots close to a linear trend
-(medium curvature target panel embedded in low curvature null panels).
-The results indicate that participants were more accurate at detecting
-the target panel on the linear scale than on the log scale. When
-examining this curvature combination, the same perceptual effect
-occurred as we previously saw, but in a different context of scales. On
-the linear scale, participants were perceptually identifying a convexly
-curved trend from close to a linear trend, whereas after the logarithmic
-transformation, participants were perceptually identifying a trend close
-to linear from a concavely curved trend
-(\cref{fig:curvature-combination-example}). This result again supports
-the claim that it is easy to identify a curve in a group of lines but
-harder to identify a line in a group of curves
+\cref{fig:odds-ratio-plot} displays the estimated (log) odds ratio of
+successfully identifying the target panel on the log scale compared to
+the linear scale. The thumbnail figures to the right of the plot
+illustrate the curvature combination on the linear (left thumbnail) and
+log base ten (right thumbnail) scales associated with the \(y\)-axis
+label. The choice of scale had no impact if the curvature differences
+were substantial and the target plot had more curvature than the null
+plots (high curvature target plot embedded in low curvature null plots).
+However, presenting data on the log scale makes us more sensitive to
+slight changes in curvature (low or high curvature target plot embedded
+in medium curvature null plots; medium curvature target plot embedded in
+high curvature null plots) and apparent differences in curvature when
+the target plot had less curvature than the null plots (low curvature
+target plot embedded in high curvature null plots). An exception
+occurred when identifying a plot with curvature embedded in null plots
+close to a linear trend (medium curvature target panel embedded in low
+curvature null panels). The results indicate that participants were more
+accurate at detecting the target panel on the linear scale than on the
+log scale. When examining this curvature combination, the same
+perceptual effect occurred as we previously saw, but in a different
+context of scales. On the linear scale, participants were perceptually
+identifying a convexly curved trend from close to a linear trend,
+whereas after the logarithmic transformation, participants were
+perceptually identifying a trend close to linear from a concavely curved
+trend (\cref{fig:curvature-combination-example}). This result again
+supports the claim that it is easy to identify a curve in a group of
+lines but harder to identify a line in a group of curves
 \citep{best_perception_2007}.
 
 \begin{figure}[tbp]
@@ -685,10 +701,8 @@ results.
   supplementary material. (README.html).
 \end{itemize}
 
-\bibliographystyle{plain}
-\renewcommand\refname{References}
+\bibliographystyle{agsm}
 \bibliography{bibliography.bib}
-
 
 
 \end{document}
