@@ -27,7 +27,7 @@ lineup_model_data <- read_csv("data/lineup-model-data.csv") |>
 
 ## Useful links
 
-+ Working manuscript: <https://earobinson95.github.io/logarithmic-lineups/revision-responses-1.pdf>
++ Working manuscript: <https://earobinson95.github.io/logarithmic-lineups/logarithmic-lineups-revisions.pdf>
 + Appendix: <https://earobinson95.github.io/logarithmic-lineups/appendix.pdf>
 + All reviewer comments: <https://earobinson95.github.io/logarithmic-lineups/revision-responses-1.pdf>
 
