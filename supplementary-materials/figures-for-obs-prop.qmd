@@ -1,0 +1,301 @@
+---
+title: "Figures for Observed Proportions"
+format: pdf
+editor: source
+embed-resources: true
+code-fold: true
+execute: 
+  echo: false
+  message: false
+  warning: false
+---
+
+```{r}
+#| out-width: 80%
+#| fig-align: center
+knitr::include_graphics("prop-concept.png")
+```
+
+
+```{r setup}
+#| include: false
+library(tidyverse)
+library(cowplot)
+library(digest)
+library(patchwork)
+
+library(readr)
+
+library(lme4)
+library(emmeans)
+```
+
+```{r, eval = T}
+lineup_model_data <- read_csv("lineup-model-data.csv") |> 
+  mutate(conf_level = factor(conf_level, levels = c("Very Certain", "Certain", "Neutral", "Uncertain", "Very Uncertain"))) |> 
+  mutate(conf_level_num = as.numeric(conf_level))
+```
+
+```{r}
+simData <- read.csv("../data/difficulty-comparison-data.csv")
+
+tE_nM <- simData  |>
+  mutate(Target = "High",
+         Null = "Medium") |>
+  filter(curvature %in% c("E", "M")) |>
+  mutate(curvature = factor(curvature, levels = c("E", "M", "H"))) |>
+  ggplot(aes(x = x, y = y, color = curvature, linetype = curvature)) +
+  geom_line(linewidth = 1) +
+  theme_test() +
+  theme(aspect.ratio = 1) +
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        legend.position = "none") +
+  scale_x_continuous(limits = c(0,20)) +
+  scale_color_manual(values = c("green3", "black")) +
+  scale_linetype_manual(values = c("solid", "dashed"))
+
+tE_nH <- simData  |>
+  mutate(Target = "High",
+         Null = "Low") |>
+  filter(curvature %in% c("E", "H")) |>
+  mutate(curvature = factor(curvature, levels = c("E", "M", "H"))) |>
+  ggplot(aes(x = x, y = y, color = curvature, linetype = curvature)) +
+  geom_line(linewidth = 1) +
+  theme_test() +
+  theme(aspect.ratio = 1) +
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        legend.position = "none") +
+  scale_x_continuous(limits = c(0,20)) +
+  scale_color_manual(values = c("green3", "black")) +
+  scale_linetype_manual(values = c("solid", "dashed"))
+
+tM_nE <- simData  |>
+  mutate(Target = "Medium",
+         Null = "High") |>
+  filter(curvature %in% c("E", "M")) |>
+  mutate(curvature = factor(curvature, levels = c("E", "M", "H"))) |>
+  ggplot(aes(x = x, y = y, color = curvature, linetype = curvature)) +
+  geom_line(linewidth = 1) +
+  theme_test() +
+  theme(aspect.ratio = 1) +
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        legend.position = "none") +
+  scale_x_continuous(limits = c(0,20)) +
+  scale_color_manual(values = c("black", "green3")) +
+  scale_linetype_manual(values = c("dashed", "solid"))
+
+tM_nH <- simData  |>
+  mutate(Target = "Medium",
+         Null = "Low") |>
+  filter(curvature %in% c("H", "M")) |>
+  mutate(curvature = factor(curvature, levels = c("E", "M", "H"))) |>
+  ggplot(aes(x = x, y = y, color = curvature, linetype = curvature)) +
+  geom_line(linewidth = 1) +
+  theme_test() +
+  theme(aspect.ratio = 1) +
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        legend.position = "none") +
+  scale_x_continuous(limits = c(0,20)) +
+  scale_color_manual(values = c("green3", "black")) +
+  scale_linetype_manual(values = c("solid", "dashed"))
+
+tH_nE <- simData  |>
+  mutate(Target = "Low",
+         Null = "High") |>
+  filter(curvature %in% c("E", "H")) |>
+  mutate(curvature = factor(curvature, levels = c("E", "M", "H"))) |>
+  ggplot(aes(x = x, y = y, color = curvature, linetype = curvature)) +
+  geom_line(linewidth = 1) +
+  theme_test() +
+  theme(aspect.ratio = 1) +
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        legend.position = "none") +
+  scale_x_continuous(limits = c(0,20)) +
+  scale_color_manual(values = c("black", "green3")) +
+  scale_linetype_manual(values = c("dashed", "solid"))
+
+tH_nM <- simData  |>
+  mutate(Target = "Low",
+         Null = "Medium") |>
+  filter(curvature %in% c("H", "M")) |>
+  mutate(curvature = factor(curvature, levels = c("E", "M", "H"))) |>
+  ggplot(aes(x = x, y = y, color = curvature, linetype = curvature)) +
+  geom_line(linewidth = 1) +
+  theme_test() +
+  theme(aspect.ratio = 1) +
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        legend.position = "none") +
+  scale_x_continuous(limits = c(0,20)) +
+  scale_color_manual(values = c("black", "green3")) +
+  scale_linetype_manual(values = c("dashed", "solid"))
+
+# linear scale
+
+tE_nH_linear <- tE_nH +
+  scale_y_continuous(limits = c(10,100))
+
+tE_nM_linear <- tE_nM +
+  scale_y_continuous(limits = c(10,100))
+
+tM_nH_linear <- tM_nH +
+  scale_y_continuous(limits = c(10,100))
+
+tM_nE_linear <- tM_nE +
+  scale_y_continuous(limits = c(10,100))
+
+tH_nM_linear <- tH_nM +
+  scale_y_continuous(limits = c(10,100))
+
+tH_nE_linear <- tH_nE +
+  scale_y_continuous(limits = c(10,100))
+
+# log scale
+
+library(scales)
+
+tE_nH_log <- tE_nH +
+  scale_y_continuous(limits = c(10,100), trans = "log10")
+
+tE_nM_log <- tE_nM +
+  scale_y_continuous(limits = c(10,100), trans = "log10")
+
+tM_nH_log <- tM_nH +
+  scale_y_continuous(limits = c(10,100), trans = "log10")
+
+tM_nE_log <- tM_nE +
+  scale_y_continuous(limits = c(10,100), trans = "log10")
+
+tH_nM_log <- tH_nM +
+  scale_y_continuous(limits = c(10,100), trans = "log10")
+
+tH_nE_log <- tH_nE +
+  scale_y_continuous(limits = c(10,100), trans = "log10")
+```
+
+```{r}
+#| fig-width: 8
+#| fig-height: 4
+scale_level <- c("linear" = "Linear Scale",
+                 "log" = "Log Scale")
+
+curvature_order <- c("t-E_n-H",
+                     "t-H_n-E",
+                     "t-M_n-H",
+                     "t-H_n-M",
+                     "t-E_n-M",
+                     "t-M_n-E"
+                     )
+
+accuracy_plot_linear <- lineup_model_data |> 
+  filter(scale == "linear") |> 
+  mutate(target = factor(target, levels = c("H", "M", "E")),
+         null = factor(null, levels = c("H", "M", "E")),
+         curvature = factor(curvature, levels = curvature_order)
+         ) |> 
+  ggplot(aes(x = curvature,
+             fill = as.factor(binary_response))) +
+  geom_bar(stat = "count",
+           position = "fill") +
+  # facet_wrap(~scale, 
+  #            ncol = 1,
+  #            labeller = labeller(scale = scale_level)
+  #            ) +
+  scale_fill_manual(values = c("darkgray", "#008b00"), label = c("Incorrect", "Correct")) +
+  scale_y_continuous(label = scales::percent) +
+  scale_x_discrete(labels = c("Target: High\nNull: Low",
+                              "Target: Low \nNull: High",
+                              "Target: Medium \nNull: Low",
+                              "Target: Low \nNull: Medium",
+                              "Target: High \nNull: Medium",
+                              "Target: Medium \nNull: High"),
+                   position = "top") +
+  labs(y = "",
+       x = "",
+       fill = "Target Panel \nIdentification",
+       subtitle = "Linear Scale",
+       title = str_c("Proportion of Participants who ", "<span style = 'color:#008b00'>**correctly**</span>", " and ", 
+       "<span style = 'color:#808080'>**incorrectly**</span>", " identified the target panel")) +
+  theme_test() +
+  theme(axis.ticks.x = element_blank(),
+        plot.title = ggtext::element_markdown(size = 14),
+        legend.position = "none")
+
+accuracy_plot_linear
+
+```
+
+```{r}
+#| fig-width: 8
+#| fig-height: 2
+# output plots with patchwork
+linear_thumbnails <- tE_nH_linear +
+  tH_nE_linear +
+  tM_nH_linear +
+  tH_nM_linear +
+  tE_nM_linear +
+  tM_nE_linear +
+  plot_layout(ncol = 6)
+
+linear_thumbnails
+```
+
+
+\newpage
+
+```{r}
+#| fig-width: 8
+#| fig-height: 2
+log_thumbnails <- tE_nH_log +
+  tH_nE_log +
+  tM_nH_log +
+  tH_nM_log +
+  tE_nM_log +
+  tM_nE_log +
+  plot_layout(ncol = 6)
+
+log_thumbnails
+```
+
+```{r}
+#| fig-width: 8
+#| fig-height: 4
+accuracy_plot_log <- lineup_model_data |> 
+  filter(scale == "log") |> 
+  mutate(target = factor(target, levels = c("H", "M", "E")),
+         null = factor(null, levels = c("H", "M", "E")),
+         curvature = factor(curvature, levels = curvature_order)
+         ) |> 
+  ggplot(aes(x = curvature,
+             fill = as.factor(binary_response))) +
+  geom_bar(stat = "count",
+           position = "fill") +
+  # facet_wrap(~scale, 
+  #            ncol = 1,
+  #            labeller = labeller(scale = scale_level)
+  #            ) +
+  scale_fill_manual(values = c("darkgray", "#008b00"), label = c("Incorrect", "Correct")) +
+  scale_y_continuous(label = scales::percent) +
+  scale_x_discrete(labels = c("Target: High\nNull: Low",
+                              "Target: Low \nNull: High",
+                              "Target: Medium \nNull: Low",
+                              "Target: Low \nNull: Medium",
+                              "Target: High \nNull: Medium",
+                              "Target: Medium \nNull: High")) +
+  labs(y = "",
+       x = "",
+       fill = "Target Panel \nIdentification",
+       subtitle = "Log Scale") +
+  theme_test() +
+  theme(axis.ticks.x = element_blank(),
+        axis.text.x = element_blank(),
+        legend.position = "none")
+
+accuracy_plot_log
+```
+
