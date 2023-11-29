@@ -196,7 +196,19 @@ accuracy_plot_linear <- lineup_model_data |>
   filter(scale == "linear") |> 
   mutate(target = factor(target, levels = c("H", "M", "E")),
          null = factor(null, levels = c("H", "M", "E")),
-         curvature = factor(curvature, levels = curvature_order)
+         scale = factor(scale, levels = c("linear"), labels = c("Linear Scale")),
+         grouping = case_when(curvature %in% c("t-E_n-H","t-H_n-E") ~ "Large Curvature Difference",
+                              curvature %in% c("t-M_n-H","t-H_n-M") ~ "Small Curvature Difference",
+                              curvature %in% c("t-E_n-M","t-M_n-E") ~ "Small Curvature Difference ",
+                              ),
+         curvature = factor(curvature, levels = curvature_order, 
+                            labels = c("Target: High\nNull: Low", 
+                                       "Target: Low \nNull: High",
+                                       "Target: Medium \nNull: Low",
+                                       "Target: Low \nNull: Medium",
+                                       "Target: High \nNull: Medium",
+                                       "Target: Medium \nNull: High")
+                            )
          ) |> 
   ggplot(aes(x = curvature,
              fill = as.factor(binary_response))) +
@@ -208,17 +220,11 @@ accuracy_plot_linear <- lineup_model_data |>
   #            ) +
   scale_fill_manual(values = c("darkgray", "#008b00"), label = c("Incorrect", "Correct")) +
   scale_y_continuous(label = scales::percent) +
-  scale_x_discrete(labels = c("Target: High\nNull: Low",
-                              "Target: Low \nNull: High",
-                              "Target: Medium \nNull: Low",
-                              "Target: Low \nNull: Medium",
-                              "Target: High \nNull: Medium",
-                              "Target: Medium \nNull: High"),
-                   position = "top") +
+  scale_x_discrete(position = "top") +
+  facet_grid(scale ~ grouping, scales = "free_x") +
   labs(y = "",
        x = "",
        fill = "Target Panel \nIdentification",
-       subtitle = "Linear Scale",
        title = str_c("Proportion of Participants who ", "<span style = 'color:#008b00'>**correctly**</span>", " and ", 
        "<span style = 'color:#808080'>**incorrectly**</span>", " identified the target panel")) +
   theme_test() +
@@ -269,7 +275,12 @@ accuracy_plot_log <- lineup_model_data |>
   filter(scale == "log") |> 
   mutate(target = factor(target, levels = c("H", "M", "E")),
          null = factor(null, levels = c("H", "M", "E")),
-         curvature = factor(curvature, levels = curvature_order)
+         curvature = factor(curvature, levels = curvature_order),
+         scale = factor(scale, levels = c("log"), labels = c("Log Scale")),
+         grouping = case_when(curvature %in% c("t-E_n-H","t-H_n-E") ~ "Large Curvature Difference",
+                              curvature %in% c("t-M_n-H","t-H_n-M") ~ "Small Curvature Difference",
+                              curvature %in% c("t-E_n-M","t-M_n-E") ~ "Small Curvature Difference ",
+                              )
          ) |> 
   ggplot(aes(x = curvature,
              fill = as.factor(binary_response))) +
@@ -287,10 +298,10 @@ accuracy_plot_log <- lineup_model_data |>
                               "Target: Low \nNull: Medium",
                               "Target: High \nNull: Medium",
                               "Target: Medium \nNull: High")) +
+  facet_grid(scale ~ grouping, scales = "free_x") +
   labs(y = "",
        x = "",
-       fill = "Target Panel \nIdentification",
-       subtitle = "Log Scale") +
+       fill = "Target Panel \nIdentification") +
   theme_test() +
   theme(axis.ticks.x = element_blank(),
         axis.text.x = element_blank(),

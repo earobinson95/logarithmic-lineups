@@ -553,8 +553,11 @@ freqNum = function(data){
 rorschach_summary <- lineup_rorschach_data |> 
   mutate(target = fct_relevel(target,
                               c("H", "M", "E"))) |> 
+  group_by(evaluation_id, dataset_id, set, target, scale) |>
+  mutate(weight = 1/n()) |>
+  ungroup() |> 
   group_by(dataset_id, set, target, scale) |>
-  count(response_no) |> 
+  count(response_no, wt = weight) |> 
   arrange(dataset_id, set, target, scale, -n) |> 
   nest(data = c(response_no, n)) |>
   mutate(data2 = map(data, freqNum)) |> 
@@ -567,7 +570,7 @@ rorschach_summary |>
              fill = fct_rev(as.factor(freq_order)))
          ) +
   geom_bar(stat = "identity",
-           position = "stack",
+           position = "fill",
            show.legend = F,
            ) +
   facet_grid(scale ~ target, 
@@ -577,7 +580,7 @@ rorschach_summary |>
   theme_bw() +
   scale_fill_manual(values = mycolors) +
   labs(x = "Set",
-       y = "Number of Selections",
+       y = "Proportion of Selections",
        fill = "Identification")
 
 
