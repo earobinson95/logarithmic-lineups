@@ -16,6 +16,9 @@ execute:
 library(tidyverse)
 library(cowplot)
 library(digest)
+library(patchwork)
+library(ggmosaic)
+library(ggh4x)
 
 library(readr)
 
@@ -25,7 +28,7 @@ library(emmeans)
 
 # Data
 
-```{r, eval = T}
+```{r}
 lineup_model_data <- read_csv("lineup-model-data.csv") |> 
   mutate(conf_level = factor(conf_level, levels = c("Very Certain", "Certain", "Neutral", "Uncertain", "Very Uncertain"))) |> 
   mutate(conf_level_num = as.numeric(conf_level))
@@ -45,59 +48,164 @@ lineup_model_data |>
 + Participants correctly identified the target panel in `r round(as.numeric(mean(lineup_model_data$binary_response[lineup_model_data$scale == 'linear']))*100, 2)`% of the `r nrow(lineup_model_data[lineup_model_data$scale == 'linear',]) %>% as.numeric()` lineup evaulations made on the linear scale and `r round(as.numeric(mean(lineup_model_data$binary_response[lineup_model_data$scale == 'log']))*100, 2)`% of the `r nrow(lineup_model_data[lineup_model_data$scale == 'log',]) %>% as.numeric()` lineup evaluations made on the log scale.
 
 ```{r}
-# lineup_model_data |> 
-#   mutate(target = factor(target, levels = c("H", "M", "E")),
-#          null = factor(null, levels = c("H", "M", "E"))) |> 
-#   ggplot(aes(x = scale,
-#              fill = as.factor(binary_response))) +
-#   geom_bar(stat = "count",
-#            position = "fill") +
-#   facet_grid(null ~ 
-#              target,
-#              labeller = label_both) +
-#   scale_fill_brewer(palette = "Dark2", direction = -1, label = c("Incorrect", "Correct")) +
-#   scale_y_continuous(label = scales::percent) +
-#   labs(y = "",
-#        x = "",
-#        fill = "Response") +
-#   theme_test()
+#| out-width: 80%
+#| fig-align: center
+knitr::include_graphics("prop-concept.png")
+```
 
-poo <- lineup_model_data |> 
-  group_by(scale, curvature) |> 
-  reframe(ntotal = n(),
-          ncorrect = sum(binary_response),
-          prop_correct = ncorrect/ntotal
-          ) |> 
-  ungroup() |> 
-  arrange(prop_correct) |> 
-  group_by(curvature) |>
-  reframe(avgprop = mean(prop_correct)) |> 
-  arrange(-avgprop)
-poo
+```{r, eval = T}
+lineup_model_data <- read_csv("lineup-model-data.csv") |> 
+  mutate(conf_level = factor(conf_level, levels = c("Very Certain", "Certain", "Neutral", "Uncertain", "Very Uncertain"))) |> 
+  mutate(conf_level_num = as.numeric(conf_level))
 ```
 
 ```{r}
+simData <- read.csv("../data/difficulty-comparison-data.csv")
 
+tE_nM <- simData  |>
+  mutate(Target = "High",
+         Null = "Medium") |>
+  filter(curvature %in% c("E", "M")) |>
+  mutate(curvature = factor(curvature, levels = c("E", "M", "H"))) |>
+  ggplot(aes(x = x, y = y, color = curvature, linetype = curvature)) +
+  geom_line(linewidth = 1) +
+  theme_test() +
+  theme(aspect.ratio = 1) +
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        legend.position = "none") +
+  scale_x_continuous(limits = c(0,20)) +
+  scale_color_manual(values = c("green3", "black")) +
+  scale_linetype_manual(values = c("solid", "dashed"))
+
+tE_nH <- simData  |>
+  mutate(Target = "High",
+         Null = "Low") |>
+  filter(curvature %in% c("E", "H")) |>
+  mutate(curvature = factor(curvature, levels = c("E", "M", "H"))) |>
+  ggplot(aes(x = x, y = y, color = curvature, linetype = curvature)) +
+  geom_line(linewidth = 1) +
+  theme_test() +
+  theme(aspect.ratio = 1) +
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        legend.position = "none") +
+  scale_x_continuous(limits = c(0,20)) +
+  scale_color_manual(values = c("green3", "black")) +
+  scale_linetype_manual(values = c("solid", "dashed"))
+
+tM_nE <- simData  |>
+  mutate(Target = "Medium",
+         Null = "High") |>
+  filter(curvature %in% c("E", "M")) |>
+  mutate(curvature = factor(curvature, levels = c("E", "M", "H"))) |>
+  ggplot(aes(x = x, y = y, color = curvature, linetype = curvature)) +
+  geom_line(linewidth = 1) +
+  theme_test() +
+  theme(aspect.ratio = 1) +
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        legend.position = "none") +
+  scale_x_continuous(limits = c(0,20)) +
+  scale_color_manual(values = c("black", "green3")) +
+  scale_linetype_manual(values = c("dashed", "solid"))
+
+tM_nH <- simData  |>
+  mutate(Target = "Medium",
+         Null = "Low") |>
+  filter(curvature %in% c("H", "M")) |>
+  mutate(curvature = factor(curvature, levels = c("E", "M", "H"))) |>
+  ggplot(aes(x = x, y = y, color = curvature, linetype = curvature)) +
+  geom_line(linewidth = 1) +
+  theme_test() +
+  theme(aspect.ratio = 1) +
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        legend.position = "none") +
+  scale_x_continuous(limits = c(0,20)) +
+  scale_color_manual(values = c("green3", "black")) +
+  scale_linetype_manual(values = c("solid", "dashed"))
+
+tH_nE <- simData  |>
+  mutate(Target = "Low",
+         Null = "High") |>
+  filter(curvature %in% c("E", "H")) |>
+  mutate(curvature = factor(curvature, levels = c("E", "M", "H"))) |>
+  ggplot(aes(x = x, y = y, color = curvature, linetype = curvature)) +
+  geom_line(linewidth = 1) +
+  theme_test() +
+  theme(aspect.ratio = 1) +
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        legend.position = "none") +
+  scale_x_continuous(limits = c(0,20)) +
+  scale_color_manual(values = c("black", "green3")) +
+  scale_linetype_manual(values = c("dashed", "solid"))
+
+tH_nM <- simData  |>
+  mutate(Target = "Low",
+         Null = "Medium") |>
+  filter(curvature %in% c("H", "M")) |>
+  mutate(curvature = factor(curvature, levels = c("E", "M", "H"))) |>
+  ggplot(aes(x = x, y = y, color = curvature, linetype = curvature)) +
+  geom_line(linewidth = 1) +
+  theme_test() +
+  theme(aspect.ratio = 1) +
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        legend.position = "none") +
+  scale_x_continuous(limits = c(0,20)) +
+  scale_color_manual(values = c("black", "green3")) +
+  scale_linetype_manual(values = c("dashed", "solid"))
+
+# linear scale
+
+tE_nH_linear <- tE_nH +
+  scale_y_continuous(limits = c(10,100))
+
+tE_nM_linear <- tE_nM +
+  scale_y_continuous(limits = c(10,100))
+
+tM_nH_linear <- tM_nH +
+  scale_y_continuous(limits = c(10,100))
+
+tM_nE_linear <- tM_nE +
+  scale_y_continuous(limits = c(10,100))
+
+tH_nM_linear <- tH_nM +
+  scale_y_continuous(limits = c(10,100))
+
+tH_nE_linear <- tH_nE +
+  scale_y_continuous(limits = c(10,100))
+
+# log scale
+
+library(scales)
+
+tE_nH_log <- tE_nH +
+  scale_y_continuous(limits = c(10,100), trans = "log10")
+
+tE_nM_log <- tE_nM +
+  scale_y_continuous(limits = c(10,100), trans = "log10")
+
+tM_nH_log <- tM_nH +
+  scale_y_continuous(limits = c(10,100), trans = "log10")
+
+tM_nE_log <- tM_nE +
+  scale_y_continuous(limits = c(10,100), trans = "log10")
+
+tH_nM_log <- tH_nM +
+  scale_y_continuous(limits = c(10,100), trans = "log10")
+
+tH_nE_log <- tH_nE +
+  scale_y_continuous(limits = c(10,100), trans = "log10")
+```
+
+```{r}
+#| fig-width: 8
+#| fig-height: 4
 scale_level <- c("linear" = "Linear Scale",
                  "log" = "Log Scale")
-
-# avg order
-# curvature_order <- poo$curvature
-# curvature_order <- c("t-E_n-H",
-#                      "t-M_n-H",
-#                      "t-H_n-E",
-#                      "t-E_n-M",
-#                      "t-H_n-M",
-#                      "t-M_n-E"
-#                      )
-
-# curvature_order <- c("t-E_n-H",
-#                      "t-M_n-H",
-#                      "t-E_n-M",
-#                      "t-H_n-M",
-#                      "t-M_n-E",
-#                      "t-H_n-E"
-#                      )
 
 curvature_order <- c("t-E_n-H",
                      "t-H_n-E",
@@ -123,12 +231,13 @@ accuracy_plot_linear <- lineup_model_data |>
   #            ) +
   scale_fill_manual(values = c("darkgray", "#008b00"), label = c("Incorrect", "Correct")) +
   scale_y_continuous(label = scales::percent) +
-  # scale_x_discrete(labels = c("High Target Curve\nLow Null Curve",
-  #                             "Medium Target Curve\nLow Null Curve",
-  #                             "Low Target Curve\nHigh Null Curve",
-  #                             "High Target Curve\nMedium Null Curve",
-  #                             "Low Target Curve\nMedium Null Curve",
-  #                             "Medium Target Curve\nHigh Target Curve")) +
+  scale_x_discrete(labels = c("Target: High\nNull: Low",
+                              "Target: Low \nNull: High",
+                              "Target: Medium \nNull: Low",
+                              "Target: Low \nNull: Medium",
+                              "Target: High \nNull: Medium",
+                              "Target: Medium \nNull: High"),
+                   position = "top") +
   labs(y = "",
        x = "",
        fill = "Target Panel \nIdentification",
@@ -140,25 +249,42 @@ accuracy_plot_linear <- lineup_model_data |>
         plot.title = ggtext::element_markdown(size = 14),
         legend.position = "none")
 
-picsList <- paste0("../images/", str_remove_all(curvature_order, "-"), "_linear.png")
+accuracy_plot_linear
 
-pimage <- axis_canvas(accuracy_plot_linear, axis = 'x') + 
-  draw_image(picsList[1], x = 0.5, scale = 0.98) +
-  draw_image(picsList[2], x = 1.5, scale = 0.98) +
-  draw_image(picsList[3], x = 2.5, scale = 0.98) +
-  draw_image(picsList[4], x = 3.5, scale = 0.98) +
-  draw_image(picsList[5], x = 4.5, scale = 0.98) +
-  draw_image(picsList[6], x = 5.5, scale = 0.98)
-
-# insert the image strip into the plot
-linear_accuracy <- ggdraw(insert_xaxis_grob(accuracy_plot_linear, pimage, position = "bottom", clip = "on"))
 ```
 
 ```{r}
+#| fig-width: 8
+#| fig-height: 2
+# output plots with patchwork
+linear_thumbnails <- tE_nH_linear +
+  tH_nE_linear +
+  tM_nH_linear +
+  tH_nM_linear +
+  tE_nM_linear +
+  tM_nE_linear +
+  plot_layout(ncol = 6)
 
-scale_level <- c("linear" = "Linear Scale",
-                 "log" = "Log Scale")
+linear_thumbnails
+```
 
+```{r}
+#| fig-width: 8
+#| fig-height: 2
+log_thumbnails <- tE_nH_log +
+  tH_nE_log +
+  tM_nH_log +
+  tH_nM_log +
+  tE_nM_log +
+  tM_nE_log +
+  plot_layout(ncol = 6)
+
+log_thumbnails
+```
+
+```{r}
+#| fig-width: 8
+#| fig-height: 4
 accuracy_plot_log <- lineup_model_data |> 
   filter(scale == "log") |> 
   mutate(target = factor(target, levels = c("H", "M", "E")),
@@ -175,36 +301,22 @@ accuracy_plot_log <- lineup_model_data |>
   #            ) +
   scale_fill_manual(values = c("darkgray", "#008b00"), label = c("Incorrect", "Correct")) +
   scale_y_continuous(label = scales::percent) +
-  # scale_x_discrete(labels = c("High Target Curve\nLow Null Curve",
-  #                             "Medium Target Curve\nLow Null Curve",
-  #                             "Low Target Curve\nHigh Null Curve",
-  #                             "High Target Curve\nMedium Null Curve",
-  #                             "Low Target Curve\nMedium Null Curve",
-  #                             "Medium Target Curve\nHigh Target Curve")) +
+  scale_x_discrete(labels = c("Target: High\nNull: Low",
+                              "Target: Low \nNull: High",
+                              "Target: Medium \nNull: Low",
+                              "Target: Low \nNull: Medium",
+                              "Target: High \nNull: Medium",
+                              "Target: Medium \nNull: High")) +
   labs(y = "",
        x = "",
        fill = "Target Panel \nIdentification",
        subtitle = "Log Scale") +
   theme_test() +
   theme(axis.ticks.x = element_blank(),
+        axis.text.x = element_blank(),
         legend.position = "none")
 
-picsList <- paste0("../images/", str_remove_all(curvature_order, "-"), "_log.png")
-
-pimage <- axis_canvas(accuracy_plot_log, axis = 'x') + 
-  draw_image(picsListLog[1], x = 0.5, scale = 0.98) +
-  draw_image(picsListLog[2], x = 1.5, scale = 0.98) +
-  draw_image(picsListLog[3], x = 2.5, scale = 0.98) +
-  draw_image(picsListLog[4], x = 3.5, scale = 0.98) +
-  draw_image(picsListLog[5], x = 4.5, scale = 0.98) +
-  draw_image(picsListLog[6], x = 5.5, scale = 0.98)
-
-# insert the image strip into the plot
-log_accuracy <- ggdraw(insert_xaxis_grob(accuracy_plot_log, pimage, position = "bottom", clip = "on"))
-```
-
-```{r}
-linear_accuracy / log_accuracy
+accuracy_plot_log
 ```
 
 # Analysis
@@ -407,4 +519,99 @@ car::Anova(conf_level_mod) |>
 # car::Anova(conf_level_mod2) |> 
 #   broom::tidy()
 # summary(conf_level_mod2)
+```
+
+# Rorschach lineups
+
+<https://www.researchgate.net/profile/Susan-Vanderplas/publication/347178077_Statistical_Significance_Calculations_for_Scenarios_in_Visual_Inference/links/600598fe45851553a0522f65/Statistical-Significance-Calculations-for-Scenarios-in-Visual-Inference.pdf?_sg%5B0%5D=started_experiment_milestone&origin=journalDetail>
+
+```{r}
+lineup_rorschach_data <- read_csv("lineup-rorschach-data.csv") |> 
+  mutate(conf_level = factor(conf_level, levels = c("Very Certain", "Certain", "Neutral", "Uncertain", "Very Uncertain"))) |> 
+  mutate(conf_level_num = as.numeric(conf_level))
+lineup_rorschach_data
+```
+
+```{r}
+# unique(lineup_rorschach_data$dataset_id) |> length()
+target_level <- c(
+  "H" = "Low Curvature",
+  "M" = "Moderate Curvature",
+  "E" = "High Curvature"
+)
+
+library(RColorBrewer)
+nb.cols <- 16
+mycolors <- colorRampPalette(brewer.pal(16, "Greens"))(nb.cols)
+
+freqNum = function(data){
+  data2 <- data |> 
+    mutate(freq_order = 1:n())
+  return(data2)
+}
+
+rorschach_summary <- lineup_rorschach_data |> 
+  mutate(target = fct_relevel(target,
+                              c("H", "M", "E"))) |> 
+  group_by(dataset_id, set, target, scale) |>
+  count(response_no) |> 
+  arrange(dataset_id, set, target, scale, -n) |> 
+  nest(data = c(response_no, n)) |>
+  mutate(data2 = map(data, freqNum)) |> 
+  unnest(data2) |> 
+  select(-data)
+
+rorschach_summary |> 
+  ggplot(aes(x = as.factor(set),
+             y = n,
+             fill = fct_rev(as.factor(freq_order)))
+         ) +
+  geom_bar(stat = "identity",
+           position = "stack",
+           show.legend = F,
+           ) +
+  facet_grid(scale ~ target, 
+             scales = "free_x",
+             labeller = labeller(target = target_level)
+             ) +
+  theme_bw() +
+  scale_fill_manual(values = mycolors) +
+  labs(x = "Set",
+       y = "Number of Selections",
+       fill = "Identification")
+
+
+
+# Number of Selections
+lineup_rorschach_data |> 
+  count(target)
+
+# Number of Evaluations
+lineup_rorschach_data |> 
+  distinct(dataset_id, participant_id, target, scale) |> 
+  count(target)
+
+
+
+
+# Number of Selections
+lineup_rorschach_data |> 
+  count(target, dataset_id)
+
+# Number of Evaluations
+lineup_rorschach_data |> 
+  distinct(dataset_id, participant_id, target, scale) |> 
+  count(target, dataset_id)
+
+
+
+
+# Number of Selections
+lineup_rorschach_data |> 
+  count()
+
+# Number of Evaluations
+lineup_rorschach_data |> 
+  distinct(dataset_id, participant_id, target, scale) |> 
+  count()
 ```
