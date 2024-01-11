@@ -219,10 +219,6 @@ ggplot(tmp, aes(x = x)) +
   )
 ```
 
-
-
-
-
 Visually, both the $x$ and $y$ axes matter equally, even if it might on paper make sense to truncate $x$ in order to control the $y$ axis range. 
 
 An additional benefit of controlling endpoints is that it also provides some realism: our goal was to assess the ability to examine exponential growth **rates**, motivated by the COVID-19 pandemic. As each geographic reporting region started with different numbers of cases and had different control policies, the $\alpha$ and $\theta$ parameters are reasonable to represent some of these differences while still examining the underlying exponential behavior. 
@@ -249,6 +245,82 @@ ggplot(tmp, aes(x = x)) +
 ```
 
 \renewcommand{\thesection}{B}
+# Rorschach Lineup Evaluation
+
+In addition to the experimental lineups, we generated three sets of homogeneous "Rorschach" lineups, each featuring panels simulated from the same distribution. Importantly, participants were unaware that there was no designated target panel for identification. \cref{fig:rorschach-lineups} illustrates the selection proportions for each panel on the "Rorschach" lineups corresponding to different curvature combinations and replicated datasets, when presented on both log and linear scales. Notably, the panel number is irrelevant, and the darker shade (bottom) denotes panels chosen more frequently than others.
+
+This approach allows us to explore whether any null panels were significantly more unique, providing insights into the null plot sampling method. The plots exhibit a relatively even distribution, offering multiple candidates for the most interesting panel. It is worth noting that in the low curvature "Rorschach" lineups simulated in data set replication one, a single panel stands out, with over 50\% of participants selecting the same null panel on the linear scale and just under 50\% on the log scale. Through a visual examination of "Rorschach" evaluations, we determined that our null sampling method is appropriate.
+
+```{r, rorschach-lineups, dpi= 300, fig.width = 7.5, fig.height = 6, out.width = ".6\\linewidth", fig.cap = "When axis limits are fixed to the most restrictive in all generated data, the primary signal becomes the extent of the x axis which is covered with data, rather than the growth rate itself."}
+lineup_rorschach_data <- read_csv("supplementary-materials/lineup-rorschach-data.csv") |> 
+  mutate(conf_level = factor(conf_level, levels = c("Very Certain", "Certain", "Neutral", "Uncertain", "Very Uncertain"))) |> 
+  mutate(conf_level_num = as.numeric(conf_level))
+
+# unique(lineup_rorschach_data$dataset_id) |> length()
+target_level <- c(
+  "H" = "Low Curvature",
+  "M" = "Moderate Curvature",
+  "E" = "High Curvature"
+)
+
+library(RColorBrewer)
+nb.cols <- 16
+mycolors <- colorRampPalette(brewer.pal(16, "Greens"))(nb.cols)
+
+freqNum = function(data){
+  data2 <- data |> 
+    mutate(freq_order = 1:n())
+  return(data2)
+}
+
+rorschach_summary <- lineup_rorschach_data |> 
+  mutate(target = fct_relevel(target,
+                              c("H", "M", "E"))) |> 
+  group_by(evaluation_id, dataset_id, set, target, scale) |>
+  mutate(weight = 1/n()) |>
+  ungroup() |> 
+  group_by(dataset_id, set, target, scale) |>
+  count(response_no, wt = weight) |> 
+  arrange(dataset_id, set, target, scale, -n) |> 
+  nest(data = c(response_no, n)) |>
+  mutate(data2 = map(data, freqNum)) |> 
+  unnest(data2) |> 
+  select(-data)
+
+rorschach_summary |> 
+  ggplot(aes(x = as.factor(set),
+             y = n,
+             fill = fct_rev(as.factor(freq_order)))
+         ) +
+  geom_bar(stat = "identity",
+           position = "fill",
+           show.legend = F,
+           ) +
+  facet_grid(scale ~ target, 
+             scales = "free_x",
+             labeller = labeller(target = target_level)
+             ) +
+  theme_bw() +
+  scale_fill_manual(values = mycolors) +
+  labs(x = "Set",
+       y = "Proportion of Selections",
+       fill = "Identification")
+```
+
+```{r}
+#| eval: false
+
+# Number of Selections
+lineup_rorschach_data |> 
+  count(target)
+
+# Number of Evaluations
+lineup_rorschach_data |> 
+  distinct(dataset_id, participant_id, target, scale) |> 
+  count(target)
+```
+
+\renewcommand{\thesection}{C}
 # Participant self-percieved confidence and accuracy
 
 In addition to investigating how scale and curvature rate influence participant accuracy, we asked participants to indicate their level of confidence on a five-point likert scale by answering, "How certain are you?" \cref{fig:conf-mosaic} shows the observed confidence rating proportions for correct and incorrect identifications across the different scale and curvature combination scenarios. Overall, participants who correctly identified the target plot were more confident in their plot choice across all conditions with the highest confidence levels and accuracy in scenarios with large differences in curvature between the target and null panels. 
@@ -298,4 +370,3 @@ lineup_model_data |>
   theme(axis.text.y = element_blank(),
         axis.ticks.y = element_blank())
 ```
-

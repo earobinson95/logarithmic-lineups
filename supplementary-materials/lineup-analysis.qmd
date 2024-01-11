@@ -48,6 +48,7 @@ lineup_model_data |>
 + Participants correctly identified the target panel in `r round(as.numeric(mean(lineup_model_data$binary_response[lineup_model_data$scale == 'linear']))*100, 2)`% of the `r nrow(lineup_model_data[lineup_model_data$scale == 'linear',]) %>% as.numeric()` lineup evaulations made on the linear scale and `r round(as.numeric(mean(lineup_model_data$binary_response[lineup_model_data$scale == 'log']))*100, 2)`% of the `r nrow(lineup_model_data[lineup_model_data$scale == 'log',]) %>% as.numeric()` lineup evaluations made on the log scale.
 
 ```{r}
+#| eval: false
 #| out-width: 80%
 #| fig-align: center
 knitr::include_graphics("prop-concept.png")
@@ -452,78 +453,7 @@ lineup_model_data |>
         axis.ticks.y = element_blank())
 ```
 
-Assuming Normality...
-
-```{r}
-# normal
-conf_level_num_mod <- lmer(conf_level_num ~ curvature*scale*binary_response + 
-                            (1 | participant_id) +
-                            (1 | dataset_id),
-                  data = lineup_model_data)
-
-car::Anova(conf_level_num_mod) |> 
-  broom::tidy()
-# summary(conf_level_num_mod)
-
-emmeans(conf_level_num_mod, specs = ~ binary_response | curvature:scale) |> 
-  pairs() |> 
-  as_tibble() |> 
-  mutate(p.value = scales::pvalue(p.value))
-
-emmeans(conf_level_num_mod, specs = ~ scale | curvature:binary_response) |> 
-  pairs() |> 
-  as_tibble() |> 
-  mutate(p.value = scales::pvalue(p.value))
-
-emmeans(conf_level_num_mod, specs = ~ scale | binary_response) |> 
-  pairs() |> 
-  as_tibble() |> 
-  mutate(p.value = scales::pvalue(p.value))
-```
-
-assuming multinomial...
-
-```{r}
-# nnet
-conf_level_mod <- nnet::multinom(conf_level ~ curvature*scale*binary_response, #+ 
-                            # (1 | participant_id) +
-                            # (1 | dataset_id),
-                  data = lineup_model_data,
-                  trace = F)
-
-car::Anova(conf_level_mod) |> 
-  broom::tidy()
-# summary(conf_level_mod)
-
-# emmeans(conf_level_mod, specs = ~ binary_response | curvature:scale, type = "response") |> 
-#   pairs() |> 
-#   as_tibble() |> 
-#   mutate(p.value = scales::pvalue(p.value))
-# 
-# emmeans(conf_level_mod, specs = ~ scale | curvature:binary_response, type = "response") |> 
-#   pairs() |> 
-#   as_tibble() |> 
-#   mutate(p.value = scales::pvalue(p.value))
-# 
-# emmeans(conf_level_mod, specs = ~ scale | binary_response, type = "response") |> 
-#   pairs() |> 
-#   as_tibble() |> 
-#   mutate(p.value = scales::pvalue(p.value))
-
-# mlogit
-# conf_level_mod2 <- mlogit::mlogit(conf_level ~ curvature*scale + 
-#                             (1 | participant_id) +
-#                             (1 | dataset_id),
-#                   data = lineup_model_data)
-# 
-# car::Anova(conf_level_mod2) |> 
-#   broom::tidy()
-# summary(conf_level_mod2)
-```
-
 # Rorschach lineups
-
-<https://www.researchgate.net/profile/Susan-Vanderplas/publication/347178077_Statistical_Significance_Calculations_for_Scenarios_in_Visual_Inference/links/600598fe45851553a0522f65/Statistical-Significance-Calculations-for-Scenarios-in-Visual-Inference.pdf?_sg%5B0%5D=started_experiment_milestone&origin=journalDetail>
 
 ```{r}
 lineup_rorschach_data <- read_csv("lineup-rorschach-data.csv") |> 
@@ -582,39 +512,4 @@ rorschach_summary |>
   labs(x = "Set",
        y = "Proportion of Selections",
        fill = "Identification")
-
-
-
-# Number of Selections
-lineup_rorschach_data |> 
-  count(target)
-
-# Number of Evaluations
-lineup_rorschach_data |> 
-  distinct(dataset_id, participant_id, target, scale) |> 
-  count(target)
-
-
-
-
-# Number of Selections
-lineup_rorschach_data |> 
-  count(target, dataset_id)
-
-# Number of Evaluations
-lineup_rorschach_data |> 
-  distinct(dataset_id, participant_id, target, scale) |> 
-  count(target, dataset_id)
-
-
-
-
-# Number of Selections
-lineup_rorschach_data |> 
-  count()
-
-# Number of Evaluations
-lineup_rorschach_data |> 
-  distinct(dataset_id, participant_id, target, scale) |> 
-  count()
 ```

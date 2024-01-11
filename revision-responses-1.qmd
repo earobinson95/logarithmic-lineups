@@ -9,19 +9,19 @@ format:
       - revision-edits.tex
 ---
 
-> To send to Susan during meetings: <https://earobinson95.github.io/logarithmic-lineups/revision-responses-1.pdf>
+<!-- > To send to Susan during meetings: <https://earobinson95.github.io/logarithmic-lineups/revision-responses-1.pdf> -->
 
-> Analysis supplementary file: <https://earobinson95.github.io/logarithmic-lineups/supplementary-materials/lineup-analysis.html>
+<!-- > Analysis supplementary file: <https://earobinson95.github.io/logarithmic-lineups/supplementary-materials/lineup-analysis.html> -->
 
-> Revised manuscript: <https://earobinson95.github.io/logarithmic-lineups/logarithmic-lineups-revisions.pdf>
+<!-- > Revised manuscript: <https://earobinson95.github.io/logarithmic-lineups/logarithmic-lineups-revisions.pdf> -->
 
-> For Emily to submit: <https://mc.manuscriptcentral.com/jcgs?URL_MASK=f1cfe0d4da184e54b91df29f43be0038>
+<!-- > For Emily to submit: <https://mc.manuscriptcentral.com/jcgs?URL_MASK=f1cfe0d4da184e54b91df29f43be0038> -->
 
-> Your paper will be printed in black and white.  The online version will be in color but to accommodate printing without color please be sure you \todo{don't refer to color in either the figure captions or text} and that all figures are still interpretable in black and white.
+<!-- > Your paper will be printed in black and white.  The online version will be in color but to accommodate printing without color please be sure you \todo{don't refer to color in either the figure captions or text} and that all figures are still interpretable in black and white. -->
 
 All responses to reviewers' comments are written in \response{blue}. A `diffs-1.pdf` file has also been included to show changes.
 
-\todo{Need to address yet.} \dubcheck{Double check / review.}
+<!-- \todo{Need to address yet.} \dubcheck{Double check / review.} -->
 
 # Reviewer: 1
 
@@ -43,11 +43,13 @@ The first category is which information to include in the manuscript.
 
 \response{We appreciate your review of our current manuscript and recognition that this is a part of a larger study. While we agree that the series of studies shows a comprehensive perspective on the perception and use of logarithmic scales, it is important to note that each study has undergone its own unique development process and analysis of results. Combining all of these studies into a single manuscript would significantly increase the length of the paper, a practice not reccommended by JCGS editors during the revision process. Therefore, we have decided to continue with our original plan, which involves publishing the three studies individiually in JCGS over the course of the next year. Ultimately, we will conclude this series with a final paper that references and synthesizes the findings from the preceding studies. THis approach aligns with common practices in fields such as psychology.}
 
-- \todo{For the study as written, I suggest including your data from the Rorschach lineups. You have the data, and they’re good controls for the overall study.}
+- For the study as written, I suggest including your data from the Rorschach lineups. You have the data, and they’re good controls for the overall study.
 
--  \dubcheck{The methods indicate that participants were asked not only about which panel differed, but also about their confidence and their justifications. I would find the confidence and the justification data illuminating, and I suggest including results from those questions in addition to the right/wrong results. This applies to the Rorschach lineups as well.}
+\response{We agree with the reviewer that including a simple evaluation of the Rorschach lineups provides good controls for the overall study. Although statistical lineup analyses is typically done using generalized linear mixed models in order to compare accuracy across visual factors and has not previously required Rorschach lineups, we conducted this study shortly after Statistical Significance Calculations for Scenarios in Visual Inference by Vanderplas et al. came out, so we decided to include Rorschach lineups and see what happened. In order to not signficantly increase the length of the manuscript and take away from the main analysis, we added information about the distribution of null panel selections to the appendix and reference this in Section 2.3 (Lineup Setup).}
 
-\response{While the focus of the manuscript is not on the justification or confidence of participants selection, we agree that including summary results from this data could help provide a more comprehensive picture. In order to not signficantly increase the length of the manuscript, we added information about selection reasoning and confidence in selection to the appendix and reference this in Section 3 (results).}
+-  The methods indicate that participants were asked not only about which panel differed, but also about their confidence and their justifications. I would find the confidence and the justification data illuminating, and I suggest including results from those questions in addition to the right/wrong results. This applies to the Rorschach lineups as well.
+
+\response{While the focus of the manuscript is not on the justification or confidence of participant's selection, we agree that including summary results from this data could help provide a more comprehensive picture. In order to not signficantly increase the length of the manuscript, we added information about selection reasoning and confidence in selection to the appendix and reference this in Section 3 (Results).}
 
 -  “In each lineup evaluation, participants justified their choice and provided their level of confidence in their choice.” It would be good to see in the paper exactly how these questions were phrased and what the response options were, as these details matter for surveys.
 
@@ -59,28 +61,28 @@ The first category is which information to include in the manuscript.
 
 The second category is the interpretation of the results, which might require some editing, but doesn’t require any major additions of results.
 
-- \dubcheck{The introduction focuses on the role of log vs. linear scales with respect to exponentially increasing data. As the text points out, this is relevant in a number of contexts. From what I can tell, though, the study is really testing for participants’ abilities to see different degrees of curvature rather than anything specific to log vs. linear scales. (That is, there’s nothing in the lineups that shows numbers on an axis or anything else that indicates the scale.) For instance, it would be possible to create curves that aren’t exponential that have the same degrees and differences in curviness, and they would presumably give the same results. I’m not suggesting you do so; rather, I’m trying to point out that the results might be more broadly applicable to “curviness” than to log vs. linear scales alone. I think it’s fine to motivate the work with the case of log vs. linear presentation of exponential data (particularly if you’re combining with the other two parts of the overall study), but I suggest interpreting more broadly in the context of the degree of curvature displayed on a panel.}
+- The introduction focuses on the role of log vs. linear scales with respect to exponentially increasing data. As the text points out, this is relevant in a number of contexts. From what I can tell, though, the study is really testing for participants’ abilities to see different degrees of curvature rather than anything specific to log vs. linear scales. (That is, there’s nothing in the lineups that shows numbers on an axis or anything else that indicates the scale.) For instance, it would be possible to create curves that aren’t exponential that have the same degrees and differences in curviness, and they would presumably give the same results. I’m not suggesting you do so; rather, I’m trying to point out that the results might be more broadly applicable to “curviness” than to log vs. linear scales alone. I think it’s fine to motivate the work with the case of log vs. linear presentation of exponential data (particularly if you’re combining with the other two parts of the overall study), but I suggest interpreting more broadly in the context of the degree of curvature displayed on a panel.
 
-\response{This is a good point for clarification. To address this, we added an appendix discussing the nuances and challenges of of testing the perception of exponential growth. This also relates to the decisions made in simulating data in order to eliminate participants basing decisions on preattentive feature perception.}
+\response{This is a good point for clarification. To address this, we added an appendix discussing the nuances and challenges of testing the perception of exponential growth. This also relates to the decisions made in simulating data in order to eliminate participants basing decisions on preattentive feature perception.}
 
 The third category is the details of presentation. In most cases the presentation is very clear, but there are a few places where some editing would improve the clarity.
 
-- \dubcheck{“In this paper, we evaluated the benefits and drawbacks of using log scales and examine their impact on perceptual sensitivity” The intro funnels pretty well, but the first sentence of the “In this paper” paragraph (which isn’t the last) doesn’t really clarify the specific goal. Perceptual sensitivity of what? It later becomes clear that the focus is on the degree of curvature, but it would be good to clarify that earlier in the paper (before this paragraph).}
+- “In this paper, we evaluated the benefits and drawbacks of using log scales and examine their impact on perceptual sensitivity” The intro funnels pretty well, but the first sentence of the “In this paper” paragraph (which isn’t the last) doesn’t really clarify the specific goal. Perceptual sensitivity of what? It later becomes clear that the focus is on the degree of curvature, but it would be good to clarify that earlier in the paper (before this paragraph).
 
 \response{Thank you for suggesting the change in ordering of paper goals. We have adjusted the introduction to clarify the specific goal of the paper and tied this in to the appendix previously mentioned.}
 
 - Fig. 3 caption and analogous text: I’m confused about Fig. 3 in (I think) two separate ways.
-  + \dubcheck{The first way I’m confused is what’s shown on the panels. The caption says “increasing exponential data” but doesn’t give a formula (unless (2x5) + 3 or 2x2 is the formula, but that doesn’t make sense to me). Given the description of what a lineup is, my understanding is that there should be two separate things shown in each side of the figure: 19 panels should show random data from the same formula, and the target should show something else. I’m not sure what the something else is, but it should be somehow different. Are the increasing exponential data the 19 panels or the 1? I suspect the 19, given that one panel (panel 4) looks decidedly non-power-law on the right-hand lineup, but it should be clear from the caption.}
+  + The first way I’m confused is what’s shown on the panels. The caption says “increasing exponential data” but doesn’t give a formula (unless (2x5) + 3 or 2x2 is the formula, but that doesn’t make sense to me). Given the description of what a lineup is, my understanding is that there should be two separate things shown in each side of the figure: 19 panels should show random data from the same formula, and the target should show something else. I’m not sure what the something else is, but it should be somehow different. Are the increasing exponential data the 19 panels or the 1? I suspect the 19, given that one panel (panel 4) looks decidedly non-power-law on the right-hand lineup, but it should be clear from the caption.
   + The second way I’m confused is what the “(2x5) + 3” and “2x2” represent. The text says they denote panels – does that just mean panel 13 (2x5 = 10 + 3 = 13) and 4 (2x2 = 4)? I suspect it might because panel 4 on the right is what looks different (as in, not exponential data, like the others appear to be). If so, though, why not say panel 13 and panel 4?
-  + \dubcheck{If these are examples from the actual versions shown to viewers, these make a lot more sense after reading the methods, but if the figure is presented where it is in the paper it needs a little more explanation. More clearly labeling which panel is the target and giving the formulas would help.}
+  + If these are examples from the actual versions shown to viewers, these make a lot more sense after reading the methods, but if the figure is presented where it is in the paper it needs a little more explanation. More clearly labeling which panel is the target and giving the formulas would help.
     
 \response{This is correct, in looking at prior literature presenting lineups, authors typically would include some mental math requiring participants to inspect which plot might be the target panel before immediately revealing the answer. We have adjusted our manuscript to reveal the panels as 13 and 4 per the reviewer's reccommendation.}
   
 \response{Given the confusion expressed by the reviewer about the lineup example displayed in Figure 3, we decided to move the location of the figure to the Methods Section after discussing data simulation and lineup generation.}
 
-- \dubcheck{Algorithm 1: I get the general idea, but the specifics are unclear. For example, point 1 says: “Determine the y = -x line scaled to fit the assigned domain and range” I’m not sure what this means. The y = -x line sounds like a line with intercept 0 and slope -1, but I’m not sure how that could be fit to the assigned domain and range since there aren’t any free parameters.}
+- Algorithm 1: I get the general idea, but the specifics are unclear. For example, point 1 says: “Determine the y = -x line scaled to fit the assigned domain and range” I’m not sure what this means. The y = -x line sounds like a line with intercept 0 and slope -1, but I’m not sure how that could be fit to the assigned domain and range since there aren’t any free parameters.
 
-\response{This is correct, the y = -x line is a line with intecept 0 and slope -1. This was used to select the midpoint on the x-axis. We then jittered a small amount in both directions to have 4 points which are then used to obtain estimates for $\alpha$, $\beta$, and $\theta$.} See <https://srvanderplas.github.io/Perception-of-Log-Scales/lineups-development/simulations/model-options.html>.
+\response{This is correct, the y = -x line is a line with intecept 0 and slope -1. This was used to select the midpoint on the x-axis. We then jittered a small amount in both directions to have 4 points which are then used to obtain estimates for $\alpha$, $\beta$, and $\theta$. See the Heuristic Simulation section including theta at} <https://srvanderplas.github.io/Perception-of-Log-Scales/lineups-development/simulations/model-options.html> \response{for our lineup development process. We have clarified the use of four points to estimate the three starting paramters in algorithm 1 as well as addressed some of these nuances of simulation in Appendix A.}
 
 - Page 12: I don’t know what the age of majority is.
 
@@ -100,26 +102,44 @@ This manuscript investigates perception of differences between linear and expone
 
 1. The characterization of the visual shape and functional behavior of an exponential function was not adequate, because it was not differentiated from functions with similar behaviors.  For example the statement: “Early stages of exponential growth often appear to have a small growth rate, while the middle stage seems to exhibit more quadratic growth” describes many functions, including power law functions. So it seems that “general misinterpretation of exponential growth” is not clarified in this paper. It is not unreasonable to consider that many people quantitatively and qualitatively confuse exponential growth (e^x) with power law growth (x^n). A better overview of exponential growth and it’s uniqueness compared to other common functions and importance in science/medicine seems warranted.
 
+\response{This is a good point for clarification. To address this, we added an appendix discussing the nuances and challenges of testing the perception of exponential growth. This also relates to the decisions made in simulating data in order to eliminate participants basing decisions on preattentive feature perception. We have further clarified the particular focus of the study on data simulated from an increasing exponential model and referenced the appendix in the introduction.}
+
 2. Expanding on #1, if one considers power laws, then log-log plots are commonly used and may apply to this area of study. That is one could compare linear and log-log plots for linear and power law functions.  Maybe the overall results are different in this case compared to your study? That is, you speak of variation in curvature within the domain of exponential functions, but is the differing shape of power law curves important? I realize this is outside the scope of this paper, but acknowledging this boundary/limitation (and potential next step) of your study  may be worth mentioning.  Maybe not all high curvature curves behave the same perceptually? Also,  extending this to power law functions could broaden the importance/usefulness of your results.
+
+\response{Thank you for expanding on \#1. We hope that including the appendix text will help clarify our study. However, we also added the reccommended limitations of our study in our discussion and conclusion.}
 
 3. Using a  VonBergmann as a reference is a little misleading in the sense that citations are usually used for empirical results of research.
 
-\response{Using comics that appeared contemporaneously with the events that occured with this study, provides a real world demonstration of the fundamental content we are exploring here. As such, they are a concise way of providing reasoning of the evidence we are exploring. And they clearly connect the perception of curvature and exponential growth.}
+\response{Thank you for your feedback. When working on the manuscripts, we noted that using comics that appeared contemporaneously with the events that occured with this study provides a real world demonstration of the fundamental content we are exploring here. As such, they are a concise way of providing reasoning of the evidence we are exploring. And they clearly connect the perception of curvature and exponential growth.}
 
 4. Sections 2.1 and 2.2 were difficult to understand, very underspecified. It seemed to me that more explanation is needed about the algorithms and the parameter selection. For example, in algorithm #1, the y values are described as input parameters. How were they generated via eq 1? Eg, how were beta and sigma chosen? Maybe this is all standard for this field, so your description is adequate, but there were a few missing pieces for me that prevented me from understanding about the data sets were generated.
 
+\response{Thank you . See the Heuristic Simulation section including theta at} <https://srvanderplas.github.io/Perception-of-Log-Scales/lineups-development/simulations/model-options.html> \response{for our lineup development process. We have clarified the use of four points to estimate the three starting paramters in algorithm 1 as well as addressed some of these nuances of simulation in Appendix A.}
+
 5. Students were asked about their level of confidence in their choice. How was this used? Maybe I missed it.  It seems like it should be used/modeled.
+
+\response{While the focus of the manuscript is not on the justification or confidence of participant's selection, we agree that including summary results from this data could help provide a more comprehensive picture. In order to not signficantly increase the length of the manuscript, we added information about selection reasoning and confidence in selection to the appendix and reference this in Section 3 (Results).}
 
 6. How are these results unique, eg compared to Best et al.? IS this just a replication of results?
 
+\response{Thank you for your question, in our study, we focused our perceptual comparisons between exponentially increasing trends with different parameters compared to six different trend types (increasing and decreasing linear, exponential, and asymptotic) in Best et al. Additionally, the study conducted in Best et al. was conducted on a small sample size of six participants (psychology professors and psychology graduate students) who were all familiar with the types of trends presented and aware of the purpose of the experiment. Our sample of participants broadens the scope of inference of our results as we conducted a large sample of the general public using Prolific crowd sourcing. The main goal of our study and results is to lay the foundation for future investigation into the use of log scales for exponential data. We have clarified this in our discussion.}
+
 7. It would be good to talk about limitations. For example, to what extent is this only about perception comparisons of a singleton in a field of examples? How relevant is that to practice? For example, looking at only one graph (and determining whether the line is straight) or comparing only two graphs?
+
+\response{We thank the reviewer for bringing up the addition of limitations to our discussion section. We have addressed the specifics of this study for laying the perceptual groundwork for more investigation into the use of log scales with exponential data. Now that we know how curvature can be distinguished, it's easier to conduct follow up studies that cover more scenarios and use different graphical testing methods.}
 
 8. Tabulate the results (e.g., estimates, SEs, fit stats etc ) of the GLMM
 
+\response{We appreciate the suggestion from the reviewer. In the methods section, we clearly outline the model and have the data and code publically available for readers to reproduce the analysis. We beleive that including the figure reference below in (9) along with the reproducibility of the analysis will provide readers with sufficient information on the GLMM results.}
+
 9. For fig 8, instead of odds ratio, why not give something a little more intuitive, like the probability of detection of target? Fig 8 is nice in that it holds a lot of info, but having probabilities is more concrete and useful.
+
+\response{Thank you for this suggestion! The odds ratios are important for communicating the comparison of interest between the log and linear scale. However, we agree the inclusion of probability of detection will significantly help provide a concrete and useful interpretation of the results. We added a plot of the observed participant accuracy broken down by each scale and curvature combination to Section 3 (Results). We further elaborated on and provided a description of the insights shown in this figure. Additionally, we utilized thumbnail figures to help with the cognitive load of translating the axis text descipriton of the lineup to a visual image.}
 
 # Editor's Comments to Author:
 
 Please pay particular attention to the comments from one reviewer about whether your work has implications for log-transformed data or for curves more generally.  Also please provide a response to the request for more information about the survey questions and options and the data on confidence and justification.
+
+\response{Thank you for your review and clarification comments to pay particular attention to. To address the implciations for log-transformed data versus curves more generally we have included Appendix A to discuss the nuances and challenges of testing the perception of exponential growth. Additionally, we have included visual investigations into the data on confidence and justification and clarified the survey questions.}
 
 **SW - Major Revision**
