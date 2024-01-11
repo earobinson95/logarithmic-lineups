@@ -1,12 +1,14 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
 % !TeX program = pdfLaTeX
 \documentclass[12pt]{article}
 \usepackage{amsmath}
 \usepackage{graphicx,psfrag,epsf}
 \usepackage{enumerate}
-\usepackage{natbib}
+\usepackage[]{natbib}
 \usepackage{textcomp}
-\usepackage[hyphens]{url} % not crucial - just used below for the URL
-\usepackage{hyperref}
+
 
 %\pdfminorversion=4
 % NOTE: To produce blinded version, replace "0" with "1" below.
@@ -14,10 +16,10 @@
 
 % DON'T change margins - should be 1 inch all around.
 \addtolength{\oddsidemargin}{-.5in}%
-\addtolength{\evensidemargin}{-.5in}%
+\addtolength{\evensidemargin}{-1in}%
 \addtolength{\textwidth}{1in}%
-\addtolength{\textheight}{1.3in}%
-\addtolength{\topmargin}{-.8in}%
+\addtolength{\textheight}{1.7in}%
+\addtolength{\topmargin}{-1in}%
 
 %% load any required packages here
 
@@ -39,6 +41,15 @@
 \usepackage[capitalise]{cleveref}
 \usepackage{xr}\externaldocument{logarithmic-lineups-revisions}
 \usepackage{subfig}
+
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\hypersetup{
+  pdftitle={Appendix to Perception and Cognitive Implications of Logarithmic Scales for Exponentially Increasing Data: Perceptual Sensitivity Tested with Statistical Lineups},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+
 
 \begin{document}
 
@@ -74,16 +85,14 @@ Sensitivity Tested with Statistical Lineups}
 } \fi
 
 \bigskip
-\begin{abstract}
-
-\end{abstract}
 
 \noindent%
-{\it Keywords:} 
+ 
+
 \vfill
 
 \newpage
-\spacingset{1.45} % DON'T change the spacing!
+\spacingset{1.9} % DON'T change the spacing!
 
 \renewcommand{\thesection}{A}
 \setcounter{figure}{0}    
@@ -244,6 +253,42 @@ measured by the curvature of the line).
 
 \renewcommand{\thesection}{B}
 
+\hypertarget{rorschach-lineup-evaluation}{%
+\section{Rorschach Lineup
+Evaluation}\label{rorschach-lineup-evaluation}}
+
+In addition to the experimental lineups, we generated three sets of
+homogeneous ``Rorschach'' lineups, each featuring panels simulated from
+the same distribution. Importantly, participants were unaware that there
+was no designated target panel for identification.
+\cref{fig:rorschach-lineups} illustrates the selection proportions for
+each panel on the ``Rorschach'' lineups corresponding to different
+curvature combinations and replicated datasets, when presented on both
+log and linear scales. Notably, the panel number is irrelevant, and the
+darker shade (bottom) denotes panels chosen more frequently than others.
+
+This approach allows us to explore whether any null panels were
+significantly more unique, providing insights into the null plot
+sampling method. The plots exhibit a relatively even distribution,
+offering multiple candidates for the most interesting panel. It is worth
+noting that in the low curvature ``Rorschach'' lineups simulated in data
+set replication one, a single panel stands out, with over 50\% of
+participants selecting the same null panel on the linear scale and just
+under 50\% on the log scale. Through a visual examination of
+``Rorschach'' evaluations, we determined that our null sampling method
+is appropriate.
+
+\begin{figure}[tbp]
+
+{\centering \includegraphics[width=.6\linewidth,]{appendix_files/figure-latex/rorschach-lineups-1} 
+
+}
+
+\caption{When axis limits are fixed to the most restrictive in all generated data, the primary signal becomes the extent of the x axis which is covered with data, rather than the growth rate itself.}\label{fig:rorschach-lineups}
+\end{figure}
+
+\renewcommand{\thesection}{C}
+
 \hypertarget{participant-self-percieved-confidence-and-accuracy}{%
 \section{Participant self-percieved confidence and
 accuracy}\label{participant-self-percieved-confidence-and-accuracy}}
@@ -261,8 +306,9 @@ curvature between the target and null panels.
 
 \begin{center}\includegraphics[width=\linewidth,]{appendix_files/figure-latex/conf-mosaic-1} \end{center}
 
-\bibliographystyle{agsm}
+\bibliographystyle{plain}
 \bibliography{bibliography.bib}
+
 
 
 \end{document}

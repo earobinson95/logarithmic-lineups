@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2023)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: logarithmic-lineups-revisions.aux
+The style file: plain.bst
+Database file #1: bibliography.bib
+Warning--entry type for "vonbergmann_2021" isn't style-file defined
+--line 525 of file bibliography.bib
+Warning--empty journal in wolfeWhatPreattentiveFeature2019
+Warning--empty year in wolfeWhatPreattentiveFeature2019
+You've used 27 entries,
+            2118 wiz_defined-function locations,
+            673 strings with 8951 characters,
+and the built_in function-call counts, 9398 in all, are:
+= -- 921
+> -- 510
+< -- 2
++ -- 201
+- -- 174
+* -- 726
+:= -- 1593
+add.period$ -- 79
+call.type$ -- 27
+change.case$ -- 165
+chr.to.int$ -- 0
+cite$ -- 29
+duplicate$ -- 296
+empty$ -- 681
+format.name$ -- 174
+if$ -- 1892
+int.to.chr$ -- 0
+int.to.str$ -- 27
+missing$ -- 21
+newline$ -- 135
+num.names$ -- 54
+pop$ -- 154
+preamble$ -- 1
+purify$ -- 141
+quote$ -- 0
+skip$ -- 215
+stack$ -- 0
+substring$ -- 613
+swap$ -- 46
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 108
+warning$ -- 2
+while$ -- 94
+width$ -- 29
+write$ -- 286
+(There were 3 warnings)

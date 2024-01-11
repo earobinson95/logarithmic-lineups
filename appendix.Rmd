@@ -21,6 +21,8 @@ output:
 
 ```{r setup2, include = F}
 options(width = 60)
+options(tinytex.clean = FALSE)
+
 knitr::opts_chunk$set(
   echo = F, 
   eval = T, 

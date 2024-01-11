@@ -796,7 +796,7 @@ There was a decrease in accuracy on the linear scale when comparing a target plo
 
 ```{r obs-accuracy, echo = F, eval = T, fig.width = 9, fig.height = 6, fig.align='center', fig.cap = "The observed accuracy for identifying the target panel for each curvature combination scenario with the accuracy for the linear scale shown on the top and the accuracy for the log scale shown on the bottom. The thumbnail figures below each plot display the curvature combination as shown in \\cref{fig:curvature-combination-example} on both scales.", message = F, warning = F}
 
-knitr::include_graphics("images/observed-proportions.png")
+knitr::include_graphics("images/observed-proportions.jpg")
 ```
 
 The results from the GLMM indicated a strong interaction between the curvature combination and scale ($\chi^2_5 = 294.443$; $\text{p} <0.0001$), and the estimated variance due to participant and data set were $\hat\sigma^2_{\text{participant}} = 1.19$ (s.e. = 1.09) and $\hat\sigma^2_{\text{data}} = 0.433$ (s.e. = 0.66), respectively.
@@ -891,7 +891,7 @@ for analyses (lineup-model-data.csv).
 + **README:** File containing detailed descriptions of the supplementary material.
 (README.html).
 
-```{r, include = F, eval = F}
+```{r, include = T, eval = T}
 rmarkdown::render("appendix.Rmd")
 ```
 

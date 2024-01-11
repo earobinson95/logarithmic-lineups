@@ -1,0 +1,135 @@
+\begin{thebibliography}{10}
+
+\bibitem{aisch2015you}
+Gregor Aisch, Amanda Cox, and Kevin Quealy.
+\newblock You draw it: How family income predicts children’s college chances.
+\newblock {\em The New York Times}, 28, 2015.
+
+\bibitem{lme4}
+Douglas Bates, Martin M{\"a}chler, Ben Bolker, and Steve Walker.
+\newblock Fitting linear mixed-effects models using {lme4}.
+\newblock {\em Journal of Statistical Software}, 67(1):1--48, 2015.
+
+\bibitem{best_perception_2007}
+Lisa Best, Laurence Smith, and D~Stubbs.
+\newblock Perception of linear and nonlinear trends: Using slope and curvature information to make trend discriminations.
+\newblock {\em Perceptual and Motor Skills}, 104(3):707--721, 2007.
+
+\bibitem{buja_statistical_2009}
+Andreas Buja, Dianne Cook, Heike Hofmann, Michael Lawrence, Eun-Kyung Lee, Deborah Swayne, and Hadley Wickham.
+\newblock Statistical inference for exploratory data analysis and model diagnostics.
+\newblock {\em Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences}, 367(1906):4361--4383, 2009.
+
+\bibitem{burnmurdoch_2020}
+John Burn-Murdoch, Caroline Nevitt, Cale Tilford, Andrew Rininsland, Joanna Kao, Oliver Elliott, Emma Lewis, Brooke Fox, and Martin Stabe.
+\newblock Coronavirus tracked: Has the epidemic peaked near you?, 2020.
+
+\bibitem{shiny_pkg}
+Winston Chang, Joe Cheng, JJ~Allaire, Carson Sievert, Barret Schloerke, Yihui Xie, Jeff Allen, Jonathan McPherson, Alan Dipert, and Barbara Borges.
+\newblock {\em shiny: Web Application Framework for R}, 2022.
+\newblock R package version 1.7.4.
+
+\bibitem{cleveland_graphical_1985}
+William Cleveland and Robert McGill.
+\newblock Graphical perception and graphical methods for analyzing scientific data.
+\newblock {\em Science}, 229(4716):828--833, 1985.
+
+\bibitem{fagen-ulmschneider_2020}
+Wade Fagen-Ulmschneider.
+\newblock 91-divoc, 2020.
+
+\bibitem{heckler_student_2013}
+Andrew Heckler, Brendon Mikula, and Rebecca Rosenblatt.
+\newblock Student accuracy in reading logarithmic plots: The problem and how to fix it.
+\newblock In {\em 2013 IEEE Frontiers in Education Conference (FIE)}, pages 1066--1071. IEEE, 2013.
+
+\bibitem{hofmann_graphical_2012}
+Heike Hofmann, Lendie Follett, Mahbubul Majumder, and Dianne Cook.
+\newblock Graphical tests for power comparison of competing designs.
+\newblock {\em IEEE Transactions on Visualization and Computer Graphics}, 18(12):2441--2448, 2012.
+
+\bibitem{jones_polynomial_1977}
+Gregory Jones.
+\newblock Polynomial perception of exponential growth.
+\newblock {\em Perception \& Psychophysics}, 1977.
+
+\bibitem{emmeans}
+Russell Lenth.
+\newblock {\em emmeans: Estimated Marginal Means, aka Least-Squares Means}, 2021.
+\newblock R package version 1.6.0.
+
+\bibitem{loy_variations_2016}
+Adam Loy, Lendie Follett, and Heike Hofmann.
+\newblock Variations of q--q plots: The power of our eyes!
+\newblock {\em The American Statistician}, 70(2):202--214, 2016.
+
+\bibitem{loy_model_2017}
+Adam Loy, Heike Hofmann, and Dianne Cook.
+\newblock Model choice and diagnostics for linear mixed-effects models using statistics on street corners.
+\newblock {\em Journal of Computational and Graphical Statistics}, 26(3):478--492, 2017.
+
+\bibitem{mackinnon_feedback_1991}
+Andrew MacKinnon and Alexander Wearing.
+\newblock Feedback and the forecasting of exponential change.
+\newblock {\em Acta Psychologica}, 76(2):177--191, 1991.
+
+\bibitem{majumder_validation_2013}
+Mahbubul Majumder, Heike Hofmann, and Dianne Cook.
+\newblock Validation of visual statistical inference, applied to linear models.
+\newblock {\em Journal of the American Statistical Association}, 108(503):942--956, 2013.
+
+\bibitem{menge_logarithmic_2018}
+Duncan Menge, Anna MacPherson, Thomas Bytnerowicz, Andrew Quebbeman, Naomi Schwartz, Benton Taylor, and Amelia Wolf.
+\newblock Logarithmic scales in ecological data presentation may cause misinterpretation.
+\newblock {\em Nature Ecology \& Evolution}, 2(9):1393--1402, 2018.
+
+\bibitem{Rstudio}
+{R Core Team}.
+\newblock {\em R: A Language and Environment for Statistical Computing}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria, 2022.
+
+\bibitem{robinson2022eye}
+Emily~A Robinson, Reka Howard, and Susan VanderPlas.
+\newblock Eye fitting straight lines in the modern era.
+\newblock {\em Journal of Computational and Graphical Statistics}, pages 1--8, 2022.
+
+\bibitem{vanderplas_testing_2020}
+Susan Vanderplas, Dianne Cook, and Heike Hofmann.
+\newblock Testing statistical charts: What makes a good graph?
+\newblock {\em Annual Review of Statistics and Its Application}, 7:61--88, 2020.
+
+\bibitem{vanderplas2015spatial}
+Susan VanderPlas and Heike Hofmann.
+\newblock Spatial reasoning and data displays.
+\newblock {\em IEEE Transactions on Visualization and Computer Graphics}, 22(1):459--468, 2015.
+
+\bibitem{vanderplas_clusters_2017}
+Susan VanderPlas and Heike Hofmann.
+\newblock Clusters beat trend!? testing feature hierarchy in statistical graphics.
+\newblock {\em Journal of Computational and Graphical Statistics}, 26(2):231--242, 2017.
+
+\bibitem{vonbergmann_2021}
+Jens Von~Bergmann.
+\newblock xkcd exponential: Public health vs scientists, Mar 2021.
+
+\bibitem{waddell2005comparisons}
+William Waddell.
+\newblock Comparisons of thresholds for carcinogenicity on linear and logarithmic dosage scales.
+\newblock {\em Human \& Experimental Toxicology}, 24(6):325--332, 2005.
+
+\bibitem{wagenaar_misperception_1975}
+William Wagenaar and Sabato Sagaria.
+\newblock Misperception of exponential growth.
+\newblock {\em Perception \& Psychophysics}, 18(6):416--422, 1975.
+
+\bibitem{wickham2010graphical}
+Hadley Wickham, Dianne Cook, Heike Hofmann, and Andreas Buja.
+\newblock Graphical inference for infovis.
+\newblock {\em IEEE Transactions on Visualization and Computer Graphics}, 16(6):973--979, 2010.
+
+\bibitem{wolfeWhatPreattentiveFeature2019}
+Jeremy~M Wolfe and Igor~S Utochkin.
+\newblock What is a preattentive feature?
+\newblock 29:19--26.
+
+\end{thebibliography}

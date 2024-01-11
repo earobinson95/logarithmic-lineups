@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.1.9)  10 JAN 2024 15:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.1.9)  10 JAN 2024 17:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -327,12 +327,7 @@ Package cleveref Info: always capitalise cross-reference names on input line 785
 ) (c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/xr.sty
 Package: xr 2023-07-04 v5.06 eXternal References (DPC)
 )
-
-Package xr Warning: 
-No file appendix.aux
-LABELS NOT IMPORTED.
- on input line 42.
-
+Package xr Info: IMPORTING LABELS FROM appendix.aux on input line 42.
 (c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/subfig/subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
 (c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption.sty
@@ -376,7 +371,14 @@ File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO)
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count311
 \l__pdf_internal_box=\box55
-) (./logarithmic-lineups-revisions.aux)
+) (./logarithmic-lineups-revisions.aux
+
+Package natbib Warning: Citation `vanderplas_clusters_2017' multiply defined.
+
+
+Package natbib Warning: Citation `wolfeWhatPreattentiveFeature2019' multiply defined.
+
+)
 \openout1 = `logarithmic-lineups-revisions.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
@@ -550,25 +552,39 @@ Overfull \hbox (28.01079pt too wide) in paragraph at lines 729--733
 \OT1/cmr/m/n/12 found on GitHub at []$\OT1/cmtt/m/n/12 https : / / github . com / earobinson95 / perception -[] of -[] statistical -[]
  []
 
-(./logarithmic-lineups-revisions.bbl [25] [26] [27]) [28] (./logarithmic-lineups-revisions.aux)
+
+Overfull \hbox (12542.28644pt too wide) in paragraph at lines 740--740
+[]\OT1/cmtt/m/n/12 ##   |                                 |                         |   0%  |                                 |.                        |   5%                           |                                 |..                       |   9% [setup2]                  |                                 |...                      |  14%                           |                                 |.....                    |  18% [data]                    |                                 |......                   |  23%                           |                                 |.......                  |  27% [simple-exponential]      |                                 |........                 |  32%                           |                                 |.........                |  36% [gen-data-sample]         |                                 |..........               |  41%                           |                                 |...........              |  45% [lineup-fixed-scales]     |                                 |............             |  50%                           |                                 |..............           |  55% [lineup-free-scales]      |                                 |...............          |  59%                           |                                 |................         |  64% [lineup-truncate-scales]  |                                 |.................        |  68%                           |                                 |..................       |  73% [lineup-scale-data]       |                                 |...................      |  77%                           |                                 |....................     |  82% [rorschach-lineups]       |                                 |......................   |  86%                           |                                 |.......................  |  91% [unnamed-chunk-16]        |                                 |........................ |  95%                           |                                 |.........................| 100% [conf-mosaic][] 
+ []
+
+
+Overfull \hbox (4681.50755pt too wide) in paragraph at lines 740--740
+[]\OT1/cmtt/m/n/12 ## "C:/Program Files/RStudio/resources/app/bin/quarto/bin/tools/pandoc" +RTS -K512m -RTS appendix.knit.md --to latex --from markdown+autolink_bare_uris+tex_math_single_backslash --output appendix.tex --lua-filter "C:\Users\erobin17\AppData\Local\R\win-library\4.3\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\erobin17\AppData\Local\R\win-library\4.3\rmarkdown\rmarkdown\lua\latex-div.lua" --embed-resources --standalone --template "C:\Users\erobin17\AppData\Local\R\win-library\4.3\rticles\rmarkdown\templates\asa\resources\template.tex" --highlight-style tango --pdf-engine pdflatex --natbib --variable pandoc3 --include-in-header "C:\Users\erobin17\AppData\Local\Temp\1\RtmpkPUVU2\rmarkdown-str82d898b7d44.html" --include-in-header "C:\Users\erobin17\AppData\Local\Temp\1\RtmpkPUVU2\rmarkdown-str82d825695dbe.html"[] 
+ []
+
+(./logarithmic-lineups-revisions.bbl [25] [26] [27])
+
+Package natbib Warning: There were multiply defined citations.
+
+[28] (./logarithmic-lineups-revisions.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2024-01-04>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 14357 strings out of 476125
- 248443 string characters out of 5792873
- 1939528 words of memory out of 5000000
- 36154 multiletter control sequences out of 15000+600000
+ 14387 strings out of 476125
+ 249326 string characters out of 5792873
+ 1956528 words of memory out of 5000000
+ 36184 multiletter control sequences out of 15000+600000
  566751 words of font info for 66 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,11n,79p,578b,636s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,11n,79p,2248b,634s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{conclusion-discussion} has been referenced but does not exist, replaced by a fixed one
 
  <c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on logarithmic-lineups-revisions.pdf (28 pages, 903468 bytes).
+Output written on logarithmic-lineups-revisions.pdf (28 pages, 909415 bytes).
 PDF statistics:
  428 PDF objects out of 1000 (max. 8388607)
  350 compressed objects within 4 object streams

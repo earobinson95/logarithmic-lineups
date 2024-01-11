@@ -10,7 +10,6 @@ execute:
   warning: false
 ---
 
-
 ```{r setup}
 #| include: false
 library(tidyverse)
