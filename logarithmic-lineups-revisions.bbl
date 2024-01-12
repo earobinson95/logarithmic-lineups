@@ -1,135 +1,93 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{xx}
 
-\bibitem{aisch2015you}
-Gregor Aisch, Amanda Cox, and Kevin Quealy.
-\newblock You draw it: How family income predicts children’s college chances.
-\newblock {\em The New York Times}, 28, 2015.
+\harvarditem[Aisch et~al.]{Aisch, Cox \harvardand\ Quealy}{2015}{aisch2015you}
+Aisch, G., Cox, A. \harvardand\ Quealy, K.  \harvardyearleft 2015\harvardyearright , `You draw it: How family income predicts children’s college chances', {\em The New York Times} {\bf 28}.
 
-\bibitem{lme4}
-Douglas Bates, Martin M{\"a}chler, Ben Bolker, and Steve Walker.
-\newblock Fitting linear mixed-effects models using {lme4}.
-\newblock {\em Journal of Statistical Software}, 67(1):1--48, 2015.
+\harvarditem[Bates et~al.]{Bates, M{\"a}chler, Bolker \harvardand\ Walker}{2015}{lme4}
+Bates, D., M{\"a}chler, M., Bolker, B. \harvardand\ Walker, S.  \harvardyearleft 2015\harvardyearright , `Fitting linear mixed-effects models using {lme4}', {\em Journal of Statistical Software} {\bf 67}(1),~1--48.
 
-\bibitem{best_perception_2007}
-Lisa Best, Laurence Smith, and D~Stubbs.
-\newblock Perception of linear and nonlinear trends: Using slope and curvature information to make trend discriminations.
-\newblock {\em Perceptual and Motor Skills}, 104(3):707--721, 2007.
+\harvarditem[Best et~al.]{Best, Smith \harvardand\ Stubbs}{2007}{best_perception_2007}
+Best, L., Smith, L. \harvardand\ Stubbs, D.  \harvardyearleft 2007\harvardyearright , `Perception of linear and nonlinear trends: Using slope and curvature information to make trend discriminations', {\em Perceptual and Motor Skills} {\bf 104}(3),~707--721.
 
-\bibitem{buja_statistical_2009}
-Andreas Buja, Dianne Cook, Heike Hofmann, Michael Lawrence, Eun-Kyung Lee, Deborah Swayne, and Hadley Wickham.
-\newblock Statistical inference for exploratory data analysis and model diagnostics.
-\newblock {\em Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences}, 367(1906):4361--4383, 2009.
+\harvarditem[Buja et~al.]{Buja, Cook, Hofmann, Lawrence, Lee, Swayne \harvardand\ Wickham}{2009}{buja_statistical_2009}
+Buja, A., Cook, D., Hofmann, H., Lawrence, M., Lee, E.-K., Swayne, D. \harvardand\ Wickham, H.  \harvardyearleft 2009\harvardyearright , `Statistical inference for exploratory data analysis and model diagnostics', {\em Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences} {\bf 367}(1906),~4361--4383.
 
-\bibitem{burnmurdoch_2020}
-John Burn-Murdoch, Caroline Nevitt, Cale Tilford, Andrew Rininsland, Joanna Kao, Oliver Elliott, Emma Lewis, Brooke Fox, and Martin Stabe.
-\newblock Coronavirus tracked: Has the epidemic peaked near you?, 2020.
+\harvarditem[Burn-Murdoch et~al.]{Burn-Murdoch, Nevitt, Tilford, Rininsland, Kao, Elliott, Lewis, Fox \harvardand\ Stabe}{2020}{burnmurdoch_2020}
+Burn-Murdoch, J., Nevitt, C., Tilford, C., Rininsland, A., Kao, J., Elliott, O., Lewis, E., Fox, B. \harvardand\ Stabe, M.  \harvardyearleft 2020\harvardyearright , `Coronavirus tracked: Has the epidemic peaked near you?'.
+\newline\harvardurl{https://ig.ft.com/coronavirus-chart/?areas=eur}
 
-\bibitem{shiny_pkg}
-Winston Chang, Joe Cheng, JJ~Allaire, Carson Sievert, Barret Schloerke, Yihui Xie, Jeff Allen, Jonathan McPherson, Alan Dipert, and Barbara Borges.
-\newblock {\em shiny: Web Application Framework for R}, 2022.
+\harvarditem[Chang et~al.]{Chang, Cheng, Allaire, Sievert, Schloerke, Xie, Allen, McPherson, Dipert \harvardand\ Borges}{2022}{shiny_pkg}
+Chang, W., Cheng, J., Allaire, J., Sievert, C., Schloerke, B., Xie, Y., Allen, J., McPherson, J., Dipert, A. \harvardand\ Borges, B.  \harvardyearleft 2022\harvardyearright , {\em shiny: Web Application Framework for R}.
 \newblock R package version 1.7.4.
+\newline\harvardurl{https://CRAN.R-project.org/package=shiny}
 
-\bibitem{cleveland_graphical_1985}
-William Cleveland and Robert McGill.
-\newblock Graphical perception and graphical methods for analyzing scientific data.
-\newblock {\em Science}, 229(4716):828--833, 1985.
+\harvarditem{Cleveland \harvardand\ McGill}{1985}{cleveland_graphical_1985}
+Cleveland, W. \harvardand\ McGill, R.  \harvardyearleft 1985\harvardyearright , `Graphical perception and graphical methods for analyzing scientific data', {\em Science} {\bf 229}(4716),~828--833.
 
-\bibitem{fagen-ulmschneider_2020}
-Wade Fagen-Ulmschneider.
-\newblock 91-divoc, 2020.
+\harvarditem{Fagen-Ulmschneider}{2020}{fagen-ulmschneider_2020}
+Fagen-Ulmschneider, W.  \harvardyearleft 2020\harvardyearright , `91-divoc'.
+\newline\harvardurl{https://91-divoc.com/pages/covid-visualization/}
 
-\bibitem{heckler_student_2013}
-Andrew Heckler, Brendon Mikula, and Rebecca Rosenblatt.
-\newblock Student accuracy in reading logarithmic plots: The problem and how to fix it.
-\newblock In {\em 2013 IEEE Frontiers in Education Conference (FIE)}, pages 1066--1071. IEEE, 2013.
+\harvarditem[Heckler et~al.]{Heckler, Mikula \harvardand\ Rosenblatt}{2013}{heckler_student_2013}
+Heckler, A., Mikula, B. \harvardand\ Rosenblatt, R.  \harvardyearleft 2013\harvardyearright , Student accuracy in reading logarithmic plots: The problem and how to fix it, {\em in} `2013 IEEE Frontiers in Education Conference (FIE)', IEEE, pp.~1066--1071.
 
-\bibitem{hofmann_graphical_2012}
-Heike Hofmann, Lendie Follett, Mahbubul Majumder, and Dianne Cook.
-\newblock Graphical tests for power comparison of competing designs.
-\newblock {\em IEEE Transactions on Visualization and Computer Graphics}, 18(12):2441--2448, 2012.
+\harvarditem[Hofmann et~al.]{Hofmann, Follett, Majumder \harvardand\ Cook}{2012}{hofmann_graphical_2012}
+Hofmann, H., Follett, L., Majumder, M. \harvardand\ Cook, D.  \harvardyearleft 2012\harvardyearright , `Graphical tests for power comparison of competing designs', {\em IEEE Transactions on Visualization and Computer Graphics} {\bf 18}(12),~2441--2448.
 
-\bibitem{jones_polynomial_1977}
-Gregory Jones.
-\newblock Polynomial perception of exponential growth.
-\newblock {\em Perception \& Psychophysics}, 1977.
+\harvarditem{Jones}{1977}{jones_polynomial_1977}
+Jones, G.  \harvardyearleft 1977\harvardyearright , `Polynomial perception of exponential growth.', {\em Perception \& Psychophysics} .
 
-\bibitem{emmeans}
-Russell Lenth.
-\newblock {\em emmeans: Estimated Marginal Means, aka Least-Squares Means}, 2021.
+\harvarditem{Lenth}{2021}{emmeans}
+Lenth, R.  \harvardyearleft 2021\harvardyearright , {\em emmeans: Estimated Marginal Means, aka Least-Squares Means}.
 \newblock R package version 1.6.0.
+\newline\harvardurl{https://CRAN.R-project.org/package=emmeans}
 
-\bibitem{loy_variations_2016}
-Adam Loy, Lendie Follett, and Heike Hofmann.
-\newblock Variations of q--q plots: The power of our eyes!
-\newblock {\em The American Statistician}, 70(2):202--214, 2016.
+\harvarditem[Loy et~al.]{Loy, Follett \harvardand\ Hofmann}{2016}{loy_variations_2016}
+Loy, A., Follett, L. \harvardand\ Hofmann, H.  \harvardyearleft 2016\harvardyearright , `Variations of q--q plots: The power of our eyes!', {\em The American Statistician} {\bf 70}(2),~202--214.
 
-\bibitem{loy_model_2017}
-Adam Loy, Heike Hofmann, and Dianne Cook.
-\newblock Model choice and diagnostics for linear mixed-effects models using statistics on street corners.
-\newblock {\em Journal of Computational and Graphical Statistics}, 26(3):478--492, 2017.
+\harvarditem[Loy et~al.]{Loy, Hofmann \harvardand\ Cook}{2017}{loy_model_2017}
+Loy, A., Hofmann, H. \harvardand\ Cook, D.  \harvardyearleft 2017\harvardyearright , `Model choice and diagnostics for linear mixed-effects models using statistics on street corners', {\em Journal of Computational and Graphical Statistics} {\bf 26}(3),~478--492.
 
-\bibitem{mackinnon_feedback_1991}
-Andrew MacKinnon and Alexander Wearing.
-\newblock Feedback and the forecasting of exponential change.
-\newblock {\em Acta Psychologica}, 76(2):177--191, 1991.
+\harvarditem{MacKinnon \harvardand\ Wearing}{1991}{mackinnon_feedback_1991}
+MacKinnon, A. \harvardand\ Wearing, A.  \harvardyearleft 1991\harvardyearright , `Feedback and the forecasting of exponential change', {\em Acta Psychologica} {\bf 76}(2),~177--191.
 
-\bibitem{majumder_validation_2013}
-Mahbubul Majumder, Heike Hofmann, and Dianne Cook.
-\newblock Validation of visual statistical inference, applied to linear models.
-\newblock {\em Journal of the American Statistical Association}, 108(503):942--956, 2013.
+\harvarditem[Majumder et~al.]{Majumder, Hofmann \harvardand\ Cook}{2013}{majumder_validation_2013}
+Majumder, M., Hofmann, H. \harvardand\ Cook, D.  \harvardyearleft 2013\harvardyearright , `Validation of visual statistical inference, applied to linear models', {\em Journal of the American Statistical Association} {\bf 108}(503),~942--956.
 
-\bibitem{menge_logarithmic_2018}
-Duncan Menge, Anna MacPherson, Thomas Bytnerowicz, Andrew Quebbeman, Naomi Schwartz, Benton Taylor, and Amelia Wolf.
-\newblock Logarithmic scales in ecological data presentation may cause misinterpretation.
-\newblock {\em Nature Ecology \& Evolution}, 2(9):1393--1402, 2018.
+\harvarditem[Menge et~al.]{Menge, MacPherson, Bytnerowicz, Quebbeman, Schwartz, Taylor \harvardand\ Wolf}{2018}{menge_logarithmic_2018}
+Menge, D., MacPherson, A., Bytnerowicz, T., Quebbeman, A., Schwartz, N., Taylor, B. \harvardand\ Wolf, A.  \harvardyearleft 2018\harvardyearright , `Logarithmic scales in ecological data presentation may cause misinterpretation', {\em Nature Ecology \& Evolution} {\bf 2}(9),~1393--1402.
 
-\bibitem{Rstudio}
-{R Core Team}.
-\newblock {\em R: A Language and Environment for Statistical Computing}.
-\newblock R Foundation for Statistical Computing, Vienna, Austria, 2022.
+\harvarditem{{R Core Team}}{2022}{Rstudio}
+{R Core Team}  \harvardyearleft 2022\harvardyearright , {\em R: A Language and Environment for Statistical Computing}, R Foundation for Statistical Computing, Vienna, Austria.
+\newline\harvardurl{https://www.R-project.org/}
 
-\bibitem{robinson2022eye}
-Emily~A Robinson, Reka Howard, and Susan VanderPlas.
-\newblock Eye fitting straight lines in the modern era.
-\newblock {\em Journal of Computational and Graphical Statistics}, pages 1--8, 2022.
+\harvarditem[Robinson et~al.]{Robinson, Howard \harvardand\ VanderPlas}{2022}{robinson2022eye}
+Robinson, E.~A., Howard, R. \harvardand\ VanderPlas, S.  \harvardyearleft 2022\harvardyearright , `Eye fitting straight lines in the modern era', {\em Journal of Computational and Graphical Statistics} pp.~1--8.
 
-\bibitem{vanderplas_testing_2020}
-Susan Vanderplas, Dianne Cook, and Heike Hofmann.
-\newblock Testing statistical charts: What makes a good graph?
-\newblock {\em Annual Review of Statistics and Its Application}, 7:61--88, 2020.
+\harvarditem[Vanderplas et~al.]{Vanderplas, Cook \harvardand\ Hofmann}{2020}{vanderplas_testing_2020}
+Vanderplas, S., Cook, D. \harvardand\ Hofmann, H.  \harvardyearleft 2020\harvardyearright , `Testing statistical charts: What makes a good graph?', {\em Annual Review of Statistics and Its Application} {\bf 7},~61--88.
 
-\bibitem{vanderplas2015spatial}
-Susan VanderPlas and Heike Hofmann.
-\newblock Spatial reasoning and data displays.
-\newblock {\em IEEE Transactions on Visualization and Computer Graphics}, 22(1):459--468, 2015.
+\harvarditem{VanderPlas \harvardand\ Hofmann}{2015}{vanderplas2015spatial}
+VanderPlas, S. \harvardand\ Hofmann, H.  \harvardyearleft 2015\harvardyearright , `Spatial reasoning and data displays', {\em IEEE Transactions on Visualization and Computer Graphics} {\bf 22}(1),~459--468.
 
-\bibitem{vanderplas_clusters_2017}
-Susan VanderPlas and Heike Hofmann.
-\newblock Clusters beat trend!? testing feature hierarchy in statistical graphics.
-\newblock {\em Journal of Computational and Graphical Statistics}, 26(2):231--242, 2017.
+\harvarditem{VanderPlas \harvardand\ Hofmann}{2017}{vanderplas_clusters_2017}
+VanderPlas, S. \harvardand\ Hofmann, H.  \harvardyearleft 2017\harvardyearright , `Clusters beat trend!? testing feature hierarchy in statistical graphics', {\em Journal of Computational and Graphical Statistics} {\bf 26}(2),~231--242.
 
-\bibitem{vonbergmann_2021}
-Jens Von~Bergmann.
-\newblock xkcd exponential: Public health vs scientists, Mar 2021.
+\harvarditem{Von~Bergmann}{2021}{vonbergmann_2021}
+Von~Bergmann, J.  \harvardyearleft 2021\harvardyearright , `xkcd exponential: Public health vs scientists'.
+\newline\harvardurl{https://github.com/mountainMath/xkcd\_exponential}
 
-\bibitem{waddell2005comparisons}
-William Waddell.
-\newblock Comparisons of thresholds for carcinogenicity on linear and logarithmic dosage scales.
-\newblock {\em Human \& Experimental Toxicology}, 24(6):325--332, 2005.
+\harvarditem{Waddell}{2005}{waddell2005comparisons}
+Waddell, W.  \harvardyearleft 2005\harvardyearright , `Comparisons of thresholds for carcinogenicity on linear and logarithmic dosage scales', {\em Human \& Experimental Toxicology} {\bf 24}(6),~325--332.
 
-\bibitem{wagenaar_misperception_1975}
-William Wagenaar and Sabato Sagaria.
-\newblock Misperception of exponential growth.
-\newblock {\em Perception \& Psychophysics}, 18(6):416--422, 1975.
+\harvarditem{Wagenaar \harvardand\ Sagaria}{1975}{wagenaar_misperception_1975}
+Wagenaar, W. \harvardand\ Sagaria, S.  \harvardyearleft 1975\harvardyearright , `Misperception of exponential growth', {\em Perception \& Psychophysics} {\bf 18}(6),~416--422.
 
-\bibitem{wickham2010graphical}
-Hadley Wickham, Dianne Cook, Heike Hofmann, and Andreas Buja.
-\newblock Graphical inference for infovis.
-\newblock {\em IEEE Transactions on Visualization and Computer Graphics}, 16(6):973--979, 2010.
+\harvarditem[Wickham et~al.]{Wickham, Cook, Hofmann \harvardand\ Buja}{2010}{wickham2010graphical}
+Wickham, H., Cook, D., Hofmann, H. \harvardand\ Buja, A.  \harvardyearleft 2010\harvardyearright , `Graphical inference for infovis', {\em IEEE Transactions on Visualization and Computer Graphics} {\bf 16}(6),~973--979.
 
-\bibitem{wolfeWhatPreattentiveFeature2019}
-Jeremy~M Wolfe and Igor~S Utochkin.
-\newblock What is a preattentive feature?
-\newblock 29:19--26.
+\harvarditem{Wolfe \harvardand\ Utochkin}{n.d.}{wolfeWhatPreattentiveFeature2019}
+Wolfe, J.~M. \harvardand\ Utochkin, I.~S.  \harvardyearleft n.d.\harvardyearright , `What is a preattentive feature?',  {\bf 29},~19--26.
+\newline\harvardurl{https://linkinghub.elsevier.com/retrieve/pii/S2352250X18301799}
 
 \end{thebibliography}

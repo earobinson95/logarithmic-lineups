@@ -1,51 +1,49 @@
 This is BibTeX, Version 0.99d (TeX Live 2023)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: logarithmic-lineups-revisions.aux
-The style file: plain.bst
+The style file: agsm.bst
 Database file #1: bibliography.bib
 Warning--entry type for "vonbergmann_2021" isn't style-file defined
 --line 525 of file bibliography.bib
-Warning--empty journal in wolfeWhatPreattentiveFeature2019
-Warning--empty year in wolfeWhatPreattentiveFeature2019
 You've used 27 entries,
-            2118 wiz_defined-function locations,
-            673 strings with 8951 characters,
-and the built_in function-call counts, 9398 in all, are:
-= -- 921
-> -- 510
-< -- 2
-+ -- 201
-- -- 174
-* -- 726
-:= -- 1593
-add.period$ -- 79
+            2909 wiz_defined-function locations,
+            821 strings with 10006 characters,
+and the built_in function-call counts, 136852 in all, are:
+= -- 22369
+> -- 1980
+< -- 0
++ -- 10863
+- -- 609
+* -- 12114
+:= -- 27112
+add.period$ -- 29
 call.type$ -- 27
-change.case$ -- 165
-chr.to.int$ -- 0
-cite$ -- 29
-duplicate$ -- 296
-empty$ -- 681
-format.name$ -- 174
-if$ -- 1892
-int.to.chr$ -- 0
-int.to.str$ -- 27
+change.case$ -- 375
+chr.to.int$ -- 27
+cite$ -- 27
+duplicate$ -- 421
+empty$ -- 890
+format.name$ -- 702
+if$ -- 24570
+int.to.chr$ -- 5
+int.to.str$ -- 0
 missing$ -- 21
-newline$ -- 135
-num.names$ -- 54
-pop$ -- 154
+newline$ -- 93
+num.names$ -- 285
+pop$ -- 101
 preamble$ -- 1
-purify$ -- 141
+purify$ -- 405
 quote$ -- 0
-skip$ -- 215
+skip$ -- 360
 stack$ -- 0
-substring$ -- 613
-swap$ -- 46
-text.length$ -- 2
+substring$ -- 31930
+swap$ -- 78
+text.length$ -- 378
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 108
-warning$ -- 2
-while$ -- 94
-width$ -- 29
-write$ -- 286
-(There were 3 warnings)
+warning$ -- 0
+while$ -- 607
+width$ -- 0
+write$ -- 365
+(There was 1 warning)

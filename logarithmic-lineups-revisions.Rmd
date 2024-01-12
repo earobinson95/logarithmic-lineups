@@ -891,10 +891,8 @@ for analyses (lineup-model-data.csv).
 + **README:** File containing detailed descriptions of the supplementary material.
 (README.html).
 
-```{r, include = T, eval = T}
+```{r, include = F, eval = F}
 # rmarkdown::render("appendix.Rmd")
-# knitr::include_rmd("appendix.Rmd")
-knitr::knit_child("appendix.Rmd")
 ```
 
 # References

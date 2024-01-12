@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.1.9)  11 JAN 2024 21:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.1.9)  12 JAN 2024 08:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**C:/Users/erobin17/Documents/publications/2023-logarithmic-lineups/logarithmic-lineups-revisions.tex
-(c:/Users/erobin17/Documents/publications/2023-logarithmic-lineups/logarithmic-lineups-revisions.tex
+**logarithmic-lineups-revisions.tex
+(./logarithmic-lineups-revisions.tex
 LaTeX2e <2023-11-01>
 L3 programming layer <2024-01-04>
 (c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
@@ -373,360 +373,28 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__pdf_internal_box=\box55
 ) (./logarithmic-lineups-revisions.aux
 
-LaTeX Warning: Label `exponential-growth-rates-and-curvature' multiply defined.
-
-
-LaTeX Warning: Label `exponential-growth-rates-and-curvature@cref' multiply defined.
-
-
-LaTeX Warning: Label `eq:simpleexp' multiply defined.
-
-
-LaTeX Warning: Label `eq:simpleexp@cref' multiply defined.
-
-
-LaTeX Warning: Label `fig:simple-exponential' multiply defined.
-
-
-LaTeX Warning: Label `fig:simple-exponential@cref' multiply defined.
-
-
-LaTeX Warning: Label `fig:lineup-fixed-scales' multiply defined.
-
-
-LaTeX Warning: Label `fig:lineup-fixed-scales@cref' multiply defined.
-
-
-LaTeX Warning: Label `fig:lineup-free-scales-1' multiply defined.
-
-
-LaTeX Warning: Label `fig:lineup-free-scales-1@cref' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:lineup-free-scales-1' multiply defined.
-
-
-LaTeX Warning: Label `fig:lineup-free-scales-2' multiply defined.
-
-
-LaTeX Warning: Label `fig:lineup-free-scales-2@cref' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:lineup-free-scales-2' multiply defined.
-
-
-LaTeX Warning: Label `fig:lineup-free-scales' multiply defined.
-
-
-LaTeX Warning: Label `fig:lineup-free-scales@cref' multiply defined.
-
-
-LaTeX Warning: Label `fig:lineup-truncate-scales' multiply defined.
-
-
-LaTeX Warning: Label `fig:lineup-truncate-scales@cref' multiply defined.
-
-
-LaTeX Warning: Label `eq:complexexp' multiply defined.
-
-
-LaTeX Warning: Label `eq:complexexp@cref' multiply defined.
-
-
-LaTeX Warning: Label `fig:lineup-scale-data' multiply defined.
-
-
-LaTeX Warning: Label `fig:lineup-scale-data@cref' multiply defined.
-
-
-LaTeX Warning: Label `rorschach-lineup-evaluation' multiply defined.
-
-
-LaTeX Warning: Label `rorschach-lineup-evaluation@cref' multiply defined.
-
-
-LaTeX Warning: Label `fig:rorschach-lineups' multiply defined.
-
-
-LaTeX Warning: Label `fig:rorschach-lineups@cref' multiply defined.
-
-
-LaTeX Warning: Label `participant-confidence-and-accuracy' multiply defined.
-
-
-LaTeX Warning: Label `participant-confidence-and-accuracy@cref' multiply defined.
-
-
-LaTeX Warning: Label `fig:conf-mosaic' multiply defined.
-
-
-LaTeX Warning: Label `fig:conf-mosaic@cref' multiply defined.
-
-
 Package natbib Warning: Citation `vanderplas_clusters_2017' multiply defined.
 
 
 Package natbib Warning: Citation `wolfeWhatPreattentiveFeature2019' multiply defined.
 
-)
-\openout1 = `logarithmic-lineups-revisions.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-(c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
-Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
-(c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
-))
-Package hyperref Info: Link coloring OFF on input line 55.
-Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: subfig package v1.3 is loaded.
-Package caption Info: End \AtBeginDocument code.
+! Package natbib Error: Bibliography not compatible with author-year citations.
+(natbib)                Press <return> to continue in numerical citation style.
 
-Overfull \hbox (66.51514pt too wide) in paragraph at lines 80--80
- [][] 
- []
-
-[1
-Non-PDF special ignored!
-<special> header=psfrag.pro
-
-{c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-
-Package natbib Warning: Author undefined for citation`burnmurdoch_2020' 
-(natbib)                on page 2 on input line 137.
-
-<logarithmic-lineups-revisions_files/figure-latex/log-scales-1.pdf, id=20, 433.62pt x 289.08pt>
-File: logarithmic-lineups-revisions_files/figure-latex/log-scales-1.pdf Graphic file (type pdf)
-<use logarithmic-lineups-revisions_files/figure-latex/log-scales-1.pdf>
-Package pdftex.def Info: logarithmic-lineups-revisions_files/figure-latex/log-scales-1.pdf  used on input line 166.
-(pdftex.def)             Requested size: 462.26999pt x 308.19655pt.
-[2]
-<images/exponential-stages-comic.jpg, id=35, 2022.55624pt x 1243.64626pt>
-File: images/exponential-stages-comic.jpg Graphic file (type jpg)
-<use images/exponential-stages-comic.jpg>
-Package pdftex.def Info: images/exponential-stages-comic.jpg  used on input line 186.
-(pdftex.def)             Requested size: 462.26999pt x 284.22986pt.
-
-Package natbib Warning: Author undefined for citation`cleveland_graphical_1985' 
-(natbib)                on page 3 on input line 197.
-
-
-Package natbib Warning: Author undefined for citation`wagenaar_misperception_1975' 
-(natbib)                on page 3 on input line 200.
-
-
-Package natbib Warning: Author undefined for citation`jones_polynomial_1977' 
-(natbib)                on page 3 on input line 200.
-
-
-Package natbib Warning: Author undefined for citation`mackinnon_feedback_1991' 
-(natbib)                on page 3 on input line 201.
-
-[3 <./logarithmic-lineups-revisions_files/figure-latex/log-scales-1.pdf>] [4 <./images/exponential-stages-comic.jpg>]
-
-Package natbib Warning: Author undefined for citation`menge_logarithmic_2018' 
-(natbib)                on page 5 on input line 216.
-
-
-Package natbib Warning: Author undefined for citation`buja_statistical_2009' 
-(natbib)                on page 5 on input line 224.
-
-[5] [6] [7]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 324.
-[8] [9] [10
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.369 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.369 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.369 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.369 
-      ]
-<logarithmic-lineups-revisions_files/figure-latex/lof-density-curves-1.pdf, id=150, 578.16pt x 289.08pt>
-File: logarithmic-lineups-revisions_files/figure-latex/lof-density-curves-1.pdf Graphic file (type pdf)
-<use logarithmic-lineups-revisions_files/figure-latex/lof-density-curves-1.pdf>
-Package pdftex.def Info: logarithmic-lineups-revisions_files/figure-latex/lof-density-curves-1.pdf  used on input line 372.
-(pdftex.def)             Requested size: 462.26999pt x 231.13197pt.
-[11 <./logarithmic-lineups-revisions_files/figure-latex/lof-density-curves-1.pdf>]
-<logarithmic-lineups-revisions_files/figure-latex/curvature-combination-example-1.pdf, id=170, 650.43pt x 433.62pt>
-File: logarithmic-lineups-revisions_files/figure-latex/curvature-combination-example-1.pdf Graphic file (type pdf)
-<use logarithmic-lineups-revisions_files/figure-latex/curvature-combination-example-1.pdf>
-Package pdftex.def Info: logarithmic-lineups-revisions_files/figure-latex/curvature-combination-example-1.pdf  used on input line 425.
-(pdftex.def)             Requested size: 462.26999pt x 308.18994pt.
-<logarithmic-lineups-revisions_files/figure-latex/lineup-example-1.pdf, id=172, 415.5525pt x 198.7425pt>
-File: logarithmic-lineups-revisions_files/figure-latex/lineup-example-1.pdf Graphic file (type pdf)
-<use logarithmic-lineups-revisions_files/figure-latex/lineup-example-1.pdf>
-Package pdftex.def Info: logarithmic-lineups-revisions_files/figure-latex/lineup-example-1.pdf  used on input line 443.
-(pdftex.def)             Requested size: 462.26999pt x 221.09502pt.
-[12] [13 <./logarithmic-lineups-revisions_files/figure-latex/curvature-combination-example-1.pdf>] [14 <./logarithmic-lineups-revisions_files/figure-latex/lineup-example-1.pdf>]
-
-Package natbib Warning: Author undefined for citation`aisch2015you' 
-(natbib)                on page 15 on input line 482.
-
-
-Package natbib Warning: Author undefined for citation`robinson2022eye' 
-(natbib)                on page 15 on input line 483.
-
-
-Overfull \hbox (32.313pt too wide) in paragraph at lines 487--496
-\OT1/cmr/m/n/12 ces-si-ble at []$\OT1/cmtt/m/n/12 https : / / emily -[] robinson . shinyapps . io / perception -[] of -[] statistical -[] graphics -[]
- []
-
-<images/study-homepage.jpg, id=210, 878.68275pt x 522.753pt>
-File: images/study-homepage.jpg Graphic file (type jpg)
-<use images/study-homepage.jpg>
-Package pdftex.def Info: images/study-homepage.jpg  used on input line 499.
-(pdftex.def)             Requested size: 462.26999pt x 275.02374pt.
-[15] [16 <./images/study-homepage.jpg>]
-<images/lineup-study-example-trial.jpg, id=227, 1064.778pt x 651.6345pt>
-File: images/lineup-study-example-trial.jpg Graphic file (type jpg)
-<use images/lineup-study-example-trial.jpg>
-Package pdftex.def Info: images/lineup-study-example-trial.jpg  used on input line 521.
-(pdftex.def)             Requested size: 462.26999pt x 282.9019pt.
-[17 <./images/lineup-study-example-trial.jpg>] [18]
-
-Package natbib Warning: Author undefined for citation`best_perception_2007' 
-(natbib)                on page 19 on input line 597.
-
-
-Package natbib Warning: Author undefined for citation`best_perception_2007' 
-(natbib)                on page 19 on input line 606.
-
-[19]
-<images/observed-proportions.png, id=254, 614.295pt x 794.97pt>
-File: images/observed-proportions.png Graphic file (type png)
-<use images/observed-proportions.png>
-Package pdftex.def Info: images/observed-proportions.png  used on input line 616.
-(pdftex.def)             Requested size: 462.26999pt x 598.23965pt.
-
-LaTeX Warning: Float too large for page by 47.08052pt on input line 621.
-
-[20] [21 <./images/observed-proportions.png>]
-<logarithmic-lineups-revisions_files/figure-latex/odds-ratio-plot-1.pdf, id=271, 650.43pt x 433.62pt>
-File: logarithmic-lineups-revisions_files/figure-latex/odds-ratio-plot-1.pdf Graphic file (type pdf)
-<use logarithmic-lineups-revisions_files/figure-latex/odds-ratio-plot-1.pdf>
-Package pdftex.def Info: logarithmic-lineups-revisions_files/figure-latex/odds-ratio-plot-1.pdf  used on input line 666.
-(pdftex.def)             Requested size: 462.26999pt x 308.18994pt.
-[22] [23 <./logarithmic-lineups-revisions_files/figure-latex/odds-ratio-plot-1.pdf>] [24]
-Overfull \hbox (28.01079pt too wide) in paragraph at lines 729--733
-\OT1/cmr/m/n/12 found on GitHub at []$\OT1/cmtt/m/n/12 https : / / github . com / earobinson95 / perception -[] of -[] statistical -[]
- []
-
-[25]
-<appendix_files/figure-latex/simple-exponential-1.pdf, id=302, 578.16pt x 216.81pt>
-File: appendix_files/figure-latex/simple-exponential-1.pdf Graphic file (type pdf)
-<use appendix_files/figure-latex/simple-exponential-1.pdf>
-Package pdftex.def Info: appendix_files/figure-latex/simple-exponential-1.pdf  used on input line 763.
-(pdftex.def)             Requested size: 462.26999pt x 173.34898pt.
-[26 <./appendix_files/figure-latex/simple-exponential-1.pdf>]
-<appendix_files/figure-latex/lineup-fixed-scales-1.pdf, id=323, 542.025pt x 433.62pt>
-File: appendix_files/figure-latex/lineup-fixed-scales-1.pdf Graphic file (type pdf)
-<use appendix_files/figure-latex/lineup-fixed-scales-1.pdf>
-Package pdftex.def Info: appendix_files/figure-latex/lineup-fixed-scales-1.pdf  used on input line 810.
-(pdftex.def)             Requested size: 277.3648pt x 221.89755pt.
-<appendix_files/figure-latex/lineup-free-scales-1.pdf, id=324, 542.025pt x 433.62pt>
-File: appendix_files/figure-latex/lineup-free-scales-1.pdf Graphic file (type pdf)
-<use appendix_files/figure-latex/lineup-free-scales-1.pdf>
-Package pdftex.def Info: appendix_files/figure-latex/lineup-free-scales-1.pdf  used on input line 824.
-(pdftex.def)             Requested size: 277.3648pt x 221.89755pt.
-<images/curvature-overlay-free-scales.png, id=325, 84.7968pt x 99.9735pt>
-File: images/curvature-overlay-free-scales.png Graphic file (type png)
-<use images/curvature-overlay-free-scales.png>
-Package pdftex.def Info: images/curvature-overlay-free-scales.png  used on input line 824.
-(pdftex.def)             Requested size: 92.45258pt x 109.00859pt.
-
-Underfull \hbox (badness 2521) in paragraph at lines 824--824
-[]\OT1/cmr/m/n/10 (b) |Over-lay of null
- []
-
-[27 <./appendix_files/figure-latex/lineup-fixed-scales-1.pdf>] [28 <./appendix_files/figure-latex/lineup-free-scales-1.pdf> <./images/curvature-overlay-free-scales.png>]
-<appendix_files/figure-latex/lineup-truncate-scales-1.pdf, id=355, 542.025pt x 433.62pt>
-File: appendix_files/figure-latex/lineup-truncate-scales-1.pdf Graphic file (type pdf)
-<use appendix_files/figure-latex/lineup-truncate-scales-1.pdf>
-Package pdftex.def Info: appendix_files/figure-latex/lineup-truncate-scales-1.pdf  used on input line 856.
-(pdftex.def)             Requested size: 277.3648pt x 221.89755pt.
-[29]
-<appendix_files/figure-latex/lineup-scale-data-1.pdf, id=365, 542.025pt x 433.62pt>
-File: appendix_files/figure-latex/lineup-scale-data-1.pdf Graphic file (type pdf)
-<use appendix_files/figure-latex/lineup-scale-data-1.pdf>
-Package pdftex.def Info: appendix_files/figure-latex/lineup-scale-data-1.pdf  used on input line 896.
-(pdftex.def)             Requested size: 277.3648pt x 221.89755pt.
-
-Overfull \hbox (4.55295pt too wide) in paragraph at lines 909--918
-\OT1/cmr/m/n/12 In ad-di-tion to the ex-per-i-men-tal line-ups, we gen-er-ated three sets of ho-mo-ge-neous ``Rorschach''
- []
-
-[30 <./appendix_files/figure-latex/lineup-truncate-scales-1.pdf>] [31 <./appendix_files/figure-latex/lineup-scale-data-1.pdf>]
-<appendix_files/figure-latex/rorschach-lineups-1.pdf, id=391, 650.43pt x 505.89pt>
-File: appendix_files/figure-latex/rorschach-lineups-1.pdf Graphic file (type pdf)
-<use appendix_files/figure-latex/rorschach-lineups-1.pdf>
-Package pdftex.def Info: appendix_files/figure-latex/rorschach-lineups-1.pdf  used on input line 932.
-(pdftex.def)             Requested size: 462.26999pt x 359.55493pt.
-[32 <./appendix_files/figure-latex/rorschach-lineups-1.pdf>]
-<appendix_files/figure-latex/conf-mosaic-1.pdf, id=405, 867.24pt x 578.16pt>
-File: appendix_files/figure-latex/conf-mosaic-1.pdf Graphic file (type pdf)
-<use appendix_files/figure-latex/conf-mosaic-1.pdf>
-Package pdftex.def Info: appendix_files/figure-latex/conf-mosaic-1.pdf  used on input line 958.
-(pdftex.def)             Requested size: 462.26999pt x 308.17891pt.
-(./logarithmic-lineups-revisions.bbl [33 <./appendix_files/figure-latex/conf-mosaic-1.pdf>] [34] [35])
-
-Package natbib Warning: There were multiply defined citations.
-
-[36] (./logarithmic-lineups-revisions.aux)
- ***********
-LaTeX2e <2023-11-01>
-L3 programming layer <2024-01-04>
- ***********
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+See the natbib package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.142 ...and\NAT@force@numbers{}\NAT@force@numbers
+                                                   
 Here is how much of TeX's memory you used:
- 14500 strings out of 476125
- 254331 string characters out of 5792873
- 1939528 words of memory out of 5000000
- 36266 multiletter control sequences out of 15000+600000
- 566751 words of font info for 66 fonts, out of 8000000 for 9000
+ 12817 strings out of 476125
+ 206567 string characters out of 5792873
+ 1924528 words of memory out of 5000000
+ 34742 multiletter control sequences out of 15000+600000
+ 558367 words of font info for 37 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,11n,79p,683b,622s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,0n,79p,612b,385s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-pdfTeX warning (dest): name{conclusion-discussion} has been referenced but does not exist, replaced by a fixed one
-
- <c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on logarithmic-lineups-revisions.pdf (36 pages, 1248181 bytes).
-PDF statistics:
- 559 PDF objects out of 1000 (max. 8388607)
- 455 compressed objects within 5 object streams
- 126 named destinations out of 1000 (max. 500000)
- 190 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+!  ==> Fatal error occurred, no output PDF file produced!
