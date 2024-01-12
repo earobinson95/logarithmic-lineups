@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.1.9)  10 JAN 2024 17:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.1.9)  11 JAN 2024 21:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -457,40 +457,35 @@ Overfull \hbox (4.55295pt too wide) in paragraph at lines 260--269
  []
 
 [5 <./appendix_files/figure-latex/lineup-truncate-scales-1.pdf>] [6 <./appendix_files/figure-latex/lineup-scale-data-1.pdf>]
-<appendix_files/figure-latex/rorschach-lineups-1.pdf, id=104, 542.025pt x 433.62pt>
+<appendix_files/figure-latex/rorschach-lineups-1.pdf, id=104, 650.43pt x 505.89pt>
 File: appendix_files/figure-latex/rorschach-lineups-1.pdf Graphic file (type pdf)
 <use appendix_files/figure-latex/rorschach-lineups-1.pdf>
 Package pdftex.def Info: appendix_files/figure-latex/rorschach-lineups-1.pdf  used on input line 283.
-(pdftex.def)             Requested size: 277.3648pt x 221.89755pt.
-
-LaTeX Warning: Reference `fig:conf-mosaic' on page 1 undefined on input line 299.
-
-<appendix_files/figure-latex/conf-mosaic-1.pdf, id=105, 867.24pt x 578.16pt>
+(pdftex.def)             Requested size: 462.26999pt x 359.55493pt.
+[7 <./appendix_files/figure-latex/rorschach-lineups-1.pdf>]
+<appendix_files/figure-latex/conf-mosaic-1.pdf, id=119, 867.24pt x 578.16pt>
 File: appendix_files/figure-latex/conf-mosaic-1.pdf Graphic file (type pdf)
 <use appendix_files/figure-latex/conf-mosaic-1.pdf>
-Package pdftex.def Info: appendix_files/figure-latex/conf-mosaic-1.pdf  used on input line 307.
+Package pdftex.def Info: appendix_files/figure-latex/conf-mosaic-1.pdf  used on input line 309.
 (pdftex.def)             Requested size: 462.26999pt x 308.17891pt.
-[7 <./appendix_files/figure-latex/rorschach-lineups-1.pdf>] (./appendix.bbl)
+(./appendix.bbl [8 <./appendix_files/figure-latex/conf-mosaic-1.pdf>])
 
 Package natbib Warning: There were multiply defined citations.
 
-[8 <./appendix_files/figure-latex/conf-mosaic-1.pdf>] (./appendix.aux)
+[9] (./appendix.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2024-01-04>
  ***********
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 14198 strings out of 476125
- 244526 string characters out of 5792873
+ 14199 strings out of 476125
+ 244464 string characters out of 5792873
  1933528 words of memory out of 5000000
- 36062 multiletter control sequences out of 15000+600000
+ 36061 multiletter control sequences out of 15000+600000
  563039 words of font info for 53 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,10n,79p,646b,519s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,10n,79p,547b,560s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{table.caption.4} has been referenced but does not exist, replaced by a fixed one
 
@@ -498,10 +493,10 @@ pdfTeX warning (dest): name{table.caption.4} has been referenced but does not ex
 pdfTeX warning (dest): name{algorithm.2} has been referenced but does not exist, replaced by a fixed one
 
 <c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/erobin17/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on appendix.pdf (8 pages, 435080 bytes).
+Output written on appendix.pdf (9 pages, 435176 bytes).
 PDF statistics:
- 182 PDF objects out of 1000 (max. 8388607)
- 139 compressed objects within 2 object streams
- 34 named destinations out of 1000 (max. 500000)
+ 188 PDF objects out of 1000 (max. 8388607)
+ 144 compressed objects within 2 object streams
+ 36 named destinations out of 1000 (max. 500000)
  65 words of extra memory for PDF output out of 10000 (max. 10000000)
 

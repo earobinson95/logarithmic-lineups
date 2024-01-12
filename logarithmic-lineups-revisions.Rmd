@@ -85,7 +85,7 @@ Logarithms facilitate the conversion of multiplicative relationships (displaying
 Logarithms also have practical applications, simplifying the computation of small numbers such as likelihoods and transforming data to conform to statistical assumptions.
 Although log scales have a long history of use in fields such as ecology, psychophysics, engineering, and physics [@heckler_student_2013; @waddell2005comparisons], there is still a need to understand the implications of their use and provide best practices for their implementation.
 
-```{r log-scales, fig.scap = "Linear scale versus log scale", fig.cap = "These plots present hard drive capacity over the past forty years on both the linear and log scale and illustrate the use of the log scale when displaying data which spans several magnitudes.", out.width="100%"}
+```{r log-scales, fig.cap = "These plots present hard drive capacity over the past forty years on both the linear and log scale and illustrate the use of the log scale when displaying data which spans several magnitudes.", out.width="100%"}
 
 # data <- tibble(x = seq(0,10, by = 0.1), y = exp(x))
 
@@ -235,7 +235,7 @@ After obtaining the LOF statistic for each level of curvature, we evaluated the 
 While the LOF statistic provides a numerical value for discriminating between the difficulty levels, it cannot be directly related to the perceptual discriminability; it serves primarily as an approximation to ensure that we are testing parameters at several distinct curvature levels.
 \cref{tab:parameter-data} lists the final parameters used for data simulation.
 
-```{r lof-density-curves, fig.height = 4, fig.width = 8, fig.scap = "Lineup parameter selection", fig.cap = "Density plot of the lack of fit statistic showing separation of difficulty levels: obvious curvature, noticable curvature, and almost linear.", out.width = "100%"}
+```{r lof-density-curves, fig.height = 4, fig.width = 8, fig.cap = "Density plot of the lack of fit statistic showing separation of difficulty levels: obvious curvature, noticable curvature, and almost linear.", out.width = "100%"}
 lofData <- read.csv(file = "data/lineup-lof-data.csv")
 
 lofPlot_curvature <- lofData |>
@@ -311,7 +311,7 @@ Two sets of each lineup curvature combination were simulated (a total of twelve 
 In addition, three curvature combinations generated homogeneous "Rorschach" lineups, where all panels were from the same distribution.
 Each participant evaluated one "Rorschach" lineup. Results from the "Rorschach" evaluations indicate null panel selections were distributed relatively evenly with multiple candidates for the most interesting panel. We display and further discuss the "Rorschach" evaluation results in the appendix.
 
-```{r curvature-combination-example, fig.height = 6, fig.width = 9, fig.scap = "Lineup curvature combinations", fig.cap = "Thumbnail plots illustrating the six curvature combinations displayed on both scales (linear and log). The solid line indicates the curvature level to be identified as the target plot from amongst a set of null plots with the curvature level indicated by the dashed line.", out.width="100%"}
+```{r curvature-combination-example, fig.height = 6, fig.width = 9, fig.cap = "Thumbnail plots illustrating the six curvature combinations displayed on both scales (linear and log). The solid line indicates the curvature level to be identified as the target plot from amongst a set of null plots with the curvature level indicated by the dashed line.", out.width="100%"}
 simData <- read.csv("data/difficulty-comparison-data.csv")
 
 # simData  |>
@@ -563,7 +563,7 @@ plot_layout(ncol = 6)
 The statistical lineup on the left presents increasing exponential data with displayed on a linear scale with panel \ear{13} as the target panel.
 The lineup on the right shows increasing exponential data plotted on a log scale with panel \ear{4} as the target panel.
 
-```{r lineup-example, fig.height = 2.75, fig.width = 5.75, fig.scap = "Lineup examples", fig.cap = "The lineup plot on the left displays increasing exponential data on a linear scale with panel (13 as the target. The lineup plot on the right displays increasing exponential data on the log scale with panel 4 as the target."}
+```{r lineup-example, fig.height = 2.75, fig.width = 5.75, fig.cap = "The lineup plot on the left displays increasing exponential data on a linear scale with panel (13 as the target. The lineup plot on the right displays increasing exponential data on the log scale with panel 4 as the target."}
 
 lineupData_linear <- read.csv(file = "data/lineup-example-data-linear.csv")
 
@@ -619,7 +619,7 @@ The code used to create the study application is available on GitHub at <https:/
 Before completing the lineup study, the 'You Draw It' study, and the estimation study, participants were prompted to provide their demographic information. 
 The series of studies received an IRB exemption (IRB #20200720178EX) from the University of Nebraska - Lincoln.
 
-```{r study-homepage, fig.height = 6, fig.width = 9, fig.scap = "Study applet homepage", fig.cap = "Screenshot of the study applet homepage guiding participants through the series of three graphical experiments related to the perception of logarithmic scales.", out.width="100%"}
+```{r study-homepage, fig.height = 6, fig.width = 9, fig.cap = "Screenshot of the study applet homepage guiding participants through the series of three graphical experiments related to the perception of logarithmic scales.", out.width="100%"}
 knitr::include_graphics("images/study-homepage.jpg")
 ```
 
@@ -627,7 +627,7 @@ The statistical linenup study guided participants through the series of 13 lineu
 In each lineup evaluation, participants justified their choice in a select all that apply format (Clustering, Different range, Different shape, Outlier(s), and Other) as shown on the left side of the applet screenshot. Additionally, participants provided their level of confidence in their choice by answering "How certain are you?" on a five-point likert scale from very certain to very uncertain.
 This graphical task aimed to test an individual's ability to perceptually differentiate exponentially increasing trends with differing levels of curvature on both the linear and log scales.
 
-```{r lineup-study-example-trial, fig.height = 6, fig.width = 9, fig.scap = "Lineup study example trial", fig.cap = "Screenshot of an example trial participants see when completing the lineup study. The applet guided participants through 13 lineup plots and asked them to identify the plot which appeared to be the most different from the others.", out.width="100%"}
+```{r lineup-study-example-trial, fig.height = 6, fig.width = 9, fig.cap = "Screenshot of an example trial participants see when completing the lineup study. The applet guided participants through 13 lineup plots and asked them to identify the plot which appeared to be the most different from the others.", out.width="100%"}
 knitr::include_graphics("images/lineup-study-example-trial.jpg")
 ```
 
@@ -819,7 +819,7 @@ When examining this curvature combination, the same perceptual effect occurred a
 On the linear scale, participants were perceptually identifying a convexly curved trend from close to a linear trend, whereas after the logarithmic transformation, participants were perceptually identifying a trend close to linear from a concavely curved trend \pcref{fig:curvature-combination-example}.
 This result again supports the claim that it is easy to identify a curve in a group of lines but harder to identify a line in a group of curves [@best_perception_2007].
 
-```{r odds-ratio-plot, echo = F, eval = T, fig.width = 9, fig.height = 6, fig.align='center', fig.scap = "Lineups log(odds) results", fig.cap = "Estimated (log) odds ratio of successfully identifying the target panel on the log scale compared to the linear scale. The y-axis indicates the model parameters used to simulate the null plots with the target plot model parameter selection designated by shape and shade. The thumbnail figures on the right display the curvature combination as shown in \\cref{fig:curvature-combination-example} on both scales (linear - left, log - right).", message = F, warning = F}
+```{r odds-ratio-plot, echo = F, eval = T, fig.width = 9, fig.height = 6, fig.align='center', fig.cap = "Estimated (log) odds ratio of successfully identifying the target panel on the log scale compared to the linear scale. The y-axis indicates the model parameters used to simulate the null plots with the target plot model parameter selection designated by shape and shade. The thumbnail figures on the right display the curvature combination as shown in \\cref{fig:curvature-combination-example} on both scales (linear - left, log - right).", message = F, warning = F}
 lineups_or <- read.csv("data/lineups-odds-ratios.csv")
 
 library(grid)
@@ -892,7 +892,9 @@ for analyses (lineup-model-data.csv).
 (README.html).
 
 ```{r, include = T, eval = T}
-rmarkdown::render("appendix.Rmd")
+# rmarkdown::render("appendix.Rmd")
+# knitr::include_rmd("appendix.Rmd")
+knitr::knit_child("appendix.Rmd")
 ```
 
 # References
