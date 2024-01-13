@@ -1,0 +1,621 @@
+"dec_date","value","type","unit","scenario"
+1957,2.43284264389349e-09,"Memory","MB per $1 spent",1
+1959,1.47171962408372e-08,"Memory","MB per $1 spent",1
+1960,1.9073486328125e-07,"Memory","MB per $1 spent",1
+1965,3.78442189050099e-07,"Memory","MB per $1 spent",1
+1970,1.36239188058036e-06,"Memory","MB per $1 spent",1
+1973,2.50400641025641e-06,"Memory","MB per $1 spent",1
+1974,3.17891438802083e-06,"Memory","MB per $1 spent",1
+1975,2.37029733009709e-06,"Memory","MB per $1 spent",1
+1975.08,5.54865056818182e-06,"Memory","MB per $1 spent",1
+1975.25,1.47964015151515e-05,"Memory","MB per $1 spent",1
+1975.75,2.00320512820513e-05,"Memory","MB per $1 spent",1
+1976,2.45676100628931e-05,"Memory","MB per $1 spent",1
+1976.17,2.04248366013072e-05,"Memory","MB per $1 spent",1
+1976.42,4.34027777777778e-05,"Memory","MB per $1 spent",1
+1976.58,3.125e-05,"Memory","MB per $1 spent",1
+1977.08,2.71739130434783e-05,"Memory","MB per $1 spent",1
+1978.17,3.57142857142857e-05,"Memory","MB per $1 spent",1
+1978.25,3.39673913043478e-05,"Memory","MB per $1 spent",1
+1978.33,5.20833333333333e-05,"Memory","MB per $1 spent",1
+1978.5,4.16666666666667e-05,"Memory","MB per $1 spent",1
+1978.58,6.25e-05,"Memory","MB per $1 spent",1
+1978.75,6.57894736842105e-05,"Memory","MB per $1 spent",1
+1979,9.49848024316109e-05,"Memory","MB per $1 spent",1
+1979.75,0.000149164677804296,"Memory","MB per $1 spent",1
+1980,0.000154320987654321,"Memory","MB per $1 spent",1
+1981,0.000113636363636364,"Memory","MB per $1 spent",1
+1981.58,0.000223254152527237,"Memory","MB per $1 spent",1
+1982,0.000284090909090909,"Memory","MB per $1 spent",1
+1982.17,0.000224014336917563,"Memory","MB per $1 spent",1
+1982.67,0.000505050505050505,"Memory","MB per $1 spent",1
+1983,0.000417362270450751,"Memory","MB per $1 spent",1
+1983.67,0.000505050505050505,"Memory","MB per $1 spent",1
+1984,0.000725338491295938,"Memory","MB per $1 spent",1
+1984.58,0.000751503006012024,"Memory","MB per $1 spent",1
+1985,0.00113636363636364,"Memory","MB per $1 spent",1
+1985.33,0.00138888888888889,"Memory","MB per $1 spent",1
+1985.42,0.00181818181818182,"Memory","MB per $1 spent",1
+1985.5,0.00238095238095238,"Memory","MB per $1 spent",1
+1985.58,0.00286123032904149,"Memory","MB per $1 spent",1
+1985.67,0.00333889816360601,"Memory","MB per $1 spent",1
+1985.83,0.00333889816360601,"Memory","MB per $1 spent",1
+1985.92,0.00333889816360601,"Memory","MB per $1 spent",1
+1986,0.00333889816360601,"Memory","MB per $1 spent",1
+1986.08,0.00333889816360601,"Memory","MB per $1 spent",1
+1986.17,0.00333889816360601,"Memory","MB per $1 spent",1
+1986.25,0.00333889816360601,"Memory","MB per $1 spent",1
+1986.33,0.00527704485488127,"Memory","MB per $1 spent",1
+1986.42,0.00527704485488127,"Memory","MB per $1 spent",1
+1986.5,0.00527704485488127,"Memory","MB per $1 spent",1
+1986.58,0.00527704485488127,"Memory","MB per $1 spent",1
+1986.67,0.00527704485488127,"Memory","MB per $1 spent",1
+1986.75,0.00527704485488127,"Memory","MB per $1 spent",1
+1986.92,0.00527704485488127,"Memory","MB per $1 spent",1
+1987,0.00567644276253548,"Memory","MB per $1 spent",1
+1987.08,0.00567644276253548,"Memory","MB per $1 spent",1
+1987.17,0.00636942675159236,"Memory","MB per $1 spent",1
+1987.25,0.00650723930372539,"Memory","MB per $1 spent",1
+1987.33,0.00650723930372539,"Memory","MB per $1 spent",1
+1987.42,0.00650723930372539,"Memory","MB per $1 spent",1
+1987.5,0.00650723930372539,"Memory","MB per $1 spent",1
+1987.58,0.00650723930372539,"Memory","MB per $1 spent",1
+1987.67,0.00614162589309476,"Memory","MB per $1 spent",1
+1987.75,0.0075187969924812,"Memory","MB per $1 spent",1
+1987.83,0.00614162589309476,"Memory","MB per $1 spent",1
+1987.92,0.00614162589309476,"Memory","MB per $1 spent",1
+1988,0.00614162589309476,"Memory","MB per $1 spent",1
+1988.08,0.00548626604732819,"Memory","MB per $1 spent",1
+1988.17,0.00502933780385583,"Memory","MB per $1 spent",1
+1988.33,0.00502933780385583,"Memory","MB per $1 spent",1
+1988.42,0.00502933780385583,"Memory","MB per $1 spent",1
+1988.5,0.00198085176625949,"Memory","MB per $1 spent",1
+1988.58,0.00198085176625949,"Memory","MB per $1 spent",1
+1988.67,0.00198085176625949,"Memory","MB per $1 spent",1
+1988.75,0.00198085176625949,"Memory","MB per $1 spent",1
+1988.83,0.00198085176625949,"Memory","MB per $1 spent",1
+1988.92,0.00198085176625949,"Memory","MB per $1 spent",1
+1989,0.00198085176625949,"Memory","MB per $1 spent",1
+1989.08,0.00198085176625949,"Memory","MB per $1 spent",1
+1989.17,0.00198085176625949,"Memory","MB per $1 spent",1
+1989.25,0.00198085176625949,"Memory","MB per $1 spent",1
+1989.42,0.00290466877093782,"Memory","MB per $1 spent",1
+1989.5,0.00506970849176172,"Memory","MB per $1 spent",1
+1989.58,0.00531208499335989,"Memory","MB per $1 spent",1
+1989.67,0.00531208499335989,"Memory","MB per $1 spent",1
+1989.75,0.00782013685239492,"Memory","MB per $1 spent",1
+1989.83,0.00855431993156544,"Memory","MB per $1 spent",1
+1989.92,0.00883977900552486,"Memory","MB per $1 spent",1
+1990,0.00940070505287897,"Memory","MB per $1 spent",1
+1990.17,0.0101781170483461,"Memory","MB per $1 spent",1
+1990.33,0.0101781170483461,"Memory","MB per $1 spent",1
+1990.42,0.0111731843575419,"Memory","MB per $1 spent",1
+1990.5,0.0120845921450151,"Memory","MB per $1 spent",1
+1990.58,0.012326656394453,"Memory","MB per $1 spent",1
+1990.67,0.013986013986014,"Memory","MB per $1 spent",1
+1990.75,0.0169491525423729,"Memory","MB per $1 spent",1
+1990.83,0.0196078431372549,"Memory","MB per $1 spent",1
+1990.92,0.021978021978022,"Memory","MB per $1 spent",1
+1991,0.0224719101123595,"Memory","MB per $1 spent",1
+1991.08,0.0224719101123595,"Memory","MB per $1 spent",1
+1991.17,0.0222222222222222,"Memory","MB per $1 spent",1
+1991.25,0.0222222222222222,"Memory","MB per $1 spent",1
+1991.33,0.0222222222222222,"Memory","MB per $1 spent",1
+1991.42,0.0228571428571429,"Memory","MB per $1 spent",1
+1991.5,0.0228571428571429,"Memory","MB per $1 spent",1
+1991.58,0.0242424242424242,"Memory","MB per $1 spent",1
+1991.67,0.0216216216216216,"Memory","MB per $1 spent",1
+1991.75,0.0222222222222222,"Memory","MB per $1 spent",1
+1991.83,0.0251572327044025,"Memory","MB per $1 spent",1
+1991.92,0.0251572327044025,"Memory","MB per $1 spent",1
+1992,0.0275862068965517,"Memory","MB per $1 spent",1
+1992.08,0.0275862068965517,"Memory","MB per $1 spent",1
+1992.17,0.0275862068965517,"Memory","MB per $1 spent",1
+1992.25,0.0287769784172662,"Memory","MB per $1 spent",1
+1992.33,0.0333333333333333,"Memory","MB per $1 spent",1
+1992.42,0.0307692307692308,"Memory","MB per $1 spent",1
+1992.5,0.0298507462686567,"Memory","MB per $1 spent",1
+1992.58,0.032258064516129,"Memory","MB per $1 spent",1
+1992.67,0.0363636363636364,"Memory","MB per $1 spent",1
+1992.75,0.0380952380952381,"Memory","MB per $1 spent",1
+1992.83,0.0380952380952381,"Memory","MB per $1 spent",1
+1992.92,0.0380952380952381,"Memory","MB per $1 spent",1
+1993,0.0302457466918715,"Memory","MB per $1 spent",1
+1993.08,0.0363636363636364,"Memory","MB per $1 spent",1
+1993.17,0.0363636363636364,"Memory","MB per $1 spent",1
+1993.25,0.0363636363636364,"Memory","MB per $1 spent",1
+1993.33,0.0363636363636364,"Memory","MB per $1 spent",1
+1993.42,0.0333333333333333,"Memory","MB per $1 spent",1
+1993.5,0.0333333333333333,"Memory","MB per $1 spent",1
+1993.58,0.0333333333333333,"Memory","MB per $1 spent",1
+1993.67,0.0333333333333333,"Memory","MB per $1 spent",1
+1993.75,0.0277777777777778,"Memory","MB per $1 spent",1
+1993.83,0.0251572327044025,"Memory","MB per $1 spent",1
+1993.92,0.027972027972028,"Memory","MB per $1 spent",1
+1994,0.027972027972028,"Memory","MB per $1 spent",1
+1994.08,0.027972027972028,"Memory","MB per $1 spent",1
+1994.17,0.0277777777777778,"Memory","MB per $1 spent",1
+1994.25,0.0268456375838926,"Memory","MB per $1 spent",1
+1994.33,0.0268456375838926,"Memory","MB per $1 spent",1
+1994.42,0.0268456375838926,"Memory","MB per $1 spent",1
+1994.5,0.025974025974026,"Memory","MB per $1 spent",1
+1994.58,0.027027027027027,"Memory","MB per $1 spent",1
+1994.67,0.0294117647058824,"Memory","MB per $1 spent",1
+1994.75,0.0298507462686567,"Memory","MB per $1 spent",1
+1994.83,0.0310077519379845,"Memory","MB per $1 spent",1
+1994.92,0.0310077519379845,"Memory","MB per $1 spent",1
+1995,0.0310077519379845,"Memory","MB per $1 spent",1
+1995.08,0.03125,"Memory","MB per $1 spent",1
+1995.17,0.03125,"Memory","MB per $1 spent",1
+1995.25,0.032064128256513,"Memory","MB per $1 spent",1
+1995.33,0.032064128256513,"Memory","MB per $1 spent",1
+1995.42,0.0321285140562249,"Memory","MB per $1 spent",1
+1995.5,0.032064128256513,"Memory","MB per $1 spent",1
+1995.58,0.032719836400818,"Memory","MB per $1 spent",1
+1995.67,0.0302457466918715,"Memory","MB per $1 spent",1
+1995.75,0.0302457466918715,"Memory","MB per $1 spent",1
+1995.83,0.0323886639676113,"Memory","MB per $1 spent",1
+1995.92,0.0323886639676113,"Memory","MB per $1 spent",1
+1996,0.0334728033472803,"Memory","MB per $1 spent",1
+1996.08,0.0347826086956522,"Memory","MB per $1 spent",1
+1996.17,0.0382775119617225,"Memory","MB per $1 spent",1
+1996.25,0.0405063291139241,"Memory","MB per $1 spent",1
+1996.33,0.0581818181818182,"Memory","MB per $1 spent",1
+1996.42,0.0672268907563025,"Memory","MB per $1 spent",1
+1996.5,0.0888888888888889,"Memory","MB per $1 spent",1
+1996.58,0.110344827586207,"Memory","MB per $1 spent",1
+1996.67,0.118518518518519,"Memory","MB per $1 spent",1
+1996.75,0.125,"Memory","MB per $1 spent",1
+1996.83,0.19047619047619,"Memory","MB per $1 spent",1
+1996.92,0.19047619047619,"Memory","MB per $1 spent",1
+1997,0.216216216216216,"Memory","MB per $1 spent",1
+1997.08,0.275862068965517,"Memory","MB per $1 spent",1
+1997.17,0.333333333333333,"Memory","MB per $1 spent",1
+1997.25,0.333333333333333,"Memory","MB per $1 spent",1
+1997.33,0.333333333333333,"Memory","MB per $1 spent",1
+1997.42,0.271186440677966,"Memory","MB per $1 spent",1
+1997.5,0.25,"Memory","MB per $1 spent",1
+1997.58,0.242424242424242,"Memory","MB per $1 spent",1
+1997.67,0.275862068965517,"Memory","MB per $1 spent",1
+1997.75,0.293577981651376,"Memory","MB per $1 spent",1
+1997.83,0.307692307692308,"Memory","MB per $1 spent",1
+1997.92,0.463768115942029,"Memory","MB per $1 spent",1
+1998,0.463768115942029,"Memory","MB per $1 spent",1
+1998.08,1.10344827586207,"Memory","MB per $1 spent",1
+1998.17,1.03225806451613,"Memory","MB per $1 spent",1
+1998.25,0.82051282051282,"Memory","MB per $1 spent",1
+1998.33,0.842105263157895,"Memory","MB per $1 spent",1
+1998.42,1.03225806451613,"Memory","MB per $1 spent",1
+1998.58,0.96969696969697,"Memory","MB per $1 spent",1
+1998.67,1.03225806451613,"Memory","MB per $1 spent",1
+1998.75,0.864864864864865,"Memory","MB per $1 spent",1
+1998.83,1.18518518518519,"Memory","MB per $1 spent",1
+1998.92,1.18518518518519,"Memory","MB per $1 spent",1
+1999.08,0.695652173913043,"Memory","MB per $1 spent",1
+1999.13,1.18518518518519,"Memory","MB per $1 spent",1
+1999.17,0.800100012501563,"Memory","MB per $1 spent",1
+1999.25,0.800100012501563,"Memory","MB per $1 spent",1
+1999.33,1.16384797235861,"Memory","MB per $1 spent",1
+1999.5,1.28012801280128,"Memory","MB per $1 spent",1
+1999.67,1.15170055785496,"Memory","MB per $1 spent",1
+1999.75,0.962550759512709,"Memory","MB per $1 spent",1
+1999.83,0.748581788408679,"Memory","MB per $1 spent",1
+1999.92,0.425829202568282,"Memory","MB per $1 spent",1
+2000,0.640704775252778,"Memory","MB per $1 spent",1
+2000.08,0.677320351359932,"Memory","MB per $1 spent",1
+2000.17,0.927536231884058,"Memory","MB per $1 spent",1
+2000.25,1.18540470457492,"Memory","MB per $1 spent",1
+2000.33,1.43820224719101,"Memory","MB per $1 spent",1
+2000.42,1.11130404584129,"Memory","MB per $1 spent",1
+2000.5,1.29292929292929,"Memory","MB per $1 spent",1
+2000.58,1.18540470457492,"Memory","MB per $1 spent",1
+2000.67,0.935809328849247,"Memory","MB per $1 spent",1
+2000.75,0.889012362828171,"Memory","MB per $1 spent",1
+2000.83,0.889012362828171,"Memory","MB per $1 spent",1
+2000.92,1.11130404584129,"Memory","MB per $1 spent",1
+2001,1.34200041937513,"Memory","MB per $1 spent",1
+2001.08,2.15524499073918,"Memory","MB per $1 spent",1
+2001.17,2.15524499073918,"Memory","MB per $1 spent",1
+2001.25,2.61224489795918,"Memory","MB per $1 spent",1
+2001.33,2.5863810870883,"Memory","MB per $1 spent",1
+2001.42,3.28205128205128,"Memory","MB per $1 spent",1
+2001.5,2.84476052894766,"Memory","MB per $1 spent",1
+2001.5,3.71014492753623,"Memory","MB per $1 spent",1
+2001.58,5.22448979591837,"Memory","MB per $1 spent",1
+2001.67,5.22448979591837,"Memory","MB per $1 spent",1
+2001.75,5.92867068087077,"Memory","MB per $1 spent",1
+2001.77,6.77607199576495,"Memory","MB per $1 spent",1
+2002.08,7.48756946475578,"Memory","MB per $1 spent",1
+2002.08,4.82200037671878,"Memory","MB per $1 spent",1
+2002.25,5.17171717171717,"Memory","MB per $1 spent",1
+2002.33,5.17171717171717,"Memory","MB per $1 spent",1
+2002.42,3.02672026483802,"Memory","MB per $1 spent",1
+2002.58,5.1727621741766,"Memory","MB per $1 spent",1
+2002.75,5.1727621741766,"Memory","MB per $1 spent",1
+2003.17,5.68888888888889,"Memory","MB per $1 spent",1
+2003.25,13.1282051282051,"Memory","MB per $1 spent",1
+2003.33,7.93798449612403,"Memory","MB per $1 spent",1
+2003.42,8.67796610169492,"Memory","MB per $1 spent",1
+2003.5,7.53162694910268,"Memory","MB per $1 spent",1
+2003.58,7.75875132595848,"Memory","MB per $1 spent",1
+2003.67,7.01465954240307,"Memory","MB per $1 spent",1
+2003.75,6.73772864850638,"Memory","MB per $1 spent",1
+2003.83,6.24466398341261,"Memory","MB per $1 spent",1
+2003.99,6.0242381456642,"Memory","MB per $1 spent",1
+2004,5.75280898876404,"Memory","MB per $1 spent",1
+2004.08,6.73684210526316,"Memory","MB per $1 spent",1
+2004.17,6.82666666666667,"Memory","MB per $1 spent",1
+2004.33,6.4,"Memory","MB per $1 spent",1
+2004.42,4.92307692307692,"Memory","MB per $1 spent",1
+2004.5,5.68888888888889,"Memory","MB per $1 spent",1
+2005.25,5.41798941798942,"Memory","MB per $1 spent",1
+2005.42,6.69281045751634,"Memory","MB per $1 spent",1
+2005.83,8.60504201680672,"Memory","MB per $1 spent",1
+2005.92,5.41798941798942,"Memory","MB per $1 spent",1
+2006.17,8.9117096732083,"Memory","MB per $1 spent",1
+2006.33,13.745888985838,"Memory","MB per $1 spent",1
+2006.5,12.1919276104298,"Memory","MB per $1 spent",1
+2006.67,13.6542436162411,"Memory","MB per $1 spent",1
+2006.75,11.3790421157906,"Memory","MB per $1 spent",1
+2006.83,10.2405120256013,"Memory","MB per $1 spent",1
+2006.99,10.8959353053841,"Memory","MB per $1 spent",1
+2007,12.1933793760419,"Memory","MB per $1 spent",1
+2007.08,12.8032008002,"Memory","MB per $1 spent",1
+2007.17,15.1726181656542,"Memory","MB per $1 spent",1
+2007.33,21.5601642278135,"Memory","MB per $1 spent",1
+2007.5,25.9306153456571,"Memory","MB per $1 spent",1
+2007.67,28.4523478744096,"Memory","MB per $1 spent",1
+2007.75,31.0397090027281,"Memory","MB per $1 spent",1
+2007.83,40.9763905562225,"Memory","MB per $1 spent",1
+2007.92,41.001001001001,"Memory","MB per $1 spent",1
+2008,43.1203284556269,"Memory","MB per $1 spent",1
+2008.08,45.5212269393198,"Memory","MB per $1 spent",1
+2008.33,45.5212269393198,"Memory","MB per $1 spent",1
+2008.5,48.1995763709108,"Memory","MB per $1 spent",1
+2008.58,56.9046957488191,"Memory","MB per $1 spent",1
+2008.67,68.2894298099366,"Memory","MB per $1 spent",1
+2008.83,91.0424538786397,"Memory","MB per $1 spent",1
+2008.92,102.4256064016,"Memory","MB per $1 spent",1
+2009,102.4256064016,"Memory","MB per $1 spent",1
+2009.08,93.1332423829013,"Memory","MB per $1 spent",1
+2009.25,95.2779716213073,"Memory","MB per $1 spent",1
+2009.42,87.167482443073,"Memory","MB per $1 spent",1
+2009.5,91.0424538786397,"Memory","MB per $1 spent",1
+2009.58,78.7843816118484,"Memory","MB per $1 spent",1
+2009.75,54.6206160821443,"Memory","MB per $1 spent",1
+2009.92,48.7735175041677,"Memory","MB per $1 spent",1
+2010,52.5195537889473,"Memory","MB per $1 spent",1
+2010.08,49.4805508576951,"Memory","MB per $1 spent",1
+2010.17,51.2128032008002,"Memory","MB per $1 spent",1
+2010.33,41.3820973934128,"Memory","MB per $1 spent",1
+2010.5,47.6389858106536,"Memory","MB per $1 spent",1
+2010.58,45.5161684631626,"Memory","MB per $1 spent",1
+2010.75,58.5226460922989,"Memory","MB per $1 spent",1
+2010.83,68.2780463410568,"Memory","MB per $1 spent",1
+2010.92,81.9281928192819,"Memory","MB per $1 spent",1
+2011,99.9511957052221,"Memory","MB per $1 spent",1
+2011.08,97.5470350083353,"Memory","MB per $1 spent",1
+2011.33,99.9146237346018,"Memory","MB per $1 spent",1
+2011.42,117.045292184598,"Memory","MB per $1 spent",1
+2011.67,186.266484765803,"Memory","MB per $1 spent",1
+2011.75,195.094070016671,"Memory","MB per $1 spent",1
+2012,204.851212803201,"Memory","MB per $1 spent",1
+2012.08,204.851212803201,"Memory","MB per $1 spent",1
+2012.25,199.853622834838,"Memory","MB per $1 spent",1
+2012.33,204.851212803201,"Memory","MB per $1 spent",1
+2012.58,210.078215155789,"Memory","MB per $1 spent",1
+2012.67,252.878530637444,"Memory","MB per $1 spent",1
+2012.83,273.157719239747,"Memory","MB per $1 spent",1
+2013,234.124035438697,"Memory","MB per $1 spent",1
+2013.08,184.110574221823,"Memory","MB per $1 spent",1
+2013.33,148.958996272388,"Memory","MB per $1 spent",1
+2013.42,163.872774554911,"Memory","MB per $1 spent",1
+2013.58,136.556092682114,"Memory","MB per $1 spent",1
+2013.67,154.595206642763,"Memory","MB per $1 spent",1
+2013.75,122.277781924024,"Memory","MB per $1 spent",1
+2013.83,117.045292184598,"Memory","MB per $1 spent",1
+2013.92,126.040464651127,"Memory","MB per $1 spent",1
+2014.08,105.052577583996,"Memory","MB per $1 spent",1
+2014.17,126.050161563317,"Memory","MB per $1 spent",1
+2014.25,136.578859619873,"Memory","MB per $1 spent",1
+2014.42,126.050161563317,"Memory","MB per $1 spent",1
+2014.58,117.045292184598,"Memory","MB per $1 spent",1
+2014.67,117.045292184598,"Memory","MB per $1 spent",1
+2014.83,117.062017719348,"Memory","MB per $1 spent",1
+2015,128.020003125488,"Memory","MB per $1 spent",1
+2015.08,136.556092682114,"Memory","MB per $1 spent",1
+2015.25,163.872774554911,"Memory","MB per $1 spent",1
+2015.33,178.106315903903,"Memory","MB per $1 spent",1
+2015.5,204.851212803201,"Memory","MB per $1 spent",1
+2015.58,221.435329098527,"Memory","MB per $1 spent",1
+2015.67,234.124035438697,"Memory","MB per $1 spent",1
+2015.75,237.483693288882,"Memory","MB per $1 spent",1
+2015.83,260.104778536276,"Memory","MB per $1 spent",1
+2015.92,273.112185364227,"Memory","MB per $1 spent",1
+2016.08,277.741990167825,"Memory","MB per $1 spent",1
+2016.25,327.745549109822,"Memory","MB per $1 spent",1
+2016.33,334.435599101858,"Memory","MB per $1 spent",1
+2016.42,364.169815514559,"Memory","MB per $1 spent",1
+2016.5,327.745549109822,"Memory","MB per $1 spent",1
+2016.58,282.531470943266,"Memory","MB per $1 spent",1
+2016.75,284.963909905209,"Memory","MB per $1 spent",1
+2016.83,240.976614207972,"Memory","MB per $1 spent",1
+2016.92,218.482464328577,"Memory","MB per $1 spent",1
+2017,204.8256032004,"Memory","MB per $1 spent",1
+2017.17,182.06467385265,"Memory","MB per $1 spent",1
+2017.33,176.181515135222,"Memory","MB per $1 spent",1
+2017.42,182.06467385265,"Memory","MB per $1 spent",1
+2017.5,170.684446296489,"Memory","MB per $1 spent",1
+2017.67,163.872774554911,"Memory","MB per $1 spent",1
+2017.75,148.958996272388,"Memory","MB per $1 spent",1
+2017.92,141.253556341064,"Memory","MB per $1 spent",1
+2018.08,150.325717955776,"Memory","MB per $1 spent",1
+2018.17,143.731906307571,"Memory","MB per $1 spent",1
+2018.33,146.31184140025,"Memory","MB per $1 spent",1
+2018.42,156.052957424517,"Memory","MB per $1 spent",1
+2018.5,147.630203640296,"Memory","MB per $1 spent",1
+2018.58,162.249950485245,"Memory","MB per $1 spent",1
+2018.67,182.06467385265,"Memory","MB per $1 spent",1
+2018.83,197.421376069406,"Memory","MB per $1 spent",1
+2018.92,215.63569360358,"Memory","MB per $1 spent",1
+2019,234.090584369196,"Memory","MB per $1 spent",1
+2019.08,234.090584369196,"Memory","MB per $1 spent",1
+2019.17,237.483693288882,"Memory","MB per $1 spent",1
+2019.25,268.678255165628,"Memory","MB per $1 spent",1
+2019.33,292.675955698464,"Memory","MB per $1 spent",1
+2019.42,315.198153135821,"Memory","MB per $1 spent",1
+2019.5,364.169815514559,"Memory","MB per $1 spent",1
+2019.58,364.169815514559,"Memory","MB per $1 spent",1
+2019.67,303.46360437118,"Memory","MB per $1 spent",1
+2019.75,327.712771277128,"Memory","MB per $1 spent",1
+2019.83,344.962627645015,"Memory","MB per $1 spent",1
+2019.92,352.381976556619,"Memory","MB per $1 spent",1
+2020,341.404459262346,"Memory","MB per $1 spent",1
+2020.08,327.712771277128,"Memory","MB per $1 spent",1
+2020.17,284.963909905209,"Memory","MB per $1 spent",1
+2020.25,282.531470943266,"Memory","MB per $1 spent",1
+2020.33,284.963909905209,"Memory","MB per $1 spent",1
+2020.42,312.105914849033,"Memory","MB per $1 spent",1
+2020.5,344.962627645015,"Memory","MB per $1 spent",1
+2020.58,364.129347705301,"Memory","MB per $1 spent",1
+2020.67,356.212631807805,"Memory","MB per $1 spent",1
+2020.75,364.129347705301,"Memory","MB per $1 spent",1
+2020.83,344.962627645015,"Memory","MB per $1 spent",1
+2020.92,334.401469537708,"Memory","MB per $1 spent",1
+2021.08,297.917992544777,"Memory","MB per $1 spent",1
+2021.25,252.071233508981,"Memory","MB per $1 spent",1
+2021.33,284.951519631288,"Memory","MB per $1 spent",1
+2021.5,256.080025007815,"Memory","MB per $1 spent",1
+2021.58,273.089424118677,"Memory","MB per $1 spent",1
+2021.67,315.137526447394,"Memory","MB per $1 spent",1
+2021.75,334.435599101858,"Memory","MB per $1 spent",1
+1980,0.000286645474011288,"Hard Drive Capacity","MB per $1 spent",2
+1981,0.000979595035412361,"Hard Drive Capacity","MB per $1 spent",2
+1982,0.00345768880800728,"Hard Drive Capacity","MB per $1 spent",2
+1982,0.0037037037037037,"Hard Drive Capacity","MB per $1 spent",2
+1983,0.00313479623824451,"Hard Drive Capacity","MB per $1 spent",2
+1983.5,0.00834028356964137,"Hard Drive Capacity","MB per $1 spent",2
+1983.5,0.00347826086956522,"Hard Drive Capacity","MB per $1 spent",2
+1984.09,0.00176665960002827,"Hard Drive Capacity","MB per $1 spent",2
+1984.58,0.0266666666666667,"Hard Drive Capacity","MB per $1 spent",2
+1985,0.0318543799772469,"Hard Drive Capacity","MB per $1 spent",2
+1985.5,0.0287769784172662,"Hard Drive Capacity","MB per $1 spent",2
+1986,0.0408997955010225,"Hard Drive Capacity","MB per $1 spent",2
+1986,0.0542005420054201,"Hard Drive Capacity","MB per $1 spent",2
+1987,0.066815144766147,"Hard Drive Capacity","MB per $1 spent",2
+1988,0.100334448160535,"Hard Drive Capacity","MB per $1 spent",2
+1989,0.133630289532294,"Hard Drive Capacity","MB per $1 spent",2
+1989,0.0699300699300699,"Hard Drive Capacity","MB per $1 spent",2
+1990,0.18941504178273,"Hard Drive Capacity","MB per $1 spent",2
+1990.17,0.244897959183673,"Hard Drive Capacity","MB per $1 spent",2
+1990.5,0.305882352941176,"Hard Drive Capacity","MB per $1 spent",2
+1990.75,0.191740412979351,"Hard Drive Capacity","MB per $1 spent",2
+1991,0.235571260306243,"Hard Drive Capacity","MB per $1 spent",2
+1991.17,0.325977933801404,"Hard Drive Capacity","MB per $1 spent",2
+1991.5,0.356728232189974,"Hard Drive Capacity","MB per $1 spent",2
+1991.75,0.358166189111748,"Hard Drive Capacity","MB per $1 spent",2
+1992,0.511278195488722,"Hard Drive Capacity","MB per $1 spent",2
+1992.17,0.511278195488722,"Hard Drive Capacity","MB per $1 spent",2
+1992.5,0.615700359158543,"Hard Drive Capacity","MB per $1 spent",2
+1992.75,0.714540907466953,"Hard Drive Capacity","MB per $1 spent",2
+1993,0.75041689827682,"Hard Drive Capacity","MB per $1 spent",2
+1993.17,0.867553499132447,"Hard Drive Capacity","MB per $1 spent",2
+1993.5,1.02810143934202,"Hard Drive Capacity","MB per $1 spent",2
+1993.75,1.39318885448916,"Hard Drive Capacity","MB per $1 spent",2
+1994,1.72711571675302,"Hard Drive Capacity","MB per $1 spent",2
+1994.17,1.52143845089903,"Hard Drive Capacity","MB per $1 spent",2
+1994.5,1.86721991701245,"Hard Drive Capacity","MB per $1 spent",2
+1994.5,1.05052526263132,"Hard Drive Capacity","MB per $1 spent",2
+1994.75,2.3082841754296,"Hard Drive Capacity","MB per $1 spent",2
+1995,3.75156315131305,"Hard Drive Capacity","MB per $1 spent",2
+1995.17,2.94736842105263,"Hard Drive Capacity","MB per $1 spent",2
+1995.5,4.02833111996459,"Hard Drive Capacity","MB per $1 spent",2
+1995.75,4.67625899280576,"Hard Drive Capacity","MB per $1 spent",2
+1996,4.9034749034749,"Hard Drive Capacity","MB per $1 spent",2
+1996.17,5.22088353413655,"Hard Drive Capacity","MB per $1 spent",2
+1996.5,7.83699059561129,"Hard Drive Capacity","MB per $1 spent",2
+1996.75,7.2463768115942,"Hard Drive Capacity","MB per $1 spent",2
+1997,7.2463768115942,"Hard Drive Capacity","MB per $1 spent",2
+1997.17,8.88252148997135,"Hard Drive Capacity","MB per $1 spent",2
+1997.5,17.6422764227642,"Hard Drive Capacity","MB per $1 spent",2
+1997.75,20.6666666666667,"Hard Drive Capacity","MB per $1 spent",2
+1998,28.3670588235294,"Hard Drive Capacity","MB per $1 spent",2
+1998.2,33.5821727019499,"Hard Drive Capacity","MB per $1 spent",2
+1998.45,34.5444126074499,"Hard Drive Capacity","MB per $1 spent",2
+1998.75,40.251572327044,"Hard Drive Capacity","MB per $1 spent",2
+1999.09,44.2128533080688,"Hard Drive Capacity","MB per $1 spent",2
+1999.17,53.4738332088232,"Hard Drive Capacity","MB per $1 spent",2
+1999.5,90.9134408344897,"Hard Drive Capacity","MB per $1 spent",2
+1999.75,20.7612456747405,"Hard Drive Capacity","MB per $1 spent",2
+2000,67.6258992805755,"Hard Drive Capacity","MB per $1 spent",2
+2000.17,23.6742424242424,"Hard Drive Capacity","MB per $1 spent",2
+1999.75,98.2857142857143,"Hard Drive Capacity","MB per $1 spent",2
+1999.9,113.157894736842,"Hard Drive Capacity","MB per $1 spent",2
+2000.34,143.36917562724,"Hard Drive Capacity","MB per $1 spent",2
+2000.5,171.030640668524,"Hard Drive Capacity","MB per $1 spent",2
+2000.75,245.6,"Hard Drive Capacity","MB per $1 spent",2
+2001,260,"Hard Drive Capacity","MB per $1 spent",2
+2001.17,277.627118644068,"Hard Drive Capacity","MB per $1 spent",2
+2001.5,363.636363636364,"Hard Drive Capacity","MB per $1 spent",2
+2001.75,386.100386100386,"Hard Drive Capacity","MB per $1 spent",2
+2002.08,536.912751677852,"Hard Drive Capacity","MB per $1 spent",2
+2002.25,575.539568345324,"Hard Drive Capacity","MB per $1 spent",2
+2002.33,581.818181818182,"Hard Drive Capacity","MB per $1 spent",2
+2002.58,603.015075376884,"Hard Drive Capacity","MB per $1 spent",2
+2002.75,821.917808219178,"Hard Drive Capacity","MB per $1 spent",2
+2003.17,765.420560747664,"Hard Drive Capacity","MB per $1 spent",2
+2003.25,827.272727272727,"Hard Drive Capacity","MB per $1 spent",2
+2003.33,606.060606060606,"Hard Drive Capacity","MB per $1 spent",2
+2003.42,888.888888888889,"Hard Drive Capacity","MB per $1 spent",2
+2003.5,860.215053763441,"Hard Drive Capacity","MB per $1 spent",2
+2003.58,890.217391304348,"Hard Drive Capacity","MB per $1 spent",2
+2003.67,1121.4953271028,"Hard Drive Capacity","MB per $1 spent",2
+2003.75,941.379310344828,"Hard Drive Capacity","MB per $1 spent",2
+2003.83,1170,"Hard Drive Capacity","MB per $1 spent",2
+2003.99,1333.48149794422,"Hard Drive Capacity","MB per $1 spent",2
+2004,1081.08108108108,"Hard Drive Capacity","MB per $1 spent",2
+2004.08,1106.75675675676,"Hard Drive Capacity","MB per $1 spent",2
+2004.17,1344.53781512605,"Hard Drive Capacity","MB per $1 spent",2
+2004.33,1212.12121212121,"Hard Drive Capacity","MB per $1 spent",2
+2004.42,1137.5,"Hard Drive Capacity","MB per $1 spent",2
+2004.5,1471.88695908154,"Hard Drive Capacity","MB per $1 spent",2
+2004.67,1641.02564102564,"Hard Drive Capacity","MB per $1 spent",2
+2005.25,1141.55251141553,"Hard Drive Capacity","MB per $1 spent",2
+2005.42,2000.200020002,"Hard Drive Capacity","MB per $1 spent",2
+2005.83,1606.42570281124,"Hard Drive Capacity","MB per $1 spent",2
+2005.92,2461.53846153846,"Hard Drive Capacity","MB per $1 spent",2
+2006.33,3087.56329504755,"Hard Drive Capacity","MB per $1 spent",2
+2006.5,3049.15233565069,"Hard Drive Capacity","MB per $1 spent",2
+2006.67,4572.08172596085,"Hard Drive Capacity","MB per $1 spent",2
+2006.75,3346.23026246994,"Hard Drive Capacity","MB per $1 spent",2
+2006.83,3791.90050053087,"Hard Drive Capacity","MB per $1 spent",2
+2006.99,3571.93884840692,"Hard Drive Capacity","MB per $1 spent",2
+2007,3571.93884840692,"Hard Drive Capacity","MB per $1 spent",2
+2007.08,3723.96136390085,"Hard Drive Capacity","MB per $1 spent",2
+2007.17,3776.07854243368,"Hard Drive Capacity","MB per $1 spent",2
+2007.33,4000.50006250781,"Hard Drive Capacity","MB per $1 spent",2
+2007.5,4706.43605130015,"Hard Drive Capacity","MB per $1 spent",2
+2007.67,4762.35831983998,"Hard Drive Capacity","MB per $1 spent",2
+2007.75,4762.35831983998,"Hard Drive Capacity","MB per $1 spent",2
+2007.83,5000.500050005,"Hard Drive Capacity","MB per $1 spent",2
+2007.92,4762.35831983998,"Hard Drive Capacity","MB per $1 spent",2
+2008,5000.500050005,"Hard Drive Capacity","MB per $1 spent",2
+2008.08,5000.500050005,"Hard Drive Capacity","MB per $1 spent",2
+2008.33,5556.1729081009,"Hard Drive Capacity","MB per $1 spent",2
+2008.5,6667.55567408988,"Hard Drive Capacity","MB per $1 spent",2
+2008.58,7530.29768208025,"Hard Drive Capacity","MB per $1 spent",2
+2008.67,7530.29768208025,"Hard Drive Capacity","MB per $1 spent",2
+2008.83,8534.47126283504,"Hard Drive Capacity","MB per $1 spent",2
+2008.92,10001.00010001,"Hard Drive Capacity","MB per $1 spent",2
+2009,10715.8165452207,"Hard Drive Capacity","MB per $1 spent",2
+2009.08,11364.9278327083,"Hard Drive Capacity","MB per $1 spent",2
+2009.25,11112.3458162018,"Hard Drive Capacity","MB per $1 spent",2
+2009.42,11539.3491807062,"Hard Drive Capacity","MB per $1 spent",2
+2009.5,11112.3458162018,"Hard Drive Capacity","MB per $1 spent",2
+2009.58,13335.1113481798,"Hard Drive Capacity","MB per $1 spent",2
+2009.75,12501.5626953369,"Hard Drive Capacity","MB per $1 spent",2
+2009.92,14287.7553936277,"Hard Drive Capacity","MB per $1 spent",2
+2010,13637.6034184926,"Hard Drive Capacity","MB per $1 spent",2
+2010.08,13637.6034184926,"Hard Drive Capacity","MB per $1 spent",2
+2010.17,12501.5626953369,"Hard Drive Capacity","MB per $1 spent",2
+2010.33,13335.1113481798,"Hard Drive Capacity","MB per $1 spent",2
+2010.5,18183.4712246568,"Hard Drive Capacity","MB per $1 spent",2
+2010.58,18183.4712246568,"Hard Drive Capacity","MB per $1 spent",2
+2010.75,20002.00020002,"Hard Drive Capacity","MB per $1 spent",2
+2010.83,20002.00020002,"Hard Drive Capacity","MB per $1 spent",2
+2010.92,22224.6916324036,"Hard Drive Capacity","MB per $1 spent",2
+2011,25003.1253906738,"Hard Drive Capacity","MB per $1 spent",2
+2011.08,25003.1253906738,"Hard Drive Capacity","MB per $1 spent",2
+2011.33,25003.1253906738,"Hard Drive Capacity","MB per $1 spent",2
+2011.42,27277.6868521549,"Hard Drive Capacity","MB per $1 spent",2
+2011.67,25004.1673612269,"Hard Drive Capacity","MB per $1 spent",2
+2011.75,25003.1253906738,"Hard Drive Capacity","MB per $1 spent",2
+2012,12716.9835315063,"Hard Drive Capacity","MB per $1 spent",2
+2012.08,12643.823492224,"Hard Drive Capacity","MB per $1 spent",2
+2012.25,15475.8834150116,"Hard Drive Capacity","MB per $1 spent",2
+2012.33,16668.0556713059,"Hard Drive Capacity","MB per $1 spent",2
+2012.58,18835.9389715577,"Hard Drive Capacity","MB per $1 spent",2
+2012.67,20001.3334222281,"Hard Drive Capacity","MB per $1 spent",2
+2013,18183.4712246568,"Hard Drive Capacity","MB per $1 spent",2
+2013.08,21430.1021501536,"Hard Drive Capacity","MB per $1 spent",2
+2013.33,23078.6983614124,"Hard Drive Capacity","MB per $1 spent",2
+2013.42,22223.4568587144,"Hard Drive Capacity","MB per $1 spent",2
+2013.58,22223.8684346989,"Hard Drive Capacity","MB per $1 spent",2
+2013.67,23078.6983614124,"Hard Drive Capacity","MB per $1 spent",2
+2013.75,23257.6168695248,"Hard Drive Capacity","MB per $1 spent",2
+2013.83,25002.0835069589,"Hard Drive Capacity","MB per $1 spent",2
+2013.92,25002.0835069589,"Hard Drive Capacity","MB per $1 spent",2
+2014.08,27275.2068369852,"Hard Drive Capacity","MB per $1 spent",2
+2014.17,27275.2068369852,"Hard Drive Capacity","MB per $1 spent",2
+2014.25,27275.2068369852,"Hard Drive Capacity","MB per $1 spent",2
+2014.42,28574.1499190399,"Hard Drive Capacity","MB per $1 spent",2
+2014.58,28574.1499190399,"Hard Drive Capacity","MB per $1 spent",2
+2014.67,28574.1499190399,"Hard Drive Capacity","MB per $1 spent",2
+2014.83,27588.1095247948,"Hard Drive Capacity","MB per $1 spent",2
+2015,30003.00030003,"Hard Drive Capacity","MB per $1 spent",2
+2015.08,30615.3689151954,"Hard Drive Capacity","MB per $1 spent",2
+2015.25,35298.2703847512,"Hard Drive Capacity","MB per $1 spent",2
+2015.33,31582.2718180861,"Hard Drive Capacity","MB per $1 spent",2
+2015.5,33337.0374486054,"Hard Drive Capacity","MB per $1 spent",2
+2015.58,34485.1369059935,"Hard Drive Capacity","MB per $1 spent",2
+2015.67,33337.0374486054,"Hard Drive Capacity","MB per $1 spent",2
+2015.75,33337.0374486054,"Hard Drive Capacity","MB per $1 spent",2
+2015.83,30771.5978152166,"Hard Drive Capacity","MB per $1 spent",2
+2015.92,35298.2703847512,"Hard Drive Capacity","MB per $1 spent",2
+2016.08,32002.5602048164,"Hard Drive Capacity","MB per $1 spent",2
+2016.25,36096.1963633082,"Hard Drive Capacity","MB per $1 spent",2
+2016.33,33347.2280116715,"Hard Drive Capacity","MB per $1 spent",2
+2016.42,35298.2703847512,"Hard Drive Capacity","MB per $1 spent",2
+2016.5,32002.5602048164,"Hard Drive Capacity","MB per $1 spent",2
+2016.58,33347.2280116715,"Hard Drive Capacity","MB per $1 spent",2
+2016.75,34106.412005457,"Hard Drive Capacity","MB per $1 spent",2
+2016.83,31582.2718180861,"Hard Drive Capacity","MB per $1 spent",2
+2016.92,33711.6529947185,"Hard Drive Capacity","MB per $1 spent",2
+2017,34486.7226117945,"Hard Drive Capacity","MB per $1 spent",2
+2017.17,37041.6100753179,"Hard Drive Capacity","MB per $1 spent",2
+2017.33,33335.5557037136,"Hard Drive Capacity","MB per $1 spent",2
+2017.42,40005.3340445393,"Hard Drive Capacity","MB per $1 spent",2
+2017.5,38466.4700602641,"Hard Drive Capacity","MB per $1 spent",2
+2017.67,36366.9424493136,"Hard Drive Capacity","MB per $1 spent",2
+2017.75,38466.4700602641,"Hard Drive Capacity","MB per $1 spent",2
+2017.92,40004.00040004,"Hard Drive Capacity","MB per $1 spent",2
+2018.08,40205.0457332395,"Hard Drive Capacity","MB per $1 spent",2
+2018.17,40408.1220325285,"Hard Drive Capacity","MB per $1 spent",2
+2018.33,42548.6650356345,"Hard Drive Capacity","MB per $1 spent",2
+2018.42,42785.3246336507,"Hard Drive Capacity","MB per $1 spent",2
+2018.5,42785.3246336507,"Hard Drive Capacity","MB per $1 spent",2
+2018.58,40012.0036010803,"Hard Drive Capacity","MB per $1 spent",2
+2018.67,40820.4918869272,"Hard Drive Capacity","MB per $1 spent",2
+2018.83,40770.5636530425,"Hard Drive Capacity","MB per $1 spent",2
+2018.92,40753.9480387162,"Hard Drive Capacity","MB per $1 spent",2
+2019,40933.2787556283,"Hard Drive Capacity","MB per $1 spent",2
+2019.08,40408.1220325285,"Hard Drive Capacity","MB per $1 spent",2
+2019.17,42107.4793410179,"Hard Drive Capacity","MB per $1 spent",2
+2019.25,53336.8891259417,"Hard Drive Capacity","MB per $1 spent",2
+2019.33,53336.8891259417,"Hard Drive Capacity","MB per $1 spent",2
+2019.42,53336.8891259417,"Hard Drive Capacity","MB per $1 spent",2
+2019.5,53336.8891259417,"Hard Drive Capacity","MB per $1 spent",2
+2019.58,53336.8891259417,"Hard Drive Capacity","MB per $1 spent",2
+2019.67,44201.337090447,"Hard Drive Capacity","MB per $1 spent",2
+2019.75,53336.8891259417,"Hard Drive Capacity","MB per $1 spent",2
+2019.83,53336.8891259417,"Hard Drive Capacity","MB per $1 spent",2
+2019.92,53336.8891259417,"Hard Drive Capacity","MB per $1 spent",2
+2020,61543.1956304331,"Hard Drive Capacity","MB per $1 spent",2
+2020.08,54057.7066017974,"Hard Drive Capacity","MB per $1 spent",2
+2020.17,52635.0417790644,"Hard Drive Capacity","MB per $1 spent",2
+2020.25,52290.9994117263,"Hard Drive Capacity","MB per $1 spent",2
+2020.33,51616.2333053745,"Hard Drive Capacity","MB per $1 spent",2
+2020.42,51616.2333053745,"Hard Drive Capacity","MB per $1 spent",2
+2020.5,51616.2333053745,"Hard Drive Capacity","MB per $1 spent",2
+2020.58,51616.2333053745,"Hard Drive Capacity","MB per $1 spent",2
+2020.67,51616.2333053745,"Hard Drive Capacity","MB per $1 spent",2
+2020.75,51616.2333053745,"Hard Drive Capacity","MB per $1 spent",2
+2020.83,51616.2333053745,"Hard Drive Capacity","MB per $1 spent",2
+2020.92,51616.2333053745,"Hard Drive Capacity","MB per $1 spent",2
+2021.08,51616.2333053745,"Hard Drive Capacity","MB per $1 spent",2
+2021.25,53340.445392719,"Hard Drive Capacity","MB per $1 spent",2
+2021.33,47064.3605130015,"Hard Drive Capacity","MB per $1 spent",2
+2021.5,50006.2507813477,"Hard Drive Capacity","MB per $1 spent",2
+2021.58,42858.6735240544,"Hard Drive Capacity","MB per $1 spent",2
+2021.67,54802.027675024,"Hard Drive Capacity","MB per $1 spent",2
+2021.75,57151.0215745106,"Hard Drive Capacity","MB per $1 spent",2

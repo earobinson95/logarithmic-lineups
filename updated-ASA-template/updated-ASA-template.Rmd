@@ -19,11 +19,12 @@ keywords:
 - visual inference
 - graphical testing
 
-bibliography: bibliography.bib
-biblio-style: apalike # default is using plain.bst
-
 abstract: |
   Logarithmic transformations are a standard solution to displaying data that span several magnitudes within a single graph. This paper investigates the impact of log scales on perceptual sensitivity through a visual inference experiment using statistical lineups. Our study evaluated participant's ability to detect differences between exponentially increasing data, characterized by varying levels of curvature, using both linear and logarithmic scales. Participants were presented with a series of plots and asked to identify the panel that appeared most different from the others. Due to the choice of scale altering the contextual appearance of the data, the results revealed slight perceptual advantages for both scales depending on the curvatures of the compared data. This study serves as the initial part of a three-paper series dedicated to understanding the perceptual and cognitive implications of using logarithmic scales for visualizing exponentially increasing data. These studies serve as an example of multi-modal graphical testing, examining different levels of engagement and interaction with graphics to establish nuanced and specific guidelines for graphical design.
+
+bibliography: bibliography.bib
+biblio-style: apalike # default is using plain.bst
+output: rticles::asa_article
 
 header-includes:
 - \usepackage[dvipsnames]{xcolor} % colors
@@ -34,14 +35,9 @@ header-includes:
 - \usepackage{algorithm,algpseudocode,booktabs}
 - \usepackage{hyperref}
 - \usepackage[capitalise]{cleveref}
-- \usepackage{xr} \externaldocument{appendix}
+# - \usepackage{xr} \externaldocument{appendix}
+# - \usepackage[authoryear]{natbib}
 
-# output: rticles::asa_article
-
-output:
-  rticles::asa_article:
-    extra_dependencies: "subfig"
-    keep_tex: true
 ---
 
 ```{r setup, include = F}
@@ -306,7 +302,9 @@ parameter_data |>
 To generate the small multiple scatter plots for the statistical lineups shown to participants in the study, we simulated a single data set corresponding to curvature level A for the target plot and multiple data sets corresponding to curvature level B for the null plots.
 The `nullabor` package in R [@buja_statistical_2009] randomly assigned the target plot to one of the panels surrounded by panels containing null plots.
 <!-- For example, the statistical lineup randomly embeds a target plot with simulated data following an increasing exponential curve with high curvature within null plots with simulated data following an increasing exponential trend with low curvature.  -->
-The target and null panels span a similar domain and range due to the implemented constraints when simulating the data; the rationale for this decision is based on preattentive feature perception [@wolfeWhatPreattentiveFeature2019] and is discussed in detail in the appendix. 
+The target and null panels span a similar domain and range due to the implemented constraints when simulating the data; the rationale for this decision is based on preattentive feature 
+perception [@wolfe2019preattentive] and is discussed in detail in the appendix.
+
 There were a total of six lineup curvature combinations; \cref{fig:curvature-combination-example} illustrates the six lineup curvature combinations (top: linear scale; bottom: log scale) where the solid line indicates the curvature level designated to the target plot while the dashed line indicates the curvature level assigned to the null plots.
 Two sets of each lineup curvature combination were simulated (a total of twelve test data sets) and plotted on both the linear scale and the log scale (24 test lineup plots).
 In addition, three curvature combinations generated homogeneous "Rorschach" lineups, where all panels were from the same distribution.
@@ -561,8 +559,8 @@ plot_layout(ncol = 6)
 ```
 
 \cref{fig:lineup-example} presents examples of statistical lineups with the target data simulated with exponential parameters corresponding high curvature and the surrounding null panels simulated with parameters for low curvature.
-The statistical lineup on the left presents increasing exponential data with displayed on a linear scale with panel \ear{13} as the target panel.
-The lineup on the right shows increasing exponential data plotted on a log scale with panel \ear{4} as the target panel.
+The statistical lineup on the left presents increasing exponential data with displayed on a linear scale with panel 13 as the target panel.
+The lineup on the right shows increasing exponential data plotted on a log scale with panel 4 as the target panel.
 
 ```{r lineup-example, fig.height = 2.75, fig.width = 5.75, fig.cap = "The lineup plot on the left displays increasing exponential data on a linear scale with panel (13 as the target. The lineup plot on the right displays increasing exponential data on the log scale with panel 4 as the target."}
 
@@ -600,301 +598,4 @@ logPlot <- ggplot(lineupData_log, aes(x=x, y=y)) +
 linearPlot + logPlot
 ```
 
-## Study Design and Implementation
-
-We used Prolific, a survey site that connects researchers to study participants, to recruit participants above the age of majority \ear{(18+ in most regions; 19+ in certain U.S. states)} in their region; we did not request a representative sample, previous literature suggests there are minor effects of demographics on the outcome of graphical experiments involving lineups [@vanderplas2015spatial; @majumder_validation_2013].
-Following the completion of the current statistical lineup study, participants sequentially completed two additional graphical experiments related to the perception of logarithmic scales (to be discussed at a later date), and we compensated them for their participation in the series of all three studies.
-
-<!-- While we did not request a representative sample, previous literature suggests that prior mathematical knowledge or experience with exponential data is not associated with the outcome of graphical experiments involving lineups [@vanderplas2015spatial].  -->
-
-We showed each participant 13 lineup plots (12 test and one Rorschach). 
-At the start of the study, we randomly assigned participants to one of the two replicate data sets for each of the six unique lineup curvature combinations. 
-Participants evaluated the lineup plot corresponding to the linear and log scales for each assigned test data set.
-For the additional Rorschach lineup plot, we randomly assigned participants to one data set shown on either the linear or the log scale. 
-We randomized the order in which participants saw the assigned 13 lineup plots.
-
-\cref{fig:study-homepage} presents a screenshot of the study homepage, which served as an introduction to participants and guided them through the series of three graphical experiments. The first experiment, discussed in this paper, utilized statistical lineups to investigate the effect of logarithmic scales on perceptual sensitivity. The second experiment, incorporated an interactive 'You Draw It' feature introduced by @aisch2015you and employed in the study by @robinson2022eye, to examine the effect of logarithmic scales on prediction. The third experiment focused on numerical estimation and cognitive understanding of logarithmic scales.
-
-Participants completed the series of graphical tests using an R Shiny application [@shiny_pkg] accessible at <https://emily-robinson.shinyapps.io/perception-of-statistical-graphics-log/>.
-The code used to create the study application is available on GitHub at <https://github.com/earobinson95/perception-of-statistical-graphics-log>.
-Before completing the lineup study, the 'You Draw It' study, and the estimation study, participants were prompted to provide their demographic information. 
-The series of studies received an IRB exemption (IRB #20200720178EX) from the University of Nebraska - Lincoln.
-
-```{r study-homepage, fig.height = 6, fig.width = 9, fig.cap = "Screenshot of the study applet homepage guiding participants through the series of three graphical experiments related to the perception of logarithmic scales.", out.width="100%"}
-knitr::include_graphics("images/study-homepage.jpg")
-```
-
-The statistical linenup study guided participants through the series of 13 lineup plots and asked them to identify the plot which appeared to be most different from the others (\cref{fig:lineup-study-example-trial}). 
-In each lineup evaluation, participants justified their choice in a select all that apply format (Clustering, Different range, Different shape, Outlier(s), and Other) as shown on the left side of the applet screenshot. Additionally, participants provided their level of confidence in their choice by answering "How certain are you?" on a five-point likert scale from very certain to very uncertain.
-This graphical task aimed to test an individual's ability to perceptually differentiate exponentially increasing trends with differing levels of curvature on both the linear and log scales.
-
-```{r lineup-study-example-trial, fig.height = 6, fig.width = 9, fig.cap = "Screenshot of an example trial participants see when completing the lineup study. The applet guided participants through 13 lineup plots and asked them to identify the plot which appeared to be the most different from the others.", out.width="100%"}
-knitr::include_graphics("images/lineup-study-example-trial.jpg")
-```
-
-## Statistical Analysis
-
-Each lineup plot evaluated was assigned a binary value based on the participant response (correct target plot identification = 1, not correct target plot identification = 0).
-We defined $Y_{ijkl}$ as the event that participant $l = 1,...,N_\text{participant}$ correctly identified the target plot for data set $k = 1,2$ with curvature combination $j = 1,2,3,4,5,6$ plotted on scale $i = 1,2$.
-The binary response was analyzed using a generalized linear mixed model (GLMM) following a binomial distribution with a logit link function with a row-column blocking design accounting for the variation due to participant and data set, respectively, as 
-\begin{equation}
-\text{logit }P(Y_{ijkl}) = \eta + \delta_i + \gamma_j + (\delta \gamma)_{ij} + s_l + d_k
-\end{equation}
-\noindent where
-\begin{itemize}
-\item $\eta$ is the baseline average probability of selecting the target plot
-\item $\delta_i$ is the effect of scale $i = 1,2$
-\item $\gamma_j$ is the effect of curvature combination $j = 1,2,3,4,5,6$
-\item $(\delta\gamma)_{ij}$ is the two-way interaction between the $i^{th}$ scale and $j^{th}$ curvature combination
-\item $s_l \sim N(0,\sigma^2_\text{participant})$ is the random effect for participant characteristics
-\item $d_k \sim N(0,\sigma^2_{\text{data}})$ is the random effect for data specific characteristics. 
-\end{itemize}
-\noindent We assumed the random effects for data set and participant are independent.
-Target plot identification was analyzed using a GLMM implemented in `glmer` from the `lme4` R (version 4.2.2) package [@lme4]. 
-We used the `emmeans` R package [@emmeans] to calculate the estimated target detection probabilities and obtain odds ratio comparisons between the log and linear scale.
-
-# Results {#results}
-
-We recruited participants and conducted the study via Prolific, a crowd-sourcing website, in March 2022. 
-The study included a diverse group of participants, with an inner-quartile age range between 23 and 31 and a median age of 26 years old. Among the participants, 59\% self-identified as male, 40\% as female, and 1\% as variant/nonconforming. 
-Additionally, individuals from more than 21 countries participated in the study and 97\% of the participants indicated fluency in English. 
-Moreover, 81\% of the participants reported having completed some undergraduate courses or higher.
-During data collection, 325 individuals completed 4,492 individual test lineup evaluations. 
-We included only participants in the final analysis who completed the entire study, which included 311 participants and 3,958 lineup evaluations. Due to server capacity, some participants were required to restart the study, thus resulting in the possibility of more than twelve lineup evaluations per participant.
-As a whole, participants evaluated each uniquely generated lineup plot between 141 and 203 times (Mean: 164.92, SD: 14.9).
-Participants correctly identified the target panel in 47\% of the 1,981 lineup evaluations made on the linear scale and 65.3\% of the 1,977 lineup evaluations made on the log scale. 
-
-\cref{fig:obs-accuracy} shows the observed participant accuracy for each scale and curvature combination scenario. We can see from the observed results that participant accuracy for the linear scale ranged from 3.3\% to 91.6\% while participant accuracy when identified on the log scale ranges from 46.6\% to 89\%. On both the log and linear scales, the highest accuracy occurred in lineup plots where the target model and null model had a considerable difference in curvature, and the target plot had more curvature than the null plots (high curvature target plot embedded in low curvature null plots).
-There was a decrease in accuracy on the linear scale when comparing a target plot with less curvature to null plots with more curvature (medium curvature target plot embedded in high curvature null plots; low curvature target plot embedded in medium curvature null plots; low curvature target plot embedded in high curvature null plots). 
-@best_perception_2007 found that the accuracy of identifying the correct curve type was higher when presented with nonlinear trends, indicating that it is hard to say something is linear (i.e., something has less curvature), but easy to say that it is not linear; our results concur with this observation. Additionally, accuracy increased when data was displayed on the log scale compared to the linear scale in all curvature scenarios with an exception of a medium target curve embedded in low null curves. The thumbnail images below this particular scenario provides support for the results found in @best_perception_2007 and visually demonstrate the opposing perceptual behaviors of the curves for this scenario when displayed on the two different scales. In addition to participant accuracy, we observed that, in general, participants who correctly identified the target plot were more confident across all conditions. We discuss further details regarding selection reasoning and confidence level in the appendix.
-
-<!-- # ```{r} -->
-<!-- # lineup_model_data <- read_csv("data/lineup-model-data.csv") |>  -->
-<!-- #   mutate(conf_level = factor(conf_level, levels = c("Very Certain", "Certain", "Neutral", "Uncertain", "Very Uncertain"))) |>  -->
-<!-- #   mutate(conf_level_num = as.numeric(conf_level)) -->
-<!-- #  -->
-<!-- # accuracy_plot_linear <- lineup_model_data |>  -->
-<!-- #   filter(scale == "linear") |>  -->
-<!-- #   mutate(target = factor(target, levels = c("H", "M", "E")), -->
-<!-- #          null = factor(null, levels = c("H", "M", "E")), -->
-<!-- #          curvature = factor(curvature, levels = c("t-E_n-H", -->
-<!-- #                                                   "t-M_n-H", -->
-<!-- #                                                   "t-H_n-E", -->
-<!-- #                                                   "t-E_n-M", -->
-<!-- #                                                   "t-H_n-M", -->
-<!-- #                                                   "t-M_n-E" -->
-<!-- #                                                   ) -->
-<!-- #                             ) -->
-<!-- #          ) |>  -->
-<!-- #   ggplot(aes(x = curvature, -->
-<!-- #              fill = as.factor(binary_response))) + -->
-<!-- #   geom_bar(stat = "count", -->
-<!-- #            position = "fill") + -->
-<!-- #   # facet_wrap(~scale,  -->
-<!-- #   #            ncol = 1, -->
-<!-- #   #            labeller = labeller(scale = scale_level) -->
-<!-- #   #            ) + -->
-<!-- #   scale_fill_manual(values = c("darkgray", "#008b00"), label = c("Incorrect", "Correct")) + -->
-<!-- #   scale_y_continuous(label = scales::percent) + -->
-<!-- #   scale_x_discrete(labels = c("High Target Curve\nLow Null Curve", -->
-<!-- #                               "Medium Target Curve\nLow Null Curve", -->
-<!-- #                               "Low Target Curve\nHigh Null Curve", -->
-<!-- #                               "High Target Curve\nMedium Null Curve", -->
-<!-- #                               "Low Target Curve\nMedium Null Curve", -->
-<!-- #                               "Medium Target Curve\nHigh Target Curve")) + -->
-<!-- #   labs(y = "", -->
-<!-- #        x = "", -->
-<!-- #        fill = "Target Panel \nIdentification", -->
-<!-- #        subtitle = "Linear Scale", -->
-<!-- #        title = str_c("Proportion of Participants who ", "<span style = 'color:#008b00'>**correctly**</span>", " and ",  -->
-<!-- #        "<span style = 'color:#808080'>**incorrectly**</span>", " identified the target panel")) + -->
-<!-- #   theme_test() + -->
-<!-- #   theme(axis.ticks.x = element_blank(), -->
-<!-- #         plot.title = ggtext::element_markdown(size = 16), -->
-<!-- #         legend.position = "none") -->
-<!-- #  -->
-<!-- # picsList <- c("images/tE_nH_linear.png",  -->
-<!-- #               "images/tM_nH_linear.png",  -->
-<!-- #               "images/tH_nE_linear.png",  -->
-<!-- #               "images/tE_nM_linear.png",  -->
-<!-- #               "images/tH_nM_linear.png",  -->
-<!-- #               "images/tM_nE_linear.png" -->
-<!-- # ) -->
-<!-- #  -->
-<!-- # pimage <- axis_canvas(accuracy_plot_linear, axis = 'x') +  -->
-<!-- #   draw_image(picsList[1], x = 0.5, scale = 0.98) + -->
-<!-- #   draw_image(picsList[2], x = 1.5, scale = 0.98) + -->
-<!-- #   draw_image(picsList[3], x = 2.5, scale = 0.98) + -->
-<!-- #   draw_image(picsList[4], x = 3.5, scale = 0.98) + -->
-<!-- #   draw_image(picsList[5], x = 4.5, scale = 0.98) + -->
-<!-- #   draw_image(picsList[6], x = 5.5, scale = 0.98) -->
-<!-- #  -->
-<!-- # # insert the image strip into the plot -->
-<!-- # linear_accuracy <- ggdraw(insert_xaxis_grob(accuracy_plot_linear, pimage, position = "bottom", clip = "on")) -->
-<!-- # ``` -->
-<!-- #  -->
-<!-- # ```{r} -->
-<!-- # accuracy_plot_log <- lineup_model_data |>  -->
-<!-- #   filter(scale == "log") |>  -->
-<!-- #   mutate(target = factor(target, levels = c("H", "M", "E")), -->
-<!-- #          null = factor(null, levels = c("H", "M", "E")), -->
-<!-- #          curvature = factor(curvature, levels = c("t-E_n-H", -->
-<!-- #                                                   "t-M_n-H", -->
-<!-- #                                                   "t-H_n-E", -->
-<!-- #                                                   "t-E_n-M", -->
-<!-- #                                                   "t-H_n-M", -->
-<!-- #                                                   "t-M_n-E" -->
-<!-- #                                                   ) -->
-<!-- #                             ) -->
-<!-- #          ) |>  -->
-<!-- #   ggplot(aes(x = curvature, -->
-<!-- #              fill = as.factor(binary_response))) + -->
-<!-- #   geom_bar(stat = "count", -->
-<!-- #            position = "fill") + -->
-<!-- #   # facet_wrap(~scale,  -->
-<!-- #   #            ncol = 1, -->
-<!-- #   #            labeller = labeller(scale = scale_level) -->
-<!-- #   #            ) + -->
-<!-- #   scale_fill_manual(values = c("darkgray", "#008b00"), label = c("Incorrect", "Correct")) + -->
-<!-- #   scale_y_continuous(label = scales::percent) + -->
-<!-- #   scale_x_discrete(labels = c("High Target Curve\nLow Null Curve", -->
-<!-- #                               "Medium Target Curve\nLow Null Curve", -->
-<!-- #                               "Low Target Curve\nHigh Null Curve", -->
-<!-- #                               "High Target Curve\nMedium Null Curve", -->
-<!-- #                               "Low Target Curve\nMedium Null Curve", -->
-<!-- #                               "Medium Target Curve\nHigh Target Curve")) + -->
-<!-- #   labs(y = "", -->
-<!-- #        x = "", -->
-<!-- #        fill = "Target Panel \nIdentification", -->
-<!-- #        subtitle = "Log Scale") + -->
-<!-- #   theme_test() + -->
-<!-- #   theme(axis.ticks.x = element_blank(), -->
-<!-- #         legend.position = "none") -->
-<!-- #  -->
-<!-- # picsListLog <- c("images/tE_nH_log.png",  -->
-<!-- #               "images/tM_nH_log.png",  -->
-<!-- #               "images/tH_nE_log.png",  -->
-<!-- #               "images/tE_nM_log.png",  -->
-<!-- #               "images/tH_nM_log.png",  -->
-<!-- #               "images/tM_nE_log.png" -->
-<!-- # ) -->
-<!-- #  -->
-<!-- # pimage <- axis_canvas(accuracy_plot_log, axis = 'x') +  -->
-<!-- #   draw_image(picsListLog[1], x = 0.5, scale = 0.98) + -->
-<!-- #   draw_image(picsListLog[2], x = 1.5, scale = 0.98) + -->
-<!-- #   draw_image(picsListLog[3], x = 2.5, scale = 0.98) + -->
-<!-- #   draw_image(picsListLog[4], x = 3.5, scale = 0.98) + -->
-<!-- #   draw_image(picsListLog[5], x = 4.5, scale = 0.98) + -->
-<!-- #   draw_image(picsListLog[6], x = 5.5, scale = 0.98) -->
-<!-- #  -->
-<!-- # # insert the image strip into the plot -->
-<!-- # log_accuracy <- ggdraw(insert_xaxis_grob(accuracy_plot_log, pimage, position = "bottom", clip = "on")) -->
-<!-- # ``` -->
-<!-- #  -->
-<!-- # ```{r obs-accuracy, echo = F, eval = T, fig.width = 9, fig.height = 6, fig.align='center', fig.cap = "The observed accuracy for identifying the target panel for each curvature combination scenario with the accuracy for the linear scale shown on the top and the accuracy for the log scale shown on the bottom. The thumbnail figures below each plot display the curvature combination as shown in \\cref{fig:curvature-combination-example} on both scales.", message = F, warning = F} -->
-<!-- # linear_accuracy / log_accuracy -->
-<!-- # ``` -->
-
-```{r obs-accuracy, echo = F, eval = T, fig.width = 9, fig.height = 6, fig.align='center', fig.cap = "The observed accuracy for identifying the target panel for each curvature combination scenario with the accuracy for the linear scale shown on the top and the accuracy for the log scale shown on the bottom. The thumbnail figures below each plot display the curvature combination as shown in \\cref{fig:curvature-combination-example} on both scales.", message = F, warning = F}
-
-knitr::include_graphics("images/observed-proportions.jpg")
-```
-
-The results from the GLMM indicated a strong interaction between the curvature combination and scale ($\chi^2_5 = 294.443$; $\text{p} <0.0001$), and the estimated variance due to participant and data set were $\hat\sigma^2_{\text{participant}} = 1.19$ (s.e. = 1.09) and $\hat\sigma^2_{\text{data}} = 0.433$ (s.e. = 0.66), respectively.
-Therefore, we concluded that there was low variability in the accuracy of target panel detection between participants and across replications of uniquely simulated data sets.
-To determine the effect of scale, we compared the estimated accuracy between the log and linear scale within each curvature combination due to the interaction as determined by the GLMM.
-
-```{r anova, include = F}
-read.csv("data/lineups-anova.csv") |>
-  knitr::kable("latex", escape = F, booktabs = T, linesep = "", align = "c", 
-        label = "lineup-anova-table",
-        caption = "Lineup ANOVA table for fixed effects.")
-```
-
-\cref{fig:odds-ratio-plot} displays the estimated (log) odds ratio of successfully identifying the target panel on the log scale compared to the linear scale. The thumbnail figures to the right of the plot illustrate the curvature combination on the linear (left thumbnail) and log base ten (right thumbnail) scales associated with the $y$-axis label.
-The choice of scale had no impact if the curvature differences were substantial and the target plot had more curvature than the null plots (high curvature target plot embedded in low curvature null plots).
-However, presenting data on the log scale makes us more sensitive to slight changes in curvature (low or high curvature target plot embedded in medium curvature null plots; medium curvature target plot embedded in high curvature null plots) and apparent differences in curvature when the target plot had less curvature than the null plots (low curvature target plot embedded in high curvature null plots).
-An exception occurred when identifying a plot with curvature embedded in null plots close to a linear trend (medium curvature target panel embedded in low curvature null panels).
-The results indicate that participants were more accurate at detecting the target panel on the linear scale than on the log scale.
-When examining this curvature combination, the same perceptual effect occurred as we previously saw, but in a different context of scales.
-On the linear scale, participants were perceptually identifying a convexly curved trend from close to a linear trend, whereas after the logarithmic transformation, participants were perceptually identifying a trend close to linear from a concavely curved trend \pcref{fig:curvature-combination-example}.
-This result again supports the claim that it is easy to identify a curve in a group of lines but harder to identify a line in a group of curves [@best_perception_2007].
-
-```{r odds-ratio-plot, echo = F, eval = T, fig.width = 9, fig.height = 6, fig.align='center', fig.cap = "Estimated (log) odds ratio of successfully identifying the target panel on the log scale compared to the linear scale. The y-axis indicates the model parameters used to simulate the null plots with the target plot model parameter selection designated by shape and shade. The thumbnail figures on the right display the curvature combination as shown in \\cref{fig:curvature-combination-example} on both scales (linear - left, log - right).", message = F, warning = F}
-lineups_or <- read.csv("data/lineups-odds-ratios.csv")
-
-library(grid)
-dodge <- position_dodge(width=0.9)
-lineups_or_plot <- lineups_or |>
-  separate(curvature, into = c(NA, "target", NA, "null")) |>
-  mutate(null = factor(null, levels = c("E", "M", "H"), labels = c("High", "Medium", "Low")),
-         target = factor(target, levels = c("E", "M", "H"), labels = c("High", "Medium", "Low"))) |>
-  ggplot(aes(x = odds.ratio, y = null, color = target, shape = target)) + 
-  geom_point(position = dodge, size = 3) + 
-  geom_errorbar(aes(xmin = asymp.LCL, xmax = asymp.UCL), position = dodge, width = .1) +
-  geom_vline(xintercept = 1) +
-  theme_bw()  +
-  theme(axis.title.x = element_text(size = 16),
-        axis.text = element_text(size = 14),
-        legend.title = element_text(size = 16),
-        legend.text  = element_text(size = 16),
-        legend.key.size = unit(2, "line"),
-        legend.position = "bottom",
-        plot.subtitle = element_text(size = 16)
-  ) +
-  labs(subtitle = "Null Panel Curvature",
-       y = "") +
-  scale_y_discrete(position = "left") +
-  scale_x_continuous("Odds ratio (on log scale) \n (Log vs Linear)", trans = "log10", labels = scales::comma) + 
-  scale_color_manual("Target Panel Curvature", values = c("#004400", "#116611", "#55aa55")) + 
-  scale_shape_discrete("Target Panel Curvature")
-
-picsList <- c("images/tM_nH_thumbnail-title.png", 
-              "images/tE_nH_thumbnail.png", 
-              "images/tH_nM_thumbnail.png", 
-              "images/tE_nM_thumbnail.png", 
-              "images/tH_nE_thumbnail.png", 
-              "images/tM_nE_thumbnail.png"
-)
-
-pimage <- axis_canvas(lineups_or_plot, axis = 'y') + 
-  draw_image(picsList[1], y = 2.75, scale = 0.75) +
-  draw_image(picsList[2], y = 2.25, scale = 0.75) +
-  draw_image(picsList[3], y = 1.75, scale = 0.75) +
-  draw_image(picsList[4], y = 1.25, scale = 0.75) +
-  draw_image(picsList[5], y = 0.75, scale = 0.75) +
-  draw_image(picsList[6], y = 0.25, scale = 0.75)
-
-# insert the image strip into the plot
-ggdraw(insert_yaxis_grob(lineups_or_plot, pimage, position = "right", clip = "on"))
-```
-
-# Discussion and Conclusion {#discussion-conclusion}
-
-This work aims to provide foundational research to support the principles that guide design decisions in scientific visualizations of exponential data. 
-In this study, we explored the use of linear and log scales to determine whether the choice of scale impacts our ability to notice differences in exponentially increasing trends. 
-The results indicated that when there was a considerable difference in curvature between the target plot and null plots and the target plot had more curvature than the null plots, the choice of scale had no impact, and participants accurately differentiated between the two curves on both the linear and log scale. 
-However, displaying exponentially increasing data on a log scale improved the accuracy of differentiating between models with slight curvature differences or apparent curvature differences when the target plot had less curvature than the null plots. An exception occurred when identifying a plot with curvature embedded in surrounding plots perceived close to a linear trend, indicating that it is easy to identify a curve in a group of lines but much harder to identify a line in a group of curves.
-Using visual inference to identify these guidelines suggests that there are perceptual advantages to log scales when differences are subtle. It is worth noting that our study focused specifically on data simulated with a three-parameter exponential model and such conclusions may not be broadly applicable to functions resulting in curvature.
-This scenario, while fairly specific, lays the perceptual groundwork for more investigation into the use of log scales with exponential data. Now that we know how curvature can be distinguished, it's easier to conduct follow up studies that cover more scenarios and use different graphical testing methods.
-
-We conducted this study as the first in a series of three graphical tests to understand the perceptual and cognitive implications of using log scales to display exponentially increasing data.
-In our next two papers in this series, we will investigate whether using log scales presents cognitive disadvantages, such as making it harder to utilize graphical information.
-These studies serve as an example of multi-modal graphical testing, examining different levels of engagement and interaction with graphics in order to produce nuanced, specific guidelines for graphical design.
-By testing graphics in situations similar to how they are used in practice, we can gain additional insight into graphical perception and improve visual communication of scientific results.
-
-# Supplementary Material {-} 
-
-+ **Participant Data:** De-identified participant data collected in the study and used
-for analyses (lineup-model-data.csv).
-+ **Data Analysis Code:** The code used to replicate the analysis in this paper (lineups-analysis.qmd).
-+ **Study Applet Code:** The code used to create the study applet via RShiny can be found on GitHub at <https://github.com/earobinson95/perception-of-statistical-graphics-log>
-+ **README:** File containing detailed descriptions of the supplementary material.
-(README.html).
-
-```{r, include = F, eval = F}
-# rmarkdown::render("appendix.Rmd")
-```
-
-# References
 
