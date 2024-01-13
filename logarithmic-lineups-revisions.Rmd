@@ -33,7 +33,8 @@ header-includes:
 - \usepackage{algorithm,algpseudocode,booktabs}
 - \usepackage{hyperref}
 - \usepackage[capitalise]{cleveref}
-- \usepackage{xr} \externaldocument{appendix}
+# - \usepackage{xr} \externaldocument{appendix}
+# - \usepackage[authoryear]{natbib}
 
 output: 
   rticles::asa_article:
