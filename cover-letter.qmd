@@ -1,0 +1,21 @@
+---
+title: "Cover Letter for JCGS-23-236.R2"
+subtitle: "Perception and Cognitive Implications of Logarithmic Scales for Exponentially Increasing Data: Perceptual Sensitivity Tested with Statistical Lineups"
+# author: "Emily A. Robinson, Reka Howard, and Susan VanderPlas"
+# date: "2023"
+format: pdf
+---
+
+Dear JCGS Editors,
+
+Please find enclosed our manuscript titled “Perception and Cognitive Implications of Logarithmic Scales for Exponentially Increasing Data: Perceptual Sensitivity Tested with Statistical Lineups.” In this work, we explore a fundamental yet often overlooked challenge in data visualization by answering the question, "how the choice of scale influences perceptual sensitivity when displaying exponentially increasing data."
+
+Our study presents a novel experimental framework using statistical lineups to evaluate how linear and logarithmic scales alter the appearance of curvature in exponential data. We simulate data through a carefully designed exponential model and embed subtle differences in curvature within a controlled statistical lineup setup. By using a generalized linear mixed model, we quantify participant accuracy and reveal that while both scales offer distinct advantages, the log transformation systematically improves sensitivity when curvature differences are slight.
+
+This manuscript is the first in a series of three papers aimed at understanding the perceptual and cognitive implications of logarithmic transformations. We believe that our findings, rooted in formal graphical testing methods, directly address key issues in statistical graphics. Our work not only provides empirical guidelines for best practices in visualizing exponentially increasing data but also deepens our understanding of how graphical design choices impact interpretation, a topic squarely aligned with the journal’s mission.
+
+We confirm that this manuscript is original, has not been published elsewhere, and is not under consideration by any other journal.
+
+Thank you for your attention to this submission. I look forward to your feedback and sincerely hope our contribution will spark further discussions on the design and interpretation of statistical graphics.
+
+Emily Robinson

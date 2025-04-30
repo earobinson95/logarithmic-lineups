@@ -1,0 +1,119 @@
+---
+title: "Response to reviewers of JCGS-23-236.R1"
+subtitle: "Perception and Cognitive Implications of Logarithmic Scales for Exponentially Increasing Data: Perceptual Sensitivity Tested with Statistical Lineups"
+# author: "Emily A. Robinson, Reka Howard, and Susan VanderPlas"
+# date: "2023"
+format: 
+  pdf:
+    include-in-header:
+      - revision-edits.tex
+---
+
+<!-- > To send to Susan during meetings: <https://earobinson95.github.io/logarithmic-lineups/revision-responses-1.pdf> -->
+
+<!-- > Analysis supplementary file: <https://earobinson95.github.io/logarithmic-lineups/supplementary-materials/lineup-analysis.html> -->
+
+<!-- > Revised manuscript: <https://earobinson95.github.io/logarithmic-lineups/logarithmic-lineups-revisions.pdf> -->
+
+<!-- > For Emily to submit: <https://mc.manuscriptcentral.com/jcgs?URL_MASK=f1cfe0d4da184e54b91df29f43be0038> -->
+
+<!-- > Your paper will be printed in black and white.  The online version will be in color but to accommodate printing without color please be sure you \todo{don't refer to color in either the figure captions or text} and that all figures are still interpretable in black and white. -->
+
+All responses to reviewers' comments are written in \response{blue}. A `diffs-2.pdf` file has also been included to show changes.
+
+<!-- \todo{Need to address yet.} \dubcheck{Double check / review.} -->
+
+## Reviewer 1
+
+I reviewed this manuscript previously. As I said last time, I think there is some worthwhile information in this study. I was pleased that many of my and the other reviewer’s comments have been incorporated. For example, moving the lineup example to the methods makes a lot more sense, and the way it is described is much clearer. However, a number of issues remain before I can recommend publication. For example,
+
+- “In this paper, our primary focus is to evaluate the benefits and drawbacks of using log scales, specifically delving into their impact on perceptual sensitivity towards the degree of curvature.” As I said previously, there’s nothing explicit about log scales in what the participants saw. What this does show is that people see curvature pretty well, and that for the specific functions you chose, log scales augment some curvature differences more than linear scales. In other words, this shows that you picked functions that are straighter in log space. Some text has been added to soften the conclusion, which is a step in the right direction, but my sense was that it was still framed as “are log scales better?” I suggest editing further to clarify that differences in curvature are what are being tested rather than something inherent to linear vs. log scales.
+
+\response{We appreciate and agree with the reviewer's further comments about the study inherently testing user perception of curvature rather than log scales. We would like to highlight that this paper is the foundation for two follow-up studies with a stronger focus on the use of log scale transformations. Therefore, we do not want to lose sight of this underlying research objective. We have further softened the language around the objective and conclusions for the purpose of this paper while still focusing the future work on the use of log scales. For example, Introduction -- "In this paper, our primary focus is to evaluate the perceptual sensitivity towards the degree of curvature as a result of displaying data on linear and log scales. ... Although our findings could have broad applications to various functions resulting in curvature, our experiment deliberately centered on participants' ability to identify differences in the curvature of exponentially increasing curves when presented on differing scales, thus altering their curvature appearance." Discussion and Conclusion -- "Using visual inference to identify these guidelines suggests that it is important to consider the appearance of curves as altered by the choice of scale when identifying differences between data. In the specific case of this study and selected data simulation equations, we found a slight advantage of using the log transformation when curvature differences were small due to the way the log scale changed the appearance of the curves. It is worth noting that our study focused specifically on data simulated with a two-parameter exponential function with a shift and such conclusions may not be broadly applicable to other functions or different parameterizations of exponential data resulting in curvature."}
+
+- I was pleased to see the inclusion of the Rorschach results, but would like to see them actually incorporated into the analysis. They form a great null hypothesis, so they should be used! This is particularly true given the results of the Rorschach lineups. At the bottom of page 11, the authors write that “Results from the “Rorschach” evaluations indicate null panel selections were distributed relatively evenly with multiple candidates for the most interesting panel.” In Appendix B, the authors state that [the Rorschach panel] “approach allows us to explore whether any null panels were significantly more unique, providing insights into the null plot sampling method.” The Rorschach lineup appendix shows that “the plots exhibit a relatively even distribution, offering multiple candidates for the most interesting panel. It is worth noting that in the low curvature “Rorschach” lineups simulated in data set replication one, a single panel stands out, with over 50\% of participants selecting the same null panel on the linear scale and just under 50\% on the log scale. Through a visual examination of “Rorschach” evaluations, we determined that our null sampling method is appropriate.” I’m not sure what to make of this. I was expecting to see a comparison against a null expectation, but instead the authors did “a visual inspection.” What does that mean? A single panel being selected ~50-60\% of the time doesn’t seem like my expectation from a null model, so why does that mean the null sampling method was appropriate? In the actual test, the target panel was selected less than 50\% of the time. Does that make them worse than the null? The Rorschach information could and should be used along with the results to provide more context for the results.
+
+\response{Thank you for your further interest in the results of the Rorschach lineups. We agree this is relevant for the results in supporting our selection of the null hypothesis data simulation. We have addressed this comment by (1) calculating the numeric alpha parameter based on VanderPlas et al. 2021, "Statistical Significance Calculations for Scenarios in Visual Inference" and (2) moving this from the appendix to the main paper. We further expanded on the results for low curvature set 1 and supported the validity of this null simulation model based on the calculating alpha value.}
+
+- I was pleased to see some results in the Participant Confidence and Accuracy appendix. However, I was hoping to see results from tests comparing the confidence levels: across accuracy (which is shown visually but not statistically) and across linear vs. log scale depictions.
+
+\response{We thank the reviewer for continuing to express interest in the results of Participant Confidence. While this is not the main focus of the paper, we decided to keep the bulk of the results for this in the Appendix. However, we conducted and added a formal statistical analysis and addressed limitations of the the model we selected to use. We have also added details from the formal statistical analysis into the paper results section.}
+
+\response{Added text -- In addition to participant accuracy, we conducted a linear mixed model on participant confidence (5 - Very Certain to 1 - Very Uncertain). We found that, in general, participants who correctly identified the target plot were 0.556 (se 0.039) Likert scale points more confident, on average, across all conditions (F = 214.57; df = 1, 3709; p < 0.0001). Similarly, on average, lineups evaluated on the log scale indicated participants were only 0.075 (se 0.0366) Likert scale points more confident than lineups evaluated on the linear scale (F = 3.70; df = 1, 3709; p = 0.054). We discuss further details regarding selection reasoning and confidence level in the appendix.}
+
+- One of my earlier comments was “It would be good to see in the paper exactly how these questions were phrased and what the response options were, as these details matter for surveys.” The authors’ response was “The manuscript contains a screenshot of an example lineup shown to participants in Figure 7. We added emphasis to the left side of the screenshot which shows what participants were asked for providing their reasoning and confidence level for their selection.” Is “Which plot is the most different?” the only question asked? If so, the text needs to make that clear. If not, I suggest simply including the survey questions as supplementary material.
+
+\response{Thank you for bringing this up again for clarification. Yes, participants were only asked one question - "Which plot is most different?" We have further clarified this in section 2.4.}
+
+\response{Clarification text: The statistical lineup study guided participants through the series of 13 lineup plots and asked them a single question per lineup, "Which plot is the most different?" (Figure 7). 
+In each lineup evaluation, participants then justified their choice in a select all that apply format (Clustering, Different range, Different shape, Outlier(s), and Other) under the "Reasoning" sidebar panel. Additionally, participants provided their level of confidence in their choice by answering "How certain are you?" on a five-point Likert scale from very certain to very uncertain.}
+
+- On a related note, it's not sufficient to rely on a link to describe methods – they need to be in the paper.
+
+\response{We assume the reviewer is referring to the GitHub link sending readers to see the Shiny Application code for implementing the study at <https://github.com/earobinson95/perception-of-statistical-graphics-log>. We appreciate the reviewer's comment and have clarified that the methods described in sections 2.1 - 2.4 of the paper (data generation, lineup setup, study randomization, etc.) are what are coded in here. We included this link in case readers would like to replicate or modify our study.}
+
+- I asked about the “three stages of perception” indicated by the first figure. The revised manuscript includes the phrase: “Early stages of exponential growth often appear to have a small growth rate, while the middle stage seems to exhibit more quadratic growth. It is only in the later stages that the exponential growth becomes apparent.” What’s the distinction between “exhibiting quadratic growth” and “exhibiting exponential growth”? What’s the evidence for three distinct stages? I didn’t catch before the “Von Bergmann” was a reference to the comic. (Thanks to the other reviewer for catching that.) That’s not scientific evidence that there are three stages – it’s one person’s opinion crafted for humorous intent. This entire paragraph needs citations to actual peer-reviewed literature. Or, if there is no support, it should be cut.
+
+\response{We thank you for your comment regarding the rigor of citing a comic. This work was inspired timely with the onset of the Covid-19 pandemic and thus it was important for us to relate to what the public perception was. Based on both reviewer comments, we have made the decision to remove this paragraph and comic, while enhancing the following paragraph to include scientific publications conducting similar work inspired by the Covid-19 pandemic on the public's perception of exponential growth. We now included Ciccione et al. (2021) in citing underestimation and added, "Recently, Lammers et al. (2020) found that people misperceived exponential growth as increasing linearly, and that providing instructions to individuals about the exponential growth reduced this misperception. These misinterpretations and misperceptions can lead to decisions made under inaccurate understanding, resulting in potential consequences."}
+
+- I still don’t understand what “determine the y = -x line scaled to fit the assigned domain and range” means. The y = -x line is a line; it can’t be scaled.
+
+\response{Thank you for seeking further clarification on the data generation process. In Algorithm 1, we have clarified the equation of the line fit to the prespecified domain and range to be $y = -5\cdot x + 100$. Visually, this appears as a -45 degree angled slope line (similar to a y=-x line) when the graph has an aspect ratio of 1.}
+
+- Similarly, I don’t understand “Map the values xmid – 0.1 and xmid + 0.1 to the y = -x line for the two additional points.”
+
+\response{Following up on our revision from above, in Algorithm 1, we also clarified that we plugged these x-values into the new equation. Additionally, we provided more of an overview before presenting the data generation algorithms to give the reader a big picture approach -- "We selected parameters and generated data using a heuristic approach rather than algebraic to ensure the parameter selections resulted in visually distinct curves. In summary, we identified three points (start, midpoint, and end) we wanted the curve to pass through. These control the level of curvature seen in the data. Then we optimized a nonlinear least squares regression line using the function from Equation (1) to obtain parameters used for simulating the final data sets with multiplicative errors. We provide details for the heuristic data generation procedure in Algorithm 1 and Algorithm 2.".}
+
+*New issues:*
+
+- “exponential model,” as used in section 2.1, typically means a model without an intercept: y = a*exp(b*x) or something similar, without a “c” term like a*exp(b*x) + c. The theta term in your model is the intercept, so this isn’t the classic exponential model; it’s a model with an exponential term.
+
+\response{Thank you for bringing the wording of our simulated data equation to light. We adjusted the wording from "exponential model" to "two-parameter exponential function with a vertical shift" and provided clarity about how the $\alpha$, $\beta$, and $\theta$ parameters affect the shape of the curve.}
+
+- On a related note, the addition of the theta parameter is explained as a way to standardize the endpoints of the graph, but it also renders the main feature of log transformation (converting exponential functions to linear functions) moot.
+
+\response{This is a good point for discussion. We have clarified the effect of theta on the log transformation and addressed the limitation of this in section 2.1.}
+
+- Make sure to cite all R packages (nls, e.g.).
+
+\response{nls is a function from the stats base R package. Thus we referenced this in Algorithm 1 with the base RStudio reference. We have ensured proper rendering of these citations and double checked other package citations when proof reading.}
+
+- What’s the citation and/or equation for the Lack of Fit statistic?
+
+\response{We added two citations to address and support the lack of fit statistic computation for our parameter selection. Specifically, Stroup (2013) Ch. 4 and Kutner (2004) pgs 194 - 210. Additionally, we added details about the calculation in R.}
+
+- Fig. 5 caption: (13 should be 13
+
+\response{Thank you for the grammar correction. We have removed the parenthesis.}
+
+- Bottom of page 12 line 44: “Corresponding to …”
+
+\response{Thank you for the grammar correction. We have added "to".}
+
+- Page 14 line 20: Cut the comma
+
+\response{Thank you for the grammar correction. We have removed the comma.}
+
+- Fig. 7 shows one panel (15) as grayer than the others. Presumably this was not the case when participants were choosing?
+
+\response{This is correct, the panel that was selected by participants turned gray after being clicked. We have clarified this in the caption of Figure 7 with "After participants selected a panel, their choice was highlighted by gray (e.g., Panel 15)."}
+
+- I don’t know this journal’s editorial preference for including discussion in the results section. If it’s acceptable, fine, but otherwise move the discussion-y parts of the results to the discussion.
+
+\response{We agree with the reviewers suggestion to separate the discussion-y parts from the results. To address this, we have moved the discussion-y parts which relate our results to prior literature (Best et al., 2007) to the Discussion and Conclusion section.}
+
+- Page 22 line 45: I don’t see any thumbnail figures on the right.
+
+\response{Thank you for catching this. We believe the thumbnail figures were not rendered properly on the last submission. We have fixed and double checked this rendering for the most recent manuscript revisions submission.}
+
+- I don’t know this journal’s preference, but I’m used to seeing a Discussion section include some references to put the results in the context of the existing literature.
+
+\response{In addition to moving some of the "discussiony" parts out of our results, we have added some references that help frame our work in context of the exiting literature. Such references include Dresp-Langley (2015), Lammers et al. (2020), and Ciccione et al. (2022).}
+
+- Appendix A1: Make sure to point out that this function (exponential function, which does not have an intercept) is much different than the function shown in the experiment.
+
+\response{We added a note that the equation here is distinct from the function used in the study - "Let us consider a simple equation, distinct from the one employed to simulate data in our study." The appendix provides support for why we chose a different equation from the simple exponential growth function due to visual properties.}
+
+## Associate Editor
+
+(There are no comments)

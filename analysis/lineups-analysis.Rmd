@@ -1,7 +1,5 @@
 ---
 title: "Perception (Lineups)"
-author: "Emily Robinson"
-date: "Spring 2023"
 output: 
   html_document:
     toc: true
@@ -150,7 +148,7 @@ lineup_model_data %>%
   knitr::kable(caption = "Log Scale")
 ```
 
-# Analysis
+# Participant Accuracy
 
 ```{r}
 ploteval_summary <- lineup_model_data %>% group_by(curvature, set, scale) %>% summarize(count = n()) %>% arrange(count)
@@ -258,5 +256,8 @@ pimage <- axis_canvas(lineups_or_plot, axis = 'y') +
 ggdraw(insert_yaxis_grob(lineups_or_plot, pimage, position = "right", clip = "on"))
 ```
 
+# Rorschach Analysis
+
+# Participant Confidence
 
 

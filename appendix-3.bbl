@@ -1,0 +1,18 @@
+\begin{thebibliography}{1}
+
+\bibitem{lme4}
+Douglas Bates, Martin M{\"a}chler, Ben Bolker, and Steve Walker.
+\newblock Fitting linear mixed-effects models using {lme4}.
+\newblock {\em Journal of Statistical Software}, 67(1):1--48, 2015.
+
+\bibitem{vanderplas_clusters_2017}
+Susan VanderPlas and Heike Hofmann.
+\newblock Clusters beat trend!? testing feature hierarchy in statistical graphics.
+\newblock {\em Journal of Computational and Graphical Statistics}, 26(2):231--242, 2017.
+
+\bibitem{wolfeWhatPreattentiveFeature2019}
+Jeremy~M Wolfe and Igor~S Utochkin.
+\newblock What is a preattentive feature?
+\newblock {\em Current opinion in psychology}, 29:19--26, 2019.
+
+\end{thebibliography}

@@ -3,7 +3,7 @@ Emily A. Robinson, Reka Howard, and Susan VanderPlas
 
 ## Supplementary Material
 
-+ **Participant Data:** De-identified participant data collected in the study and used for analyses are available in `lineup-model-data.csv`.
++ **Participant Data:** De-identified participant data collected in the study and used for analyses are available in `lineup-model-data.csv` and `lineup-rorschach-data.csv`.
 
 + **Data Analysis Code:** The code used to replicate the analysis in this paper can be in `lineups-analysis.qmd`.
 
@@ -18,7 +18,7 @@ Emily A. Robinson, Reka Howard, and Susan VanderPlas
 + **academic_study:** indicates the level of education the participant has completed.
 + **computer_mouse:** indicates whether or not the participant used a computer mouse to complete the study.
 + **recruitment:** indicates how the participant was recruited for the study.
-+ **dataset_id**:** unique identifier for a specific simulated data set plotted in the statistical lineups.
++ **dataset_id:** unique identifier for a specific simulated data set plotted in the statistical lineups.
 + **set:** indicates the simulated replication of each curvature combination.
 + **curvature** indicates the unique curvature combination ID `t-H_n-E, t-E_n-H, t-M_n-H, t-H_n-M, t-E_n-M, t-M_n-E`.
 + **target:** indicates the curvature of the embedded target panel `E, M, H`.

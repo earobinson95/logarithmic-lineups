@@ -19,3 +19,28 @@ latexdiff(
 
 
 
+# Round 2
+
+latexdiff(
+  "logarithmic-lineups-revisions.tex",
+  "logarithmic-lineups-revisions-2+appendix.tex",
+  output = "diff-2",
+  open = TRUE,
+  clean = TRUE,
+  quiet = TRUE,
+  output_format = NULL,
+  ld_opts = "--replace-context2cmd=\"none\""
+)
+
+# Round 3
+
+latexdiff(
+  "logarithmic-lineups-revisions-2+appendix.tex",
+  "logarithmic-lineups-revisions-3+appendix.tex",
+  output = "diff-3",
+  open = TRUE,
+  clean = TRUE,
+  quiet = TRUE,
+  output_format = NULL,
+  ld_opts = "--replace-context2cmd=\"none\""
+)
